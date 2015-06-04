@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lucifer.model">
+
+  <insert id="insertAd">
+  	insert into ad (id,image,link,title,description,type,position) values (#{id},#{image},#{link},#{title},#{description},#{type},#{position})
+  </insert>
+  
+  <update id="updateAd">
+ 	update ad set image=#{image},link=#{link},title=#{title},description=#{description},type=#{type},position=#{position} where id =#{id}
+  </update>
+  
+  <select id="getAd" resultType="com.lucifer.model.Ad">
+  	select * from ad where id = #{id}
+  </select>
+  
+  <select id="adList" resultType="com.lucifer.model.Ad">
+  	<![CDATA[
+  	select * from ad where type=#{type}
+  	]]>   
+  </select>
+    
+  <delete id="deleteAd">
+  delete from ad where id = #{id}
+  </delete>
+   
+</mapper>

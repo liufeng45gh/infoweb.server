@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lucifer.model">
+
+ 	<insert id="insertHangmanWord">
+ 		insert into hangman_word (user_id,hangman_word.key,words) values (#{user_id},#{key},#{words})
+ 	</insert>
+	
+	<select id="getHangmanWordByKey" resultType="com.lucifer.model.HangmanWord">
+		select * from hangman_word where hanman_word.key = #{key}
+	</select>
+	<select id="searchHangmanWord" resultType="com.lucifer.model.HangmanWord">
+		select * from hangman_word where hangman_word.key like '${key}%' order by hangman_word.key 
+		<if test="offset != null and perPageCount != null">
+   		limit #{offset},#{perPageCount}
+   		</if>  
+	</select>
+	<select id="searchHangmanWordCount" resultType="java.lang.Integer">
+		select count(*) from hangman_word where hangman_word.key like '${key}%'
+	</select>
+	
+	
+	<!-- hangman log  next -->
+	<insert id="insertHangmanLog">
+		insert into hangman_log (id,user_id,hangman_log.key,created_at,data)  values (#{id},#{user_id},#{key},#{created_at},#{data})
+	</insert>
+	<select id="searchHangmanLog" resultType="com.lucifer.model.HangmanLog">
+		select * from hangman_log where user_id in (${userIdSql}) 
+		<if test="key != null and key != '' ">
+   		and hangman_log.key = #{key}
+   		</if>  
+   		order by id desc
+		<if test="offset != null and perPageCount != null">
+   		limit #{offset},#{perPageCount}
+   		</if>  
+	</select>
+	<select id="hangmanLogCount" resultType="java.lang.Integer">
+		select count(*) from hangman_log where user_id in (${userIdSql}) 
+		<if test="key != null and key != '' ">
+   		and hangman_log.key = #{key}
+   		</if>  
+	</select>
+</mapper>
