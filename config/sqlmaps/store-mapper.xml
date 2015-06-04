@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lucifer.model">
+
+  <insert id="insertStore">
+  	insert into store (id,name,app_id,visible) values (#{id},#{name},#{app_id},0)
+  </insert>
+  
+  <update id="updateStore">
+ 	update store set name=#{name},app_id=#{app_id} where id =#{id}
+  </update>
+  
+  <select id="getStore" resultType="com.lucifer.model.Store">
+  	<![CDATA[
+  		select * from store where visible<2
+  	]]>
+  	<if test="id != null and id != '' ">
+		and id = #{id}
+	</if> 
+	<if test="app_id != null and app_id != '' ">
+		and app_id = #{app_id}
+	</if> 	
+  </select>
+  
+  <select id="storeList" resultType="com.lucifer.model.Store">
+  	<![CDATA[
+  	select * from store where visible<2
+  	]]>
+	<if test="name != null and name != '' ">
+	and name like '${name}%'
+	</if> 
+	order by id desc
+	<if test="offset != null and perPageCount != null">
+	limit #{offset},#{perPageCount}
+	</if> 
+   
+  </select>
+  
+  <select id="storeListCount" resultType="java.lang.Integer">
+  	<![CDATA[
+  	select count(*) from store where visible<2
+  	]]>
+	<if test="name != null and name != '' ">
+	and name like '${name}%'
+	</if> 
+  </select>
+  
+  <delete id="deleteStore">
+  update store set visible = 2 where id = #{id}
+  </delete>
+  
+  <insert id="insertStoreChannel">
+  	insert into store_channel (s_id,c_id) values (#{s_id},#{c_id})
+  </insert>
+  
+  <select id="storeChannelList" resultType="com.lucifer.model.StoreChannel">
+  <![CDATA[
+  	select s.s_id,s.c_id,c.name from store_channel s ,channel c where s.c_id =c.id and c.visible<2 and s.s_id=#{s_id}
+  ]]>
+  </select>
+  
+  <select id="countChannel" resultType="java.lang.Integer">
+  	select count(*) from store_channel where s_id=#{s_id}
+  </select>
+  
+  <delete id="delChannel">
+  	delete from store_channel where s_id = #{s_id} and c_id = #{c_id}
+  </delete>
+  
+  <select id="channelLists" resultType="com.lucifer.model.Channel">
+  <![CDATA[
+  	select c.id,c.name from store_channel s,channel c where s.c_id =c.id and c.visible<2 and s.s_id=#{s_id}
+  	]]>
+  </select>
+  
+</mapper>

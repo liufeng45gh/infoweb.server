@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lucifer.model">
+
+  <select id="search_findBooks" resultType="com.lucifer.model.Book">
+  	<![CDATA[
+  		select id,name,author,updated_at,visible from book order by updated_at asc limit 1000
+  	]]>
+  </select>
+  
+  <select id="search_findBooksByUpdatedAt" resultType="com.lucifer.model.Book">
+  	<![CDATA[
+  		select id,name,author,updated_at,visible from book where updated_at>#{updated_at} order by updated_at asc limit 1000
+  	]]>
+  </select>
+  <select id="channelBookList" resultType="com.lucifer.model.Book">
+  		select book.* from  book
+		left outer join book_channel on book_channel.b_id = book.id
+		where book_channel.c_id = #{channel_id}
+		order by book.id desc
+		<if test="offset != null and perPageCount != null">
+		limit #{offset},#{perPageCount}
+		</if> 
+  </select>
+  <select id="rankBookList" resultType="com.lucifer.model.Book">
+  		select book.* from  book
+		where book.status = 1
+		order by book.download_count desc
+		<if test="offset != null and perPageCount != null">
+		limit #{offset},#{perPageCount}
+		</if> 
+  </select>
+  
+</mapper>
