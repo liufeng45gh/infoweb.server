@@ -110,33 +110,15 @@
 			<value>${maxIdleTime}</value>
 		</property>
 	</bean>
-	<bean id="smsService" class="com.lucifer.service.SMSService" >
-		<property name="smschinese_uid" value="vanthink" />
-		<property name="smschinese_key" value="7d53459eb5975a7ce8c3" />
-	</bean>
-	<bean id="storeBase" class="java.lang.String" >
-		<constructor-arg value="/data/www/reading_cloud"></constructor-arg>
-		<!--<constructor-arg value="/Users/flyxk/git/reading/reading_cloud"></constructor-arg>-->
-	</bean>
-	<bean id="uploadPath" class="java.lang.String" >
-		<constructor-arg value="images/book_covers"></constructor-arg>
-	</bean>
 	
-	<bean id="uploadFilePath" class="java.lang.String" >
-		<constructor-arg value="upload_file/book"></constructor-arg>
-	</bean>
+
 	
-	<bean id="tmpPath" class="java.lang.String" >
-		<constructor-arg value="/data/www/reading_cloud/tmp"></constructor-arg>
-	</bean>
 	
-	<bean id="bookDownFilePath" class="java.lang.String" >
-		<constructor-arg value="download/books"></constructor-arg>
-	</bean>
 	
-	<bean id="cdn_header" class="java.lang.String" >
-		<constructor-arg value="http://localhost:8080"></constructor-arg>
-	</bean>
+	
+	
+	
+	
 	
 	<bean id="multipartResolver"  class="org.springframework.web.multipart.commons.CommonsMultipartResolver">    
 	    <!-- one of the properties available; the maximum file size in bytes -->  
