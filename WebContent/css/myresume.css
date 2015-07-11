@@ -1,0 +1,38 @@
+.right_top .on .btn-b {
+  color: #fff;
+  padding-right: 10px;
+  margin-left: 10px;
+  line-height: 22px;
+  height: 25px;
+  display: inline-block;
+  overflow: hidden;
+  background: url(/images/button.png) no-repeat right 0;
+}
+
+.right_top .on {
+  margin-left: 5px;
+  margin-top: 8px;
+  height: 25px;
+  line-height: 22px;
+  display: inline-block;
+  background: url(/images/button.png) no-repeat left 0;
+}
+
+.text-left {
+  text-align: left;
+}
+.myresume_tip {
+  background: #fff7e3;
+  border: 1px solid #ffce6b;
+  padding: 5px 10px;
+
+  color: #707070;
+}
+.clearfix, .rightBody {
+  display: block;
+  zoom: 1;
+}
+.indicator, .safe-sj {
+  background-image: url(/images//vipicon.png);
+  background-repeat: no-repeat;
+}
