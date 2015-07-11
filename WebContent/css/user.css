@@ -248,8 +248,8 @@
         }
 
         .vipLogo {
-            width: 155px;
-            height: 80px;
+            width: 220px;
+            height: 72px;
             /*margin: 8px 14px 0 0;*/
         }
 
@@ -303,7 +303,7 @@
         }
 
         .v-nav, .v-nav li.here a, .v-nav li.here a span {
-            background: url(../images/user//vipnav.png) no-repeat;
+            background: url(/images/vipnav.png) no-repeat;
         }
 
         .v-nav {
@@ -1013,7 +1013,7 @@
                 height: 25px;
                 line-height: 22px;
                 display: inline-block;
-                background: url(../images/user//button.png) no-repeat left 0;
+                background: url(/images/button.png) no-repeat left 0;
             }
 
                 .right_top .on .btn-b {
@@ -1024,7 +1024,7 @@
                     height: 25px;
                     display: inline-block;
                     overflow: hidden;
-                    background: url(../images/user//button.png) no-repeat right 0;
+                    background: url(/images/button.png) no-repeat right 0;
                 }
 
         .rightBody {
@@ -1035,7 +1035,7 @@
         }
 
         .icon01, .icon02, .icon03, .icon04, .icon05, .icon06, .icon07, .icon10, .icon12, .icon17, .icon18, .icon19, .ln-menu dt .indicator, .safe-sj {
-            background-image: url(../images/user//vipicon.png);
+            background-image: url(/images/vipicon.png);
             background-repeat: no-repeat;
         }
 

@@ -70,7 +70,7 @@ a.blue{ color:#1155cc; }
 /*主要内容*/
 .fl_main{ border:1px solid #e3e3e3; margin:0 auto 10px; overflow:hidden; width:1198px; }
 .fl_main .fl_home{ border-left:1px solid #e3e3e3; height:1437px; margin-left:-1px; padding:10px 15px 0; overflow:hidden; width:251px; }
-.fl_main .fl_home h2{ font-size:14px; height:30px; line-height:30px; overflow:hidden; padding-left:5px; position:relative;border-bottom: 1px solid #FF9000; }
+.fl_main .fl_home h2{ font-size:14px; height:30px; line-height:30px; overflow:hidden; padding-left:5px; position:relative;border-bottom: 1px solid #f4f4f4; }
 .fl_main .fl_home h2 span{ background:url("../images/index-icon.jpg") no-repeat; display:inline-block; float:left; height:20px; position:absolute; left:0; top:7px; overflow:hidden; width:20px; }
 .fl_main .fl_home .f1_home_m{ overflow:hidden; padding-top:10px; }
 .fl_main .fl_home .fl_main_sel{ line-height:35px; margin:5px 0; overflow:hidden; width:100%; }
@@ -110,9 +110,9 @@ a.blue{ color:#1155cc; }
 .fl_main .same_fl .fl_main_sel{ margin-top:0; }
 
 /*导航*/
-.indexNav .nav{ background-color:#f4f4f4; background-position:0 -296px; background-repeat:repeat-x; border-bottom:2px solid #E05241; height:35px; line-height:35px; overflow:hidden; }
+.indexNav .nav{ background-color:#f4f4f4; background-position:0 -296px; background-repeat:repeat-x; border-bottom:2px solid #ff9600; height:35px; line-height:35px; overflow:hidden; }
 .indexNav .nav a{ display:block; float:left; font-size:14px; padding:0 16px; }
-.indexNav .nav a.on{ background:#E05241; color:#fff; }
+.indexNav .nav a.on{ background:#ff9600; color:#fff; }
 
 /*1200宽*/
 /*@media all and (max-width:1220px){

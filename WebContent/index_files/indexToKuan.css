@@ -1,4 +1,4 @@
-﻿/* CSS Document */
+/* CSS Document */
 *{margin:0px;padding:0px}
 body{ margin:0 auto; font-size:12px;}
 a{ color:#282828; text-decoration:none;}
@@ -29,7 +29,7 @@ a:hover{ color:#ff0000; text-decoration:none;}
 .fabu a{width:100px;background-color:#FDE9E9; background:linear-gradient(top,,#fff6f6,#fadddd); background:-webkit-linear-gradient(top,#fff6f6,#fadddd); border:1px solid #e30000; color:#e30000; display:inline-block; font-size:14px; font-weight:bold; height:33px; line-height:33px; overflow:hidden; padding:0 15px;}
 
 .fabu1{ width:130px; height:35px; float:right; margin:20px 0 0 0; text-align:center; }
-.fabu1 a{width:100px;background-color:#FDE9E9; background:linear-gradient(top,,#fff6f6,#fadddd); background:-webkit-linear-gradient(top,#fff6f6,#fadddd); border:1px solid #e30000; color:#e30000; display:inline-block; font-size:14px; font-weight:bold; height:33px; line-height:33px; overflow:hidden; padding:0 15px;}
+.fabu1 a{width:100px;background-color:#ff9600;  border:1px solid #ff9600; color:#ff9600; display:inline-block; font-size:14px; font-weight:bold; height:33px; line-height:33px; overflow:hidden; padding:0 15px;}
 .updel1{ width:100px; height:25px; float:right;margin:0;padding:0;margin-right:60px;margin-top:0px; text-align:left; display:block;}
 .updel1 a{ font-size:12px; color:#555555; line-height:30px;display:block;}
 

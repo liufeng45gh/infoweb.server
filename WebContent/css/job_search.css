@@ -1,10 +1,9 @@
 .search_button{
   width: 100px;
-  background-color: #FDE9E9;
-  background: linear-gradient(top,,#fff6f6,#fadddd);
-  background: -webkit-linear-gradient(top,#fff6f6,#fadddd);
-  border: 1px solid #e30000;
-  color: #e30000;
+  background-color: #ff9600;
+
+  border: 1px solid #ff9600;
+  color: #ffffff;
   display: inline-block;
   font-size: 14px;
   font-weight: bold;
