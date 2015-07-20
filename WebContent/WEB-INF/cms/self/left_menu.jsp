@@ -7,8 +7,8 @@
 		<li><span>地域管理</span>
 			<ul name="menu"><li id="left_menu_city"><a href="/cms/self/city">地区列表</a></li></ul>
 		</li>
-		<li><span>分类管理</span>
-			<ul name="menu"><li id="left_menu_class"><a href="/cms/self/classification">分类列表</a></li></ul>
+		<li><span>行业管理</span>
+			<ul name="menu"><li id="left_menu_class"><a href="/cms/self/industry">行业列表</a></li></ul>
 		</li>
 		<li><span>书城管理</span>
 			<ul name="menu"><li id="left_menu_store_add"><a href="/cms/store/add">添加书城</a></li></ul>
