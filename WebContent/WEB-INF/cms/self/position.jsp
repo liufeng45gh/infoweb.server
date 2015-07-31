@@ -33,7 +33,7 @@
 	<script type="text/javascript">
 		//DOM加载完毕执行
 		$(document).ready(function(){
-			$("#left_menu_city").addClass("selected");
+			$("#left_menu_position").addClass("selected");
 		});
 		
 		
