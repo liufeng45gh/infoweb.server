@@ -22,7 +22,7 @@
   <delete id="deletePosition">
   	delete from position where id=#{id};
   </delete>
-  <select id="refIndustryList" resultType="com.lucifer.model.Position">
+  <select id="refPositionList" resultType="com.lucifer.model.Position">
   	select distinct(name) from position where name like '${name}%' or name_py like '${name_py}%' or name_pj like '${name_pj}%'
   </select>
 	
