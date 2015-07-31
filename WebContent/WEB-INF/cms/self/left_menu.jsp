@@ -10,6 +10,9 @@
 		<li><span>行业管理</span>
 			<ul name="menu"><li id="left_menu_class"><a href="/cms/self/industry">行业列表</a></li></ul>
 		</li>
+		<li><span>职位管理</span>
+			<ul name="menu"><li id="left_menu_position"><a href="/cms/self/position">职位列表</a></li></ul>
+		</li>
 		<li><span>书城管理</span>
 			<ul name="menu"><li id="left_menu_store_add"><a href="/cms/store/add">添加书城</a></li></ul>
 			<ul name="menu"><li id="left_menu_store"><a href="/cms/store/list">书城列表</a></li></ul>
