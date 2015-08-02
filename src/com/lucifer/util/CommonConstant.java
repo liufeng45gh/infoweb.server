@@ -19,5 +19,8 @@ public class CommonConstant {
 	
 	//用户 access_token
 	public static String USER_ACCESS_TOKEN = "USER_ACCESS_TOKEN";
+	
+	//用户 access_token
+	public static String ADMIN_USER_ACCESS_TOKEN = "ADMIN_USER_ACCESS_TOKEN";
 
 }

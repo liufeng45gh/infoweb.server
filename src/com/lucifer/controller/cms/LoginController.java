@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.lucifer.interceptor.CmsCheckAuthInterceptor;
 import com.lucifer.model.AdminUser;
-import com.lucifer.service.UserService;
+import com.lucifer.service.AdminUserService;
 import com.lucifer.util.CommonConstant;
 
 @Controller
 public class LoginController{
 	
 	@Resource
-	private UserService userService;
+	private AdminUserService adminUserService;
 
 	@RequestMapping(value="/cms/login",method = RequestMethod.GET)
 	public String logInput(){
@@ -30,7 +30,7 @@ public class LoginController{
 			request.setAttribute(CommonConstant.KEY_RESULT_MESSAGE, "验证码错误");
 			return "/WEB-INF/cms/login.jsp";
 		}
-		AdminUser adminUser=userService.adminLogin(account, password);
+		AdminUser adminUser=adminUserService.adminLogin(account, password);
 		if(adminUser!=null){
 			//request.getSession().setAttribute(CommonConstant.KEY_CMS_USER, adminUser);
 			CmsCheckAuthInterceptor.saveSessionUser(adminUser, request);

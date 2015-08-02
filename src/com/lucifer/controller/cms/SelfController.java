@@ -9,10 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.lucifer.dao.UserDao;
+import com.lucifer.dao.AdminUserDao;
 import com.lucifer.interceptor.CmsCheckAuthInterceptor;
 import com.lucifer.model.AdminUser;
-import com.lucifer.service.UserService;
+import com.lucifer.service.AdminUserService;
 import com.lucifer.util.CommonConstant;
 
 @Controller
@@ -22,10 +22,10 @@ public class SelfController {
 	
 	
 	@Resource
-	private UserDao userDao;
+	private AdminUserDao adminUserDao;
 	
 	@Resource
-	private UserService userService;
+	private AdminUserService adminUserService;
 	
 	
 	@RequestMapping(value="/cms/self/welcome",method = RequestMethod.GET)
@@ -48,7 +48,7 @@ public class SelfController {
 		log.info("request nick is:  "+request.getParameter("nick") );
 		AdminUser currentUser=CmsCheckAuthInterceptor.getSessionUser(request);
 		currentUser.setNick(nick);
-		userDao.updateUserNick(currentUser);
+		adminUserDao.updateUserNick(currentUser);
 		
 		request.setAttribute(CommonConstant.KEY_RESULT_MESSAGE, "修改成功");
 		request.setAttribute("nick", currentUser.getNick());
@@ -65,7 +65,7 @@ public class SelfController {
 	@RequestMapping(value="/cms/self/uppassword",method = RequestMethod.POST)
 	public String updatePasswordSubmit(String oldpass,String newpass,HttpServletRequest request){
 		AdminUser currentUser=CmsCheckAuthInterceptor.getSessionUser(request);
-		boolean result = userService.resetPassword(currentUser.getAccount(), oldpass, newpass);
+		boolean result = adminUserService.resetPassword(currentUser.getAccount(), oldpass, newpass);
 		if(result){
 			request.setAttribute(CommonConstant.KEY_RESULT_MESSAGE, "修改成功");
 			request.setAttribute(CommonConstant.KEY_RESULT_MESSAGE_COLOR, "green");

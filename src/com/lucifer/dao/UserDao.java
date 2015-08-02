@@ -8,19 +8,17 @@ import java.util.Map;
 import org.springframework.stereotype.Service;
 
 import com.lucifer.dao.base.IBatisBaseDao;
-import com.lucifer.model.AdminUser;
 import com.lucifer.model.User;
-import com.lucifer.model.UserDeviceToken;
 
 @Service
 public class UserDao extends IBatisBaseDao{
 
 		
-	public void updateUserNick(AdminUser user){
+	public void updateUserNick(User user){
 		sqlSession.update("updateUserNick", user);
 	}
 	
-	public void updateUserPassword(AdminUser user){
+	public void updateUserPassword(User user){
 		sqlSession.update("updatePassowrd", user);
 	}
 	
@@ -35,16 +33,24 @@ public class UserDao extends IBatisBaseDao{
 		return (Integer)sqlSession.selectOne("getUserInfoListCount", params);
 	}
 	
-	public AdminUser getSimpleByAccount(String account){
-		return (AdminUser)sqlSession.selectOne("getAdminUserByAccount",account);
+	public User getSimpleByAccount(String account){
+		return (User)sqlSession.selectOne("getSimpleByAccount",account);
 	}
 	
-	public AdminUser get(Long id){
-		return (AdminUser)sqlSession.selectOne("getUser",id);
+	public User getSimpleByNick(String nick){
+		return (User)sqlSession.selectOne("getSimpleByNick",nick);
 	}
 	
-	public AdminUser getSimpleByTelephone(String telephone){
-		return (AdminUser)sqlSession.selectOne("getSimpleByTelephone",telephone);
+	public User getSimpleByEmail(String email){
+		return (User)sqlSession.selectOne("getSimpleByNick",email);
+	}
+	
+	public User get(Long id){
+		return (User)sqlSession.selectOne("getUser",id);
+	}
+	
+	public User getSimpleByTelephone(String telephone){
+		return (User)sqlSession.selectOne("getSimpleByTelephone",telephone);
 	}
 	
 	public void insert(User user){
@@ -74,23 +80,7 @@ public class UserDao extends IBatisBaseDao{
 		return (User)sqlSession.selectOne("findUserByToken", token);
 	}
 	
-	public List<AdminUser> getMystudentList(User teacher){
+	public List<User> getMystudentList(User teacher){
 		return sqlSession.selectList("getMystudentList", teacher);
-	}
-	
-	public User getByDevice(String device_id){
-		return (User)sqlSession.selectOne("getUserByDeviceId", device_id);
-	}
-	
-	public int updateDeviceToken(UserDeviceToken token){
-		return sqlSession.update("updateUserDeviceToken",token);
-	}
-	
-	public int insertDeviceToken(UserDeviceToken token){
-		return sqlSession.insert("insertUserDeviceToken",token);
-	}
-	
-	public List<UserDeviceToken> getAllUserDeviecToken(){
-		return sqlSession.selectList("getAllUserDeviecToken");
 	}
 }

@@ -124,5 +124,11 @@
 	    <!-- one of the properties available; the maximum file size in bytes -->  
 	    <property name="maxUploadSize" value="10000000"/>  
 	</bean>  
+	
+	
+	<bean id="smsService" class="com.lucifer.service.SMSService" >
+		<property name="smschinese_uid" value="vanthink" />
+		<property name="smschinese_key" value="7d53459eb5975a7ce8c3" />
+	</bean>
  
 </beans>

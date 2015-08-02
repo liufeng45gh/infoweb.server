@@ -13,6 +13,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Service;
 
+import com.lucifer.dao.AdminUserDao;
 import com.lucifer.dao.UserDao;
 
 import com.lucifer.model.AdminUser;
@@ -21,6 +22,9 @@ import com.lucifer.model.User;
 @Service
 public class ViewHelper {
 
+	
+	@Resource
+	private AdminUserDao adminUserDao;
 	
 	@Resource
 	private UserDao userDao;
@@ -48,7 +52,7 @@ public class ViewHelper {
 		return null;
 	}
 
-	public User getTokenUser(HttpServletRequest request) {		
+	public User getWebTokenUser(HttpServletRequest request) {		
 		 String token=getWebUserToken(request);
 		 if (token != null) {
 			 User user= userDao.findByToken(token);
@@ -56,6 +60,35 @@ public class ViewHelper {
 		 }
 		return null;
 	}
+	
+	
+	protected String getAdminUserToken(HttpServletRequest request) {
+		String token = request.getParameter(CommonConstant.ADMIN_USER_ACCESS_TOKEN);
+		if(!StringUtil.isEmpty(token)){
+			return token;
+		}
+		Cookie[] cookies = request.getCookies();
+
+		if (null == cookies) {
+			return null;
+		}
+		for (Cookie cookie : cookies) {
+			if (cookie.getName().equals(CommonConstant.ADMIN_USER_ACCESS_TOKEN)) {
+				return cookie.getValue();
+			}
+		}
+		return null;
+	}
+
+	public AdminUser getAdminTokenUser(HttpServletRequest request) {		
+		 String token=getWebUserToken(request);
+		 if (token != null) {
+			 AdminUser user= adminUserDao.findByToken(token);
+			 return user;
+		 }
+		return null;
+	}
+	
 	
 	public static ViewHelper getInstance(){
 		
