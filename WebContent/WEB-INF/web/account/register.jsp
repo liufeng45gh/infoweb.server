@@ -126,14 +126,14 @@
                 <p class="submitwrap" style="display: block;">
                     <span class="regtlx">&nbsp;</span>
                     <label id="butt" class="butt"><input type="submit" class="btns" value="立即注册" checked="checked" id="btnSubmit" style="width:110px;height:34px;" ></label>
-                    <span id="gologin"><span id="loginOpt">已有账号？<a href="https://passport.58.com/login/">去登录</a></span></span><span id="pre" style="display: none;"><a herf="javascript:;">返回上一步</a></span>
+                    <span id="gologin"><span id="loginOpt">已有账号？<a href="/account/login">去登录</a></span></span><span id="pre" style="display: none;"><a herf="javascript:;">返回上一步</a></span>
                 </p>
                 
                 
                  <p id="nextwrap" style="display: none;">
                     <span class="regtlx">&nbsp;</span>
                     <label id="butt" class="butt"><input type="button" class="btns" value="确定" checked="checked" id="btnNext" style="width:110px;height:34px;"></label>
-                    <span id="loginOpt">已有账号？<a href="/login.html">去登录</a></span>
+                    <span id="loginOpt">已有账号？<a href="account/login">去登录</a></span>
                 </p>
 				</div>
 				
@@ -145,15 +145,10 @@
 		<p>© dbdbd.cn </p>
 	</div>
 
-<iframe name="formSubmit" id="formSubmit" src="/register_files/submit.html" style="display: none;"></iframe>
+
 
 <script type="text/javascript" src="/script/web/register.js"></script>
-<script type="text/javascript">
-var iqas_mcvalue = '';var iqas_mcformula = '';$(function(){$("<input name='mcresult' value='"+eval(iqas_mcformula.replace('checkValue', iqas_mcvalue))+"' / style='display:none'>").appendTo($('#submitForm'));});
-</script>
-<div style="display:inline;">
-<img height="1" width="1" style="border-style:none;" alt="" src="/register_files/saved_resource">
-</div>
+
 
 
 </body></html>
