@@ -57,7 +57,7 @@ html{overflow-y: scroll;}
 #login_sina{padding-left:0;}
 #login_renren{padding-right:0;border-right:none;}
 .snslogin{list-style: none;float: left;}
-.reglink{position:absolute;top:41px;right:12px;line-height: 22px;text-align: right;}
+.reglink{float:right;right:12px;line-height: 22px;text-align: right;}
 .link-login span.lots{color:#cccccc;}
 .snslogin li{display: inline;}
 #wxwrap{width: 100%;position: relative;}
