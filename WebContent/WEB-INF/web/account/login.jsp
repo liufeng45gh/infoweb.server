@@ -185,8 +185,8 @@ li#mobileLoginTipLi{padding-left:80px;margin-top:5px;line-height: 21px;} #mobile
 				
                 </div>
 				<div class="link-login" style="">
-					<span class="lots">使用合作网站登录：</span>
-                    <a class="reglink" href="/account/register">免费注册</a>
+					<span class="lots"><a class="reglink" href="/account/register">免费注册</a></span>
+                    
                      
 				 </div>
 				
@@ -203,7 +203,7 @@ li#mobileLoginTipLi{padding-left:80px;margin-top:5px;line-height: 21px;} #mobile
 
 <script type="text/javascript">
                         function refreshValidatecode(){
-                           document.getElementById('vcodeImg').src='/captcha-image?temp=123'+ (new Date().getTime().toString(36)); _gaq.push(['pageTracker._trackEvent', '58_my', 'passport', 'refresh']);
+                           document.getElementById('vcodeImg').src='/captcha-image?random='+ Math.random();
                         }
                       
  </script>
