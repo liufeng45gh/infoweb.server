@@ -8,7 +8,7 @@
             <div class="sdmenu">
                
                <a class="icon01" href="/myinfo.html"><span>管理中心首页</span></a>
-                <a class="icon01" href="/myinfo.html"><span>修改基本信息</span></a>
+                <a class="icon01" href="/manage/info_set"><span>修改基本信息</span></a>
                 <a class="icon01" href="/myinfo.html"><span>修改头像</span></a>
                 <a class="icon01" href="./help_files/help.html"><span>会员认证管理</span></a>
                 <a class="icon01" href="/mypassword.html"><span>会员密码修改</span></a>

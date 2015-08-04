@@ -12,5 +12,11 @@ public class WebUserController {
 	public String index(){
 		return "/WEB-INF/web/manage/user/index.jsp";
 	}
+	
+	
+	@RequestMapping(value = "/manage/info_set", method = RequestMethod.GET)
+	public String infoSet(){
+		return "/WEB-INF/web/manage/user/info_set.jsp";
+	}
 
 }

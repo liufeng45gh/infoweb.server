@@ -2,12 +2,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <!-- saved from url=(0061)http://user.qd8.com.cn/users/usbaselist/users_emailcheck.aspx -->
-<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>
-	会员管理中心首页-微企联盟网
-</title>
-<link rel="stylesheet" type="text/css" href="/css/user.css">
-<link rel="stylesheet" type="text/css" href="/css/manage.css"></head>
-<script src="/script/jquery-1.9.1.min.js" type="text/javascript"></script>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<jsp:include page="../head.jsp"></jsp:include>
 <body>
     
 
@@ -32,11 +28,7 @@
     </div>
 
         
-<style>
-    .rightdh li {
-        margin-right: 5px;
-    }
-</style>
+
 
 <div class="viptop">
     <div class="viptop-l">
