@@ -14,6 +14,7 @@
                     </div>
                     <div>
                         <div class="rightBody">
+                        	<form id="info_form" method="post" action="/manage/info_set">
                             <table width="100%" style="margin-top:10px;">
                                 <tbody><tr>
                                     <td class="usertd"></td>
@@ -26,14 +27,14 @@
                                     <td class="usertd"></td>
                                     <td>昵称：</td>
                                     <td>
-                                        <input name="truenametxt" type="text" maxlength="10" id="truenametxt" class="input-style" value="${user.nick}">
+                                        <input name="nick" type="text" maxlength="10" id="truenametxt" class="input-style" value="${user.nick}">
                                         <span id="RequiredFieldValidator4" style="color:Red;visibility:hidden;">昵称不能为空！</span></td>
                                 </tr>
                                 <tr>
                                     <td class="usertd"></td>
                                     <td>真实姓名：</td>
                                     <td>
-                                        <input name="truenametxt" type="text" maxlength="10" id="truenametxt" class="input-style" value="${user.real_name}">
+                                        <input name="real_name" type="text" maxlength="10" id="truenametxt" class="input-style" value="${user.real_name}">
                                         <span id="RequiredFieldValidator4" style="color:Red;visibility:hidden;">真实姓名不能为空！</span></td>
                                 </tr>
                                 <tr>
@@ -55,20 +56,20 @@
                                     <td class="usertd"></td>
                                     <td>EMAIL：</td>
                                     <td>
-                                        <input name="emailtxt" type="text" value="${user.email }" maxlength="30" size="40" id="emailtxt" class="input-style">&nbsp;
+                                        <input name="email" type="text" value="${user.email }" maxlength="30" size="40" id="emailtxt" class="input-style">&nbsp;
                 <span id="RegularExpressionValidator1" style="color:Red;visibility:hidden;">电子邮件格式不正确！</span></td>
                                 </tr>
                                 <tr>
                                     <td class="usertd"></td>
                                     <td>联系电话：</td>
                                     <td>
-                                        <input name="phonetxt" type="text" maxlength="20" size="30" id="phonetxt" class="input-style" value="${user.phone}"></td>
+                                        <input name="telephone" type="text" maxlength="20" size="30" id="phonetxt" class="input-style" value="${user.phone}"></td>
                                 </tr>
                                 <tr>
                                     <td class="usertd"></td>
                                     <td>联系地址：</td>
                                     <td>
-                                        <input name="addresstxt" type="text" maxlength="50" size="60" id="addresstxt" class="input-style" value="${user.residence}"></td>
+                                        <input name="residence" type="text" maxlength="50" size="60" id="addresstxt" class="input-style" value="${user.residence}"></td>
                                 </tr>
                  
                                 <tr>
@@ -81,8 +82,8 @@
                                 <tr>
                                     <td class="usertd"></td>
                                     <td colspan="2" style="height: 40px;">
-                                        <input type="submit" name="Button1" value="确定修改" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;Button1&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="Button1" class="posted-t">
-                                        <input id="Reset1" type="reset" value="取消重填" class="posted-t"></td>
+                                        <input type="submit" name="Button1" value="确定修改"   class="posted-t">
+                                        <input  type="reset" value="取消重填" class="posted-t"></td>
                                 </tr>
                                 <tr>
                                     <td class="usertd"></td>
@@ -91,6 +92,7 @@
                                         <span id="lblMessage"></span></td>
                                 </tr>
                             </tbody></table>
+                            </form>
                         </div>
 
                     </div>

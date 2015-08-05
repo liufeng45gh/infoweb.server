@@ -12,7 +12,7 @@
                 <a class="icon01" href="/manage/avatar_set"><span>修改头像</span></a>
                 <a class="icon01" href="./help_files/help.html"><span>会员认证管理</span></a>
                 <a class="icon01" href="/manage/password_set"><span>会员密码修改</span></a>
-                <a class="icon01" href="/mypassword.html"><span>我的私信</span></a>
+                <a class="icon01" href="#" onclick="return false;"><span>我的私信</span></a>
             </div>
         </ul>
 
