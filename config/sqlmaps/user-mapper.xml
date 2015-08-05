@@ -64,6 +64,10 @@
   	update user set password=#{password} where id=#{id}
   </update>
   
+   <update id="updateUserAvatar">
+  	update user set avatar=#{avatar} where id=#{id}
+  </update>
+  
   <select id="findUserByToken" resultType="com.lucifer.model.User">
   	select user.* from user_token left outer join user on user_token.user_id=user.id where user_token.token=#{token}
   </select>

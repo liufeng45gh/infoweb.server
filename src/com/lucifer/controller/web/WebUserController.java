@@ -65,5 +65,20 @@ public class WebUserController {
 		}
 		return "/WEB-INF/web/manage/user/password_set.jsp";
 	}
+	
+	@RequestMapping(value = "/manage/avatar_set", method = RequestMethod.GET)
+	public String avatarSetInput(HttpServletRequest request){
+		User user = ViewHelper.getInstance().getWebTokenUser(request);
+		request.setAttribute("user", user);
+		return "/WEB-INF/web/manage/user/avatar_set.jsp";
+	}
+	
+	@RequestMapping(value = "/manage/avatar_set", method = RequestMethod.POST)
+	public String avatarSetSubmit(String avatar,HttpServletRequest request){
+		User user = ViewHelper.getInstance().getWebTokenUser(request);
+		user.setAvatar(avatar);
+		userDao.updateUserAvatar(user);
+		return "redirect:/manage/avatar_set";
+	}
 
 }
