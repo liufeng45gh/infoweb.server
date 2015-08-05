@@ -61,6 +61,14 @@ public class UserDao extends IBatisBaseDao{
 		return sqlSession.update("updateUser",user);
 	}
 	
+	public int updateUserInfo(User user){
+		return sqlSession.update("updateUserInfo",user);
+	}
+	
+	public int updatePassword(User user){
+		return sqlSession.update("updatePassword",user);
+	}
+	
 	private void insertToken(User user){
 		sqlSession.insert("insertToken", user);
 	}
