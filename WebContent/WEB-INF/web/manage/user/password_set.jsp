@@ -26,14 +26,14 @@
                                     <td class="usertd"></td>
                                     <td>原密码：</td>
                                     <td>
-                                        <input name="truenametxt" type="text" maxlength="10" id="truenametxt" class="input-style" >
+                                        <input name="oldPassord" type="text" maxlength="10" id="truenametxt" class="input-style" >
                                         <span id="RequiredFieldValidator4" style="color:Red;visibility:hidden;">原密码不能为空！</span></td>
                                 </tr>
                                 <tr>
                                     <td class="usertd"></td>
                                     <td>新密码：</td>
                                     <td>
-                                        <input name="truenametxt" type="text" maxlength="10" id="truenametxt" class="input-style" >
+                                        <input name="newPassword" type="text" maxlength="10" id="truenametxt" class="input-style" >
                                         <span id="RequiredFieldValidator4" style="color:Red;visibility:hidden;">新密码不能为空！</span></td>
                                 </tr>
                                 
@@ -43,7 +43,7 @@
                                     <td class="usertd"></td>
                                     <td>重复新密码：</td>
                                     <td>
-                                        <input name="phonetxt" type="text" maxlength="20" size="30" id="phonetxt" class="input-style" ></td>
+                                        <input name="repPassword" type="text" maxlength="20" size="30" id="phonetxt" class="input-style" ></td>
                                         <span id="RequiredFieldValidator4" style="color:Red;visibility:hidden;">重复密码！</span></td>
                                 </tr>
                               
