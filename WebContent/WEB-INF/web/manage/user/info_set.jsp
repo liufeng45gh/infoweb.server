@@ -27,43 +27,43 @@
                                     <td class="usertd"></td>
                                     <td>昵称：</td>
                                     <td>
-                                        <input name="nick" type="text" maxlength="10" id="truenametxt" class="input-style" value="${user.nick}">
-                                        <span id="RequiredFieldValidator4" style="color:Red;visibility:hidden;">昵称不能为空！</span></td>
+                                        <input name="nick" type="text" maxlength="10" id="truenametxt" class="input-style" value="${user.nick}"  data-validation="length" data-validation-length="min4">
+                                       </td>
                                 </tr>
                                 <tr>
                                     <td class="usertd"></td>
                                     <td>真实姓名：</td>
                                     <td>
-                                        <input name="real_name" type="text" maxlength="10" id="truenametxt" class="input-style" value="${user.real_name}">
-                                        <span id="RequiredFieldValidator4" style="color:Red;visibility:hidden;">真实姓名不能为空！</span></td>
+                                        <input name="real_name" type="text" maxlength="10" id="truenametxt" class="input-style" value="${user.real_name}"  data-validation="required">
+                                       </td>
                                 </tr>
                                 <tr>
                                     <td class="usertd"></td>
-                                    <td>年 龄：</td>
+                                    <td>生日(yyyy-mm-dd)：</td>
                                     <td>
-                                        <input name="agetxt" type="text" value="0" maxlength="2" size="6" id="agetxt" class="input-style">
-                                        <span id="RegularExpressionValidator2" style="color:Red;visibility:hidden;">年龄格式不正确！（10-100）</span></td>
+                                        <input name="birthday" type="text"   id="agetxt" class="input-style" data-validation="birthdate">
+                                        </td>
                                 </tr>
                                 <tr>
                                     <td class="usertd"></td>
                                     <td>性 别：</td>
                                     <td>
-                                        <input id="RadioButton1" type="radio" name="sex" value="RadioButton1" checked="checked"><label for="RadioButton1">男</label>
-                                        <input id="RadioButton2" type="radio" name="sex" value="RadioButton2"><label for="RadioButton2">女</label>
-                                        <span id="RequiredFieldValidator5" style="color:Red;visibility:hidden;">年龄不能为空</span></td>
+                                        <input id="RadioButton1" type="radio" name="gender" value="0" checked="checked"><label for="RadioButton1">男</label>
+                                        <input id="RadioButton2" type="radio" name="gender" value="1"><label for="RadioButton2">女</label>
+                                        
+                                        </td>
                                 </tr>
                                 <tr>
                                     <td class="usertd"></td>
                                     <td>EMAIL：</td>
                                     <td>
-                                        <input name="email" type="text" value="${user.email }" maxlength="30" size="40" id="emailtxt" class="input-style">&nbsp;
-                <span id="RegularExpressionValidator1" style="color:Red;visibility:hidden;">电子邮件格式不正确！</span></td>
+                                        <input name="email" type="text" value="${user.email }" maxlength="30" size="40" id="emailtxt" class="input-style"  data-validation="email"></td>
                                 </tr>
                                 <tr>
                                     <td class="usertd"></td>
                                     <td>联系电话：</td>
                                     <td>
-                                        <input name="telephone" type="text" maxlength="20" size="30" id="phonetxt" class="input-style" value="${user.phone}"></td>
+                                        <input name="telephone" type="text" maxlength="20" size="30" id="phonetxt" class="input-style" value="${user.phone}" data-validation="telephone"></td>
                                 </tr>
                                 <tr>
                                     <td class="usertd"></td>
@@ -82,8 +82,8 @@
                                 <tr>
                                     <td class="usertd"></td>
                                     <td colspan="2" style="height: 40px;">
-                                        <input type="submit" name="Button1" value="确定修改"   class="posted-t">
-                                        <input  type="reset" value="取消重填" class="posted-t"></td>
+                                        <input type="submit"  value="确定修改"   class="simple_button">
+                                        <input  type="reset" value="取消重填" class="simple_button" style="margin-left:30px;"></td>
                                 </tr>
                                 <tr>
                                     <td class="usertd"></td>
@@ -109,6 +109,19 @@
 <jsp:include page="../footer.jsp"></jsp:include>
 
 
-
+<script>
+/* important to locate this script AFTER the closing form element, so form object is loaded in DOM before setup is called */
+     $.formUtils.addValidator({
+        name : 'telephone',
+        validatorFunction : function(value, $el, config, language, $form) {
+            return validMobileFormat(value);
+        },
+        errorMessage : '手机号码格式错误',
+        errorMessageKey: 'badTelephone'
+    });
+    $.validate({
+        modules : 'date, security'
+    });
+</script>
 
 </body></html>

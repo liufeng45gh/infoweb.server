@@ -1899,6 +1899,16 @@
             font-size: 20px;
             color: #cc410f;
             font-weight: normal;
+            padding-left: 39px;
+            background: url(../../../css/ued/vip/../../../image/icon/error.png) no-repeat 0 0;
+            display: inline-block;
+        }
+        
+         .error2 {
+            font-family: 'Microsoft YaHei','SimHei';
+            font-size: 20px;
+            color: #cc410f;
+            font-weight: normal;
             margin-left: 20px;
             padding-left: 39px;
             background: url(../../../css/ued/vip/../../../image/icon/error.png) no-repeat 0 0;

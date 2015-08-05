@@ -1,5 +1,7 @@
 package com.lucifer.model;
 
+import java.util.Date;
+
 public class User {
 	
 	private Long  id;
@@ -22,7 +24,7 @@ public class User {
 	
 	private String marital;
 	
-	private String birthday;
+	private Date birthday;
 	
 	private String registered;
 	
@@ -166,11 +168,11 @@ public class User {
 		this.marital = marital;
 	}
 
-	public String getBirthday() {
+	public Date getBirthday() {
 		return birthday;
 	}
 
-	public void setBirthday(String birthday) {
+	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
 	}
 

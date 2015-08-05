@@ -938,3 +938,14 @@ margin: -4px 9px 0 0;
 .changyong{ width:600px; height:30px; line-height:30px; margin:10px auto;}
 .changyong td{  height:30px; line-height:30px; text-align:center;}
 .changyong td a{ font-size:18px; font-weight:bolder; color:#ff0000;}
+.simple_button{
+	background: #ed7612;
+	border: 1px solid #d50;
+	text-align: center;
+  	display: inline-block;
+  	color: #fff;
+  	width: 100px;
+  	height: 32px;
+  	line-height: 32px;
+  	font-size: 14px;
+}
