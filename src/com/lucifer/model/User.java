@@ -42,7 +42,9 @@ public class User {
 	
 	private Integer enable;
 	
-	public String avatar;
+	private String avatar;
+	
+	private String real_name;
 
 	public Long getId() {
 		return id;
@@ -210,6 +212,14 @@ public class User {
 
 	public void setAvatar(String avatar) {
 		this.avatar = avatar;
+	}
+
+	public String getReal_name() {
+		return real_name;
+	}
+
+	public void setReal_name(String real_name) {
+		this.real_name = real_name;
 	}
 	
 	

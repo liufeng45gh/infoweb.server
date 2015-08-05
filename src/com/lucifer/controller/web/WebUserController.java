@@ -22,12 +22,23 @@ public class WebUserController {
 	@RequestMapping(value = "/manage/info_set", method = RequestMethod.GET)
 	public String infoSet(HttpServletRequest request){
 		User user = ViewHelper.getInstance().getWebTokenUser(request);
+		request.setAttribute("user", user);
 		return "/WEB-INF/web/manage/user/info_set.jsp";
 	}
 	
 	@RequestMapping(value = "/manage/info_set", method = RequestMethod.POST)
 	public String infoSetSubmit(){
 		return "redirect:/manage/info_set";
+	}
+	
+	@RequestMapping(value = "/manage/password_set", method = RequestMethod.GET)
+	public String resetPassInput(){
+		return "/WEB-INF/web/manage/user/password_set.jsp";
+	}
+	
+	@RequestMapping(value = "/manage/password_set", method = RequestMethod.POST)
+	public String resetPassSubmit(){
+		return "redirect:/manage/password_set";
 	}
 
 }

@@ -19,21 +19,21 @@
                                     <td class="usertd"></td>
                                     <td>账号：</td>
                                     <td>
-                                        <span id="username">liufeng45gh@163.com</span>
+                                        <span id="username">${user.account}</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="usertd"></td>
                                     <td>昵称：</td>
                                     <td>
-                                        <input name="truenametxt" type="text" maxlength="10" id="truenametxt" class="input-style">
+                                        <input name="truenametxt" type="text" maxlength="10" id="truenametxt" class="input-style" value="${user.nick}">
                                         <span id="RequiredFieldValidator4" style="color:Red;visibility:hidden;">昵称不能为空！</span></td>
                                 </tr>
                                 <tr>
                                     <td class="usertd"></td>
                                     <td>真实姓名：</td>
                                     <td>
-                                        <input name="truenametxt" type="text" maxlength="10" id="truenametxt" class="input-style">
+                                        <input name="truenametxt" type="text" maxlength="10" id="truenametxt" class="input-style" value="${user.real_name}">
                                         <span id="RequiredFieldValidator4" style="color:Red;visibility:hidden;">真实姓名不能为空！</span></td>
                                 </tr>
                                 <tr>
@@ -55,20 +55,20 @@
                                     <td class="usertd"></td>
                                     <td>EMAIL：</td>
                                     <td>
-                                        <input name="emailtxt" type="text" value="liufeng45gh@163.com" maxlength="30" size="40" id="emailtxt" class="input-style">&nbsp;
+                                        <input name="emailtxt" type="text" value="${user.email }" maxlength="30" size="40" id="emailtxt" class="input-style">&nbsp;
                 <span id="RegularExpressionValidator1" style="color:Red;visibility:hidden;">电子邮件格式不正确！</span></td>
                                 </tr>
                                 <tr>
                                     <td class="usertd"></td>
                                     <td>联系电话：</td>
                                     <td>
-                                        <input name="phonetxt" type="text" maxlength="20" size="30" id="phonetxt" class="input-style"></td>
+                                        <input name="phonetxt" type="text" maxlength="20" size="30" id="phonetxt" class="input-style" value="${user.phone}"></td>
                                 </tr>
                                 <tr>
                                     <td class="usertd"></td>
                                     <td>联系地址：</td>
                                     <td>
-                                        <input name="addresstxt" type="text" maxlength="50" size="60" id="addresstxt" class="input-style"></td>
+                                        <input name="addresstxt" type="text" maxlength="50" size="60" id="addresstxt" class="input-style" value="${user.residence}"></td>
                                 </tr>
                  
                                 <tr>
@@ -104,17 +104,7 @@
 
         </div>
         
- <div class="pageFooter">
-        <div class="footerContainer clearfix">
-            <div class="fl" role="contentinfo">
-                <div class="fsm fwn fcg"></div>
-            </div>
-            <div role="navigation">
-                <a href="http://www.qd8.com.cn/index.html">城市导航</a> | <a href="http://www.qd8.com.cn/about_qd8.html" target="_blank">关于我们</a> | <a href="http://www.qd8.com.cn/usetiaokuan.html" target="_blank">使用条款</a> | <a href="http://www.qd8.com.cn/mianzeshengming.html" target="_blank">免责声明</a> | <a href="http://www.qd8.com.cn/yinsibaohu.html" target="_blank">隐私保护</a> | <a href="http://www.qd8.com.cn/qd8help/" target="_blank">帮助中心</a> | <a href="http://www.qd8.com.cn/hezuo.html" target="_blank">合作伙伴</a> | <a href="http://www.qd8.com.cn/site_zhaopin.html" target="_blank">人才招聘</a> | <a href="http://www.qd8.com.cn/qd8huodong/jiameng/" target="_blank">招商合作</a> | <a href="http://www.qd8.com.cn/conect_us.html" target="_blank">联系我们</a> | <a href="http://www.qd8.com.cn/site_map.html" target="_blank">网站地图</a>
-            </div>
-        </div>
-</div>
-    
+<jsp:include page="../footer.jsp"></jsp:include>
 
 
 
