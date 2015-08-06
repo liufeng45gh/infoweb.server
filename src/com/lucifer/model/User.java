@@ -47,6 +47,8 @@ public class User {
 	private String avatar;
 	
 	private String real_name;
+	
+	private Integer open;
 
 	public Long getId() {
 		return id;
@@ -222,6 +224,14 @@ public class User {
 
 	public void setReal_name(String real_name) {
 		this.real_name = real_name;
+	}
+
+	public Integer getOpen() {
+		return open;
+	}
+
+	public void setOpen(Integer open) {
+		this.open = open;
 	}
 	
 	

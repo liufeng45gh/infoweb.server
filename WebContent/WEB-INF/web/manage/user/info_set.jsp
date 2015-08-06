@@ -1,5 +1,6 @@
 <%@ page language="java" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <!-- saved from url=(0061)http://user.qd8.com.cn/users/usbaselist/users_emailcheck.aspx -->
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -14,7 +15,7 @@
                     </div>
                     <div>
                         <div class="rightBody">
-                        	<form id="info_form" method="post" action="/manage/info_set">
+                        	<form id="info_form" action="/manage/info_set" method="post">
                             <table width="100%" style="margin-top:10px;">
                                 <tbody><tr>
                                     <td class="usertd"></td>
@@ -41,15 +42,19 @@
                                     <td class="usertd"></td>
                                     <td>生日(yyyy-mm-dd)：</td>
                                     <td>
-                                        <input name="birthday" type="text"   id="agetxt" class="input-style" data-validation="birthdate">
+                                        <input name="birthday" type="text"   id="agetxt" class="input-style" data-validation="birthdate" value="<fmt:formatDate value="${user.birthday}" pattern="yyyy-MM-dd"/>">
+                                        
                                         </td>
                                 </tr>
                                 <tr>
                                     <td class="usertd"></td>
                                     <td>性 别：</td>
                                     <td>
-                                        <input id="RadioButton1" type="radio" name="gender" value="0" checked="checked"><label for="RadioButton1">男</label>
-                                        <input id="RadioButton2" type="radio" name="gender" value="1"><label for="RadioButton2">女</label>
+                                    	
+                                    	
+                                    	
+                                        <input id="RadioButton1" type="radio" name="gender" value="male" <c:if test="${user.gender == 'male'}">checked="checked"</c:if> ><label >男</label>
+                                        <input id="RadioButton2" type="radio" name="gender" value="female" <c:if test="${user.gender == 'female'}">checked="checked"</c:if> ><label >女</label>
                                         
                                         </td>
                                 </tr>
@@ -63,7 +68,7 @@
                                     <td class="usertd"></td>
                                     <td>联系电话：</td>
                                     <td>
-                                        <input name="telephone" type="text" maxlength="20" size="30" id="phonetxt" class="input-style" value="${user.phone}" data-validation="telephone"></td>
+                                        <input name="telephone" type="text" maxlength="20" size="30" id="phonetxt" class="input-style" value="${user.telephone}" data-validation="telephone"></td>
                                 </tr>
                                 <tr>
                                     <td class="usertd"></td>
@@ -76,8 +81,8 @@
                                     <td class="usertd"></td>
                                     <td>隐私保护：</td>
                                     <td>
-                                        <input id="RadioButton3" type="radio" name="ys" value="RadioButton3" checked="checked"><label for="RadioButton3">不公开我的注册信息</label>
-                                        <input id="RadioButton4" type="radio" name="ys" value="RadioButton4" checked="checked"><label for="RadioButton4">公开我的注册信息</label></td>
+                                        <input  type="radio" name="open" value="0" <c:if test="${user.open == 0}">checked="checked"</c:if> ><label >不公开我的注册信息</label>
+                                        <input  type="radio" name="open" value="1" <c:if test="${user.open == 1}">checked="checked"</c:if> ><label >公开我的注册信息</label></td>
                                 </tr>
                                 <tr>
                                     <td class="usertd"></td>
