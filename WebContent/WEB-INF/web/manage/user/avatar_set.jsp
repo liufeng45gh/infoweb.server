@@ -5,55 +5,71 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <jsp:include page="../head.jsp"></jsp:include>
 <body>
+<script src="/flash/swfobject.js"></script>
 <jsp:include page="../navigation.jsp"></jsp:include>
         <div class="globalContainer clearfix">
             <div class="mainContainer">
                 <div class="rightCol">
-                    <div class="right_top">
-                        <span class="button on"><a href="#" class="btn-b">修改头像</a></span>
-                    </div>
+                   
                     <div>
                         <div class="rightBody">
+                        	
                             <table width="100%" style="margin-top:10px;">
-                                <tbody><tr>
+                                <tbody>
+                           
+                                <tr style="height:110px;">
                                     <td class="usertd"></td>
-                                    <td>账号：</td>
+                                    <td><div style="margin-top:0px;margin-bottom:0px;">
+			                        		<div style="float:left;margin-top:20px;">头像：</div>
+			                        		<div style="float:left;margin-left:40px;"><div class="author_avatar_type_10" style="background-image:url(${user.availableAvatar});"></div></div>
+			                        	</div>
+                        			</td>
                                     <td>
-                                        <span id="username">${user.account}</span>
+                                        
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td class="usertd"></td>
-                                    <td>原密码：</td>
-                                    <td>
-                                        <input name="oldPassord" type="text" maxlength="10" id="truenametxt" class="input-style" >
-                                        <span id="RequiredFieldValidator4" style="color:Red;visibility:hidden;">原密码不能为空！</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="usertd"></td>
-                                    <td>新密码：</td>
-                                    <td>
-                                        <input name="newPassword" type="text" maxlength="10" id="truenametxt" class="input-style" >
-                                        <span id="RequiredFieldValidator4" style="color:Red;visibility:hidden;">新密码不能为空！</span></td>
+                                <tr>                                   
+                                    <td colspan="3">
+										<div  id="swfContent">
+										<script type="text/javascript">
+										$(document).ready(function (){
+											var upload_url = "/api/avatar/upload.json";
+	                                        var flashvars = {
+	                                            upload_url:upload_url,
+	                                            icon_url:  "${user.availableAvatar}"
+	                                        };
+	                                        var params = {
+	                                            menu: "false",
+	                                            scale: "noScale",
+	                                            allowFullscreen: "false",
+	                                            allowScriptAccess: "always",
+	                                            bgcolor: "black",
+	                                            wmode: "opaque" // can cause issues with FP settings & webcam
+	                                        };
+	                                        var attributes = {
+	                                            id:"user_icon_edit"
+	                                        };
+	                                        swfobject.embedSWF(
+	                                                "/flash/user_icon_edit.swf?version=1.1",
+	                                                "swfContent", "683", "315", "10.0.0",
+	                                                "/flash/expressInstall.swf",
+	                                                flashvars, params, attributes);
+										});
+										</script>
+										</div>
+                                    </td>
                                 </tr>
                                 
-                               
-                             
-                                <tr>
-                                    <td class="usertd"></td>
-                                    <td>重复新密码：</td>
-                                    <td>
-                                        <input name="repPassword" type="text" maxlength="20" size="30" id="phonetxt" class="input-style" ></td>
-                                        <span id="RequiredFieldValidator4" style="color:Red;visibility:hidden;">重复密码！</span></td>
-                                </tr>
                               
-                              
+                              <!-- 
                                 <tr>
                                     <td class="usertd"></td>
                                     <td colspan="2" style="height: 40px;">
-                                        <input type="submit" name="Button1" value="确定修改" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;Button1&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="Button1" class="posted-t">
-                                        <input id="Reset1" type="reset" value="取消重填" class="posted-t"></td>
+                                         <input type="submit"  value="确定修改"  class="simple_button">
+                                        <input  type="reset" value="取消重填" class="simple_button"  style="margin-left:30px;">
+                                    </td>
                                 </tr>
+                                 -->
                                 <tr>
                                     <td class="usertd"></td>
                                     <td></td>
@@ -76,7 +92,24 @@
         
 <jsp:include page="../footer.jsp"></jsp:include>
 
+<script type="text/javascript">
 
+
+function uploadImageCallBack(up_success_url){
+     //alert(up_success_url);
+     var data_send = {};
+     data_send.avatar = up_success_url;
+     data_send.random = Math.random();
+     $.post('/manage/avatar_set.json',data_send,updateUserIconCallBack,'json');
+}
+
+function updateUserIconCallBack(data,textStatus){
+    window.location.reload();
+}
+$(document).ready(function (){
+	$("#left_menu_avatar").addClass("current");
+});
+</script>
 
 
 </body></html>

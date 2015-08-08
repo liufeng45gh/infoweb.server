@@ -110,14 +110,11 @@
 			<value>${maxIdleTime}</value>
 		</property>
 	</bean>
-	
-
-	
-	
-	
-	
-	
-	
+		
+	<bean id="storeBase" class="java.lang.String" >
+		<constructor-arg value="/data/www/infoweb"></constructor-arg>
+		<!--<constructor-arg value="/Users/flyxk/git/reading/reading_cloud"></constructor-arg>-->
+	</bean>
 	
 	
 	<bean id="multipartResolver"  class="org.springframework.web.multipart.commons.CommonsMultipartResolver">    

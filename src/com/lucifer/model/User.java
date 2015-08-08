@@ -2,6 +2,10 @@ package com.lucifer.model;
 
 import java.util.Date;
 
+import com.sun.xml.internal.ws.message.StringHeader;
+
+import nl.siegmann.epublib.util.StringUtil;
+
 public class User {
 	
 	private Long  id;
@@ -216,6 +220,13 @@ public class User {
 
 	public void setAvatar(String avatar) {
 		this.avatar = avatar;
+	}
+	
+	public String getAvailableAvatar(){
+		if(StringUtil.isEmpty(this.avatar)){
+			return "/images/default_head.jpg";
+		}
+		return this.avatar;
 	}
 
 	public String getReal_name() {

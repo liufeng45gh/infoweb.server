@@ -9,11 +9,10 @@
         <div class="globalContainer clearfix">
             <div class="mainContainer">
                 <div class="rightCol">
-                    <div class="right_top">
-                        <span class="button on"><a href="#" class="btn-b">修改密码</a></span><span style="margin-left:50px;font-size:18px;color:${KEY_RESULT_MESSAGE_COLOR};" >${KEY_RESULT_MESSAGE}</span>
-                    </div>
+                    
                     <div>
                         <div class="rightBody">
+                        <div><span style="margin-left:50px;font-size:18px;color:${KEY_RESULT_MESSAGE_COLOR};" >${KEY_RESULT_MESSAGE}</span></div>
                         <form action="/manage/password_set" method="post">
                             <table width="100%" style="margin-top:10px;">
                             	
@@ -94,6 +93,8 @@
     $.validate({
         modules : 'date, security'
     });
+    
+    $("#left_menu_password").addClass("current");
 </script>
 
 

@@ -15,11 +15,12 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lucifer.dao.UserDao;
 import com.lucifer.model.User;
 import com.lucifer.util.CommonConstant;
+import com.lucifer.util.Result;
 import com.lucifer.util.ViewHelper;
 
 @Controller
@@ -38,7 +39,9 @@ public class WebUserController {
 	}
 	
 	@RequestMapping(value = "/manage/index", method = RequestMethod.GET)
-	public String index(){
+	public String index(HttpServletRequest request){
+		User user = ViewHelper.getInstance().getWebTokenUser(request);
+		request.setAttribute("user", user);
 		return "/WEB-INF/web/manage/user/index.jsp";
 	}
 	
@@ -100,12 +103,13 @@ public class WebUserController {
 		return "/WEB-INF/web/manage/user/avatar_set.jsp";
 	}
 	
-	@RequestMapping(value = "/manage/avatar_set", method = RequestMethod.POST)
-	public String avatarSetSubmit(String avatar,HttpServletRequest request){
+	@RequestMapping(value = "/manage/avatar_set.json", method = RequestMethod.POST)
+	@ResponseBody
+	public Result avatarSetSubmit(String avatar,HttpServletRequest request){
 		User user = ViewHelper.getInstance().getWebTokenUser(request);
 		user.setAvatar(avatar);
 		userDao.updateUserAvatar(user);
-		return "redirect:/manage/avatar_set";
+		return Result.ok();
 	}
 
 }

@@ -10,9 +10,7 @@
         <div class="globalContainer clearfix">
             <div class="mainContainer">
                 <div class="rightCol">
-                    <div class="right_top">
-                        <span class="button on"><a href="#" class="btn-b">修改基本信息</a></span>
-                    </div>
+                    
                     <div>
                         <div class="rightBody">
                         	<form id="info_form" action="/manage/info_set" method="post">
@@ -127,6 +125,7 @@
     $.validate({
         modules : 'date, security'
     });
+    $("#left_menu_info").addClass("current");
 </script>
 
 </body></html>
