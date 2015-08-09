@@ -31,12 +31,13 @@
     <div class="viptop-r">
         <a href="http://beijing.qd8.com.cn/users/S_Category.aspx" class="btnorg" target="_blank">免费发布信息</a>
     </div>
+   
 </div>
 <div class="vipnav" style="margin-top: 8px;">
     <div class="v-nav">
         <ul style="float: left;">
-            <li class="here"><a href="/manage.html"><span>首 页</span></a></li>
-            <li><a href="myresume.html"><span>我的简历</span></a></li>
+            <li id="top_nav_index"><a href="/manage/index"><span>首 页</span></a></li>
+            <li id="top_nav_resume" ><a href="/manage/resume/list"><span>我的简历</span></a></li>
             <li><a href="/myjob.html"><span>我的招聘</span></a></li>
             <li><a href="/mystore.html"><span>我的店铺</span></a></li>
             <li><a href="/myneed.html"><span>我的求助</span></a></li>

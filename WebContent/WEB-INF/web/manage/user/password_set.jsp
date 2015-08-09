@@ -14,57 +14,48 @@
                         <div class="rightBody">
                         <div><span style="margin-left:50px;font-size:18px;color:${KEY_RESULT_MESSAGE_COLOR};" >${KEY_RESULT_MESSAGE}</span></div>
                         <form action="/manage/password_set" method="post">
-                            <table width="100%" style="margin-top:10px;">
-                            	
-                                <tbody><tr>
-                                    <td class="usertd"></td>
-                                    <td>账号：</td>
-                                    <td>
-                                        <span id="username">${user.account}</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="usertd"></td>
-                                    <td>原密码：</td>
-                                    <td>
-                                        <input name="oldPassword" type="password"  maxlength="20"  class="input-style" data-validation="length" data-validation-length="min6" >
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="usertd"></td>
-                                    <td>新密码：</td>
-                                    <td>
-                                        <input name="newPassword" id="newPassword" type="password"  maxlength="20"  class="input-style" data-validation="length" data-validation-length="min6" >
-                                        </td>
-                                </tr>
-                                
-                               
-                             
-                                <tr>
-                                    <td class="usertd"></td>
-                                    <td>重复新密码：</td>
-                                    <td>
-                                        <input name="repPassword" type="password"  maxlength="20" size="30"  class="input-style" data-validation="length,equals" data-validation-length="min6" >
-                                    </td>
-  
-                                </tr>
-                              
-                              
-                                <tr>
-                                    <td class="usertd"></td> 
-                                    <td colspan="2" style="height: 40px;">
-                                        <input type="submit"  value="确定修改"  class="simple_button">
-                                        <input  type="reset" value="取消重填" class="simple_button"  style="margin-left:30px;">
-                                        </td>
-                                </tr>
-                                <tr>
-                                    <td class="usertd"></td>
-                                    <td></td>
-                                    <td>
-                                        <span id="lblMessage"></span></td>
-                                </tr>
-                            </tbody>
-                            </table>
+                        <div class="info-con " id="base_area" style="padding-left:20px;">
+                        	<div class="resume-item">
+					            <span class="label">
+					                账<i class="spacing2"></i>号：
+					            </span>
+					            <div class="item-info">
+					               ${user.account}
+					            </div>
+					        </div>
+					        <div class="resume-item">
+					            <span class="label">
+					                原密码：
+					            </span>
+					            <div class="item-info">
+					                <input name="oldPassword" type="password"  maxlength="20"  class="input-style" data-validation="length" data-validation-length="min6" >
+					            </div>
+					        </div>
+					        
+					         <div class="resume-item">
+					            <span class="label">
+					                新密码：
+					            </span>
+					            <div class="item-info">
+					                <input name="newPassword" id="newPassword" type="password"  maxlength="20"  class="input-style" data-validation="length" data-validation-length="min6" >
+					            </div>
+					        </div>
+					        
+					         <div class="resume-item">
+					            <span class="label">
+					                新密码：
+					            </span>
+					            <div class="item-info">
+					                <input name="repPassword" type="password"  maxlength="20" size="30"  class="input-style" data-validation="length,equals" data-validation-length="min6" >
+					            </div>
+					        </div>
+					        
+                        </div>
+                        <div style="margin-left:125px;margin-top:20px;"> 
+                    		<input type="submit"  value="确定修改"   class="simple_button">
+                            <input  type="reset" value="取消重填" class="simple_button" style="margin-left:30px;">
+                        </div>
+                           
                             </form>
                         </div>
 

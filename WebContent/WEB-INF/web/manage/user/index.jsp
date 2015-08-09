@@ -11,43 +11,48 @@
                 <div class="rightCol">
                     <div>
                         <div class="rightBody">
-                            <table width="100%" style="margin-top:10px;">
-                                <tbody><tr>
-                                    <td class="usertd"></td>
-                                    <td >账号：</td>
-                                    <td >
-                                        <span>${user.account}</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="usertd"></td>
-                                    <td >昵称：</td>
-                                    <td>
-                                         <span >${user.nick}</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="usertd"></td>
-                                    <td >真实姓名：</td>
-                                    <td>
-                                        <span>${user.real_name}</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="usertd"></td>
-                                    <td >头像：</td>
-                                    <td>
-                                        <div style="float:left;margin-left:0px;"><div class="author_avatar_type_10" style="background-image:url(${user.availableAvatar});"></div></div>
-                                    </td>
-                                </tr>
-                               
-                                <tr>
-                                    <td class="usertd"></td>
-                                    <td></td>
-                                    <td>
-                                        <span id="lblMessage"></span></td>
-                                </tr>
-                            </tbody></table>
+                        
+                        
+						   <div class="info-con " id="base_area" style="padding-left:20px;">
+								<div class="resume-item">
+						            <span class="label">
+						                账<i class="spacing2"></i>号：
+						            </span>
+						            <div class="item-info">
+						               ${user.account}
+						            </div>
+						        </div>
+						        <div class="resume-item" >
+						            <span class="label">
+						                昵<i class="spacing2"></i>称：
+						            </span>
+						            <div class="item-info select_input_div">
+						                ${user.nick}
+						            </div>
+						
+						        </div>
+						        <div class="resume-item" >
+						            <span class="label">
+						                真实姓名：
+						            </span>
+						            <div class="item-info">
+						                ${user.real_name}
+						             </div>
+						        </div>
+						        
+						        <div class="resume-item">
+						            <span class="label" style="margin-top:20px;">头<i class="spacing2"></i>像：</span>
+						            <div class="item-info">
+						                <div style="float:left;margin-left:0px;"><div class="author_avatar_type_10" style="background-image:url(${user.availableAvatar});"></div></div>          
+						        	</div>
+						        	
+						        	
+						        </div>
+						        
+						         
+						        
+						    </div>   
+                           
                         </div>
 
                     </div>

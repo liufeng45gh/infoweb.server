@@ -917,8 +917,18 @@ padding-right: 13px;
         }
 
         a.btnorg {
-            background: #fd9603;
             border: 1px solid #fd9603;
+            width:100px;
+            background-color:#ed7612;  
+            border:1px solid #d50; 
+            color:#fff; 
+            display:inline-block; 
+            font-size:14px; 
+            font-weight:bold; 
+            height:33px; 
+            line-height:33px; 
+            overflow:hidden; 
+            padding:0 15px;
         }
 
         a:hover {

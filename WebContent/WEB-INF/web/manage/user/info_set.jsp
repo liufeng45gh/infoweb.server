@@ -14,87 +14,76 @@
                     <div>
                         <div class="rightBody">
                         	<form id="info_form" action="/manage/info_set" method="post">
-                            <table width="100%" style="margin-top:10px;">
-                                <tbody><tr>
-                                    <td class="usertd"></td>
-                                    <td>账号：</td>
-                                    <td>
-                                        <span id="username">${user.account}</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="usertd"></td>
-                                    <td>昵称：</td>
-                                    <td>
-                                        <input name="nick" type="text" maxlength="10" id="truenametxt" class="input-style" value="${user.nick}"  data-validation="length" data-validation-length="min4">
-                                       </td>
-                                </tr>
-                                <tr>
-                                    <td class="usertd"></td>
-                                    <td>真实姓名：</td>
-                                    <td>
-                                        <input name="real_name" type="text" maxlength="10" id="truenametxt" class="input-style" value="${user.real_name}"  data-validation="required">
-                                       </td>
-                                </tr>
-                                <tr>
-                                    <td class="usertd"></td>
-                                    <td>生日(yyyy-mm-dd)：</td>
-                                    <td>
-                                        <input name="birthday" type="text"   id="agetxt" class="input-style" data-validation="birthdate" value="<fmt:formatDate value="${user.birthday}" pattern="yyyy-MM-dd"/>">
-                                        
-                                        </td>
-                                </tr>
-                                <tr>
-                                    <td class="usertd"></td>
-                                    <td>性 别：</td>
-                                    <td>
-                                    	
-                                    	
-                                    	
-                                        <input id="RadioButton1" type="radio" name="gender" value="male" <c:if test="${user.gender == 'male'}">checked="checked"</c:if> ><label >男</label>
-                                        <input id="RadioButton2" type="radio" name="gender" value="female" <c:if test="${user.gender == 'female'}">checked="checked"</c:if> ><label >女</label>
-                                        
-                                        </td>
-                                </tr>
-                                <tr>
-                                    <td class="usertd"></td>
-                                    <td>EMAIL：</td>
-                                    <td>
-                                        <input name="email" type="text" value="${user.email }" maxlength="30" size="40" id="emailtxt" class="input-style"  data-validation="email"></td>
-                                </tr>
-                                <tr>
-                                    <td class="usertd"></td>
-                                    <td>联系电话：</td>
-                                    <td>
-                                        <input name="telephone" type="text" maxlength="20" size="30" id="phonetxt" class="input-style" value="${user.telephone}" data-validation="telephone"></td>
-                                </tr>
-                                <tr>
-                                    <td class="usertd"></td>
-                                    <td>联系地址：</td>
-                                    <td>
-                                        <input name="residence" type="text" maxlength="50" size="60" id="addresstxt" class="input-style" value="${user.residence}"></td>
-                                </tr>
-                 
-                                <tr>
-                                    <td class="usertd"></td>
-                                    <td>隐私保护：</td>
-                                    <td>
-                                        <input  type="radio" name="open" value="0" <c:if test="${user.open == 0}">checked="checked"</c:if> ><label >不公开我的注册信息</label>
-                                        <input  type="radio" name="open" value="1" <c:if test="${user.open == 1}">checked="checked"</c:if> ><label >公开我的注册信息</label></td>
-                                </tr>
-                                <tr>
-                                    <td class="usertd"></td>
-                                    <td colspan="2" style="height: 40px;">
-                                        <input type="submit"  value="确定修改"   class="simple_button">
-                                        <input  type="reset" value="取消重填" class="simple_button" style="margin-left:30px;"></td>
-                                </tr>
-                                <tr>
-                                    <td class="usertd"></td>
-                                    <td></td>
-                                    <td>
-                                        <span id="lblMessage"></span></td>
-                                </tr>
-                            </tbody></table>
+                        	<div class="info-con " id="base_area" style="padding-left:20px;">                       	
+                        		<div class="resume-item">
+						            <span class="label">
+						                账<i class="spacing2"></i>号：
+						            </span>
+						            <div class="item-info">
+						               ${user.account}
+						            </div>
+						        </div>
+						        
+						        <div class="resume-item">
+						            <span class="label">
+						                <b>*</b>昵<i class="spacing2"></i>称：
+						            </span>
+						            <div class="item-info">
+						               <input name="nick" type="text" maxlength="10" id="truenametxt" class="input-style" value="${user.nick}"  data-validation="length" data-validation-length="min4">
+						                
+						            </div>
+						        </div>
+						        <div class="resume-item">
+						            <span class="label">
+						                <b>*</b>真实姓名：
+						            </span>
+						            <div class="item-info">
+						                <input name="real_name" type="text" maxlength="10" id="truenametxt" class="input-style" value="${user.real_name}"  data-validation="required" placeholder="简历需要您的真实姓名">
+						                
+						            </div>
+						        </div>
+						        
+						        <div class="resume-item">
+						            <span class="label">
+						                <b>*</b>生<i class="spacing2"></i>日：
+						            </span>
+						            <div class="item-info">
+						                <input name="birthday" type="text"   id="agetxt" class="input-style" data-validation="birthdate" value="<fmt:formatDate value="${user.birthday}" pattern="yyyy-MM-dd"/>">
+						                
+						            </div>
+						        </div>
+						         <div class="resume-item">
+						            <span class="label">性<i class="spacing2"></i>别：</span>
+						            <div class="item-info">
+						                 <input id="RadioButton1" type="radio" name="gender" value="male" <c:if test="${user.gender == 'male'}">checked="checked"</c:if> ><label >男</label>
+                                         <input id="RadioButton2" type="radio" name="gender" value="female" <c:if test="${user.gender == 'female'}">checked="checked"</c:if> ><label >女</label>          
+						        	</div>					        	
+						        </div>
+						        <div class="resume-item">
+						            <span class="label">
+						                <b>*</b>EMAIL：
+						            </span>
+						            <div class="item-info">
+						                <input name="email" type="text" value="${user.email }" maxlength="30" size="40" id="emailtxt" class="input-style"  data-validation="email">
+						                
+						            </div>
+						        </div>
+						         <div class="resume-item">
+						            <span class="label">
+						                <b>*</b>隐私保护：
+						            </span>
+						            <div class="item-info">
+						               <input  type="radio" name="open" value="0" <c:if test="${user.open == 0}">checked="checked"</c:if> ><label >不公开我的注册信息</label>
+                                        <input  type="radio" name="open" value="1" <c:if test="${user.open == 1}">checked="checked"</c:if> ><label >公开我的注册信息</label>		                
+						            </div>
+						        </div>
+						        
+                        	</div>
+                        	<div style="margin-left:125px;margin-top:20px;"> 
+                        		<input type="submit"  value="确定修改"   class="simple_button">
+                                <input  type="reset" value="取消重填" class="simple_button" style="margin-left:30px;">
+                            </div>
+                           
                             </form>
                         </div>
 

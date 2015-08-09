@@ -22,5 +22,10 @@
       
 </div>
 <div class="clearfix">&nbsp;</div>
+<script type="text/javascript">
+<!--
+$("#top_nav_index").addClass("here");
+//-->
+</script>
 
 

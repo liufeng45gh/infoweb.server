@@ -36,3 +36,88 @@
   background-image: url(/images//vipicon.png);
   background-repeat: no-repeat;
 }
+.tit {
+  padding: 0 0 0 10px;
+  font-weight: bold;
+  color: #4b4b4b;
+  font-size: 14px;
+  line-height: 33px;
+  background-color: #f4f4f4;
+}
+.info-con {
+  padding: 25px 0 0 0;
+}
+.resume-item {
+  line-height: 30px;
+  height: 30px;
+  padding-bottom: 10px;
+  font-size: 14px;
+  clear: both;
+  zoom: 1;
+}
+.label {
+  display: inline-block;
+  float: left;
+  width: 115px;
+  padding-right: 10px;
+  text-align: right;
+  font-size: 14px;
+  color: #4b4b4b;
+}
+.item-info {
+  float: left;
+
+}
+.text {
+  float: left;
+  padding: 6px 8px;
+  border: solid 1px #ccc;
+  height: 16px;
+  line-height: 16px;
+  font-size: 14px;
+  width: 232px;
+  color: #4b4b4b;
+  overflow: hidden;
+}
+.label b {
+  color: #ee3202;
+  font-family: 'SimSun';
+  font-weight: normal;
+  margin-right: 10px;
+}
+.spacing2 {
+  width: 2em;
+  display: inline-block;
+}
+.sel-text {
+  padding: 6px 30px 6px 8px;
+  float: left;
+  border: solid 1px #ccc;
+  height: 16px;
+  line-height: 16px;
+  font-size: 14px;
+  width: 210px;
+  color: #4b4b4b;
+  overflow: hidden;
+}
+.w80 {
+  width: 80px;
+}
+.sel-arrow {
+  position: absolute;
+  right: 0;
+  top: 1px;
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-position: 0 1px;
+  cursor: pointer;
+  background: url('/images/pub_resume_ico.png') no-repeat;
+}
+.select_input_div{
+	float:left;position:relative;
+}
+.isAgree {
+  padding: 10px 0 0 125px;
+  font-size: 14px;
+}

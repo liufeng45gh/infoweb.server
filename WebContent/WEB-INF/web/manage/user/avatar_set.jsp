@@ -13,25 +13,16 @@
                    
                     <div>
                         <div class="rightBody">
-                        	
-                            <table width="100%" style="margin-top:10px;">
-                                <tbody>
-                           
-                                <tr style="height:110px;">
-                                    <td class="usertd"></td>
-                                    <td><div style="margin-top:0px;margin-bottom:0px;">
-			                        		<div style="float:left;margin-top:20px;">头像：</div>
-			                        		<div style="float:left;margin-left:40px;"><div class="author_avatar_type_10" style="background-image:url(${user.availableAvatar});"></div></div>
-			                        	</div>
-                        			</td>
-                                    <td>
-                                        
-                                    </td>
-                                </tr>
-                                <tr>                                   
-                                    <td colspan="3">
-										<div  id="swfContent">
-										<script type="text/javascript">
+	                        <div class="info-con " id="base_area" style="padding-left:20px;">  
+	                        	<div class="resume-item" style="height:80px;border-bottom: 1px solid #ddd;">
+						            <span class="label" style="margin-top:20px;width:80px;">您的头像：</span>
+						            <div class="item-info">
+						                <div style="float:left;margin-left:0px;"><div class="author_avatar_type_10" style="background-image:url(${user.availableAvatar});"></div></div>          
+						        	</div>						        							        	
+						        </div>
+						        <div class="resume-item" style="margin-top:20px;">
+						           <div id="swfContent" >
+						           		<script type="text/javascript">
 										$(document).ready(function (){
 											var upload_url = "/api/avatar/upload.json";
 	                                        var flashvars = {
@@ -56,27 +47,11 @@
 	                                                flashvars, params, attributes);
 										});
 										</script>
-										</div>
-                                    </td>
-                                </tr>
-                                
-                              
-                              <!-- 
-                                <tr>
-                                    <td class="usertd"></td>
-                                    <td colspan="2" style="height: 40px;">
-                                         <input type="submit"  value="确定修改"  class="simple_button">
-                                        <input  type="reset" value="取消重填" class="simple_button"  style="margin-left:30px;">
-                                    </td>
-                                </tr>
-                                 -->
-                                <tr>
-                                    <td class="usertd"></td>
-                                    <td></td>
-                                    <td>
-                                        <span id="lblMessage"></span></td>
-                                </tr>
-                            </tbody></table>
+						           </div>						        	
+						        </div>
+	                        </div>
+                        	
+                           
                         </div>
 
                     </div>
