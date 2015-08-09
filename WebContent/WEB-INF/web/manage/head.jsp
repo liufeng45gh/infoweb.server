@@ -13,6 +13,7 @@
 <script src="/script/jquery-1.9.1.min.js" type="text/javascript"></script>
 <script src="/script/jquery.form-validator.js" type="text/javascript"></script>
 <script src="/script/common.js" type="text/javascript"></script>
+<script  type="text/javascript" src="/My97DatePicker/WdatePicker.js"></script>
 </head>
 
 <style>

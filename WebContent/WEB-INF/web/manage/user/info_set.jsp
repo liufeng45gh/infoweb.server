@@ -5,6 +5,7 @@
 <!-- saved from url=(0061)http://user.qd8.com.cn/users/usbaselist/users_emailcheck.aspx -->
 <html xmlns="http://www.w3.org/1999/xhtml">
 <jsp:include page="../head.jsp"></jsp:include>
+
 <body>
 <jsp:include page="../navigation.jsp"></jsp:include>
         <div class="globalContainer clearfix">
@@ -45,11 +46,13 @@
 						        
 						        <div class="resume-item">
 						            <span class="label">
-						                <b>*</b>生<i class="spacing2"></i>日：
+						                <b>*</b>出生日期：
 						            </span>
 						            <div class="item-info">
-						                <input name="birthday" type="text"   id="agetxt" class="input-style" data-validation="birthdate" value="<fmt:formatDate value="${user.birthday}" pattern="yyyy-MM-dd"/>">
-						                
+						            	<div class="select_input_div">
+						                	<input name="birthday" type="text"   id="birthday" onClick="WdatePicker({el:'birthday'})" readonly style="cursor: pointer;" class="input-style" data-validation="birthdate" value="<fmt:formatDate value="${user.birthday}" pattern="yyyy-MM-dd"/>">
+						                	<div class="sel-arrow js-select-show" onClick="WdatePicker({el:'birthday'})"></div>						            	
+						            	</div>
 						            </div>
 						        </div>
 						         <div class="resume-item">
@@ -68,6 +71,15 @@
 						                
 						            </div>
 						        </div>
+						        <div class="resume-item" >
+						            <span class="label">
+						                手<i class="spacing2"></i>机：
+						            </span>
+						            <div class="item-info">
+						                <input data-role="input" name="telephone"  maxlength="18" type="text" value="${user.telephone }" class="text"  >
+						             </div>
+						        </div>
+        
 						         <div class="resume-item">
 						            <span class="label">
 						                <b>*</b>隐私保护：

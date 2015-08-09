@@ -1,5 +1,6 @@
 <%@ page language="java" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <div class="create-resume">
 	<div class="tit ">填写简历信息</div>
 	<div class="info-con " id="base_area" style="padding-left:20px;">
@@ -27,24 +28,22 @@
                 <b>*</b>姓<i class="spacing2"></i>名：
             </span>
             <div class="item-info">
-                <input data-role="input" name="title" id="title" maxlength="18" type="text" value="" class="text" size="40" >
+                <input data-role="input" name="title" id="title" maxlength="18" type="text" value="${user.real_name}" class="text" size="40" >
              </div>
         </div>
         
         <div class="resume-item">
             <span class="label">性<i class="spacing2"></i>别：</span>
             <div class="item-info">
-                <div class="select_input_div">
-                	<input type="text" value="男" readonly class="sel-text" style="width:20px;">
-                	<div class="sel-arrow js-select-show" ></div>
-                </div>            
-        	</div>
+                 <input id="RadioButton1" type="radio" name="gender" value="male" <c:if test="${user.gender == 'male'}">checked="checked"</c:if> ><label >男</label>
+                                   <input id="RadioButton2" type="radio" name="gender" value="female" <c:if test="${user.gender == 'female'}">checked="checked"</c:if> ><label >女</label>          
+        	</div>		
         	
         	<span class="label">出生日期：</span>
         	
         	<div class="item-info">
                 <div class="select_input_div">
-                	<input type="text" readonly class="sel-text" style="width:120px;">
+                	<input type="text" readonly class="sel-text" style="width:120px;" data-validation="birthdate" value="<fmt:formatDate value="${user.birthday}" pattern="yyyy-MM-dd"/>">
                 	<div class="sel-arrow js-select-show" ></div>
                 </div>            
         	</div>
@@ -55,8 +54,8 @@
                 <b>*</b>开始工作时间：
             </span>
             <div class="item-info select_input_div">
-                <input data-role="input" name="title" id="title" maxlength="18" type="text" value="" class="text" size="40" placeholder="请选择">
-                <div class="sel-arrow js-select-show" ></div>
+                <input name="start_work_date" id="start_work_date" value="" readonly class="text"  placeholder="请选择" onClick="WdatePicker({el:'start_work_date'})">
+                <div class="sel-arrow js-select-show" onClick="WdatePicker({el:'start_work_date'})"></div>
             </div>
 
         </div>
@@ -102,7 +101,7 @@
                 <b>*</b>手<i class="spacing2"></i>机：
             </span>
             <div class="item-info">
-                <input data-role="input" name="title" id="title" maxlength="18" type="text" value="" class="text"  >
+                <input data-role="input" name="telephone"  maxlength="18" type="text" value="${user.telephone }" class="text"  >
              </div>
         </div>
         
