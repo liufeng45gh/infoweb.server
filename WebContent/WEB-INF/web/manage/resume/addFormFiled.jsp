@@ -43,7 +43,7 @@
         	
         	<div class="item-info">
                 <div class="select_input_div">
-                	<input type="text" readonly class="sel-text" style="width:120px;" data-validation="birthdate" value="<fmt:formatDate value="${user.birthday}" pattern="yyyy-MM-dd"/>">
+                	<input type="text" readonly class="sel-text" style="width:120px;" id="birthday" name="birthday" data-validation="birthdate" value="<fmt:formatDate value="${user.birthday}" pattern="yyyy-MM-dd"/>">
                 	<div class="sel-arrow js-select-show" ></div>
                 </div>            
         	</div>
