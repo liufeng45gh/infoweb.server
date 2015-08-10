@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lucifer.model">  
+  <insert id="insertResume">
+  	insert into resume 
+  	(id,user_id,city_id,industry_id,position_id,nature,salary,current_status,evaluation,specialty,start_work_date)
+  	values
+  	(#{id},#{user_id},#{city_id},#{industry_id},#{position_id},#{nature},#{salary},#{current_status},#{evaluation},
+  	#{specialty},#{start_work_date})
+  </insert>
+  <update id="updateResume">
+  update resume
+  set city_id = #{city_id},industry_id=#{industry_id},position_id=#{position_id},nature=#{nature},salary=#{salary},
+  		current_status=#{current_status}, evaluation=#{evaluation}, specialty=#{specialty},start_work_date=#{start_work_date} 
+  </update>
+  <select id="userResumeList" resultType="com.lucifer.model.Resume">
+  select * from resume where user_id=#{user_id}
+  </select>
+	
+</mapper>

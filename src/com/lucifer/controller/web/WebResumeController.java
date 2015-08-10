@@ -23,5 +23,23 @@ public class WebResumeController {
 		request.setAttribute("user", user);
 		return "/WEB-INF/web/manage/resume/resumeAdd.jsp";
 	}
+	
+	@RequestMapping(value = "/manage/resume/add", method = RequestMethod.POST)
+	public String resumeAddSubmit(){
+		return "redirect:/manage/resume/update?id=";
+	}
+	
+	@RequestMapping(value = "/manage/resume/update", method = RequestMethod.GET)
+	public String resumeUpdateInput(HttpServletRequest request){
+		User user = ViewHelper.getInstance().getWebTokenUser(request);
+		request.setAttribute("user", user);
+		return "/WEB-INF/web/manage/resume/resumeUpdate.jsp";
+	}
+	
+	
+	@RequestMapping(value = "/manage/resume/simpleUpdate", method = RequestMethod.GET)
+	public String simpleInfoUpdateInput(){
+		return "/WEB-INF/web/manage/resume/resumeAdd.jsp";
+	}
 
 }
