@@ -103,6 +103,9 @@
 .w80 {
   width: 80px;
 }
+.w90 {
+  width: 90px;
+}
 .sel-arrow {
   position: absolute;
   right: 0;
@@ -120,4 +123,27 @@
 .isAgree {
   padding: 10px 0 0 125px;
   font-size: 14px;
+}
+.sel-option {
+  padding: 1px;
+  position: absolute;
+  top: 29px;
+  left: 0;
+  background: #fff;
+  border: solid 1px #ccc;
+  box-shadow: 0 0 3px #e5e5e5;
+  z-index: 10;
+  display: none;
+}
+.w116 {
+  width: 116px;
+}
+.sel-option a {
+  display: block;
+  line-height: 26px;
+  height: 26px;
+  overflow: hidden;
+  padding-left: 5px;
+  color: #4b4b4b;
+  text-decoration: none;
 }

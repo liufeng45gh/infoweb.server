@@ -35,16 +35,15 @@
         <div class="resume-item">
             <span class="label">性<i class="spacing2"></i>别：</span>
             <div class="item-info">
-                 <input id="RadioButton1" type="radio" name="gender" value="male" <c:if test="${user.gender == 'male'}">checked="checked"</c:if> ><label >男</label>
-                                   <input id="RadioButton2" type="radio" name="gender" value="female" <c:if test="${user.gender == 'female'}">checked="checked"</c:if> ><label >女</label>          
-        	</div>		
-        	
-        	<span class="label">出生日期：</span>
+                 <input  type="radio" name="gender" value="male" <c:if test="${user.gender == 'male'}">checked="checked"</c:if> ><label >男</label>
+                 <input style="margin-left:10px;" type="radio" name="gender" value="female" <c:if test="${user.gender == 'female'}">checked="checked"</c:if> ><label >女</label>          
+        	</div>		        	
+        	<span class="label" >出生日期：</span>
         	
         	<div class="item-info">
                 <div class="select_input_div">
-                	<input type="text" readonly class="sel-text" style="width:120px;" id="birthday" name="birthday" data-validation="birthdate" value="<fmt:formatDate value="${user.birthday}" pattern="yyyy-MM-dd"/>">
-                	<div class="sel-arrow js-select-show" ></div>
+                	<input type="text" readonly class="sel-text" style="width:100px;" id="birthday" name="birthday" onClick="WdatePicker({el:'birthday'})" data-validation="birthdate" value="<fmt:formatDate value="${user.birthday}" pattern="yyyy-MM-dd"/>">
+                	<div class="sel-arrow js-select-show" onClick="WdatePicker({el:'birthday'})"></div>
                 </div>            
         	</div>
         </div>
@@ -54,7 +53,7 @@
                 <b>*</b>开始工作时间：
             </span>
             <div class="item-info select_input_div">
-                <input name="start_work_date" id="start_work_date" value="" readonly class="text"  placeholder="请选择" onClick="WdatePicker({el:'start_work_date'})">
+                <input name="start_work_date" id="start_work_date" value="" readonly class="sel-text w80"  placeholder="请选择" onClick="WdatePicker({el:'start_work_date'})">
                 <div class="sel-arrow js-select-show" onClick="WdatePicker({el:'start_work_date'})"></div>
             </div>
 
@@ -64,9 +63,17 @@
             <span class="label">
                 <b>*</b>学<i class="spacing2"></i>历：
             </span>
-            <div class="item-info select_input_div">
-                <input data-role="input" name="title" id="title" maxlength="18" type="text" value="" class="text" size="40" placeholder="请选择">
-                <div class="sel-arrow js-select-show" ></div>
+            <div class="item-info select_input_div" id="education_info">
+                <input name="education" id="education" maxlength="18"  value="" readonly class="sel-text w80 js-select-show education" size="40" placeholder="请选择">
+                <div class="sel-arrow js-select-show education" ></div>
+                <div class="js-select-option sel-option w116" id="education_options">
+                    <a href="#" onclick="educationSelect(this);return false;" data-value="1">初中及以下</a>
+                    <a href="#" onclick="educationSelect(this);return false;" data-value="2">高中</a>
+                    <a href="#" onclick="educationSelect(this);return false;" data-value="5">中专/技校</a>
+                    <a href="#" onclick="educationSelect(this);return false;" data-value="3">大专</a>
+                    <a href="#" onclick="educationSelect(this);return false;" data-value="4">本科</a>
+                    <a href="#" onclick="educationSelect(this);return false;" data-value="6">硕士及以上</a>
+               </div>
             </div>
 
          </div>
@@ -91,8 +98,20 @@
             <span class="label">
                 <b>*</b>期望月薪：
             </span>
-            <div class="item-info">
-                <input data-role="input" name="title" id="title" maxlength="18" type="text" value="" class="text" style="width:100px;" >
+            <div class="item-info select_input_div">
+                <input name="salary" id="salary" maxlength="18" readonly value="面议" class="sel-text salary w80"  placeholder="请选择" >
+                <div class="sel-arrow js-select-show salary" ></div>
+                <div class="js-select-option sel-option w116" id="salary_options">
+                  <a href="#" onclick="salarySelect(this);return false;" data-value="0">面议</a>
+                  <a href="#" onclick="salarySelect(this);return false;" data-value="1">1000元以下</a>
+                  <a href="#" onclick="salarySelect(this);return false;" data-value="2">1000-2000元</a>
+                  <a href="#" onclick="salarySelect(this);return false;" data-value="3">2000-3000元</a>
+                  <a href="#" onclick="salarySelect(this);return false;" data-value="4">3000-5000元</a>
+                  <a href="#" onclick="salarySelect(this);return false;" data-value="5">5000-8000元</a>
+                  <a href="#" onclick="salarySelect(this);return false;" data-value="6">8000-12000元</a>
+                  <a href="#" onclick="salarySelect(this);return false;" data-value="7">12000-20000元</a>
+                  <a href="#" onclick="salarySelect(this);return false;" data-value="8">20000元以上</a>
+               </div>
              </div>
         </div>
         
@@ -109,8 +128,10 @@
             <span class="label">籍<i class="spacing2"></i>贯：</span>
             <div class="item-info">
                 <div class="select_input_div">
-                	<input type="text" value="请选择" readonly class="sel-text w80"  >
-                	<div class="sel-arrow js-select-show" ></div>
+                	<input  value="请选择" readonly class="sel-text w80 origin_place_province"  id="origin_place_province" >
+                	<div class="sel-arrow js-select-show origin_place_province" ></div>
+                	<div class="js-select-option sel-option w116" id="origin_place_province_options">
+                	</div>
                 </div>            
                 <div style="margin-left:20px;" class="select_input_div">
                 	<input type="text" value="请选择" readonly class="sel-text w80" >
