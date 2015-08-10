@@ -2,9 +2,8 @@ package com.lucifer.model;
 
 import java.util.Date;
 
-import com.sun.xml.internal.ws.message.StringHeader;
+import com.lucifer.util.StringUtil;
 
-import nl.siegmann.epublib.util.StringUtil;
 
 public class User {
 	
