@@ -53,6 +53,8 @@ public class User {
 	private String real_name;
 	
 	private Integer open;
+	
+	private String origin_place;
 
 	public Long getId() {
 		return id;
@@ -243,6 +245,14 @@ public class User {
 
 	public void setOpen(Integer open) {
 		this.open = open;
+	}
+
+	public String getOrigin_place() {
+		return origin_place;
+	}
+
+	public void setOrigin_place(String origin_place) {
+		this.origin_place = origin_place;
 	}
 	
 	
