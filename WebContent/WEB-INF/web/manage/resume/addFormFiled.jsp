@@ -134,8 +134,10 @@
                 	</div>
                 </div>            
                 <div style="margin-left:20px;" class="select_input_div">
-                	<input type="text" value="请选择" readonly class="sel-text w80" >
-                	<div class="sel-arrow js-select-show" ></div>
+                	<input type="text" value="请选择" readonly class="sel-text w80 origin_place_city" id="origin_place_city">
+                	<div class="sel-arrow js-select-show origin_place_city" ></div>
+                	<div class="js-select-option sel-option w116" id="origin_place_city_options">
+                	</div>
                 </div> 
         	</div>
         </div>

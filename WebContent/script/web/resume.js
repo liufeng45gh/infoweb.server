@@ -115,9 +115,12 @@ $(document).ready(function(){
 		//educationHid();
 	});
 	
-	$("#origin_place_province").change(function(){
-		resetOriginPlaceCity();
-	});
+//	$("#origin_place_province").change(function(){
+//		resetOriginPlaceCity();
+//	});
+//	$("#origin_place_province").on('input',function(e){  
+//		resetOriginPlaceCity();
+//	});  
 });
 
 function originPlaceProvinceHid(){
@@ -130,11 +133,12 @@ function originPlaceProvinceSelect(object){
 	//alert($(object).html());
 	$("#origin_place_province").val($(object).text());
 	$("#origin_place_province_options").css("display","none");	
+	resetOriginPlaceCity();
 }
 
 function initOriginPlaceDiv(){
 	var initHtml = $("#origin_place_province_options").html();
-	if(initHtml.trim()==""){
+	if(initHtml.trim()!=""){
 		return;
 	}
 	var send_data={};
@@ -169,5 +173,74 @@ function initOriginPlaceDiv(){
 
 
 
+/**
+ * -------------------------------------籍贯城市选择开始----------------------------------------------
+ */
 
+var origin_place_city_mouse_in = false;
+var origin_place_city_options_in = false;
+$(document).ready(function(){
+	$(".origin_place_city").click(function (){
+		$("#origin_place_city_options").css("display","block");
+		
+	});
+	$(".origin_place_city").mouseover(function(){
+		origin_place_city_mouse_in = true;
+	});
+	$(".origin_place_city").mouseout(function(){
+		origin_place_city_mouse_in = false;
+		setTimeout(originPlaceCityHid,1000);
+		//educationHid();
+	});
+	$("#origin_place_city_options").mouseover(function(){
+		origin_place_city_options_in = true;
+	});
+	$("#origin_place_city_options").mouseout(function(){
+		origin_place_city_options_in = false;
+		setTimeout(originPlaceCityHid,1000);
+		//educationHid();
+	});
+	
+	
+});
 
+function originPlaceCityHid(){
+	if(!(origin_place_city_options_in||origin_place_city_mouse_in)){
+		$("#origin_place_city_options").css("display","none");
+	}
+}
+
+function originPlaceCitySelect(object){
+	//alert($(object).html());
+	$("#origin_place_city").val($(object).text());
+	$("#origin_place_city_options").css("display","none");	
+}
+
+function resetOriginPlaceCity(){
+	//alert("resetOriginPlaceCity");
+	var send_data={};
+	   //alert(1);
+	send_data.random=Math.random();
+	send_data.name = $("#origin_place_province").val();
+	var account_request =$.ajax({
+	   type: 'POST',
+	   url: '/api/city/child_list.json',
+	   data: send_data,
+	   dataType: 'json'
+	});
+
+	account_request.fail(function( jqXHR, textStatus ) {
+     if(jqXHR.status==401){
+        //openWeiboLogin();
+     }
+	});
+
+	account_request.done(function(data) {
+		$("#origin_place_city_options").empty();
+      for(var i=0 ;i<data.length;i++){
+     	 var city = data[i];
+     	 var htmlString = '<a href="#" onclick="originPlaceCitySelect(this);return false;" >'+city.name+'</a>'
+     	 $("#origin_place_city_options").append(htmlString);
+      }         
+ });
+}

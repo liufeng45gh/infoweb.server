@@ -26,7 +26,8 @@ public class ApiCityController {
 	
 	@RequestMapping(value="/api/city/child_list.json",method = RequestMethod.POST)
 	@ResponseBody
-	public List<City> childList(Long id){
-		return cityDao.childList(id); 
+	public List<City> childList(String name){
+		City city = cityDao.getCityByName(name);
+		return cityDao.childList(city.getId()); 
 	}
 }
