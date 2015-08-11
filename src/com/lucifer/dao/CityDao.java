@@ -18,6 +18,11 @@ public class CityDao extends IBatisBaseDao {
 		return sqlSession.selectList("cityList");
 	}
 	
+	@SuppressWarnings("unchecked")
+	public List<City> topList(){
+		return sqlSession.selectList("cityTopList");
+	}
+	
 	public City getCity(Long id){
 		return (City)sqlSession.selectOne("getCity", id);
 	}
@@ -68,6 +73,7 @@ public class CityDao extends IBatisBaseDao {
 		return (City)sqlSession.selectOne("findUserByToken", token);
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<City> childList(Long id){
 		return sqlSession.selectList("childCityList", id);
 	}
@@ -75,4 +81,7 @@ public class CityDao extends IBatisBaseDao {
 	public void updatePassword(City city){
 		this.sqlSession.update("updateCityPassword", city);
 	}
+	
+	
+
 }

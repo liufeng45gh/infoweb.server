@@ -7,6 +7,9 @@
   <select id="cityList"  resultType="com.lucifer.model.City">
     select * from city
   </select>
+  <select id="cityTopList" resultType="com.lucifer.model.City">
+  	select * from city where parent_id = 0
+  </select>
   <select id="getCity" resultType="com.lucifer.model.City">
   	select * from city where id=#{id}
   </select>

@@ -96,6 +96,7 @@ var origin_place_province_options_in = false;
 $(document).ready(function(){
 	$(".origin_place_province").click(function (){
 		$("#origin_place_province_options").css("display","block");
+		initOriginPlaceDiv();
 	});
 	$(".origin_place_province").mouseover(function(){
 		origin_place_province_mouse_in = true;
@@ -125,6 +126,37 @@ function originPlaceProvinceSelect(object){
 	//alert($(object).html());
 	$("#origin_place_province").val($(object).text());
 	$("#origin_place_province_options").css("display","none");	
+}
+
+function initOriginPlaceDiv(){
+	var initHtml = $("#origin_place_province_options").html();
+	if(initHtml.trim()==""){
+		return;
+	}
+	var send_data={};
+	   //alert(1);
+    send_data.random=Math.random();
+  	var account_request =$.ajax({
+      type: 'POST',
+      url: '/api/city/top_list.json',
+      data: send_data,
+      dataType: 'json'
+	});
+
+  	account_request.fail(function( jqXHR, textStatus ) {
+        if(jqXHR.status==401){
+           //openWeiboLogin();
+        }
+	});
+
+  	account_request.done(function(data) {
+  		$("#origin_place_province_options").empty();
+         for(var i=0 ;i<data.length;i++){
+        	 var city = data[i];
+        	 var htmlString = '<a href="#" onclick="educationSelect(this);return false;" >'+city.name+'</a>'
+        	 $("#origin_place_province_options").append(htmlString);
+         }         
+    });
 }
 
 
