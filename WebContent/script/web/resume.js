@@ -114,6 +114,10 @@ $(document).ready(function(){
 		setTimeout(originPlaceProvinceHid,1);
 		//educationHid();
 	});
+	
+	$("#origin_place_province").change(function(){
+		resetOriginPlaceCity();
+	});
 });
 
 function originPlaceProvinceHid(){
@@ -153,11 +157,15 @@ function initOriginPlaceDiv(){
   		$("#origin_place_province_options").empty();
          for(var i=0 ;i<data.length;i++){
         	 var city = data[i];
-        	 var htmlString = '<a href="#" onclick="educationSelect(this);return false;" >'+city.name+'</a>'
+        	 var htmlString = '<a href="#" onclick="originPlaceProvinceSelect(this);return false;" >'+city.name+'</a>'
         	 $("#origin_place_province_options").append(htmlString);
          }         
     });
 }
+
+/**
+ * ----------------------------------籍贯省份选择结束-----------------------------------------------
+ */
 
 
 
