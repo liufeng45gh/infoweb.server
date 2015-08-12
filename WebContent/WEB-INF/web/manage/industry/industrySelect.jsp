@@ -23,13 +23,13 @@
 			<th>生活 | 服务业</th>
 			<td>
 				<ul class="jobcatelist">
-					<li dsid="13136" class=""><p><span><a href="javascript:void(0);">餐饮</a></span></p></li>
-					<li dsid="13083" class=""><p><span><a href="javascript:void(0);">家政保洁/安保</a></span></p></li>
-					<li dsid="13093" class=""><p><span><a href="javascript:void(0);">美容/美发</a></span></p></li>
-					<li dsid="38824" class="leftShow"><p><span><a href="javascript:void(0);">酒店/旅游</a></span></p></li>
-					<li dsid="13146" class=""><p><span><a href="javascript:void(0);">娱乐/休闲</a></span></p></li>
-					<li dsid="38829" class=""><p><span><a href="javascript:void(0);">保健按摩</a></span></p></li>
-					<li dsid="38830" class=""><p><span><a href="javascript:void(0);">运动健身</a></span></p></li>
+					<li dsid="13136" class=""><div class="check check_select"></div><p><span><a href="javascript:void(0);">餐饮</a></span></p></li>
+					<li dsid="13083" class=""><div class="check check_select"></div><p><span><a href="javascript:void(0);">家政保洁/安保</a></span></p></li>
+					<li dsid="13093" class=""><div class="check check_select"></div><p><span><a href="javascript:void(0);">美容/美发</a></span></p></li>
+					<li dsid="38824" class="leftShow"><div class="check check_select"></div><p><span><a href="javascript:void(0);">酒店/旅游</a></span></p></li>
+					<li dsid="13146" class=""><div class="check check_select"></div><p><span><a href="javascript:void(0);">娱乐/休闲</a></span></p></li>
+					<li dsid="38829" class=""><div class="check check_select"></div><p><span><a href="javascript:void(0);">保健按摩</a></span></p></li>
+					<li dsid="38830" class=""><div class="check check_select"></div><p><span><a href="javascript:void(0);">运动健身</a></span></p></li>
 				</ul>
 			</td>
 		</tr>
