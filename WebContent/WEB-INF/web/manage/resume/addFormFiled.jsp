@@ -84,12 +84,16 @@
             </span>
             <div class="item-info">
                 <div class="select_input_div">
-                	<input type="text" value="请选择" readonly class="sel-text w80"  >
-                	<div class="sel-arrow js-select-show" ></div>
+                	<input type="text" value="请选择" readonly class="sel-text w80 work_province"  id="work_province">
+                	<div class="sel-arrow js-select-show work_province" ></div>
+                	<div class="js-select-option sel-option w116" id="work_province_options">
+                	</div>
                 </div>            
                 <div style="margin-left:20px;" class="select_input_div">
-                	<input type="text" value="请选择" readonly class="sel-text w80" >
-                	<div class="sel-arrow js-select-show" ></div>
+                	<input type="text" value="请选择" readonly class="sel-text w80 city_province" id="city_province">
+                	<div class="sel-arrow js-select-show city_province" ></div>
+                	<div class="js-select-option sel-option w116" id="city_province_options">
+                	</div>
                 </div> 
         	</div>
         </div>
