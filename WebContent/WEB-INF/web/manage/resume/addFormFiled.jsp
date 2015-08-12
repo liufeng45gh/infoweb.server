@@ -90,9 +90,9 @@
                 	</div>
                 </div>            
                 <div style="margin-left:20px;" class="select_input_div">
-                	<input type="text" value="请选择" readonly class="sel-text w80 city_province" id="city_province">
-                	<div class="sel-arrow js-select-show city_province" ></div>
-                	<div class="js-select-option sel-option w116" id="city_province_options">
+                	<input type="text" value="请选择" readonly class="sel-text w80 work_city" id="work_city">
+                	<div class="sel-arrow js-select-show work_city" ></div>
+                	<div class="js-select-option sel-option w116" id="work_city_options">
                 	</div>
                 </div> 
         	</div>

@@ -262,7 +262,7 @@ var work_province_options_in = false;
 $(document).ready(function(){
 	$(".work_province").click(function (){
 		$("#work_province_options").css("display","block");
-		initWorkPrivinceDiv();
+		initWorkProvinceDiv();
 	});
 	$(".work_province").mouseover(function(){
 		work_province_mouse_in = true;

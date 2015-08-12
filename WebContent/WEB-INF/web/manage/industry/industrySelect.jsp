@@ -1,6 +1,15 @@
 <%@ page language="java" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+	会员管理中心-微企联盟网
+</title>
+<link rel="stylesheet" type="text/css" href="/css/complexSelect.css">
+</head>
+
 <div id="divJobCate" class="setBox" style="">
 	<h3>
         <p>
@@ -52,3 +61,4 @@
 			</tbody>
 		</table>
 </div>
+</html>
