@@ -44,12 +44,12 @@ public class IndustryDao extends IBatisBaseDao {
 		return sqlSession.selectList("refIndustryList", industry);
 	}
 	
-	public List<Industry> getIndustryParent(){
-		return sqlSession.selectList("getIndustryParent");
+	public List<Industry> getIndustryTopList(){
+		return sqlSession.selectList("getIndustryTopList");
 	}
 	
-	public List<Industry> getIndustrySecond(String id){
-		return sqlSession.selectList("getIndustrySecond",id);
+	public List<Industry> getIndustryChildList(String id){
+		return sqlSession.selectList("getIndustryChildList",id);
 	}
 	
 

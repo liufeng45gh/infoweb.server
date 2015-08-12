@@ -44,12 +44,12 @@ public class PositionDao extends IBatisBaseDao {
 		return sqlSession.selectList("refPositionList", position);
 	}
 	
-	public List<Position> getPositionParent(){
-		return sqlSession.selectList("getPositionParent");
+	public List<Position> getPositionTopList(){
+		return sqlSession.selectList("getPositionTopList");
 	}
 	
-	public List<Position> getPositionSecond(String id){
-		return sqlSession.selectList("getPositionSecond",id);
+	public List<Position> getPositionChildList(String id){
+		return sqlSession.selectList("getPositionChildList",id);
 	}
 	
 

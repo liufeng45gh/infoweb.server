@@ -26,12 +26,12 @@
   	select distinct(name) from position where name like '${name}%' or name_py like '${name_py}%' or name_pj like '${name_pj}%'
   </select>
 	
-  <select id="getPositionParent" resultType="com.lucifer.model.Position">
-  	select id,name,parent_id from position where parent_id='0'
+  <select id="getPositionTopList" resultType="com.lucifer.model.Position">
+  	select * from position where parent_id='0'
   </select>
   
-  <select id="getPositionSecond" resultType="com.lucifer.model.Position">
-  	select id,name,parent_id from position where parent_id=#{id}
+  <select id="getPositionChildList" resultType="com.lucifer.model.Position">
+  	select * from position where parent_id=#{id}
   </select>
   
  

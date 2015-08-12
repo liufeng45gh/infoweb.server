@@ -26,12 +26,12 @@
   	select distinct(name) from industry where name like '${name}%' or name_py like '${name_py}%' or name_pj like '${name_pj}%'
   </select>
 	
-  <select id="getIndustryParent" resultType="com.lucifer.model.Industry">
-  	select id,name,parent_id from industry where parent_id='0'
+  <select id="getIndustryTopList" resultType="com.lucifer.model.Industry">
+  	select * from industry where parent_id='0'
   </select>
   
-  <select id="getIndustrySecond" resultType="com.lucifer.model.Industry">
-  	select id,name,parent_id from industry where parent_id=#{id}
+  <select id="getIndustryChildList" resultType="com.lucifer.model.Industry">
+  	select * from industry where parent_id=#{id}
   </select>
   
  
