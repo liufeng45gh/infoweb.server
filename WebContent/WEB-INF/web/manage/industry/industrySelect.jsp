@@ -13,7 +13,7 @@
 <div id="divJobCate" class="setBox" style="">
 	<h3>
         <p>
-            <span>请优先选择最想做的职位（最多选<span class="red">1</span>个）</span>
+            <span>请优先选择最想做的行业（最多选<span class="red">1</span>个）</span>
         </p>
 		<a href="javascript:void(0);" class="close"></a>
 	</h3>
@@ -25,7 +25,7 @@
 				<ul class="jobcatelist">
 					<li dsid="13136" class=""><div class="check check_select"></div><p><span><a href="javascript:void(0);">餐饮</a></span></p></li>
 					<li dsid="13083" class=""><div class="check check_select"></div><p><span><a href="javascript:void(0);">家政保洁/安保</a></span></p></li>
-					<li dsid="13093" class=""><div class="check check_select"></div><p><span><a href="javascript:void(0);">美容/美发</a></span></p></li>
+					<li dsid="13093" class=""><div class="check "></div><p><span><a href="javascript:void(0);">美容/美发</a></span></p></li>
 					<li dsid="38824" class="leftShow"><div class="check check_select"></div><p><span><a href="javascript:void(0);">酒店/旅游</a></span></p></li>
 					<li dsid="13146" class=""><div class="check check_select"></div><p><span><a href="javascript:void(0);">娱乐/休闲</a></span></p></li>
 					<li dsid="38829" class=""><div class="check check_select"></div><p><span><a href="javascript:void(0);">保健按摩</a></span></p></li>
