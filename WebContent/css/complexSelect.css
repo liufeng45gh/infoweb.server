@@ -1,7 +1,7 @@
 .setBox {
-  width: 936px;
+  width: 800px;
   position: absolute;
-  top: 33px;
+  top: 0px;
   left: 0;
   background: #fff;
   border: 1px solid #CCC;
@@ -44,6 +44,7 @@
   top: 12px;
   right: 10px;
   background: url(http://pic2.58.com/ui6/top_box_close.gif) no-repeat 0 0;
+  padding-left: 0px;
 }
 .infoContent .jobType .selTypeDiv {
   clear: both;
@@ -86,7 +87,7 @@
   display: block;
 }
 .jobcatelist li p {
-  width: 122px;
+  width: 282px;
   padding: 2px;
   overflow: hidden;
   zoom: 1;
@@ -110,6 +111,9 @@
 .jobcatebox .jobcatelist span {
   height: 24px;
   line-height: 24px;
+}
+.jobcatebox{
+	//font-size: medium;
 }
 
 a {

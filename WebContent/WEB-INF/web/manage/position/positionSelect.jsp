@@ -1,6 +1,8 @@
 <%@ page language="java" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<link rel="stylesheet" type="text/css" href="/css/complexSelect.css">
+<script src="/script/jquery-1.9.1.min.js" type="text/javascript"></script>
 <div id="divJobCate" class="setBox" style="">
 	<h3>
         <p>

@@ -413,5 +413,50 @@ function resetWorkCity(){
 
 /**
  * 
- * ------------------------------工作城市选择结束------------------------------------------------
+ * -----------------------------------------工作城市选择结束------------------------------------------------
  */
+
+/**
+ * ---------------------------------------------行业选择开始----------------------------------------------
+ */
+
+$(document).ready(function (){
+	$(".industry_name").click(function (){
+		$("#industry_name_options").css("display","block");
+		initIndustryOptions();
+	});
+});
+
+function initIndustryOptions(){
+	var html = $("#industry_name_options").html();
+	if(html.trim()!=""){
+		return;
+	}
+	var send_data={};
+	   //alert(1);
+	send_data.random=Math.random();
+	var account_request =$.ajax({
+	   type: 'get',
+	   url: '/manage/industry/list_selects',
+	   data: send_data,
+	   dataType: 'html'
+	});
+
+	account_request.fail(function( jqXHR, textStatus ) {
+	  if(jqXHR.status==401){
+	     //openWeiboLogin();
+	  }
+	});
+
+	account_request.done(function(data) {
+	$("#industry_name_options").empty();
+	$("#industry_name_options").html(data);  
+	});
+}
+
+function selectIndustry(industry_id,text){
+	$("#industry_name").val(text);
+}
+function closeIndustrySelectOptions(){
+	$("#industry_name_options").css("display","none");
+}

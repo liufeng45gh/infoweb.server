@@ -15,10 +15,22 @@
         </div>
         <div class="resume-item" >
             <span class="label">
+                <b>*</b>选择行业：
+            </span>
+            <div class="item-info select_input_div">
+                <input   id="industry_name" maxlength="18" readonly value="" class="sel-text industry_name" size="40" placeholder="请选择">
+                <div class="sel-arrow js-select-show industry_name" ></div>
+                <div class="js-select-option sel-option " id="industry_name_options" >
+                </div>
+            </div>
+
+        </div>
+        <div class="resume-item" >
+            <span class="label">
                 <b>*</b>职位类别：
             </span>
             <div class="item-info select_input_div">
-                <input data-role="input" name="title" id="title" maxlength="18" type="text" value="" class="text" size="40" placeholder="请选择">
+                <input data-role="input" name="title" id="title" maxlength="18"  value="" class="sel-text" size="40" placeholder="请选择">
                 <div class="sel-arrow js-select-show" ></div>
             </div>
 
