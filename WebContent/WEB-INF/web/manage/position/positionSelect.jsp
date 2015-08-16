@@ -12,45 +12,104 @@
 	</h3>
 	<table class="jobcatebox">
 		<tbody>
+		<c:forEach var="topPosition" items="${positionList}" varStatus="status">
 		<tr>
-			<th>生活 | 服务业</th>
+			<th>${topPosition.name}</th>
 			<td>
-				<ul class="jobcatelist">
-					<li dsid="13136" class=""><p><span><a href="javascript:void(0);">餐饮</a></span></p></li>
-					<li dsid="13083" class=""><p><span><a href="javascript:void(0);">家政保洁/安保</a></span></p></li>
-					<li dsid="13093" class=""><p><span><a href="javascript:void(0);">美容/美发</a></span></p></li>
-					<li dsid="38824" class="leftShow"><p><span><a href="javascript:void(0);">酒店/旅游</a></span></p></li>
-					<li dsid="13146" class=""><p><span><a href="javascript:void(0);">娱乐/休闲</a></span></p></li>
-					<li dsid="38829" class=""><p><span><a href="javascript:void(0);">保健按摩</a></span></p></li>
-					<li dsid="38830" class=""><p><span><a href="javascript:void(0);">运动健身</a></span></p></li>
+				<ul class="jobcatelist" style="position:relative;">
+				<c:forEach var="childPosition" items="${topPosition.children}" varStatus="status">
+				<li onclick="click2levelPosition(this)" class="position_li" pid="${childPosition.id }"><p><span><a href="javascript:void(0);">${childPosition.name }</a></span></p></li>
+				</c:forEach>					
 				</ul>
 			</td>
 		</tr>
-		
-		<tr>
-			<th>人力 | 行政 | 管理</th>
-			<td>
-				<ul class="jobcatelist">
-					<li dsid="13126" class=""><p><span><a href="javascript:void(0);">人事/行政/后勤</a></span></p></li>
-					<li dsid="13080" class=""><p><span><a href="javascript:void(0);">司机</a></span></p></li>
-					<li dsid="13897" class=""><p><span><a href="javascript:void(0);">高级管理</a></span></p></li>
-				</ul>
-			</td>
-		</tr>
-		<tr>
-			<th>销售 | 客服 | 采购 | 淘宝</th>
-			<td>
-				<ul class="jobcatelist">
-					<li dsid="13139" class=""><p><span><a href="javascript:void(0);">销售</a></span></p></li>
-					<li dsid="13122" class=""><p><span><a href="javascript:void(0);">客服</a></span></p></li>
-					<li dsid="13133" class=""><p><span><a href="javascript:void(0);">贸易/采购</a></span></p></li>
-					<li dsid="13803" class="leftShow"><p><span><a href="javascript:void(0);">超市/百货/零售</a></span></p></li>
-					<li dsid="38665" class=""><p><span><a href="javascript:void(0);">淘宝职位</a></span></p></li>
-					<li dsid="38823" class=""><p><span><a href="javascript:void(0);">房产中介</a></span></p></li>
-				</ul>
-			</td>
-		</tr>
-		
-			</tbody>
-		</table>
+		</c:forEach>		
+		</tbody>
+	</table>
 </div>
+<script>
+function click2levelPosition(oli){
+	$(oli).addClass("selected");
+	initSubcate(oli);
+}
+
+function initSubcate(oli){
+	if($(oli).find(".subcate").length==0){
+		var send_data={};
+		   //alert(1);
+		send_data.random=Math.random();
+		send_data.id = $("#oli").attr("pid");
+		var account_request =$.ajax({
+		   type: 'get',
+		   url: '/manage/position/child_list',
+		   data: send_data,
+		   dataType: 'html'
+		});
+
+		account_request.fail(function( jqXHR, textStatus ) {
+	     if(jqXHR.status==401){
+	        //openWeiboLogin();
+	     }
+		});
+
+		account_request.done(function(data) {
+			//$(oli).remove($(oli).find(".subcate"));
+			$(oli).append(data);  
+			$(oli).find(".subcate").mouseout(function(){
+				//alert(1);
+				$(this).attr("mousestatus","out");
+				var subcate = this;
+				setTimeout(function (){
+					hideSubcate(subcate);
+				},500)
+				
+			});
+			$(oli).find(".subcate").mouseover(function(){
+				//alert(1);
+				$(this).attr("mousestatus","over");
+			});
+			
+		});
+	}
+}
+function hideSubcate(subcate){
+	//alert(subcate);
+	var mousestatus = $(subcate).attr("mousestatus");
+	var pstatus = $(subcate).parent().attr("mousestatus");
+	if (mousestatus != "over" && pstatus != "over") {
+		$(subcate).parent().removeClass("selected");
+	}
+}
+$(".position_li").mouseout(function (){
+	$(this).attr("mousestatus","out");
+	if($(this).find(".subcate").length==0){
+		return;
+	}
+	var subcate = $(this).find(".subcate").get(0);
+	
+	//alert(subcate);
+	setTimeout(function (){		 
+		hideSubcate(subcate);
+	},500)
+});
+$(".position_li").mouseover(function () {
+	$(this).attr("mousestatus","over");
+});
+
+function clickPosition(pspan){
+	if ($(pspan).find(".check").hasClass("check_select")) {//取消选择
+		$(pspan).find(".check").removeClass("check_select");
+		var text = $(pspan).find("a").html();
+		var p_id = $(pspan).find("a").attr("p_id");
+		//alert(text);
+		disSelectPosition(p_id,text);
+	} else {
+		$(pspan).find(".check").addClass("check_select");
+		var text = $(pspan).find("a").html();
+		var p_id = $(pspan).find("a").attr("p_id");
+		//alert(text);
+		selectPosition(p_id,text);
+	}
+	
+}
+</script>

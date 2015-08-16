@@ -23,7 +23,7 @@
 			<td>
 				<ul class="jobcatelist">
 					<c:forEach var="childIndustry" items="${topIndustry.children}" varStatus="status">
-					<li onclick="clickIndustry(this)"><div class="check" ></div><p><span><a href="javascript:void(0);" industry_id="${childIndustry.id }">${childIndustry.name }</a></span></p></li>
+					<li onclick="clickIndustry(this)"><div class="check" ></div><a href="javascript:void(0);" industry_id="${childIndustry.id }">${childIndustry.name }</a></li>
 					</c:forEach>					
 				</ul>
 			</td>

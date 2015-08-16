@@ -86,12 +86,17 @@
   list-style: none;
   display: block;
 }
-.jobcatelist li p {
+.jobcatelist li a {
   width: 282px;
   padding: 2px;
   overflow: hidden;
   zoom: 1;
   margin:0;
+}
+
+.jobcatelist li {
+  width: 300px; 
+  margin-top:8px;
 }
 .jobcatebox .jobcatelist span {
   height: 24px;
@@ -101,7 +106,7 @@
   float: left;
   padding: 0 15px 0 10px;
   text-align: left;
-  //background: url(http://pic2.58.com/ui7/job/hire/hl_icon.png) right -37px no-repeat;
+  background: url(http://pic2.58.com/ui7/job/hire/hl_icon.png) right -37px no-repeat;
   color: #25D;
   cursor: pointer;
 }
@@ -138,10 +143,74 @@ ul {
   background-position: 11px 11px;
   display: block;
   float:left;
-  margin-top:8px;
   
 }
 .check_select{
 	background: url(http://pic2.58.com/ui7/job/resume/jl_postIcon.png) no-repeat 0 0 transparent;
 	background-position: -75px -35px;
+}
+.jobcatelist .selected{
+	position: relative;
+}
+.jobcatelist .selected p {
+  position: relative;
+  z-index: 2;
+  border: 2px solid #FABD86;
+  border-bottom: none;
+  padding: 3px 0 1px 3px;
+  background: #FFFCF8;
+  overflow: hidden;
+  zoom: 1;
+  margin-top: -3px;
+}
+
+.jobcatelist .leftShow .subcate {
+  left: -319px;
+  padding-left: 0;
+}
+.jobcatelist .selected .subcate {
+  display: block;
+  top: 25px;
+  left: 5px;
+}
+
+
+.subcate {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  width: 470px;
+  background-color: #FFFCF8;
+  border: 2px solid #FABD86;
+  padding: 7px 0 7px 30px;
+}
+.jobcatelist .leftShow .subcate .aSpan {
+  padding-left: 45px;
+}
+.jobcatelist .selected .subcate span {
+  background: 0 0;
+  padding: 0;
+  position: relative;
+  zoom: 1;
+}
+.jobcatelist .selected span {
+  background-position: right -55px;
+  padding-left: 28px;
+  color: #f77d40;
+}
+.jobcatelist .selected .subcate a {
+  width: 130px;
+  height: 28px;
+  float: left;
+  line-height: 28px;
+  white-space: nowrap;
+  color: #15C;
+  padding:0;
+  padding-left: 15px;
+  padding-top: 0px;
+  margin-top:-7px;
+}
+.jobcatelist .selected p a {
+  color: #f77d40;
 }

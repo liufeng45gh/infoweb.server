@@ -408,7 +408,7 @@ function resetWorkCity(){
      	 var htmlString = '<a href="#" onclick="workCitySelect(this);return false;" >'+city.name+'</a>'
      	 $("#work_city_options").append(htmlString);
       }         
- });
+	});
 }
 
 /**

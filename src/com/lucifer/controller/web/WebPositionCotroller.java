@@ -34,4 +34,11 @@ public class WebPositionCotroller {
 		request.setAttribute("positionList", positionList);
 		return "/WEB-INF/web/manage/position/positionSelect.jsp";
 	}
+	
+	@RequestMapping(value = "/manage/position/child_list", method = RequestMethod.GET)
+	public String childList(String id,HttpServletRequest request){
+		List<Position> childList = positionDao.getPositionChildList(id);
+		request.setAttribute("childList", childList);
+		return "/WEB-INF/web/manage/position/childList.jsp";
+	}
 }
