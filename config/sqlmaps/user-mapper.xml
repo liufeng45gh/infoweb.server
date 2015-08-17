@@ -48,9 +48,8 @@
   	(#{id}, #{account}, #{password}, #{nick}, 1, #{register_type},  #{telephone}, #{email}, #{gender}, #{avatar})
   </insert>
   <update id="updateUser">
-  	update user set password=#{password},nick=#{nick},enable=#{enable},type=#{type},is_member=#{is_member},
-  	telephone=#{telephone},email=#{email},gender=#{gender},avatar=#{avatar},birthday=#{birthday},city_name=#{city_name},school=#{school},
-  	address=#{address},cash=#{cash},level=#{level},coin=#{coin}
+  	update user set password=#{password},nick=#{nick},enable=#{enable},
+  	telephone=#{telephone},email=#{email},gender=#{gender},avatar=#{avatar},birthday=#{birthday}
   	where id=#{id}
   </update>
   

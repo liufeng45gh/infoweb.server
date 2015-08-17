@@ -79,7 +79,8 @@ function salaryHid(){
 
 function salarySelect(object){
 	//alert($(object).html());
-	$("#salary").val($(object).text());
+	$("#salary_desc").val($(object).text());
+	$("#salary").val($(object).attr("data-value"));
 	$("#salary_options").css("display","none");	
 }
 
@@ -161,7 +162,7 @@ function initOriginPlaceDiv(){
   		$("#origin_place_province_options").empty();
          for(var i=0 ;i<data.length;i++){
         	 var city = data[i];
-        	 var htmlString = '<a href="#" onclick="originPlaceProvinceSelect(this);return false;" >'+city.name+'</a>'
+        	 var htmlString = '<a href="#" onclick="originPlaceProvinceSelect(this);return false;"  >'+city.name+'</a>'
         	 $("#origin_place_province_options").append(htmlString);
          }         
     });
@@ -213,6 +214,7 @@ function originPlaceCityHid(){
 function originPlaceCitySelect(object){
 	//alert($(object).html());
 	$("#origin_place_city").val($(object).text());
+	$("#registered").val($(object).attr("cid"));
 	$("#origin_place_city_options").css("display","none");	
 }
 
@@ -239,7 +241,7 @@ function resetOriginPlaceCity(){
 		$("#origin_place_city_options").empty();
       for(var i=0 ;i<data.length;i++){
      	 var city = data[i];
-     	 var htmlString = '<a href="#" onclick="originPlaceCitySelect(this);return false;" >'+city.name+'</a>'
+     	 var htmlString = '<a href="#" onclick="originPlaceCitySelect(this);return false;" cid="'+city.id+'" >'+city.name+'</a>'
      	 $("#origin_place_city_options").append(htmlString);
       }         
  });
@@ -379,6 +381,7 @@ function workCityHid(){
 function workCitySelect(object){
 	//alert($(object).html());
 	$("#work_city").val($(object).text());
+	$("#work_city_id").val($(object).attr("cid"));
 	$("#work_city_options").css("display","none");	
 }
 
@@ -405,7 +408,7 @@ function resetWorkCity(){
 		$("#work_city_options").empty();
       for(var i=0 ;i<data.length;i++){
      	 var city = data[i];
-     	 var htmlString = '<a href="#" onclick="workCitySelect(this);return false;" >'+city.name+'</a>'
+     	 var htmlString = '<a href="#" onclick="workCitySelect(this);return false;" cid="'+city.id+'">'+city.name+'</a>'
      	 $("#work_city_options").append(htmlString);
       }         
 	});
@@ -456,7 +459,60 @@ function initIndustryOptions(){
 
 function selectIndustry(industry_id,text){
 	$("#industry_name").val(text);
+	$("#industry_id").val(industry_id);
 }
 function closeIndustrySelectOptions(){
 	$("#industry_name_options").css("display","none");
 }
+
+/**
+ * -----------------------------------------行业选择结束------------------------------------
+ */
+
+
+
+
+// -----------------------------------------职位选择开始--------------------------------------
+
+$(document).ready(function (){
+	$(".position_name").click(function (){
+		$("#position_name_options").css("display","block");
+		initPositionOptions();
+	});
+});
+
+function initPositionOptions(){
+	var html = $("#position_name_options").html();
+	if(html.trim()!=""){
+		return;
+	}
+	var send_data={};
+	   //alert(1);
+	send_data.random=Math.random();
+	var account_request =$.ajax({
+	   type: 'get',
+	   url: '/manage/position/list_selects',
+	   data: send_data,
+	   dataType: 'html'
+	});
+
+	account_request.fail(function( jqXHR, textStatus ) {
+	  if(jqXHR.status==401){
+	     //openWeiboLogin();
+	  }
+	});
+
+	account_request.done(function(data) {
+	$("#position_name_options").empty();
+	$("#position_name_options").html(data);  
+	});
+}
+
+function selectPosition(p_id,text){
+	$("#position_name").val(text);
+	$("#position_id").val(p_id);
+}
+function closePositionSelectOptions(){
+	$("#position_name_options").css("display","none");
+}
+ 

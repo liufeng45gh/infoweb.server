@@ -19,6 +19,7 @@
             </span>
             <div class="item-info select_input_div">
                 <input   id="industry_name" maxlength="18" readonly value="" class="sel-text industry_name" size="40" placeholder="请选择">
+                <input   id="industry_id" name="industry_id" type="hidden">
                 <div class="sel-arrow js-select-show industry_name" ></div>
                 <div class="js-select-option sel-option " id="industry_name_options" >
                 </div>
@@ -30,8 +31,11 @@
                 <b>*</b>职位类别：
             </span>
             <div class="item-info select_input_div">
-                <input data-role="input" name="title" id="title" maxlength="18"  value="" class="sel-text" size="40" placeholder="请选择">
-                <div class="sel-arrow js-select-show" ></div>
+                <input   id="position_name" maxlength="18"  value="" class="sel-text position_name" size="40" placeholder="请选择">
+                <input   id="position_id" name="position_id" type="hidden">
+                <div class="sel-arrow js-select-show position_name" ></div>
+                <div class="js-select-option sel-option " id="position_name_options" >
+                </div>
             </div>
 
         </div>
@@ -103,6 +107,7 @@
                 </div>            
                 <div style="margin-left:20px;" class="select_input_div">
                 	<input type="text" value="请选择" readonly class="sel-text w80 work_city" id="work_city">
+                	<input type="hidden" id="work_city_id" name="city_id">
                 	<div class="sel-arrow js-select-show work_city" ></div>
                 	<div class="js-select-option sel-option w116" id="work_city_options">
                 	</div>
@@ -115,7 +120,8 @@
                 <b>*</b>期望月薪：
             </span>
             <div class="item-info select_input_div">
-                <input name="salary" id="salary" maxlength="18" readonly value="面议" class="sel-text salary w80"  placeholder="请选择" >
+                <input  id="salary_desc" maxlength="18" readonly value="面议" class="sel-text salary w80"  placeholder="请选择" >
+                <input type="hidden" id="salary" name="salary">
                 <div class="sel-arrow js-select-show salary" ></div>
                 <div class="js-select-option sel-option w116" id="salary_options">
                   <a href="#" onclick="salarySelect(this);return false;" data-value="0">面议</a>
@@ -151,6 +157,7 @@
                 </div>            
                 <div style="margin-left:20px;" class="select_input_div">
                 	<input type="text" value="请选择" readonly class="sel-text w80 origin_place_city" id="origin_place_city">
+                	<input type="hidden" name="registered" id="registered">
                 	<div class="sel-arrow js-select-show origin_place_city" ></div>
                 	<div class="js-select-option sel-option w116" id="origin_place_city_options">
                 	</div>
@@ -172,6 +179,6 @@
            
 	</div>
 	
-	<div   class="simple_button" style="margin-top:20px;display:block;margin-left:125px;margin-bottom:30px;" >立即发布</div>
+	
 
 </div>

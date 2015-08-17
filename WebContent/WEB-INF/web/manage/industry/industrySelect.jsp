@@ -23,7 +23,7 @@
 			<td>
 				<ul class="jobcatelist">
 					<c:forEach var="childIndustry" items="${topIndustry.children}" varStatus="status">
-					<li onclick="clickIndustry(this)"><div class="check" ></div><a href="javascript:void(0);" industry_id="${childIndustry.id }">${childIndustry.name }</a></li>
+					<li onclick="clickIndustry(this)"><div class="check" style="margin-top:5px;"></div><a href="javascript:void(0);" industry_id="${childIndustry.id }" style="padding-top:0px;margin-left:18px;">${childIndustry.name }</a></li>
 					</c:forEach>					
 				</ul>
 			</td>
@@ -38,8 +38,8 @@ function clickIndustry(object){
 	$(".jobcatelist div").removeClass("check_select");
 	$(object).find(".check").addClass("check_select");
 	var text = $(object).find("a").html();
-	var industry_id = $(object).find("a").attr("industry_id");
+	var p_id = $(object).find("a").attr("industry_id");
 	//alert(text);
-	selectIndustry(industry_id,text);
+	selectIndustry(p_id,text);
 }
 </script>

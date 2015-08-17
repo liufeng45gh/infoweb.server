@@ -8,7 +8,7 @@
         <p>
             <span>请优先选择最想做的职位（最多选<span class="red">1</span>个）</span>
         </p>
-		<a href="javascript:void(0);" class="close"></a>
+		<a href="javascript:void(0);" class="close" onclick="closePositionSelectOptions()"></a>
 	</h3>
 	<table class="jobcatebox">
 		<tbody>
@@ -38,7 +38,7 @@ function initSubcate(oli){
 		var send_data={};
 		   //alert(1);
 		send_data.random=Math.random();
-		send_data.id = $("#oli").attr("pid");
+		send_data.id = $(oli).attr("pid");
 		var account_request =$.ajax({
 		   type: 'get',
 		   url: '/manage/position/child_list',
@@ -100,13 +100,13 @@ function clickPosition(pspan){
 	if ($(pspan).find(".check").hasClass("check_select")) {//取消选择
 		$(pspan).find(".check").removeClass("check_select");
 		var text = $(pspan).find("a").html();
-		var p_id = $(pspan).find("a").attr("p_id");
+		var p_id = $(pspan).find("a").attr("pid");
 		//alert(text);
 		disSelectPosition(p_id,text);
 	} else {
 		$(pspan).find(".check").addClass("check_select");
 		var text = $(pspan).find("a").html();
-		var p_id = $(pspan).find("a").attr("p_id");
+		var p_id = $(pspan).find("a").attr("pid");
 		//alert(text);
 		selectPosition(p_id,text);
 	}

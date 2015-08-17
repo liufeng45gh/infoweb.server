@@ -1,5 +1,7 @@
 package com.lucifer.model;
 
+import java.util.Date;
+
 public class Resume {
 
 	private Long id;
@@ -21,6 +23,8 @@ public class Resume {
 	private String evaluation;
 	
 	private String specialty;
+	
+	private Date start_work_date;
 
 	public Long getId() {
 		return id;
@@ -100,6 +104,14 @@ public class Resume {
 
 	public void setSpecialty(String specialty) {
 		this.specialty = specialty;
+	}
+
+	public Date getStart_work_date() {
+		return start_work_date;
+	}
+
+	public void setStart_work_date(Date start_work_date) {
+		this.start_work_date = start_work_date;
 	}
 	
 	

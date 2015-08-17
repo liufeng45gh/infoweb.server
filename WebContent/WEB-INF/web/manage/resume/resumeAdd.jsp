@@ -19,9 +19,10 @@
     <div class="mainContainer">
         <div class="rightCol">
        
-
+		<form action="/manage/resume/add" method="post">
 		<jsp:include page="addFormFiled.jsp"></jsp:include>
-        
+        <input type="submit"   class="simple_button" style="margin-top:20px;display:block;margin-left:125px;margin-bottom:30px;" value="立即发布" ></input>
+        </form>
    		 </div>
         <!--左侧菜单开始 -->        
 		<jsp:include page="left.jsp"></jsp:include>

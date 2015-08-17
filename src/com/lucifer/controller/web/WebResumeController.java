@@ -1,9 +1,16 @@
 package com.lucifer.controller.web;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -22,6 +29,13 @@ public class WebResumeController {
 	
 	@Resource
 	private UserDao userDao;
+	
+	@InitBinder
+	public void initBinder(WebDataBinder binder) {
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		binder.registerCustomEditor(Date.class, new CustomDateEditor(
+				dateFormat, true));
+	}
 	
 	@RequestMapping(value = "/manage/resume/list", method = RequestMethod.GET)
 	public String index(){
@@ -45,7 +59,7 @@ public class WebResumeController {
 		tokenUser.setGender(user.getGender());
 		tokenUser.setBirthday(user.getBirthday());
 		tokenUser.setOrigin_place(user.getOrigin_place());
-		userDao.update(tokenUser);
+		userDao.updateUserInfo(tokenUser);
 		
 		return "redirect:/manage/resume/update?id=";
 	}
