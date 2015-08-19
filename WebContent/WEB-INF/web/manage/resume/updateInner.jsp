@@ -19,12 +19,12 @@
         <div class="basicConShow showDiv" id="baseshow" style="display:">
             <dl class="">
                 <dt>
-                    <span>刘峰选</span>
-                    <span class="sexAge">[ios开发经理]</span>
+                    <span>队友</span>
+                    <span class="sexAge">[测试时测试测试]</span>
                 </dt>
                 <dd>
                     <span class="title">求职意向：</span>
-                    <span class="jobType">技术总监/经理</span>
+                    <span class="jobType">测试职位</span>
                     <span class="divide">|</span>
                     <span>2000-3000元/月</span>
                     <span class="divide">|</span>
@@ -56,7 +56,7 @@
                                     </dd>
                 <dd>
                                         <span class="title db">自我介绍：</span>
-                    <span class="w710">10年经验 精通 java  与 ios 编程 希望能做管理</span>
+                    <span class="w710">10年经验 精通 java  与 ios 编程fsfsfsdf</span>
                                     </dd>
             </dl>
         </div>            <div id="basemodify" class="basicChange infoContent" style="display:none">
