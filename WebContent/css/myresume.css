@@ -370,7 +370,30 @@
   font-size: 18px;
   font-weight: 700;
 }
-.dl{
-	padding: 0;
-  margin: 0;
+.plr5 {
+  padding: 0 5px;
+}
+.infoContent .yearSel .setBox {
+  width: 235px;
+  padding: 10px 25px;
+}
+.infoContent .timeSel i {
+  position: absolute;
+  top: 50px;
+}
+i.prevIcon, i.nextIcon, i.prevHover, i.nextHover {
+  height: 16px;
+  width: 10px;
+  background-position: -4px -62px;
+  cursor: pointer;
+}
+
+.typeListInfo .salInfo, .typeListInfo .timeInfo, .typeListInfo .linkage {
+  position: relative;
+  zoom: 1;
+  float: left;
+}
+.infoContent .timeSel input {
+  text-align: center;
+  padding-left: 0;
 }
