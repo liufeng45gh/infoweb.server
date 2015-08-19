@@ -318,10 +318,11 @@
   font-size: 14px;
   color: #404040;
   margin-bottom: 14px;
+  height: 34px;
   zoom: 1;
 }
 .infoContent dt {
-  width: 85px;
+  width: 115px;
   text-align: right;
   line-height: 34px;
 }
@@ -330,7 +331,6 @@
 }
 .infoContent dd {
   line-height: 34px;
-  width: 715px;
   position: relative;
   zoom: 1;
 }
@@ -360,4 +360,17 @@
   z-index: 911;
   background-color: #FFF;
   border: 1px solid #C8C8C8;
+}
+.infoContent dt b, .typeListInfo h3 b {
+  color: #FF1212;
+  position: relative;
+  top: 5px;
+  left: 0;
+  padding: 0 10px 0 5px;
+  font-size: 18px;
+  font-weight: 700;
+}
+.dl{
+	padding: 0;
+  margin: 0;
 }
