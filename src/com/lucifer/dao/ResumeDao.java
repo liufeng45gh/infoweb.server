@@ -1,6 +1,8 @@
 package com.lucifer.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
@@ -18,7 +20,11 @@ public class ResumeDao  extends IBatisBaseDao {
 		return sqlSession.update("updaeResume", resume);
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<Resume> userResumeList(Long userId){
+//		@SuppressWarnings("rawtypes")
+//		Map param = new HashMap();
+//		param.put("userId", userId);
 		return sqlSession.selectList("userResumeList", userId);
 	}
 	

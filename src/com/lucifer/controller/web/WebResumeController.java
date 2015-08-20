@@ -3,10 +3,13 @@ package com.lucifer.controller.web;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
@@ -30,6 +33,8 @@ public class WebResumeController {
 	@Resource
 	private UserDao userDao;
 	
+	private static  Log log = LogFactory.getLog(WebResumeController.class);
+	
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -38,7 +43,13 @@ public class WebResumeController {
 	}
 	
 	@RequestMapping(value = "/manage/resume/list", method = RequestMethod.GET)
-	public String index(){
+	public String index(HttpServletRequest request){
+		User user = ViewHelper.getInstance().getWebTokenUser(request);
+		List<Resume> resumeList = resumeDao.userResumeList(user.getId());
+		request.setAttribute("user", user);
+		request.setAttribute("resumeList", resumeList);
+		log.info("resumeList size: "+resumeList.size());
+		log.info("user.getId is "+user.getId());
 		return "/WEB-INF/web/manage/resume/index.jsp";
 	}
 	
@@ -68,7 +79,8 @@ public class WebResumeController {
 	public String resumeUpdateInput(Long id,HttpServletRequest request){
 		User user = ViewHelper.getInstance().getWebTokenUser(request);
 		request.setAttribute("user", user);
-		//Resume resume = resumeDao.g
+		Resume resume = resumeDao.get(id);
+		request.setAttribute("resume", resume);
 		return "/WEB-INF/web/manage/resume/resumeUpdate.jsp";
 	}
 	

@@ -1,5 +1,6 @@
 <%@ page language="java" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <!-- saved from url=(0061)http://user.qd8.com.cn/users/usbaselist/users_emailcheck.aspx -->
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -33,20 +34,23 @@
                                     <td style="text-align:center" width="8%">投递次数</td>
                                     <td style="text-align:center" width="25%">操作</td>
                                 </tr>
-                                <tr>
-                                     <td><a href="http://beijing.qd8.com.cn/qzwangluogongchengshi/xinxi22_1769257.html" target="_blank">ios开发经理</a>
+                               
+                                 <c:forEach var="resume" items="${resumeList}" varStatus="status">
+                                 <tr>
+                                     <td><a href="#" target="_blank">${resume.title}</a>
                                          (正常显示)  
                                      </td>
-                                     <td style="text-align:center">2015-07-11</td>
+                                     <td style="text-align:center"><fmt:formatDate value="${resume.updated_at}" pattern="yyyy-MM-dd HH:mm"/></td>
                                      <td style="text-align:center">对所有人公开</td>
                                      <td style="text-align:center">0</td>
                                      <td style="text-align:center">0</td>
                                      <td style="text-align:center">
-                                         <a href="http://beijing.qd8.com.cn/jobs/pub/pub.aspx?category=findjob&amp;cid=446&amp;method=load&amp;id=5109&amp;act=update" target="_blank">修改</a>
+                                         <a href="/manage/resume/update?id=${resume.id }" target="_blank">修改</a>
                                          | <a href="javascript:void(0);" class="js_auto_refresh_list" s="5109">刷新</a>
                                          | <a href="javascript:void(0);" class="ev_kaiqi_guanbi_post" pid="5109,0,0,1,5,51" target="_blank">关闭</a>
                                      </td>
                                  </tr>
+                                 </c:forEach>
                             
                                 <!--帖子循环开始 -->
                                 

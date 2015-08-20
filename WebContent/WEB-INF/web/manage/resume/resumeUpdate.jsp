@@ -31,7 +31,7 @@
 <jsp:include page="../footer.jsp"></jsp:include>
     
 <script type="text/javascript">
-$("#left_menu_add").addClass("current");
+$("#left_menu_list").addClass("current");
 </script>
 
 

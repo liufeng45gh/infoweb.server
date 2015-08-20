@@ -9,7 +9,7 @@
 		<div class="basicConShow showDiv">
 			<dl class="">
 				<dt>
-					<span>队友</span> <span class="sexAge">[测试时测试测试]</span>
+					<span>${user.real_name }</span> <span class="sexAge">[${resume.title}]</span>
 				</dt>
 				<dd>
 					<span class="title">求职意向：</span> <span class="jobType">测试职位</span>
