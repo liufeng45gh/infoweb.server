@@ -6,7 +6,7 @@
 			<span>基本信息</span> <a href="javascript:BaseInfo.modyinfo();"
 				class="changeBtn">修改</a>
 		</h3>
-		<div class="basicConShow showDiv" id="baseshow" style="display:">
+		<div class="basicConShow showDiv">
 			<dl class="">
 				<dt>
 					<span>队友</span> <span class="sexAge">[测试时测试测试]</span>
@@ -35,22 +35,21 @@
 		</div>
 
 	</div>
-	<div class="experInfo" id="containerexperience">
+	<div class="experInfo">
 		<h3>
-			<b class="tipx">*</b> <span id="ex">工作经验</span> <span class="tips" style="">（投递必填）</span> 
-				<a href="javascript:Exp.showAddWin();" class="addBtn">添加</a> 
+			<b class="tipx">*</b> <span id="ex">工作经验</span> <span class="tips">（投递必填）</span>
+			<a href="javascript:Exp.showAddWin();" class="addBtn">添加</a>
 		</h3>
-		<div id="expDiv" class="experConShow showDiv" style="display:">
-			<div class="experDetail showList" id="expU85863150969346">
+		<div id="expDiv" class="experConShow showDiv">
+			<div class="experDetail showList">
 				<p class="detailList">
-					<span id="expUSd85863150969346">2013年6月-2015年7月</span> <span
-						class="divide">|</span> <span id="expUCo85863150969346">北京旭宁信息技术有限公司</span>
-					<span class="divide">|</span> <span id="expUPi85863150969346">ios开发工程师</span>
-					<span class="divide">|</span> <span k="7" id="expUSa85863150969346">12000-20000元/月</span>
+					<span>2013年6月-2015年7月</span> <span class="divide">|</span> <span>北京旭宁信息技术有限公司</span>
+					<span class="divide">|</span> <span>ios开发工程师</span> <span
+						class="divide">|</span> <span>12000-20000元/月</span>
 				</p>
 				<p class="detailCon">
-					<span class="tlTitle">工作内容：</span> <span id="expUDes85863150969346"
-						class="">品读 ios模块 研发</span>
+					<span class="tlTitle">工作内容：</span> <span class="">品读 ios模块
+						研发</span>
 				</p>
 				<p class="operBtn">
 					<a href="javascript:Exp.modifyById('85863150969346')" class=""
@@ -61,125 +60,126 @@
 				</p>
 			</div>
 		</div>
-		
+
 		<div class="experConShow showDiv"></div>
 	</div>
-	<div class="eduInfo" style="display: block;" id="containereducation">
-		<h3>
-			<b class="tipx">*</b> <span id="ed">教育经历</span> <span class="tips"
-				style="">（投递必填）</span> <input type="hidden" id="hidUpEducId"
-				value="0"> <a href="javascript:Edu.showEduInput();" class="addBtn">添加</a>
+	<div id="projectexperience" class="proInfo">
+		<h3 id="pr">
+			<b class="tipx">*</b> <span>项目经验</span> <a href="javascript:void(0);"
+				class="addBtn">添加</a>
+
 		</h3>
-		<div id="eduDiv" class="eduConShow showDiv">
-			<div class="experDetail showList" >
+		<div id="proDiv" class="experConShow showDiv" style="display:">
+			<div class="experDetail showList">
 				<p class="detailList">
-					<span >您还没有填写任何内容!</span> 
-				
+					<span>您还没有填写任何内容!</span>
+
 				</p>
-				
-			</div>
-		
-		</div>
-		
-	</div>
-	<div class="langInfo" style="display: block;" id="languagelist">
-		<h3>
-			<span id="la">语言能力</span> 
-				<a href="javascript:Language.showLanInput();" class="addBtn">添加</a>
-		</h3>
-		<div id="lanauageView" class="langShow showDiv" style="display:">
-			<div class="experDetail showList" >
-				<p class="detailList">
-					<span >您还没有填写任何内容!</span> 
-				
-				</p>
-				
-			</div>
-		</div>
-		
-	</div>
-	<div class="cerInfo" style="display: block;" id="containercert">
-		<h3 id="ce">
-			<span>获得证书</span> 
-			<a href="javascript:Cert.showAddWin();" class="addBtn">添加</a>
-			
-		</h3>
-		<div id="certViewDiv" class="cerShow showDiv" style="display:">
-			<div class="experDetail showList" >
-				<p class="detailList">
-					<span >您还没有填写任何内容!</span> 
-				
-				</p>
-				
+
 			</div>
 		</div>
 
-		
+	</div>
+	<div class="eduInfo" style="display: block;">
+		<h3>
+			<b class="tipx">*</b> <span id="ed">教育经历</span> <span class="tips"
+				style="">（投递必填）</span> <a href="javascript:Edu.showEduInput();"
+				class="addBtn">添加</a>
+		</h3>
+		<div id="eduDiv" class="eduConShow showDiv">
+			<div class="experDetail showList">
+				<p class="detailList">
+					<span>您还没有填写任何内容!</span>
+
+				</p>
+
+			</div>
+
+		</div>
+
+	</div>
+	<div class="langInfo" style="display: block;">
+		<h3>
+			<span id="la">语言能力</span> <a
+				href="javascript:Language.showLanInput();" class="addBtn">添加</a>
+		</h3>
+		<div id="lanauageView" class="langShow showDiv" style="display:">
+			<div class="experDetail showList">
+				<p class="detailList">
+					<span>您还没有填写任何内容!</span>
+
+				</p>
+
+			</div>
+		</div>
+
+	</div>
+	<div class="cerInfo" style="display: block;">
+		<h3 id="ce">
+			<span>获得证书</span> <a href="javascript:Cert.showAddWin();"
+				class="addBtn">添加</a>
+
+		</h3>
+		<div id="certViewDiv" class="cerShow showDiv">
+			<div class="experDetail showList">
+				<p class="detailList">
+					<span>您还没有填写任何内容!</span>
+
+				</p>
+
+			</div>
+		</div>
+
+
 
 	</div>
 
 	<div id="containerSkill" class="skillsInfo" style="display: block;">
 		<h3 id="sk">
 			<span>专业技能</span> <a href="javascript:void(0);" class="addBtn">添加</a>
-			
+
 		</h3>
 		<div class="skillsShow showDiv" style="display:">
-			<div class="experDetail showList" >
+			<div class="experDetail showList">
 				<p class="detailList">
-					<span >您还没有填写任何内容!</span> 
-				
+					<span>您还没有填写任何内容!</span>
+
 				</p>
-				
+
 			</div>
 		</div>
-		
+
 	</div>
-	<div id="projectexperience" class="proInfo" >
-		<h3 id="pr">
-			<span>项目经验</span> <a href="javascript:void(0);" class="addBtn">添加</a>
-			
-		</h3>
-		<div id="proDiv" class="experConShow showDiv" style="display:">
-			<div class="experDetail showList" >
-				<p class="detailList">
-					<span >您还没有填写任何内容!</span> 
-				
-				</p>
-				
-			</div>
-		</div>
-		
-	</div>
-	
+
+
 	<div class="photoInfo" id="containerphoto">
 		<h3 id="ph">
 			<span>照片/作品</span> <a href="javascript:void(0);" class="changeBtn"
-				id="photoModBtn">添加</a> 
-			<span class="hideTips"><i class="botArrow"></i>该信息仅自己可见</span>
+				id="photoModBtn">添加</a> <span class="hideTips"><i
+				class="botArrow"></i>该信息仅自己可见</span>
 		</h3>
 		<div class="photoShow showDiv">
-			<div class="schoolDetail showList" id="photoDivView" style="display: block;">
+			<div class="schoolDetail showList" style="display: block;">
 				<p class="detailList">
-					<span >您还没有填写任何内容!</span> 
-				
+					<span>您还没有填写任何内容!</span>
+
 				</p>
-				
-			
 			</div>
 		</div>
-		
-	</div>
-	
 
-	
+	</div>
+
+
+
 	<div class="typeInfo">
 		<h3>
-			<span>附加信息</span> <span class="tips">（填写更加分，提高竞争力）</span><a href="javascript:void(0);" class="changeBtn" >添加</a>
+			<span>附加信息</span> <span class="tips">（填写更加分，提高竞争力）</span><a
+				href="javascript:void(0);" class="changeBtn">添加</a>
 		</h3>
 		<div class="typeCon showList" id="selectMode">
 			<p class="detailList">
-					<span >您还没有填写任何内容!</span> 
-				
+				<span>您还没有填写任何内容!</span>
+
 			</p>
 		</div>
 	</div>
