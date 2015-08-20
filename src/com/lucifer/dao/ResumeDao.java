@@ -21,4 +21,8 @@ public class ResumeDao  extends IBatisBaseDao {
 	public List<Resume> userResumeList(Long userId){
 		return sqlSession.selectList("userResumeList", userId);
 	}
+	
+	public Resume get(Long id){
+		return (Resume)sqlSession.selectOne("getResume",id);
+	}
 }

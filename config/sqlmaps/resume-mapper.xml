@@ -18,5 +18,8 @@
   <select id="userResumeList" resultType="com.lucifer.model.Resume">
   select * from resume where user_id=#{user_id}
   </select>
+  <select id="getResume" resultType="com.lucifer.model.Resume">
+  select * from resume where id = #{id}
+  </select>
 	
 </mapper>

@@ -65,9 +65,10 @@ public class WebResumeController {
 	}
 	
 	@RequestMapping(value = "/manage/resume/update", method = RequestMethod.GET)
-	public String resumeUpdateInput(HttpServletRequest request){
+	public String resumeUpdateInput(Long id,HttpServletRequest request){
 		User user = ViewHelper.getInstance().getWebTokenUser(request);
 		request.setAttribute("user", user);
+		//Resume resume = resumeDao.g
 		return "/WEB-INF/web/manage/resume/resumeUpdate.jsp";
 	}
 	
