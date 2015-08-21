@@ -117,5 +117,10 @@ public class WebResumeController {
 	public String simpleInfoUpdateInput(){
 		return "/WEB-INF/web/manage/resume/resumeAdd.jsp";
 	}
+	
+	@RequestMapping(value = "/manage/resume/info/update", method = RequestMethod.GET)
+	public String resumeInfoUpdate(){
+		return "/WEB-INF/web/manage/resume/resumeInfoUpdate.jsp";
+	}
 
 }

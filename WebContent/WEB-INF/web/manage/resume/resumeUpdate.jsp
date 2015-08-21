@@ -27,6 +27,8 @@
     </div>
 
 </div>
+<div id="edit_inner_div" style="pisition:absolute;top:0px;left:0px;display:none;">
+</div>
 
 <jsp:include page="../footer.jsp"></jsp:include>
     
