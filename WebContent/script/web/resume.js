@@ -512,7 +512,33 @@ function selectPosition(p_id,text){
 	$("#position_name").val(text);
 	$("#position_id").val(p_id);
 }
+
 function closePositionSelectOptions(){
 	$("#position_name_options").css("display","none");
+}
+
+function modyinfo(id){
+	var send_data={};
+	   //alert(1);
+	send_data.random = Math.random();
+	send_data.id = id;
+	var account_request =$.ajax({
+	   type: 'get',
+	   url: '/manage/resume/info/update',
+	   data: send_data,
+	   dataType: 'html'
+	});
+
+	account_request.fail(function( jqXHR, textStatus ) {
+	  if(jqXHR.status==401){
+	     //openWeiboLogin();
+		  
+	  }
+	});
+	
+	account_request.done(function(data) {
+		$("#edit_inner_div").css("display","block");
+		$("#edit_inner_div").html(data); 
+	});
 }
  

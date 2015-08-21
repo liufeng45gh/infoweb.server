@@ -27,8 +27,7 @@
     </div>
 
 </div>
-<div id="edit_inner_div" style="pisition:absolute;top:0px;left:0px;display:none;">
-</div>
+
 
 <jsp:include page="../footer.jsp"></jsp:include>
     
@@ -37,5 +36,6 @@ $("#left_menu_list").addClass("current");
 </script>
 
 
-
+<div id="edit_inner_div" style="position:fixed;top:0px;left:0px;display:none;width:100%;height:100%;background-color:white;overflow: auto;">
+</div>
 </body></html>

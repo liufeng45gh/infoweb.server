@@ -10,7 +10,7 @@
 <div class="typeListInfo">
 	<div class="basicInfo ">
 		<h3>
-			<span>基本信息</span> <a href="javascript:BaseInfo.modyinfo();"
+			<span>基本信息</span> <a href="javascript:modyinfo(${resume.id});"
 				class="changeBtn">修改</a>
 		</h3>
 		<div class="basicConShow showDiv">
@@ -194,8 +194,10 @@
 			</p>
 		</div>
 	</div>
+	<!-- 
 	<div class="saveDiv">
 		<a class="saveResume postBtn" href="javascript:void(0)"
 			id="resumesave" onclick="saveresume();">保存简历</a>
 	</div>
+	 -->
 </div>

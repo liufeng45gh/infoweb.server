@@ -117,6 +117,15 @@
         
         <div class="resume-item" >
             <span class="label">
+                <b>*</b>现在居住：
+            </span>
+            <div class="item-info">
+                <input data-role="input" name="residence" id="residence" maxlength="18" type="text" value="${user.residence}" class="text" size="40" >
+             </div>
+        </div>
+        
+        <div class="resume-item" >
+            <span class="label">
                 <b>*</b>期望月薪：
             </span>
             <div class="item-info select_input_div">

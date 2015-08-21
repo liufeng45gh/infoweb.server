@@ -132,7 +132,6 @@
   background: #fff;
   border: solid 1px #ccc;
   box-shadow: 0 0 3px #e5e5e5;
-  z-index: 10;
   display: none;
 }
 .w116 {
@@ -150,11 +149,10 @@
 
 
 
-/*---------------------------修改部分--------------------*/
+/*-----------------------------------------------*/
 .basicInfo {
   _margin-bottom: 15px;
   position: relative;
-  z-index: 900;
 }
 .typeListInfo h3 {
   background-color: #FAFAFA;
@@ -224,7 +222,6 @@
 }
 .experInfo {
   position: relative;
-  z-index: 800;
 }
 
 .typeListInfo h3 .tips {
@@ -306,7 +303,6 @@
 }
 .eduInfo {
   position: relative;
-  z-index: 700;
 }
 
 .typeListInfo .infoContent {
@@ -357,7 +353,6 @@
   position: absolute;
   left: 0;
   top: 34px;
-  z-index: 911;
   background-color: #FFF;
   border: 1px solid #C8C8C8;
 }
