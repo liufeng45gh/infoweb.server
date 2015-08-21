@@ -17,8 +17,14 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.lucifer.dao.CityDao;
+import com.lucifer.dao.IndustryDao;
+import com.lucifer.dao.PositionDao;
 import com.lucifer.dao.ResumeDao;
 import com.lucifer.dao.UserDao;
+import com.lucifer.model.City;
+import com.lucifer.model.Industry;
+import com.lucifer.model.Position;
 import com.lucifer.model.Resume;
 import com.lucifer.model.User;
 import com.lucifer.util.CommonUtil;
@@ -32,6 +38,15 @@ public class WebResumeController {
 	
 	@Resource
 	private UserDao userDao;
+	
+	@Resource
+	private IndustryDao industryDao;
+	
+	@Resource
+	private PositionDao positionDao;
+	
+	@Resource
+	private CityDao cityDao;
 	
 	private static  Log log = LogFactory.getLog(WebResumeController.class);
 	
@@ -81,6 +96,19 @@ public class WebResumeController {
 		request.setAttribute("user", user);
 		Resume resume = resumeDao.get(id);
 		request.setAttribute("resume", resume);
+		
+		Industry industry = industryDao.getIndustry(resume.getIndustry_id());
+		resume.setIndustry(industry);
+		
+		Position position = positionDao.getPosition(resume.getPosition_id());
+		resume.setPosition(position);
+		
+		City city = cityDao.getCity(Long.valueOf(resume.getCity_id()));
+		resume.setCity(city);
+		
+		City parentCity = cityDao.getCity(city.getParent_id());
+		resume.setParentCity(parentCity);
+		
 		return "/WEB-INF/web/manage/resume/resumeUpdate.jsp";
 	}
 	

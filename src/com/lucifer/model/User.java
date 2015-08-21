@@ -2,6 +2,9 @@ package com.lucifer.model;
 
 import java.util.Date;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import com.lucifer.util.StringUtil;
 
 
@@ -54,6 +57,8 @@ public class User {
 	private Integer open;
 	
 	private String origin_place;
+	
+	private static  Log log = LogFactory.getLog(User.class);
 
 	public Long getId() {
 		return id;
@@ -254,6 +259,16 @@ public class User {
 		this.origin_place = origin_place;
 	}
 	
-	
+	public Integer getAge(){
+		if (null==birthday) {
+			return 0;
+		}
+		//log.info("System.currentTimeMillis() is "+System.currentTimeMillis());
+		//log.info("birthday.getTime() is" + birthday.getTime());
+		long timeLong = Math.abs(System.currentTimeMillis() - birthday.getTime());
+		int age = (int)(timeLong/(86400000 * 365l));
+		//log.info("age is "+age);
+		return age;
+	}
 	
 }

@@ -2,6 +2,8 @@ package com.lucifer.model;
 
 import java.util.Date;
 
+import com.lucifer.enumeration.Salary;
+
 public class Resume {
 
 	private Long id;
@@ -31,6 +33,16 @@ public class Resume {
 	private Date created_at;
 	
 	private Date updated_at;
+	
+	private Position position;
+	
+	private Industry industry;
+	
+	private Salary osalary;
+	
+	private City city;
+	
+	private City parentCity;
 
 	public Long getId() {
 		return id;
@@ -144,6 +156,54 @@ public class Resume {
 
 	public void setUpdated_at(Date updated_at) {
 		this.updated_at = updated_at;
+	}
+
+	public Position getPosition() {
+		return position;
+	}
+
+	public void setPosition(Position position) {
+		this.position = position;
+	}
+
+	public Industry getIndustry() {
+		return industry;
+	}
+
+	public void setIndustry(Industry industry) {
+		this.industry = industry;
+	}
+	
+	public Salary getOsalary(){
+		return Salary.objectOf(this.salary);
+	}
+	
+	public City getCity(){
+		return this.city;
+	}
+	
+	public void setCity(City city){
+		this.city = city;
+	}
+
+	public City getParentCity() {
+		return parentCity;
+	}
+
+	public void setParentCity(City parentCity) {
+		this.parentCity = parentCity;
+	}
+	
+	public Integer workYears(){
+		if (null==start_work_date) {
+			return 0;
+		}
+		//log.info("System.currentTimeMillis() is "+System.currentTimeMillis());
+		//log.info("birthday.getTime() is" + birthday.getTime());
+		long timeLong = Math.abs(System.currentTimeMillis() - start_work_date.getTime());
+		int age = (int)(timeLong/(86400000 * 365l));
+		//log.info("age is "+age);
+		return age;
 	}
 	
 	

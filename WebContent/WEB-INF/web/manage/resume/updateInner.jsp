@@ -1,5 +1,12 @@
 <%@ page language="java" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="com.lucifer.model.Resume" %>
+<%@ page import="com.lucifer.model.User" %>
+<%@ page import="com.lucifer.enumeration.Gender" %>
+<%
+	Resume resume = (Resume)request.getAttribute("resume");
+	User user = (User)request.getAttribute("user");
+%>
 <div class="typeListInfo">
 	<div class="basicInfo ">
 		<h3>
@@ -12,24 +19,28 @@
 					<span>${user.real_name }</span> <span class="sexAge">[${resume.title}]</span>
 				</dt>
 				<dd>
-					<span class="title">求职意向：</span> <span class="jobType">测试职位</span>
-					<span class="divide">|</span> <span>2000-3000元/月</span> <span
-						class="divide">|</span> <span>北京朝阳常营</span>
+					<span class="title">求职意向：</span> 
+					<span class="jobType">${resume.position.name }</span>
+					<span class="divide">|</span> 
+					<span class="jobType">${resume.industry.name }</span>
+					<span class="divide">|</span>
+					<span>${resume.osalary.text }</span> <span
+						class="divide">|</span> 
+						<span>${resume.parentCity.name}-${resume.city.name}</span>
 				</dd>
 				<dd>
-					<span class="title">个人情况：</span> <span>男</span> <span
-						class="divide">|</span> <span>32岁</span> <span class="divide">|</span>
-					<span>现居住北京朝阳常营</span> <span class="divide">|</span> <span>籍贯山东济宁</span>
+					<span class="title">个人情况：</span> <span><%=Gender.objectOf(user.getGender()).getText() %></span> <span
+						class="divide">|</span> <span>${user.age}岁</span> <span class="divide">|</span>
+					<span>现居住 ${user.residence }</span> <span class="divide">|</span> <span>籍贯:${user.origin_place }</span>
 					<span class="divide">|</span> <span>本科</span> <span class="divide">|</span>
-					<span> 1-2年工作经验 </span>
+					<span> <%=resume.workYears() %> 年工作经验 </span>
 				</dd>
 				<dd>
 					<span class="title">联系方式：</span> <span>
-						liufeng45gh@163.com、18610814074 </span>
+						${user.email }、${user.telephone }</span>
 				</dd>
 				<dd>
-					<span class="title db">自我介绍：</span> <span class="w710">10年经验
-						精通 java 与 ios 编程fsfsfsdf</span>
+					<span class="title db">自我评价：</span> <span class="w710">${resume.evaluation }</span>
 				</dd>
 			</dl>
 		</div>
