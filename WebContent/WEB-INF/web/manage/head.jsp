@@ -20,4 +20,5 @@
     .rightdh li {
         margin-right: 5px;
     }
+    .center {margin-right: auto; margin-left: auto; }
 </style>

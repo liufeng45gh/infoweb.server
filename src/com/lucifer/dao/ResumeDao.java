@@ -1,8 +1,6 @@
 package com.lucifer.dao;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
@@ -30,5 +28,21 @@ public class ResumeDao  extends IBatisBaseDao {
 	
 	public Resume get(Long id){
 		return (Resume)sqlSession.selectOne("getResume",id);
+	}
+	
+	public Integer updateResumeInfo(Resume resume){
+		return sqlSession.update("updateResumeInfo", resume);
+	}
+	
+	public Integer refreshResume(Long id){
+		return sqlSession.update("refreshResume", id);
+	}
+	
+	public Integer closeResume(Long id){
+		return sqlSession.update("closeResume", id);
+	}
+	
+	public Integer openResume(Long id){
+		return sqlSession.update("openResume", id);
 	}
 }

@@ -16,18 +16,21 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lucifer.dao.CityDao;
 import com.lucifer.dao.IndustryDao;
 import com.lucifer.dao.PositionDao;
 import com.lucifer.dao.ResumeDao;
 import com.lucifer.dao.UserDao;
+import com.lucifer.enumeration.Education;
 import com.lucifer.model.City;
 import com.lucifer.model.Industry;
 import com.lucifer.model.Position;
 import com.lucifer.model.Resume;
 import com.lucifer.model.User;
 import com.lucifer.util.CommonUtil;
+import com.lucifer.util.Result;
 import com.lucifer.util.ViewHelper;
 
 @Controller
@@ -72,22 +75,27 @@ public class WebResumeController {
 	public String resumeAddInput(HttpServletRequest request){
 		User user = ViewHelper.getInstance().getWebTokenUser(request);
 		request.setAttribute("user", user);
+		request.setAttribute("opt", "新增简历信息");
 		return "/WEB-INF/web/manage/resume/resumeAdd.jsp";
 	}
 	
 	@RequestMapping(value = "/manage/resume/add", method = RequestMethod.POST)
 	public String resumeAddSubmit(User user,Resume resume,HttpServletRequest request){
-		resume.setId(CommonUtil.nextId());
-		resumeDao.insert(resume);		
+			
 		User tokenUser = ViewHelper.getInstance().getWebTokenUser(request);
 		tokenUser.setTelephone(user.getTelephone());
 		tokenUser.setReal_name(user.getReal_name());
 		tokenUser.setGender(user.getGender());
 		tokenUser.setBirthday(user.getBirthday());
 		tokenUser.setOrigin_place(user.getOrigin_place());
+		tokenUser.setResidence(user.getResidence());
 		userDao.updateUserInfo(tokenUser);
 		
-		return "redirect:/manage/resume/update?id=";
+		resume.setId(CommonUtil.nextId());
+		resume.setUser_id(tokenUser.getId());
+		resumeDao.insert(resume);	
+		
+		return "redirect:/manage/resume/update?id="+resume.getId();
 	}
 	
 	@RequestMapping(value = "/manage/resume/update", method = RequestMethod.GET)
@@ -109,7 +117,7 @@ public class WebResumeController {
 		City parentCity = cityDao.getCity(city.getParent_id());
 		resume.setParentCity(parentCity);
 		
-		return "/WEB-INF/web/manage/resume/resumeUpdate.jsp";
+		return "/WEB-INF/web/manage/resume/resumeShow.jsp";
 	}
 	
 	
@@ -119,8 +127,60 @@ public class WebResumeController {
 	}
 	
 	@RequestMapping(value = "/manage/resume/info/update", method = RequestMethod.GET)
-	public String resumeInfoUpdate(){
-		return "/WEB-INF/web/manage/resume/resumeInfoUpdate.jsp";
+	public String resumeInfoUpdate(Long id,HttpServletRequest request){
+		
+		User user = ViewHelper.getInstance().getWebTokenUser(request);
+		request.setAttribute("user", user);
+		Resume resume = resumeDao.get(id);
+		request.setAttribute("resume", resume);
+		
+		Industry industry = industryDao.getIndustry(resume.getIndustry_id());
+		resume.setIndustry(industry);
+		
+		Position position = positionDao.getPosition(resume.getPosition_id());
+		resume.setPosition(position);
+		
+		City city = cityDao.getCity(Long.valueOf(resume.getCity_id()));
+		resume.setCity(city);
+		
+		City parentCity = cityDao.getCity(city.getParent_id());
+		resume.setParentCity(parentCity);
+		
+//		Education oevaluation = Education.objectOf(resume.getEvaluation());
+//		resume.setOevaluation(oevaluation);
+		
+		request.setAttribute("opt", "修改简历基本信息");
+		
+		return "/WEB-INF/web/manage/resume/resumeInfoUpdateSurface.jsp";
+	}
+	
+	@RequestMapping(value = "/manage/resume/info/update", method = RequestMethod.POST)
+	public String resumeInfoUpdateSubmit(User user,Resume resume,HttpServletRequest request){
+		//resume.setId(CommonUtil.nextId());		
+		User tokenUser = ViewHelper.getInstance().getWebTokenUser(request);
+		tokenUser.setTelephone(user.getTelephone());
+		tokenUser.setReal_name(user.getReal_name());
+		tokenUser.setGender(user.getGender());
+		tokenUser.setBirthday(user.getBirthday());
+		tokenUser.setOrigin_place(user.getOrigin_place());
+		tokenUser.setResidence(user.getResidence());
+		userDao.updateUserInfo(tokenUser);
+		resumeDao.updateResumeInfo(resume);	
+		return "redirect:/manage/resume/update?id="+resume.getId();
+	}
+	
+	@RequestMapping(value = "/manage/resume/close", method = RequestMethod.POST)
+	@ResponseBody
+	public Result close(Long id){
+		resumeDao.closeResume(id);
+		return Result.ok();
+	}
+	
+	@RequestMapping(value = "/manage/resume/open", method = RequestMethod.POST)
+	@ResponseBody
+	public Result open(Long id){
+		resumeDao.openResume(id);
+		return Result.ok();
 	}
 
 }

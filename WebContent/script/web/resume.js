@@ -34,8 +34,10 @@ function educationHid(){
 
 function educationSelect(object){
 	//alert($(object).html());
-	$("#education").val($(object).text());
+	$("#education_text").val($(object).text());
+	$("#education").val($(object).attr("data-value"));
 	$("#education_options").css("display","none");	
+	
 }
 /**
  * -----------------------------------学历选择部分结束--------------------------------------
@@ -537,8 +539,82 @@ function modyinfo(id){
 	});
 	
 	account_request.done(function(data) {
-		$("#edit_inner_div").css("display","block");
-		$("#edit_inner_div").html(data); 
+		$("#modify_inner_div").css("display","block");
+		$("#modify_inner_div").html(data); 
 	});
 }
+
+function closeModifyDiv(){
+	$("#modify_inner_div").css("display","none");
+}
  
+function refreshResume(id){
+	var send_data={};
+	   //alert(1);
+	send_data.random = Math.random();
+	send_data.id = id;
+	var account_request =$.ajax({
+	   type: 'post',
+	   url: '/manage/resume/refresh',
+	   data: send_data,
+	   dataType: 'json'
+	});
+
+	account_request.fail(function( jqXHR, textStatus ) {
+	  if(jqXHR.status==401){
+	     //openWeiboLogin();
+		  
+	  }
+	});
+	
+	account_request.done(function(data) {
+		window.location.reload();
+	});
+}
+
+function closeResume(id){
+	var send_data={};
+	   //alert(1);
+	send_data.random = Math.random();
+	send_data.id = id;
+	var account_request =$.ajax({
+	   type: 'post',
+	   url: '/manage/resume/close',
+	   data: send_data,
+	   dataType: 'json'
+	});
+
+	account_request.fail(function( jqXHR, textStatus ) {
+	  if(jqXHR.status==401){
+	     //openWeiboLogin();
+		  
+	  }
+	});
+	
+	account_request.done(function(data) {
+		window.location.reload();
+	});
+}
+function openResume(id){
+	var send_data={};
+	   //alert(1);
+	send_data.random = Math.random();
+	send_data.id = id;
+	var account_request =$.ajax({
+	   type: 'post',
+	   url: '/manage/resume/open',
+	   data: send_data,
+	   dataType: 'json'
+	});
+
+	account_request.fail(function( jqXHR, textStatus ) {
+	  if(jqXHR.status==401){
+	     //openWeiboLogin();
+		  
+	  }
+	});
+	
+	account_request.done(function(data) {
+		window.location.reload();
+	});
+}

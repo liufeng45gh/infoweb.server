@@ -41,13 +41,15 @@
                                          (正常显示)  
                                      </td>
                                      <td style="text-align:center"><fmt:formatDate value="${resume.updated_at}" pattern="yyyy-MM-dd HH:mm"/></td>
-                                     <td style="text-align:center">对所有人公开</td>
+                                     <td style="text-align:center"><c:if test="${resume.open == 1}">公开</c:if><c:if test="${resume.open != 1}">关闭</c:if></td>
                                      <td style="text-align:center">0</td>
                                      <td style="text-align:center">0</td>
                                      <td style="text-align:center">
                                          <a href="/manage/resume/update?id=${resume.id }" target="_blank">修改</a>
-                                         | <a href="javascript:void(0);" class="js_auto_refresh_list" s="5109">刷新</a>
-                                         | <a href="javascript:void(0);" class="ev_kaiqi_guanbi_post" pid="5109,0,0,1,5,51" target="_blank">关闭</a>
+                                         | <a href="javascript:refreshResume(${resume.id });" class="js_auto_refresh_list" >刷新</a>
+                                         | <c:if test="${resume.open == 1}"><a href="javascript:closeResume(${resume.id });" class="ev_kaiqi_guanbi_post" >关闭</a></c:if>
+                                         <c:if test="${resume.open != 1}"><a href="javascript:openResume(${resume.id });" class="ev_kaiqi_guanbi_post" >公开</a></c:if>
+                                         
                                      </td>
                                  </tr>
                                  </c:forEach>
@@ -90,7 +92,7 @@
 <script type="text/javascript">
 $("#left_menu_list").addClass("current");
 </script>
-
+<script src="/script/web/resume.js"></script>
 
 
 </body></html>

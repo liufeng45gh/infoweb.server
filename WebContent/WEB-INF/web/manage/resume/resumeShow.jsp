@@ -12,14 +12,10 @@
     
 <jsp:include page="../navigation.jsp"></jsp:include> 
 
-
-
-
 <div class="globalContainer clearfix">
     <div class="mainContainer">
-        <div class="rightCol">
-       
-		<jsp:include page="updateInner.jsp"></jsp:include>
+        <div class="rightCol">       
+		<jsp:include page="resumeShowInner.jsp"></jsp:include>
    		 </div>
         <!--左侧菜单开始 -->        
 		<jsp:include page="left.jsp"></jsp:include>
@@ -36,6 +32,6 @@ $("#left_menu_list").addClass("current");
 </script>
 
 
-<div id="edit_inner_div" style="position:fixed;top:0px;left:0px;display:none;width:100%;height:100%;background-color:white;overflow: auto;">
+<div id="modify_inner_div" style="position:fixed;top:0px;left:0px;display:none;width:100%;height:100%;background-color:white;overflow: auto;">
 </div>
 </body></html>

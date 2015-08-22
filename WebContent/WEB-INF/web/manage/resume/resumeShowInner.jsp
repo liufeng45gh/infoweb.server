@@ -33,14 +33,14 @@
 						class="divide">|</span> <span>${user.age}岁</span> <span class="divide">|</span>
 					<span>现居住 ${user.residence }</span> <span class="divide">|</span> <span>籍贯:${user.origin_place }</span>
 					<span class="divide">|</span> <span>本科</span> <span class="divide">|</span>
-					<span> <%=resume.workYears() %> 年工作经验 </span>
+					<span> <%=(float)resume.workYears() %> 年工作经验 </span>
 				</dd>
 				<dd>
 					<span class="title">联系方式：</span> <span>
 						${user.email }、${user.telephone }</span>
 				</dd>
 				<dd>
-					<span class="title db">自我评价：</span> <span class="w710">${resume.evaluation }</span>
+					<span class="title db">自我评价：</span> <span class="w710"><c:out value="${resume.evaluation }" escapeXml="true"></c:out></span>
 				</dd>
 			</dl>
 		</div>

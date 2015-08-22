@@ -5,10 +5,10 @@
 <mapper namespace="com.lucifer.model">  
   <insert id="insertResume">
   	insert into resume 
-  	(id,user_id,city_id,industry_id,position_id,nature,salary,current_status,evaluation,specialty,start_work_date)
+  	(id,title,user_id,city_id,industry_id,position_id,nature,salary,current_status,evaluation,specialty,start_work_date,open,created_at,updated_at)
   	values
-  	(#{id},#{user_id},#{city_id},#{industry_id},#{position_id},#{nature},#{salary},#{current_status},#{evaluation},
-  	#{specialty},#{start_work_date})
+  	(#{id},#{title},#{user_id},#{city_id},#{industry_id},#{position_id},#{nature},#{salary},#{current_status},#{evaluation},
+  	#{specialty},#{start_work_date},#{open},now(),now())
   </insert>
   <update id="updateResume">
   update resume
@@ -21,5 +21,21 @@
   <select id="getResume" resultType="com.lucifer.model.Resume">
   select * from resume where id = #{id}
   </select>
+  
+  <update id="updateResumeInfo">
+  update resume
+  set title=#{title}, city_id = #{city_id},industry_id=#{industry_id},position_id=#{position_id},nature=#{nature},salary=#{salary},open=#{open},
+  		current_status=#{current_status}, evaluation=#{evaluation}, specialty=#{specialty},start_work_date=#{start_work_date} ,updated_at = now()
+  		where id = #{id}
+  </update>
+  <update id="refreshResume">
+  update resume set updated_at = now() where id = #{id}
+  </update>
+  <update id="closeResume">
+  update resume set open = 0 where id = #{id}
+  </update>
+  <update id="openResume">
+  update resume set open = 1 where id = #{id}
+  </update>
 	
 </mapper>

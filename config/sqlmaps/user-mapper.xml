@@ -54,7 +54,10 @@
   </update>
   
   <update id="updateUserInfo">
-  	update user set nick=#{nick},telephone=#{telephone},email=#{email},gender=#{gender},birthday=#{birthday},real_name=#{real_name},open=#{open} where id=#{id}
+  	update user set 
+  	nick=#{nick},telephone=#{telephone},email=#{email},gender=#{gender},birthday=#{birthday},
+  	real_name=#{real_name},open=#{open} ,origin_place=#{origin_place},residence=#{residence}
+  	where id=#{id}
   </update>
   
    <update id="updatePassword">

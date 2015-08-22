@@ -43,6 +43,7 @@
   font-size: 14px;
   line-height: 33px;
   background-color: #f4f4f4;
+  position:relative;
 }
 .info-con {
   padding: 25px 0 0 0;
@@ -132,6 +133,7 @@
   background: #fff;
   border: solid 1px #ccc;
   box-shadow: 0 0 3px #e5e5e5;
+  z-index: 10;
   display: none;
 }
 .w116 {
@@ -437,4 +439,13 @@ i.prevIcon, i.nextIcon, i.prevHover, i.nextHover {
 }
 .postBtn {
   background: url(http://pic2.58.com/ui7/job/resume/jl_postBtn.png) repeat-x 0 0 transparent;
+}
+.tit a.close {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  background: url(http://pic2.58.com/ui6/top_box_close.gif) no-repeat 0 0;
+  padding-left: 0px;
 }

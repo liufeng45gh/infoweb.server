@@ -154,7 +154,7 @@ ul {
 }
 .jobcatelist .selected p {
   position: relative;
-  z-index: 2;
+  z-index: 200;
   border: 2px solid #FABD86;
   border-bottom: none;
   padding: 3px 0 1px 3px;
@@ -178,7 +178,7 @@ ul {
 .subcate {
   display: none;
   position: absolute;
-  z-index: 1;
+  z-index: 200;
   left: 0;
   width: 470px;
   background-color: #FFFCF8;

@@ -5,6 +5,7 @@ import java.util.Date;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import com.lucifer.enumeration.Education;
 import com.lucifer.util.StringUtil;
 
 
@@ -57,6 +58,8 @@ public class User {
 	private Integer open;
 	
 	private String origin_place;
+	
+	private Education education;
 	
 	private static  Log log = LogFactory.getLog(User.class);
 
@@ -269,6 +272,21 @@ public class User {
 		int age = (int)(timeLong/(86400000 * 365l));
 		//log.info("age is "+age);
 		return age;
+	}
+	
+	public Integer getEducation() {
+		if (null == education) {
+			return null;
+		}
+		return education.getKey();
+	}
+	
+	public Education getEnumEducation() {
+		return education;
+	}
+
+	public void setEducation(Integer key) {
+		this.education = Education.objectOf(key);
 	}
 	
 }

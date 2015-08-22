@@ -1,6 +1,8 @@
 package com.lucifer.model;
 
+import java.math.BigDecimal;
 import java.util.Date;
+
 
 import com.lucifer.enumeration.Salary;
 
@@ -18,7 +20,7 @@ public class Resume {
 	
 	private Integer nature;
 	
-	private Integer salary;
+	private Salary salary;
 	
 	private Integer current_status;
 	
@@ -38,11 +40,14 @@ public class Resume {
 	
 	private Industry industry;
 	
-	private Salary osalary;
+	private Integer open;
+	
 	
 	private City city;
 	
 	private City parentCity;
+	
+	
 
 	public Long getId() {
 		return id;
@@ -52,8 +57,6 @@ public class Resume {
 		this.id = id;
 	}
 	
-	
-
 	public String getTitle() {
 		return title;
 	}
@@ -103,11 +106,14 @@ public class Resume {
 	}
 
 	public Integer getSalary() {
-		return salary;
+		if(null == salary){
+			return 0;
+		}
+		return salary.getKey();
 	}
 
 	public void setSalary(Integer salary) {
-		this.salary = salary;
+		this.salary = Salary.objectOf(salary);
 	}
 
 	public Integer getCurrent_status() {
@@ -175,7 +181,7 @@ public class Resume {
 	}
 	
 	public Salary getOsalary(){
-		return Salary.objectOf(this.salary);
+		return this.salary;
 	}
 	
 	public City getCity(){
@@ -194,17 +200,26 @@ public class Resume {
 		this.parentCity = parentCity;
 	}
 	
-	public Integer workYears(){
+	public Float workYears(){
 		if (null==start_work_date) {
-			return 0;
+			return 0f;
 		}
 		//log.info("System.currentTimeMillis() is "+System.currentTimeMillis());
 		//log.info("birthday.getTime() is" + birthday.getTime());
 		long timeLong = Math.abs(System.currentTimeMillis() - start_work_date.getTime());
-		int age = (int)(timeLong/(86400000 * 365l));
+		float age = (float)(timeLong/(86400000 * 365d));
 		//log.info("age is "+age);
-		return age;
+		BigDecimal   b   =   new   BigDecimal(age);  
+		return b.setScale(2,   BigDecimal.ROUND_HALF_UP).floatValue();
 	}
+
+	public Integer getOpen() {
+		return open;
+	}
+
+	public void setOpen(Integer open) {
+		this.open = open;
+	}		
 	
 	
 }
