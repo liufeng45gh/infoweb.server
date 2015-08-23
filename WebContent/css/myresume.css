@@ -449,3 +449,121 @@ i.prevIcon, i.nextIcon, i.prevHover, i.nextHover {
   background: url(http://pic2.58.com/ui6/top_box_close.gif) no-repeat 0 0;
   padding-left: 0px;
 }
+
+.infoContent, .postSecPage .postContent {
+  padding-top: 35px;
+  position: relative;
+  zoom: 1;
+  width: 1000px;
+  margin: 0 auto;
+}
+.infoContent .salInfo, .infoContent .timeInfo, .infoContent .linkage {
+  position: relative;
+  zoom: 1;
+  float: left;
+}
+i.selIcon {
+  height: 33px;
+  width: 23px;
+  cursor: pointer;
+  background-position: -1px -24px;
+}
+.infoContent dl .f-c7 {
+  color: #C7C7C7;
+}
+.infoContent dl input {
+  height: 32px;
+  line-height: 32px;
+  border: 1px solid #C7C7C7;
+  padding-left: 5px;
+  color: #333;
+  font-size: 14px;
+  float: left;
+}
+.w115 {
+  width: 115px;
+}
+.infoContent .hasSel {
+  margin-right: 5px;
+  float: left;
+  position: relative;
+  zoom: 1;
+}
+.infoContent .textCon {
+  height: 88px;
+  width: 477px;
+  border: 0;
+  outline: 0;
+  overflow: hidden;
+  resize: none;
+  font-size: 14px;
+}
+.infoContent .textDiv {
+  height: 112px;
+  width: 487px;
+  border: 1px solid #C8C8C8;
+  padding: 5px;
+  float: left;
+  position: relative;
+  zoom: 1;
+  background-color: #FFF;
+}
+.infoContent dd {
+  line-height: 34px;
+  width: 715px;
+  position: relative;
+  zoom: 1;
+}
+.infoContent .btnDiv {
+  padding-bottom: 20px;
+  overflow: hidden;
+  zoom: 1;
+  padding-top: 15px;
+}
+
+.infoContent .saveResume, .infoContent .saveBasicInfo, .infoContent .saveBtn, .infoContent .cancelBtn {
+  display: inline-block;
+  height: 33px;
+  line-height: 33px;
+  color: #FFF;
+  padding: 0 25px;
+  font-size: 16px;
+  border-bottom: 1px solid #BE520E;
+  margin-left: 285px;
+  float: left;
+  font-weight: 700;
+}
+
+.infoContent .saveBasicInfo, .infoContent .saveBtn {
+  background-position: 0 -76px;
+  border: 0;
+  border-bottom: 2px solid #2E4C7F;
+  cursor: pointer;
+}
+.infoContent a.cancelBtn {
+  color: #636465;
+  background: 0 0;
+  border: 0;
+  padding: 0;
+}
+.infoContent .saveAddBtn, .infoContent .cancelBtn {
+  margin-left: 20px;
+}
+.infoContent .inputTips {
+  position: absolute;
+  right: 0;
+  bottom: -3px;
+  font-size: 12px;
+  color: silver;
+  padding-right: 5px;
+  display: block;
+}
+.f-orange {
+  color: #FD7543;
+}
+.infoContent .inputTips .totalNum {
+  padding: 0 2px;
+}
+.w302{
+	width:302px;
+}

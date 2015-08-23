@@ -547,7 +547,85 @@ function modyinfo(id){
 function closeModifyDiv(){
 	$("#modify_inner_div").css("display","none");
 }
+
+function addExperence(id){
+	var send_data={};
+	   //alert(1);
+	send_data.random = Math.random();
+	send_data.resume_id = id;
+	var account_request =$.ajax({
+	   type: 'get',
+	   url: '/manage/resume/experence/add',
+	   data: send_data,
+	   dataType: 'html'
+	});
+
+	account_request.fail(function( jqXHR, textStatus ) {
+	  if(jqXHR.status==401){
+	     //openWeiboLogin();
+		  
+	  }
+	});
+	
+	account_request.done(function(data) {
+		$("#modify_inner_div").css("display","block");
+		$("#modify_inner_div").html(data); 
+	});
+}
  
+
+
+function deleteJobExperience(id){
+	if(!confirm("确认删除?")){
+		return ;
+	}
+	var send_data={};
+	   //alert(1);
+	send_data.random = Math.random();
+	send_data.id = id;
+	var account_request =$.ajax({
+	   type: 'post',
+	   url: '/manage/resume/job_experience/delete',
+	   data: send_data,
+	   dataType: 'json'
+	});
+
+	account_request.fail(function( jqXHR, textStatus ) {
+	  if(jqXHR.status==401){
+	     //openWeiboLogin();
+		  
+	  }
+	});
+	
+	account_request.done(function(data) {
+		window.location.reload();
+	});
+}
+
+function modifyJobExperience(id){
+	var send_data={};
+	   //alert(1);
+	send_data.random = Math.random();
+	send_data.id = id;
+	var account_request =$.ajax({
+	   type: 'get',
+	   url: '/manage/resume/experence/update',
+	   data: send_data,
+	   dataType: 'html'
+	});
+
+	account_request.fail(function( jqXHR, textStatus ) {
+	  if(jqXHR.status==401){
+	     //openWeiboLogin();		  
+	  }
+	});
+	
+	account_request.done(function(data) {
+		$("#modify_inner_div").css("display","block");
+		$("#modify_inner_div").html(data); 
+	});
+}
+
 function refreshResume(id){
 	var send_data={};
 	   //alert(1);
@@ -595,6 +673,7 @@ function closeResume(id){
 		window.location.reload();
 	});
 }
+
 function openResume(id){
 	var send_data={};
 	   //alert(1);

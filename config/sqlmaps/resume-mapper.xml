@@ -37,5 +37,27 @@
   <update id="openResume">
   update resume set open = 1 where id = #{id}
   </update>
+  
+  
+  
+  
+  	<insert id="insertJobExperence">
+	  insert into job_experience 
+	  (id,resume_id,start_date,end_date,company,job,description,salary)
+	  values
+	  (#{id},#{resume_id},#{start_date},#{end_date},#{company},#{job},#{description},#{salary})
+  	</insert>
 	
+	<select id="resumeJobExprienceList" resultType="com.lucifer.model.JobExperience">
+	select * from job_experience where resume_id = #{resume_id}
+	</select>
+	<delete id="deleteJobExperence">
+	delete from job_experience where id = #{id}
+	</delete>
+	<select id="getJobExperience" resultType="com.lucifer.model.JobExperience">
+	select * from job_experience where id = #{id}
+	</select>
+	<update id="updateJobExprience">
+	update job_experience set start_date=#{start_date},end_date=#{end_date},company=#{company},job=#{job},description=#{description},salary=#{salary} where id = #{id}
+	</update>
 </mapper>

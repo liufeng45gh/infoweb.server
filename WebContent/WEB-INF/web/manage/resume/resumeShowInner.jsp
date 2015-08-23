@@ -1,5 +1,6 @@
 <%@ page language="java" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page import="com.lucifer.model.Resume" %>
 <%@ page import="com.lucifer.model.User" %>
 <%@ page import="com.lucifer.enumeration.Gender" %>
@@ -49,27 +50,36 @@
 	<div class="experInfo">
 		<h3>
 			<b class="tipx">*</b> <span id="ex">工作经验</span> <span class="tips">（投递必填）</span>
-			<a href="javascript:Exp.showAddWin();" class="addBtn">添加</a>
+			<a href="javascript:addExperence(${resume.id });" class="addBtn">添加</a>
 		</h3>
 		<div id="expDiv" class="experConShow showDiv">
-			<div class="experDetail showList">
-				<p class="detailList">
-					<span>2013年6月-2015年7月</span> <span class="divide">|</span> <span>北京旭宁信息技术有限公司</span>
-					<span class="divide">|</span> <span>ios开发工程师</span> <span
-						class="divide">|</span> <span>12000-20000元/月</span>
-				</p>
-				<p class="detailCon">
-					<span class="tlTitle">工作内容：</span> <span class="">品读 ios模块
-						研发</span>
-				</p>
-				<p class="operBtn">
-					<a href="javascript:Exp.modifyById('85863150969346')" class=""
-						style="display:">修改</a> <a
-						onclick="$(this).delConfirm('85863150969346')" targetname="工作经验"
-						targetcall="Exp.delById('85863150969346')"
-						targetdiv="containerexperience" href="javascript:void(0);">删除</a>
-				</p>
-			</div>
+			<c:if test="${resumeJobExperienceList.size() == 0}">
+				<div class="experDetail showList">
+					<p class="detailList">
+						<span>您还没有填写任何内容!</span>
+	
+					</p>
+
+				</div>
+			</c:if>
+			<c:forEach var="jobExperience" items="${resumeJobExperienceList}" varStatus="status">
+				<div class="experDetail showList">
+					<p class="detailList">
+						<span><fmt:formatDate value="${jobExperience.start_date}" pattern="yyyy年MM月"/>-<fmt:formatDate value="${jobExperience.end_date}" pattern="yyyy年MM月"/></span> 
+						<span class="divide">|</span> <span>${jobExperience.company }</span>
+						<span class="divide">|</span> <span>${jobExperience.job }</span> <span
+							class="divide">|</span> <span>${jobExperience.osalary.text }/月</span>
+					</p>
+					<p class="detailCon">
+						<span class="tlTitle">工作内容：</span> <span class="">${jobExperience.description}</span>
+					</p>
+					<p class="operBtn" style="display:block;">
+						<a href="javascript:void(0);" onclick="modifyJobExperience(${jobExperience.id })" >修改</a> 
+						<a onclick="deleteJobExperience(${jobExperience.id})"  href="javascript:void(0);">删除</a>
+					</p>
+				</div>
+			</c:forEach>
+			
 		</div>
 
 		<div class="experConShow showDiv"></div>

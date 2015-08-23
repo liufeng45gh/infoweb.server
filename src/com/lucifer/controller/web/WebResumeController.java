@@ -26,6 +26,7 @@ import com.lucifer.dao.UserDao;
 import com.lucifer.enumeration.Education;
 import com.lucifer.model.City;
 import com.lucifer.model.Industry;
+import com.lucifer.model.JobExperience;
 import com.lucifer.model.Position;
 import com.lucifer.model.Resume;
 import com.lucifer.model.User;
@@ -117,6 +118,9 @@ public class WebResumeController {
 		City parentCity = cityDao.getCity(city.getParent_id());
 		resume.setParentCity(parentCity);
 		
+		List<JobExperience> resumeJobExperienceList = resumeDao.resumeJobExprienceList(id);
+		request.setAttribute("resumeJobExperienceList", resumeJobExperienceList);
+		
 		return "/WEB-INF/web/manage/resume/resumeShow.jsp";
 	}
 	
@@ -181,6 +185,43 @@ public class WebResumeController {
 	public Result open(Long id){
 		resumeDao.openResume(id);
 		return Result.ok();
+	}
+	
+	@RequestMapping(value = "/manage/resume/experence/add", method = RequestMethod.GET)
+	public String experienceAddInput(Long resume_id,HttpServletRequest request){
+		request.setAttribute("resume_id", resume_id);
+		request.setAttribute("opt", "增加工作经验");
+		return "/WEB-INF/web/manage/resume/resumeExperenceAddSurface.jsp";
+	}
+	
+	@RequestMapping(value = "/manage/resume/experence/add", method = RequestMethod.POST)
+	public String experienceAddSubmit(JobExperience jobExperience){
+		jobExperience.setId(CommonUtil.nextId());
+		resumeDao.insertExperence(jobExperience);
+		return "redirect:/manage/resume/update?id="+jobExperience.getResume_id();
+	}
+	
+	@RequestMapping(value = "/manage/resume/job_experience/delete", method = RequestMethod.POST)
+	@ResponseBody
+	public Result experienceDelete(Long id){
+		resumeDao.deleteJobExperence(id);
+		return Result.ok();
+	}
+	
+	
+	@RequestMapping(value = "/manage/resume/experence/update", method = RequestMethod.GET)
+	public String modifyJobExperienceInput(Long id,HttpServletRequest request){
+		JobExperience jobExperience = resumeDao.getJobExperience(id);
+		request.setAttribute("jobExperience", jobExperience);
+		request.setAttribute("opt", "修改工作经验");
+		request.setAttribute("resume_id", jobExperience.getResume_id());
+		return "/WEB-INF/web/manage/resume/resumeExperenceUpdateSurface.jsp";
+	}
+	
+	@RequestMapping(value = "/manage/resume/experence/update", method = RequestMethod.POST)
+	public String modifyJobExperienceSubmit(JobExperience jobExperience){
+		resumeDao.updateJobExprience(jobExperience);
+		return "redirect:/manage/resume/update?id="+jobExperience.getResume_id();
 	}
 
 }
