@@ -697,3 +697,28 @@ function openResume(id){
 		window.location.reload();
 	});
 }
+
+function addProjectExperience(id){
+	var send_data={};
+	   //alert(1);
+	send_data.random = Math.random();
+	send_data.resume_id = id;
+	var account_request =$.ajax({
+	   type: 'get',
+	   url: '/manage/resume/priject_experience/add',
+	   data: send_data,
+	   dataType: 'html'
+	});
+
+	account_request.fail(function( jqXHR, textStatus ) {
+	  if(jqXHR.status==401){
+	     //openWeiboLogin();
+		  
+	  }
+	});
+	
+	account_request.done(function(data) {
+		$("#modify_inner_div").css("display","block");
+		$("#modify_inner_div").html(data); 
+	});
+}

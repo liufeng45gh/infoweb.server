@@ -191,7 +191,7 @@ public class WebResumeController {
 	public String experienceAddInput(Long resume_id,HttpServletRequest request){
 		request.setAttribute("resume_id", resume_id);
 		request.setAttribute("opt", "增加工作经验");
-		return "/WEB-INF/web/manage/resume/resumeExperenceAddSurface.jsp";
+		return "/WEB-INF/web/manage/resume/resumeExperienceAddSurface.jsp";
 	}
 	
 	@RequestMapping(value = "/manage/resume/experence/add", method = RequestMethod.POST)
@@ -215,13 +215,20 @@ public class WebResumeController {
 		request.setAttribute("jobExperience", jobExperience);
 		request.setAttribute("opt", "修改工作经验");
 		request.setAttribute("resume_id", jobExperience.getResume_id());
-		return "/WEB-INF/web/manage/resume/resumeExperenceUpdateSurface.jsp";
+		return "/WEB-INF/web/manage/resume/resumeExperienceUpdateSurface.jsp";
 	}
 	
 	@RequestMapping(value = "/manage/resume/experence/update", method = RequestMethod.POST)
 	public String modifyJobExperienceSubmit(JobExperience jobExperience){
 		resumeDao.updateJobExprience(jobExperience);
 		return "redirect:/manage/resume/update?id="+jobExperience.getResume_id();
+	}
+	
+	@RequestMapping(value = "/manage/resume/priject_experience/add", method = RequestMethod.GET)
+	public String projectExperienceAdd(Long resume_id,HttpServletRequest request){
+		request.setAttribute("opt", "增加项目经验");
+		request.setAttribute("resume_id", resume_id);
+		return "/WEB-INF/web/manage/resume/resumeProjectExperienceAddSurface.jsp";
 	}
 
 }

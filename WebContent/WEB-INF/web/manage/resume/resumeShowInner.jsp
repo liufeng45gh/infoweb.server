@@ -86,8 +86,7 @@
 	</div>
 	<div id="projectexperience" class="proInfo">
 		<h3 id="pr">
-			<b class="tipx">*</b> <span>项目经验</span> <a href="javascript:void(0);"
-				class="addBtn">添加</a>
+			<b class="tipx">*</b> <span>项目经验</span> <a href="javascript:void(0);" class="addBtn" onclick="addProjectExperience(${resume.id })">添加</a>
 
 		</h3>
 		<div id="proDiv" class="experConShow showDiv" style="display:">

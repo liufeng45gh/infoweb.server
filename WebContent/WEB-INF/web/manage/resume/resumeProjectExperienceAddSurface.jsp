@@ -3,8 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <div  class="center" style="width:900px;">
-<form action="/manage/resume/experence/update" method="post">
-<jsp:include page="resumeExperenceFiled.jsp"></jsp:include>
+<form action="/manage/resume/project_experience/add" method="post">
+<jsp:include page="resumeProjectExperienceFiled.jsp"></jsp:include>
 </form>
 
 </div>
