@@ -90,13 +90,34 @@
 
 		</h3>
 		<div id="proDiv" class="experConShow showDiv" style="display:">
-			<div class="experDetail showList">
-				<p class="detailList">
-					<span>您还没有填写任何内容!</span>
+			<c:if test="${resumeProjectExperienceList.size() == 0}">
+				<div class="experDetail showList">
+					<p class="detailList">
+						<span>您还没有填写任何内容!</span>
+	
+					</p>
 
-				</p>
-
-			</div>
+				</div>
+			</c:if>
+			<c:forEach var="projectExperience" items="${resumeProjectExperienceList}" varStatus="status">
+				<div class="experDetail showList">
+					<p class="detailList">
+						<span><fmt:formatDate value="${projectExperience.start_date}" pattern="yyyy年MM月"/>-<fmt:formatDate value="${projectExperience.end_date}" pattern="yyyy年MM月"/></span> 
+						<span class="divide">|</span> <span>${projectExperience.name }</span>
+						
+					</p>
+					<p class="detailCon">
+						<span class="tlTitle">工作内容：</span> <span class="">${projectExperience.description}</span>
+					</p>
+					<p class="detailCon">
+						<span class="tlTitle">业绩与职责：</span> <span class="">${projectExperience.duty}</span>
+					</p>
+					<p class="operBtn" style="display:block;">
+						<a href="javascript:void(0);" onclick="modifyProjectExperience(${projectExperience.id })" >修改</a> 
+						<a onclick="deleteProjectExperience(${projectExperience.id})"  href="javascript:void(0);">删除</a>
+					</p>
+				</div>
+			</c:forEach>
 		</div>
 
 	</div>

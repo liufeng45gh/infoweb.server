@@ -78,6 +78,9 @@
 	<select id="resumeProjectExperienceList" resultType="com.lucifer.model.ProjectExperience">
 	select * from project_experience where resume_id = #{resume_id}
 	</select>
+	<delete id="deleteProjectExperience">
+	delete from project_experience where id = #{id}
+	</delete>
 	
 	
 	<!-- 培训经历 -->

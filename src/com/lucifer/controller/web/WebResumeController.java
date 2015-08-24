@@ -228,19 +228,21 @@ public class WebResumeController {
 		return "redirect:/manage/resume/update?id="+jobExperience.getResume_id();
 	}
 	
-	@RequestMapping(value = "/manage/resume/priject_experience/add", method = RequestMethod.GET)
+	@RequestMapping(value = "/manage/resume/project_experience/add", method = RequestMethod.GET)
 	public String projectExperienceAdd(Long resume_id,HttpServletRequest request){
 		request.setAttribute("opt", "增加项目经验");
 		request.setAttribute("resume_id", resume_id);
 		return "/WEB-INF/web/manage/resume/resumeProjectExperienceAddSurface.jsp";
 	}
 	
-	@RequestMapping(value = "/manage/resume/priject_experience/add", method = RequestMethod.GET)
+	@RequestMapping(value = "/manage/resume/project_experience/add", method = RequestMethod.POST)
 	public String projectExperienceAddSubmit(ProjectExperience projectExperience){
+		projectExperience.setId(CommonUtil.nextId());
+		resumeDao.insertProjectExperience(projectExperience);
 		return "redirect:/manage/resume/update?id="+projectExperience.getResume_id();
 	}
 	
-	@RequestMapping(value = "/manage/resume/priject_experience/update", method = RequestMethod.GET)
+	@RequestMapping(value = "/manage/resume/project_experience/update", method = RequestMethod.GET)
 	public String projectExperienceUpdate(Long id,HttpServletRequest request){
 		request.setAttribute("opt", "修改项目经验");		
 		ProjectExperience projectExperience = resumeDao.getProjectExperience(id);
@@ -249,10 +251,18 @@ public class WebResumeController {
 		return "/WEB-INF/web/manage/resume/resumeProjectExperienceUpdateSurface.jsp";
 	}
 	
-	@RequestMapping(value = "/manage/resume/priject_experience/update", method = RequestMethod.POST)
+	@RequestMapping(value = "/manage/resume/project_experience/update", method = RequestMethod.POST)
 	public String modifyProjectExperienceSubmit(ProjectExperience projectExperience){
 		resumeDao.updateProjectExperience(projectExperience);
 		return "redirect:/manage/resume/update?id="+projectExperience.getResume_id();
 	}
+	
+	@RequestMapping(value = "/manage/resume/project_experience/delete", method = RequestMethod.POST)
+	@ResponseBody
+	public Result projectExperienceDelete(Long id){
+		resumeDao.deleteProjectExperence(id);
+		return Result.ok();
+	}
+	
 
 }

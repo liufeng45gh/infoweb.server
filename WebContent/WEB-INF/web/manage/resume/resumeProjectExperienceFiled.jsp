@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <input type="hidden" name="resume_id" value="${resume_id }">
-<input type="hidden" name="id" value="${jobExperience.id }">
+<input type="hidden" name="id" value="${projectExperience.id }">
 <div class="tit">${opt } <a href="javascript:void(0);" class="close" onclick="closeModifyDiv()"></a></div>
 <div id="tabModyExpe" class="experChange infoContent" style="margin-top:60px;">
 		
@@ -13,7 +13,7 @@
             </dt>
             <dd style="z-index:900">
                 <div class="comName hasSel">
-                    <input name="company" type="text" class="w302 wrongborder" value="${jobExperience.company }" data-validation="required"> 
+                    <input name="name" type="text" class="w302 wrongborder" value="${projectExperience.name }" data-validation="required"> 
                     
                 </div>
                 
@@ -28,13 +28,13 @@
             </dt>
             <dd class="timeSel" id="inpPos">
                 <div class="yearSel linkage">
-                    <input id="inpPosStartYear" name="start_date" class="w76 hasSetBox" value="<fmt:formatDate value="${jobExperience.start_date}" pattern="yyyy-MM-dd"/>" readonly="readonly" onClick="WdatePicker({el:'inpPosStartYear'})" data-validation="required"> 
+                    <input id="inpPosStartYear" name="start_date" class="w76 hasSetBox" value="<fmt:formatDate value="${projectExperience.start_date}" pattern="yyyy-MM-dd"/>" readonly="readonly" onClick="WdatePicker({el:'inpPosStartYear'})" data-validation="required"> 
                     <span class="plr5">-</span>
                     
                 </div>
                 
                 <div class="yearSel linkage">
-                    <input id="inpPosEndYear" name="end_date" class="w76 hasSetBox" value="<fmt:formatDate value="${jobExperience.end_date}" pattern="yyyy-MM-dd"/>" readonly="readonly" onClick="WdatePicker({el:'inpPosEndYear'})" data-validation="required">                    
+                    <input id="inpPosEndYear" name="end_date" class="w76 hasSetBox" value="<fmt:formatDate value="${projectExperience.end_date}" pattern="yyyy-MM-dd"/>" readonly="readonly" onClick="WdatePicker({el:'inpPosEndYear'})" data-validation="required">                    
                 </div>
                 
                 <span id="inpPosInfo"></span>
@@ -47,7 +47,7 @@
             </dt>
             <dd>
                 <div class="textDiv">                
-                    <textarea id="txtPerformance" name="description" class="textCon f-c7" placeholder="建议介绍一下该项目的组织方、背景、目的等基本情况" data-validation="required"><c:out value="${jobExperience.description}" escapeXml="true"></c:out></textarea>
+                    <textarea id="txtPerformance" name="description" class="textCon f-c7" placeholder="建议介绍一下该项目的组织方、背景、目的等基本情况" data-validation="required"><c:out value="${projectExperience.description}" escapeXml="true"></c:out></textarea>
                     <span id="txtPerformanceInfo" style="z-index:30"></span>
                     <p class="inputTips">
                         还可输入<span class="f-orange totalNum">800</span>字
@@ -63,7 +63,7 @@
             </dt>
             <dd>
                 <div class="textDiv">                
-                    <textarea id="txtPerformance" name="description" class="textCon f-c7" placeholder="简述一下岗位职责和工作业绩，可使用人单位对你了解更多！" data-validation="required"><c:out value="${jobExperience.description}" escapeXml="true"></c:out></textarea>
+                    <textarea id="txtPerformance" name="duty" class="textCon f-c7" placeholder="简述一下岗位职责和工作业绩，可使用人单位对你了解更多！" data-validation="required"><c:out value="${projectExperience.duty}" escapeXml="true"></c:out></textarea>
                     <span id="txtPerformanceInfo" style="z-index:30"></span>
                     <p class="inputTips">
                         还可输入<span class="f-orange totalNum">800</span>字

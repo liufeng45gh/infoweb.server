@@ -82,6 +82,10 @@ public class ResumeDao  extends IBatisBaseDao {
 		return sqlSession.update("updateProjectExperience", projectExperience);
 	}
 	
+	public Integer deleteProjectExperence(Long id){
+		return sqlSession.update("deleteProjectExperience", id);
+	}
+	
 	public List<ProjectExperience> resumeProjectExperienceList(Long resume_id){
 		return sqlSession.selectList("resumeProjectExperienceList", resume_id);
 	}
