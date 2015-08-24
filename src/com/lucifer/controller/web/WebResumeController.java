@@ -28,6 +28,7 @@ import com.lucifer.model.City;
 import com.lucifer.model.Industry;
 import com.lucifer.model.JobExperience;
 import com.lucifer.model.Position;
+import com.lucifer.model.ProjectExperience;
 import com.lucifer.model.Resume;
 import com.lucifer.model.User;
 import com.lucifer.util.CommonUtil;
@@ -120,6 +121,9 @@ public class WebResumeController {
 		
 		List<JobExperience> resumeJobExperienceList = resumeDao.resumeJobExprienceList(id);
 		request.setAttribute("resumeJobExperienceList", resumeJobExperienceList);
+		
+		List <ProjectExperience> resumeProjectExperienceList = resumeDao.resumeProjectExperienceList(id);
+		request.setAttribute("resumeProjectExperienceList", resumeProjectExperienceList);
 		
 		return "/WEB-INF/web/manage/resume/resumeShow.jsp";
 	}
@@ -229,6 +233,26 @@ public class WebResumeController {
 		request.setAttribute("opt", "增加项目经验");
 		request.setAttribute("resume_id", resume_id);
 		return "/WEB-INF/web/manage/resume/resumeProjectExperienceAddSurface.jsp";
+	}
+	
+	@RequestMapping(value = "/manage/resume/priject_experience/add", method = RequestMethod.GET)
+	public String projectExperienceAddSubmit(ProjectExperience projectExperience){
+		return "redirect:/manage/resume/update?id="+projectExperience.getResume_id();
+	}
+	
+	@RequestMapping(value = "/manage/resume/priject_experience/update", method = RequestMethod.GET)
+	public String projectExperienceUpdate(Long id,HttpServletRequest request){
+		request.setAttribute("opt", "修改项目经验");		
+		ProjectExperience projectExperience = resumeDao.getProjectExperience(id);
+		request.setAttribute("projectExperience", projectExperience);
+		request.setAttribute("resume_id", projectExperience.getResume_id());
+		return "/WEB-INF/web/manage/resume/resumeProjectExperienceUpdateSurface.jsp";
+	}
+	
+	@RequestMapping(value = "/manage/resume/priject_experience/update", method = RequestMethod.POST)
+	public String modifyProjectExperienceSubmit(ProjectExperience projectExperience){
+		resumeDao.updateProjectExperience(projectExperience);
+		return "redirect:/manage/resume/update?id="+projectExperience.getResume_id();
 	}
 
 }

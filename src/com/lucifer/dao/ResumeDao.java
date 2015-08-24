@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.lucifer.dao.base.IBatisBaseDao;
 import com.lucifer.model.JobExperience;
+import com.lucifer.model.ProjectExperience;
 import com.lucifer.model.Resume;
 
 @Service
@@ -66,5 +67,21 @@ public class ResumeDao  extends IBatisBaseDao {
 	
 	public Integer updateJobExprience(JobExperience experience){
 		return sqlSession.update("updateJobExprience", experience);
+	}
+	
+	public Integer insertProjectExperience(ProjectExperience projectExperience){
+		return sqlSession.insert("insertProjectExperience", projectExperience);
+	}
+	
+	public ProjectExperience getProjectExperience(Long id){
+		return (ProjectExperience)sqlSession.selectOne("getProjectExperience", id);
+	}
+	
+	public Integer updateProjectExperience(ProjectExperience projectExperience){
+		return sqlSession.update("updateProjectExperience", projectExperience);
+	}
+	
+	public List<ProjectExperience> resumeProjectExperienceList(Long resume_id){
+		return sqlSession.selectList("resumeProjectExperienceList", resume_id);
 	}
 }
