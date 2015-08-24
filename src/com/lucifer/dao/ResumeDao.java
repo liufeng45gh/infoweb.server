@@ -8,6 +8,7 @@ import com.lucifer.dao.base.IBatisBaseDao;
 import com.lucifer.model.JobExperience;
 import com.lucifer.model.ProjectExperience;
 import com.lucifer.model.Resume;
+import com.lucifer.model.Train;
 
 @Service
 public class ResumeDao  extends IBatisBaseDao {
@@ -83,5 +84,21 @@ public class ResumeDao  extends IBatisBaseDao {
 	
 	public List<ProjectExperience> resumeProjectExperienceList(Long resume_id){
 		return sqlSession.selectList("resumeProjectExperienceList", resume_id);
+	}
+	
+	public Integer inserTrain(Train train){
+		return sqlSession.insert("inserTrain", train);
+	}
+	
+	public Train getTrain(Long id){
+		return (Train)sqlSession.selectOne("getTrain", id);
+	}
+	
+	public Integer updateTrain(Train train){
+		return sqlSession.update("updateTrain", train);
+	}
+	
+	public List<Train> resumeTrainList(Long resume_id){
+		return sqlSession.selectList("resumeTrainList", resume_id);
 	}
 }
