@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <input type="hidden" name="resume_id" value="${resume_id }">
-<input type="hidden" name="id" value="${projectExperience.id }">
+<input type="hidden" name="id" value="${educationExperience.id }">
 <div class="tit">${opt } <a href="javascript:void(0);" class="close" onclick="closeModifyDiv()"></a></div>
 <div id="tabModyExpe" class="experChange infoContent" style="margin-top:60px;">
 		
@@ -13,7 +13,7 @@
             </dt>
             <dd style="z-index:900">
                 <div class="comName hasSel">
-                    <input name="name" type="text" class="w302 wrongborder" value="${projectExperience.name }" data-validation="required">                     
+                    <input name="school" type="text" class="w302 wrongborder" value="${educationExperience.school }" data-validation="required">                     
                 </div>                
             </dd>
         </dl>
@@ -25,7 +25,7 @@
             </dt>
             <dd style="z-index:900">
                 <div class="comName hasSel">
-                    <input name="name" type="text" class="w302 wrongborder" value="${projectExperience.name }" data-validation="required">                    
+                    <input name="professional" type="text" class="w302 wrongborder" value="${educationExperience.professional }" data-validation="required">                    
                 </div>                
             </dd>
         </dl>
@@ -37,7 +37,7 @@
             </dt>
             <dd style="z-index:900">
                 <div class="comName hasSel">
-                    <input name="name" type="text" class="w302 wrongborder" value="${projectExperience.name }" data-validation="required">                    
+                    <input name="degree" type="text" class="w302 wrongborder" value="${educationExperience.degree }" data-validation="required">                    
                 </div>                
             </dd>
         </dl>
@@ -49,13 +49,13 @@
             </dt>
             <dd class="timeSel" id="inpPos">
                 <div class="yearSel linkage">
-                    <input id="inpPosStartYear" name="start_date" class="w76 hasSetBox" value="<fmt:formatDate value="${projectExperience.start_date}" pattern="yyyy-MM-dd"/>" readonly="readonly" onClick="WdatePicker({el:'inpPosStartYear'})" data-validation="required"> 
+                    <input id="inpPosStartYear" name="start_date" class="w76 hasSetBox" value="<fmt:formatDate value="${educationExperience.start_date}" pattern="yyyy-MM-dd"/>" readonly="readonly" onClick="WdatePicker({el:'inpPosStartYear'})" data-validation="required"> 
                     <span class="plr5">-</span>
                     
                 </div>
                 
                 <div class="yearSel linkage">
-                    <input id="inpPosEndYear" name="end_date" class="w76 hasSetBox" value="<fmt:formatDate value="${projectExperience.end_date}" pattern="yyyy-MM-dd"/>" readonly="readonly" onClick="WdatePicker({el:'inpPosEndYear'})" data-validation="required">                    
+                    <input id="inpPosEndYear" name="end_date" class="w76 hasSetBox" value="<fmt:formatDate value="${educationExperience.end_date}" pattern="yyyy-MM-dd"/>" readonly="readonly" onClick="WdatePicker({el:'inpPosEndYear'})" data-validation="required">                    
                 </div>
                 
                 <span id="inpPosInfo"></span>

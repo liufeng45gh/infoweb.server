@@ -97,7 +97,7 @@ public class ResumeDao  extends IBatisBaseDao {
 	
 	
 	public Integer insertEducationExperience(EducationExperience educationExperience){
-		return sqlSession.insert("insertProjectExperience", educationExperience);
+		return sqlSession.insert("insertEducationExperience", educationExperience);
 	}
 	
 	public EducationExperience getEducationExperience(Long id){
