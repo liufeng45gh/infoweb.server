@@ -314,7 +314,7 @@ public class WebResumeController {
 	@RequestMapping(value = "/manage/resume/train/add", method = RequestMethod.POST)
 	public String trainAddSubmit(Train train){
 		train.setId(CommonUtil.nextId());
-		resumeDao.inserTrain(train);
+		resumeDao.insertTrain(train);
 		return "redirect:/manage/resume/update?id="+train.getResume_id();
 	}
 	

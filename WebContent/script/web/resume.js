@@ -855,7 +855,7 @@ function modifyEducationExperience(id){
 }
 
 
-function addEduInput(id){
+function addTrainInput(id){
 	var send_data={};
 	   //alert(1);
 	send_data.random = Math.random();

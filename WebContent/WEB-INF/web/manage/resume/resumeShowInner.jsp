@@ -139,6 +139,24 @@
 		</div>
 
 	</div>
+	
+	<div class="eduInfo" style="display: block;">
+		<h3>
+			 <span id="ed">培训经历</span>  <a href="javascript:addTrainInput(${resume.id });"
+				class="addBtn">添加</a>
+		</h3>
+		<div id="eduDiv" class="eduConShow showDiv">
+			<div class="experDetail showList">
+				<p class="detailList">
+					<span>您还没有填写任何内容!</span>
+
+				</p>
+
+			</div>
+
+		</div>
+
+	</div>
 	<div class="langInfo" style="display: block;">
 		<h3>
 			<span id="la">语言能力</span> <a

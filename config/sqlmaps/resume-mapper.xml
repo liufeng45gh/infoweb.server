@@ -85,7 +85,7 @@
 	
 	
 	<!-- 教育经历 -->
-	<insert id="insertProjectExperience">
+	<insert id="insertEducationExperience">
 	insert into education_experience 
 	  (id,resume_id,start_date,end_date,school,professional,degree)
 	  values
@@ -121,4 +121,25 @@
 	<select id="resumeTrainList" resultType="com.lucifer.model.Train">
 	select * from train where resume_id = #{resume_id}
 	</select>
+	
+	
+	<!-- 证书 -->
+	<insert id="insertCertificate">
+	insert into certificate 
+	  (id,resume_id,certificate.date,name,description)
+	  values
+	  (#{id},#{resume_id},#{date},#{name},#{description})
+	</insert>
+	<select id="getCertificate" resultType="com.lucifer.model.Certificate">
+	select * from certificate where id = #{id}
+	</select>
+	<update id="updateCertificate">
+	update certificate set certificate.date=#{date},name=#{name},description=#{description} where id = #{id}
+	</update>
+	<select id="resumeCertificateList" resultType="com.lucifer.model.Certificate">
+	select * from certificate where resume_id = #{resume_id}
+	</select>
+	<delete id="deleteCertificate">
+	delete from certificate where id = #{id}
+	</delete>
 </mapper>

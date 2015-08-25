@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.lucifer.dao.base.IBatisBaseDao;
+import com.lucifer.model.Certificate;
 import com.lucifer.model.EducationExperience;
 import com.lucifer.model.JobExperience;
 import com.lucifer.model.ProjectExperience;
@@ -113,7 +114,7 @@ public class ResumeDao  extends IBatisBaseDao {
 		return sqlSession.selectList("resumeEducationExperienceList", resume_id);
 	}
 	
-	public Integer inserTrain(Train train){
+	public Integer insertTrain(Train train){
 		return sqlSession.insert("inserTrain", train);
 	}
 	
@@ -131,5 +132,25 @@ public class ResumeDao  extends IBatisBaseDao {
 	
 	public Integer deleteTrain(Long id){
 		return sqlSession.delete("deleteTrain", id);
+	}
+	
+	public Integer insertCertificate(Certificate certificate){
+		return sqlSession.insert("insertCertificate", certificate);
+	}
+	
+	public Train getCertificate(Long id){
+		return (Train)sqlSession.selectOne("getCertificate", id);
+	}
+	
+	public Integer updateCertificate(Certificate certificate){
+		return sqlSession.update("updateCertificate", certificate);
+	}
+	
+	public List<Train> resumeCertificateList(Long resume_id){
+		return sqlSession.selectList("resumeCertificateList", resume_id);
+	}
+	
+	public Integer deleteCertificate(Long id){
+		return sqlSession.delete("deleteCertificate", id);
 	}
 }
