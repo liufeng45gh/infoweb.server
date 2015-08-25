@@ -124,7 +124,7 @@
 	<div class="eduInfo" style="display: block;">
 		<h3>
 			<b class="tipx">*</b> <span id="ed">教育经历</span> <span class="tips"
-				style="">（投递必填）</span> <a href="javascript:Edu.showEduInput();"
+				style="">（投递必填）</span> <a href="javascript:addEduInput(${resume.id });"
 				class="addBtn">添加</a>
 		</h3>
 		<div id="eduDiv" class="eduConShow showDiv">

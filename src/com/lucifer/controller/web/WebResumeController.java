@@ -264,5 +264,12 @@ public class WebResumeController {
 		return Result.ok();
 	}
 	
+	@RequestMapping(value = "/manage/resume/train/add", method = RequestMethod.GET)
+	public String trainAdd(Long resume_id,HttpServletRequest request){
+		request.setAttribute("opt", "增加培训经历");
+		request.setAttribute("resume_id", resume_id);
+		return "/WEB-INF/web/manage/resume/resumeTrainAddSurface.jsp";
+	}
+	
 
 }
