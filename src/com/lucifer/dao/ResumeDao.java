@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import com.lucifer.dao.base.IBatisBaseDao;
 import com.lucifer.model.Certificate;
 import com.lucifer.model.EducationExperience;
+import com.lucifer.model.Expand;
 import com.lucifer.model.JobExperience;
 import com.lucifer.model.Language;
 import com.lucifer.model.ProjectExperience;
@@ -173,5 +174,25 @@ public class ResumeDao  extends IBatisBaseDao {
 	
 	public Integer deleteLanguage(Long id){
 		return sqlSession.delete("deleteLanguage", id);
+	}
+	
+	public Integer insertExpand(Expand expand){
+		return sqlSession.insert("insertExpand", expand);
+	}
+	
+	public Expand getExpand(Long id){
+		return (Expand)sqlSession.selectOne("getExpand", id);
+	}
+	
+	public Integer updateExpand(Expand expand){
+		return sqlSession.update("updateExpand", expand);
+	}
+	
+	public List<Expand> resumeExpandList(Long resume_id){
+		return sqlSession.selectList("resumeExpandList", resume_id);
+	}
+	
+	public Integer deleteExpand(Long id){
+		return sqlSession.delete("deleteExpand", id);
 	}
 }

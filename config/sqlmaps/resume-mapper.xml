@@ -163,4 +163,25 @@
 	<delete id="deleteLanguage">
 	delete from language where id = #{id}
 	</delete>
+	
+	
+	<!-- 附加 -->
+	<insert id="insertExpand">
+	insert into expand 
+	  (id,resume_id,name,description)
+	  values
+	  (#{id},#{resume_id},#{name},#{description})
+	</insert>
+	<select id="getExpand" resultType="com.lucifer.model.Expand">
+	select * from expand where id = #{id}
+	</select>
+	<update id="updateExpand">
+	update expand set name=#{name},description=#{description} where id = #{id}
+	</update>
+	<select id="resumeExpandList" resultType="com.lucifer.model.Expand">
+	select * from expand where resume_id = #{resume_id}
+	</select>
+	<delete id="deleteExpand">
+	delete from expand where id = #{id}
+	</delete>
 </mapper>
