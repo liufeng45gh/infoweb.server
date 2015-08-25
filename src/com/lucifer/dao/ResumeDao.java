@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.lucifer.dao.base.IBatisBaseDao;
+import com.lucifer.model.EducationExperience;
 import com.lucifer.model.JobExperience;
 import com.lucifer.model.ProjectExperience;
 import com.lucifer.model.Resume;
@@ -90,6 +91,28 @@ public class ResumeDao  extends IBatisBaseDao {
 		return sqlSession.selectList("resumeProjectExperienceList", resume_id);
 	}
 	
+	
+	
+	public Integer insertEducationExperience(EducationExperience educationExperience){
+		return sqlSession.insert("insertProjectExperience", educationExperience);
+	}
+	
+	public EducationExperience getEducationExperience(Long id){
+		return (EducationExperience)sqlSession.selectOne("getEducationExperience", id);
+	}
+	
+	public Integer updateEducationExperience(EducationExperience educationExperience){
+		return sqlSession.update("updateEducationExperience", educationExperience);
+	}
+	
+	public Integer deleteEducationExperience(Long id){
+		return sqlSession.update("deleteEducationExperience", id);
+	}
+	
+	public List<ProjectExperience> resumeEducationExperienceList(Long resume_id){
+		return sqlSession.selectList("resumeEducationExperienceList", resume_id);
+	}
+	
 	public Integer inserTrain(Train train){
 		return sqlSession.insert("inserTrain", train);
 	}
@@ -104,5 +127,9 @@ public class ResumeDao  extends IBatisBaseDao {
 	
 	public List<Train> resumeTrainList(Long resume_id){
 		return sqlSession.selectList("resumeTrainList", resume_id);
+	}
+	
+	public Integer deleteTrain(Long id){
+		return sqlSession.delete("deleteTrain", id);
 	}
 }

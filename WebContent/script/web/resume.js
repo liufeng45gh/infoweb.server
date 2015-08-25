@@ -799,3 +799,55 @@ function addEduInput(id){
 		$("#modify_inner_div").html(data); 
 	});
 }
+
+
+function deleteTrain(id){
+	if(!confirm("确认删除培训经历?")){
+		return ;
+	}
+	var send_data={};
+	   //alert(1);
+	send_data.random = Math.random();
+	send_data.id = id;
+	var account_request =$.ajax({
+	   type: 'post',
+	   url: '/manage/resume/train/delete',
+	   data: send_data,
+	   dataType: 'json'
+	});
+
+	account_request.fail(function( jqXHR, textStatus ) {
+	  if(jqXHR.status==401){
+	     //openWeiboLogin();
+		  
+	  }
+	});
+	
+	account_request.done(function(data) {
+		window.location.reload();
+	});
+}
+
+function modifyTrain(id){
+	var send_data={};
+	   //alert(1);
+	send_data.random = Math.random();
+	send_data.id = id;
+	var account_request =$.ajax({
+	   type: 'get',
+	   url: '/manage/resume/train/update',
+	   data: send_data,
+	   dataType: 'html'
+	});
+
+	account_request.fail(function( jqXHR, textStatus ) {
+	  if(jqXHR.status==401){
+	     //openWeiboLogin();		  
+	  }
+	});
+	
+	account_request.done(function(data) {
+		$("#modify_inner_div").css("display","block");
+		$("#modify_inner_div").html(data); 
+	});
+}

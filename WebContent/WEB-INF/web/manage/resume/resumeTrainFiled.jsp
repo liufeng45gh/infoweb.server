@@ -13,11 +13,8 @@
             </dt>
             <dd style="z-index:900">
                 <div class="comName hasSel">
-                    <input name="name" type="text" class="w302 wrongborder" value="${projectExperience.name }" data-validation="required"> 
-                    
-                </div>
-                
-                
+                    <input name="name" type="text" class="w302 wrongborder" value="${projectExperience.name }" data-validation="required">                     
+                </div>                
             </dd>
         </dl>
         
@@ -28,11 +25,20 @@
             </dt>
             <dd style="z-index:900">
                 <div class="comName hasSel">
-                    <input name="name" type="text" class="w302 wrongborder" value="${projectExperience.name }" data-validation="required"> 
-                    
-                </div>
-                
-                
+                    <input name="name" type="text" class="w302 wrongborder" value="${projectExperience.name }" data-validation="required">                    
+                </div>                
+            </dd>
+        </dl>
+        
+         <dl class="" style="z-index:900">
+            <dt>
+                学历
+                <b>*</b>
+            </dt>
+            <dd style="z-index:900">
+                <div class="comName hasSel">
+                    <input name="name" type="text" class="w302 wrongborder" value="${projectExperience.name }" data-validation="required">                    
+                </div>                
             </dd>
         </dl>
         

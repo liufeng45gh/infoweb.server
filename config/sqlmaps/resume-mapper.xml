@@ -83,6 +83,28 @@
 	</delete>
 	
 	
+	
+	<!-- 教育经历 -->
+	<insert id="insertProjectExperience">
+	insert into education_experience 
+	  (id,resume_id,start_date,end_date,school,professional,degree)
+	  values
+	  (#{id},#{resume_id},#{start_date},#{end_date},#{school},#{professional},#{degree})
+	</insert>
+	<select id="getEducationExperience" resultType="com.lucifer.model.EducationExperience">
+	select * from education_experience where id = #{id}
+	</select>
+	<update id="updateEducationExperience">
+	update education_experience set start_date=#{start_date},end_date=#{end_date},school=#{school},professional=#{professional},degree=#{degree} where id = #{id}
+	</update>
+	<select id="resumeEducationExperienceList" resultType="com.lucifer.model.EducationExperience">
+	select * from education_experience where resume_id = #{resume_id}
+	</select>
+	<delete id="deleteEducationExperience">
+	delete from education_experience where id = #{id}
+	</delete>
+	
+	
 	<!-- 培训经历 -->
 	<insert id="inserTrain">
 	insert into train 

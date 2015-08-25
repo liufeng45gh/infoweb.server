@@ -25,11 +25,13 @@ import com.lucifer.dao.ResumeDao;
 import com.lucifer.dao.UserDao;
 import com.lucifer.enumeration.Education;
 import com.lucifer.model.City;
+import com.lucifer.model.EducationExperience;
 import com.lucifer.model.Industry;
 import com.lucifer.model.JobExperience;
 import com.lucifer.model.Position;
 import com.lucifer.model.ProjectExperience;
 import com.lucifer.model.Resume;
+import com.lucifer.model.Train;
 import com.lucifer.model.User;
 import com.lucifer.util.CommonUtil;
 import com.lucifer.util.Result;
@@ -264,11 +266,78 @@ public class WebResumeController {
 		return Result.ok();
 	}
 	
+	
+	@RequestMapping(value = "/manage/resume/education_experience/add", method = RequestMethod.GET)
+	public String educationExperienceAdd(Long resume_id,HttpServletRequest request){
+		request.setAttribute("opt", "增加教育经历");
+		request.setAttribute("resume_id", resume_id);
+		return "/WEB-INF/web/manage/resume/resumeEducationExperienceAddSurface.jsp";
+	}
+	
+	@RequestMapping(value = "/manage/resume/education_experience/add", method = RequestMethod.POST)
+	public String educationExperienceAddSubmit(EducationExperience educationExperience){
+		educationExperience.setId(CommonUtil.nextId());
+		resumeDao.insertEducationExperience(educationExperience);
+		return "redirect:/manage/resume/update?id="+educationExperience.getResume_id();
+	}
+	
+	@RequestMapping(value = "/manage/resume/education_experience/update", method = RequestMethod.GET)
+	public String educationExperienceUpdate(Long id,HttpServletRequest request){
+		request.setAttribute("opt", "修改教育经历");		
+		EducationExperience educationExperience = resumeDao.getEducationExperience(id);
+		request.setAttribute("educationExperience", educationExperience);
+		request.setAttribute("resume_id", educationExperience.getResume_id());
+		return "/WEB-INF/web/manage/resume/resumeEducationExperienceUpdateSurface.jsp";
+	}
+	
+	@RequestMapping(value = "/manage/resume/education_experience/update", method = RequestMethod.POST)
+	public String modifyEducationExperienceSubmit(EducationExperience educationExperience){
+		resumeDao.updateEducationExperience(educationExperience);
+		return "redirect:/manage/resume/update?id="+educationExperience.getResume_id();
+	}
+	
+	@RequestMapping(value = "/manage/resume/education_experience/delete", method = RequestMethod.POST)
+	@ResponseBody
+	public Result educationExperienceDelete(Long id){
+		resumeDao.deleteEducationExperience(id);
+		return Result.ok();
+	}
+	
 	@RequestMapping(value = "/manage/resume/train/add", method = RequestMethod.GET)
 	public String trainAdd(Long resume_id,HttpServletRequest request){
 		request.setAttribute("opt", "增加培训经历");
 		request.setAttribute("resume_id", resume_id);
 		return "/WEB-INF/web/manage/resume/resumeTrainAddSurface.jsp";
+	}
+	
+	
+	@RequestMapping(value = "/manage/resume/train/add", method = RequestMethod.POST)
+	public String trainAddSubmit(Train train){
+		train.setId(CommonUtil.nextId());
+		resumeDao.inserTrain(train);
+		return "redirect:/manage/resume/update?id="+train.getResume_id();
+	}
+	
+	@RequestMapping(value = "/manage/resume/train/update", method = RequestMethod.GET)
+	public String trainUpdateInput(Long id,HttpServletRequest request){
+		request.setAttribute("opt", "修改项目经验");		
+		Train train = resumeDao.getTrain(id);
+		request.setAttribute("train", train);
+		request.setAttribute("resume_id", train.getResume_id());
+		return "/WEB-INF/web/manage/resume/resumeTrainUpdateSurface.jsp";
+	}
+	
+	@RequestMapping(value = "/manage/resume/train/update", method = RequestMethod.POST)
+	public String modifyTrainSubmit(Train train){
+		resumeDao.updateTrain(train);
+		return "redirect:/manage/resume/update?id="+train.getResume_id();
+	}
+	
+	@RequestMapping(value = "/manage/resume/train/delete", method = RequestMethod.POST)
+	@ResponseBody
+	public Result trainDelete(Long id){
+		resumeDao.deleteTrain(id);
+		return Result.ok();
 	}
 	
 
