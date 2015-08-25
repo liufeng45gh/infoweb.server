@@ -142,4 +142,25 @@
 	<delete id="deleteCertificate">
 	delete from certificate where id = #{id}
 	</delete>
+	
+	
+	<!-- 语言 -->
+	<insert id="insertLanguage">
+	insert into language 
+	  (id,resume_id,name,description)
+	  values
+	  (#{id},#{resume_id},#{name},#{description})
+	</insert>
+	<select id="getLanguage" resultType="com.lucifer.model.Language">
+	select * from language where id = #{id}
+	</select>
+	<update id="updateLanguage">
+	update language set name=#{name},description=#{description} where id = #{id}
+	</update>
+	<select id="resumeLanguageList" resultType="com.lucifer.model.Language">
+	select * from language where resume_id = #{resume_id}
+	</select>
+	<delete id="deleteLanguage">
+	delete from language where id = #{id}
+	</delete>
 </mapper>

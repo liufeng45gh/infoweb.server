@@ -8,6 +8,7 @@ import com.lucifer.dao.base.IBatisBaseDao;
 import com.lucifer.model.Certificate;
 import com.lucifer.model.EducationExperience;
 import com.lucifer.model.JobExperience;
+import com.lucifer.model.Language;
 import com.lucifer.model.ProjectExperience;
 import com.lucifer.model.Resume;
 import com.lucifer.model.Train;
@@ -152,5 +153,25 @@ public class ResumeDao  extends IBatisBaseDao {
 	
 	public Integer deleteCertificate(Long id){
 		return sqlSession.delete("deleteCertificate", id);
+	}
+	
+	public Integer insertLanguage(Language language){
+		return sqlSession.insert("insertLanguage", language);
+	}
+	
+	public Train getLanguage(Long id){
+		return (Train)sqlSession.selectOne("getLanguage", id);
+	}
+	
+	public Integer updateLanguage(Language language){
+		return sqlSession.update("updateLanguage", language);
+	}
+	
+	public List<Train> resumeLanguageList(Long resume_id){
+		return sqlSession.selectList("resumeLanguageList", resume_id);
+	}
+	
+	public Integer deleteLanguage(Long id){
+		return sqlSession.delete("deleteLanguage", id);
 	}
 }
