@@ -24,10 +24,12 @@ import com.lucifer.dao.PositionDao;
 import com.lucifer.dao.ResumeDao;
 import com.lucifer.dao.UserDao;
 import com.lucifer.enumeration.Education;
+import com.lucifer.model.Certificate;
 import com.lucifer.model.City;
 import com.lucifer.model.EducationExperience;
 import com.lucifer.model.Industry;
 import com.lucifer.model.JobExperience;
+import com.lucifer.model.Language;
 import com.lucifer.model.Position;
 import com.lucifer.model.ProjectExperience;
 import com.lucifer.model.Resume;
@@ -126,6 +128,20 @@ public class WebResumeController {
 		
 		List <ProjectExperience> resumeProjectExperienceList = resumeDao.resumeProjectExperienceList(id);
 		request.setAttribute("resumeProjectExperienceList", resumeProjectExperienceList);
+		
+		List <EducationExperience> resumeEducationExperienceList = resumeDao.resumeEducationExperienceList(id);
+		request.setAttribute("resumeEducationExperienceList", resumeEducationExperienceList);
+		
+		List <Train> resumeTrainList = resumeDao.resumeTrainList(id);
+		request.setAttribute("resumeTrainList", resumeTrainList);
+		
+		List<Certificate> resumeCertificateList = resumeDao.resumeCertificateList(id);
+		request.setAttribute("resumeCertificateList", resumeCertificateList);
+		
+		List<Language> resumeLanguageList = resumeDao.resumeLanguageList(id);
+		request.setAttribute("resumeLanguageList", resumeLanguageList);
+		
+		
 		
 		return "/WEB-INF/web/manage/resume/resumeShow.jsp";
 	}
@@ -320,7 +336,7 @@ public class WebResumeController {
 	
 	@RequestMapping(value = "/manage/resume/train/update", method = RequestMethod.GET)
 	public String trainUpdateInput(Long id,HttpServletRequest request){
-		request.setAttribute("opt", "修改项目经验");		
+		request.setAttribute("opt", "修改培训经历");		
 		Train train = resumeDao.getTrain(id);
 		request.setAttribute("train", train);
 		request.setAttribute("resume_id", train.getResume_id());
@@ -337,6 +353,83 @@ public class WebResumeController {
 	@ResponseBody
 	public Result trainDelete(Long id){
 		resumeDao.deleteTrain(id);
+		return Result.ok();
+	}
+	
+	
+	
+	@RequestMapping(value = "/manage/resume/certificate/add", method = RequestMethod.GET)
+	public String certificateAdd(Long resume_id,HttpServletRequest request){
+		request.setAttribute("opt", "增加证书");
+		request.setAttribute("resume_id", resume_id);
+		return "/WEB-INF/web/manage/resume/resumeCertificateAddSurface.jsp";
+	}
+	
+	
+	@RequestMapping(value = "/manage/resume/certificate/add", method = RequestMethod.POST)
+	public String certificateAddSubmit(Certificate certificate){
+		certificate.setId(CommonUtil.nextId());
+		resumeDao.insertCertificate(certificate);
+		return "redirect:/manage/resume/update?id="+certificate.getResume_id();
+	}
+	
+	@RequestMapping(value = "/manage/resume/certificate/update", method = RequestMethod.GET)
+	public String certificateUpdateInput(Long id,HttpServletRequest request){
+		request.setAttribute("opt", "修改证书");		
+		Certificate certificate = resumeDao.getCertificate(id);
+		request.setAttribute("certificate", certificate);
+		request.setAttribute("resume_id", certificate.getResume_id());
+		return "/WEB-INF/web/manage/resume/resumeCertificateUpdateSurface.jsp";
+	}
+	
+	@RequestMapping(value = "/manage/resume/certificate/update", method = RequestMethod.POST)
+	public String modifyCertificateSubmit(Certificate certificate){
+		resumeDao.updateCertificate(certificate);
+		return "redirect:/manage/resume/update?id="+certificate.getResume_id();
+	}
+	
+	@RequestMapping(value = "/manage/resume/certificate/delete", method = RequestMethod.POST)
+	@ResponseBody
+	public Result certificateDelete(Long id){
+		resumeDao.deleteCertificate(id);
+		return Result.ok();
+	}
+	
+	
+	@RequestMapping(value = "/manage/resume/language/add", method = RequestMethod.GET)
+	public String languageAdd(Long resume_id,HttpServletRequest request){
+		request.setAttribute("opt", "增加语言");
+		request.setAttribute("resume_id", resume_id);
+		return "/WEB-INF/web/manage/resume/resumeLanguageAddSurface.jsp";
+	}
+	
+	
+	@RequestMapping(value = "/manage/resume/language/add", method = RequestMethod.POST)
+	public String languageAddSubmit(Language language){
+		language.setId(CommonUtil.nextId());
+		resumeDao.insertLanguage(language);
+		return "redirect:/manage/resume/update?id="+language.getResume_id();
+	}
+	
+	@RequestMapping(value = "/manage/resume/language/update", method = RequestMethod.GET)
+	public String languageUpdateInput(Long id,HttpServletRequest request){
+		request.setAttribute("opt", "修改语言");		
+		Language language = resumeDao.getLanguage(id);
+		request.setAttribute("language", language);
+		request.setAttribute("resume_id", language.getResume_id());
+		return "/WEB-INF/web/manage/resume/resumeLanguageUpdateSurface.jsp";
+	}
+	
+	@RequestMapping(value = "/manage/resume/language/update", method = RequestMethod.POST)
+	public String modifyLanguageSubmit(Language language){
+		resumeDao.updateLanguage(language);
+		return "redirect:/manage/resume/update?id="+language.getResume_id();
+	}
+	
+	@RequestMapping(value = "/manage/resume/language/delete", method = RequestMethod.POST)
+	@ResponseBody
+	public Result languageDelete(Long id){
+		resumeDao.deleteLanguage(id);
 		return Result.ok();
 	}
 	

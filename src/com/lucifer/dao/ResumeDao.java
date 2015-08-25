@@ -111,7 +111,7 @@ public class ResumeDao  extends IBatisBaseDao {
 		return sqlSession.update("deleteEducationExperience", id);
 	}
 	
-	public List<ProjectExperience> resumeEducationExperienceList(Long resume_id){
+	public List<EducationExperience> resumeEducationExperienceList(Long resume_id){
 		return sqlSession.selectList("resumeEducationExperienceList", resume_id);
 	}
 	
@@ -139,15 +139,15 @@ public class ResumeDao  extends IBatisBaseDao {
 		return sqlSession.insert("insertCertificate", certificate);
 	}
 	
-	public Train getCertificate(Long id){
-		return (Train)sqlSession.selectOne("getCertificate", id);
+	public Certificate getCertificate(Long id){
+		return (Certificate)sqlSession.selectOne("getCertificate", id);
 	}
 	
 	public Integer updateCertificate(Certificate certificate){
 		return sqlSession.update("updateCertificate", certificate);
 	}
 	
-	public List<Train> resumeCertificateList(Long resume_id){
+	public List<Certificate> resumeCertificateList(Long resume_id){
 		return sqlSession.selectList("resumeCertificateList", resume_id);
 	}
 	
@@ -159,15 +159,15 @@ public class ResumeDao  extends IBatisBaseDao {
 		return sqlSession.insert("insertLanguage", language);
 	}
 	
-	public Train getLanguage(Long id){
-		return (Train)sqlSession.selectOne("getLanguage", id);
+	public Language getLanguage(Long id){
+		return (Language)sqlSession.selectOne("getLanguage", id);
 	}
 	
 	public Integer updateLanguage(Language language){
 		return sqlSession.update("updateLanguage", language);
 	}
 	
-	public List<Train> resumeLanguageList(Long resume_id){
+	public List<Language> resumeLanguageList(Long resume_id){
 		return sqlSession.selectList("resumeLanguageList", resume_id);
 	}
 	
