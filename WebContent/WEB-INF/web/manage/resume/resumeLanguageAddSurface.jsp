@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <div  class="center" style="width:900px;">
-<form action="/manage/resume/certificate/add" method="post">
+<form action="/manage/resume/language/add" method="post">
 <jsp:include page="resumeLanguageFiled.jsp"></jsp:include>
 </form>
 

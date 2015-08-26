@@ -11,6 +11,8 @@ public class Language {
 	private String name;
 	
 	private String description;
+	
+	private String ability;
 
 	public Long getId() {
 		return id;
@@ -42,6 +44,14 @@ public class Language {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public String getAbility() {
+		return ability;
+	}
+
+	public void setAbility(String ability) {
+		this.ability = ability;
 	}
 
 	

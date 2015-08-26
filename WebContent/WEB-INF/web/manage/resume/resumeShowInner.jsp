@@ -212,13 +212,30 @@
 				href="javascript:addLanguageInput(${resume.id});" class="addBtn">添加</a>
 		</h3>
 		<div id="lanauageView" class="langShow showDiv" style="display:">
+			<c:if test="${resumeLanguageList.size() == 0}">
 			<div class="experDetail showList">
 				<p class="detailList">
 					<span>您还没有填写任何内容!</span>
-
+	
 				</p>
-
+	
 			</div>
+			</c:if>
+			<c:forEach var="language" items="${resumeLanguageList}" varStatus="status">
+				<div class="experDetail showList">
+					<p class="detailList">
+						<span>${language.name }</span> 
+						<span class="divide">|</span> <span>${language.ability }</span>						
+					</p>
+					
+					
+					
+					<p class="operBtn" style="display:block;">
+						<a href="javascript:void(0);" onclick="modifyLanguage(${language.id })" >修改</a> 
+						<a onclick="deleteLanguage(${language.id})"  href="javascript:void(0);">删除</a>
+					</p>
+				</div>
+			</c:forEach>
 		</div>
 
 	</div>

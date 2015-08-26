@@ -1038,7 +1038,7 @@ function addLanguageInput(id){
 
 
 function deleteLanguage(id){
-	if(!confirm("确认删除证书?")){
+	if(!confirm("确认删除语言能力?")){
 		return ;
 	}
 	var send_data={};

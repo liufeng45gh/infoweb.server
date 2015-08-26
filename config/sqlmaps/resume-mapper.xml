@@ -150,15 +150,15 @@
 	<!-- 语言 -->
 	<insert id="insertLanguage">
 	insert into language 
-	  (id,resume_id,name,description)
+	  (id,resume_id,name,ability,description)
 	  values
-	  (#{id},#{resume_id},#{name},#{description})
+	  (#{id},#{resume_id},#{name},#{ability},#{description})
 	</insert>
 	<select id="getLanguage" resultType="com.lucifer.model.Language">
 	select * from language where id = #{id}
 	</select>
 	<update id="updateLanguage">
-	update language set name=#{name},description=#{description} where id = #{id}
+	update language set name=#{name},ability=#{ability},description=#{description} where id = #{id}
 	</update>
 	<select id="resumeLanguageList" resultType="com.lucifer.model.Language">
 	select * from language where resume_id = #{resume_id}
