@@ -209,7 +209,7 @@
 	<div class="langInfo" style="display: block;">
 		<h3>
 			<span id="la">语言能力</span> <a
-				href="javascript:Language.showLanInput();" class="addBtn">添加</a>
+				href="javascript:addLanguageInput(${resume.id});" class="addBtn">添加</a>
 		</h3>
 		<div id="lanauageView" class="langShow showDiv" style="display:">
 			<div class="experDetail showList">
@@ -229,13 +229,30 @@
 
 		</h3>
 		<div id="certViewDiv" class="cerShow showDiv">
+			<c:if test="${resumeCertificateList.size() == 0}">
 			<div class="experDetail showList">
 				<p class="detailList">
 					<span>您还没有填写任何内容!</span>
-
+	
 				</p>
-
+	
 			</div>
+			</c:if>
+			<c:forEach var="certificate" items="${resumeCertificateList}" varStatus="status">
+				<div class="experDetail showList">
+					<p class="detailList">
+						<span><fmt:formatDate value="${certificate.date}" pattern="yyyy年MM月"/></span> 
+						<span class="divide">|</span> <span>${certificate.name }</span>						
+					</p>
+					
+					
+					
+					<p class="operBtn" style="display:block;">
+						<a href="javascript:void(0);" onclick="modifyCertificate(${certificate.id })" >修改</a> 
+						<a onclick="deleteCertificate(${certificate.id})"  href="javascript:void(0);">删除</a>
+					</p>
+				</div>
+			</c:forEach>
 		</div>
 
 
@@ -247,7 +264,8 @@
 			<span>专业技能</span> <a href="javascript:void(0);" class="addBtn">添加</a>
 
 		</h3>
-		<div class="skillsShow showDiv" style="display:">
+		<div class="skillsShow showDiv">
+			
 			<div class="experDetail showList">
 				<p class="detailList">
 					<span>您还没有填写任何内容!</span>
