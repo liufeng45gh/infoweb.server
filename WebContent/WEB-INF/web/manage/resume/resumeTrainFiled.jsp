@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <input type="hidden" name="resume_id" value="${resume_id }">
-<input type="hidden" name="id" value="${projectExperience.id }">
+<input type="hidden" name="id" value="${train.id }">
 <div class="tit">${opt } <a href="javascript:void(0);" class="close" onclick="closeModifyDiv()"></a></div>
 <div id="tabModyExpe" class="experChange infoContent" style="margin-top:60px;">
 		
@@ -13,7 +13,7 @@
             </dt>
             <dd style="z-index:900">
                 <div class="comName hasSel">
-                    <input name="organization" type="text" class="w302 wrongborder" value="${projectExperience.organization }" data-validation="required">                     
+                    <input name="organization" type="text" class="w302 wrongborder" value="${train.organization }" data-validation="required">                     
                 </div>                
             </dd>
         </dl>
@@ -25,7 +25,7 @@
             </dt>
             <dd style="z-index:900">
                 <div class="comName hasSel">
-                    <input name="course" type="text" class="w302 wrongborder" value="${projectExperience.course }" data-validation="required">                    
+                    <input name="course" type="text" class="w302 wrongborder" value="${train.course }" data-validation="required">                    
                 </div>                
             </dd>
         </dl>
@@ -37,7 +37,7 @@
             </dt>
             <dd style="z-index:900">
                 <div class="comName hasSel">
-                    <input name="place" type="text" class="w302 wrongborder" value="${projectExperience.place }" data-validation="required">                    
+                    <input name="place" type="text" class="w302 wrongborder" value="${train.place }" data-validation="required">                    
                 </div>                
             </dd>
         </dl>
@@ -49,7 +49,7 @@
             </dt>
             <dd style="z-index:900">
                 <div class="comName hasSel">
-                    <input name="certificate" type="text" class="w302 wrongborder" value="${projectExperience.certificate }" data-validation="required">                    
+                    <input name="certificate" type="text" class="w302 wrongborder" value="${train.certificate }" data-validation="required">                    
                 </div>                
             </dd>
         </dl>
@@ -61,13 +61,13 @@
             </dt>
             <dd class="timeSel" id="inpPos">
                 <div class="yearSel linkage">
-                    <input id="inpPosStartYear" name="start_date" class="w76 hasSetBox" value="<fmt:formatDate value="${projectExperience.start_date}" pattern="yyyy-MM-dd"/>" readonly="readonly" onClick="WdatePicker({el:'inpPosStartYear'})" data-validation="required"> 
+                    <input id="inpPosStartYear" name="start_date" class="w76 hasSetBox" value="<fmt:formatDate value="${train.start_date}" pattern="yyyy-MM-dd"/>" readonly="readonly" onClick="WdatePicker({el:'inpPosStartYear'})" data-validation="required"> 
                     <span class="plr5">-</span>
                     
                 </div>
                 
                 <div class="yearSel linkage">
-                    <input id="inpPosEndYear" name="end_date" class="w76 hasSetBox" value="<fmt:formatDate value="${projectExperience.end_date}" pattern="yyyy-MM-dd"/>" readonly="readonly" onClick="WdatePicker({el:'inpPosEndYear'})" data-validation="required">                    
+                    <input id="inpPosEndYear" name="end_date" class="w76 hasSetBox" value="<fmt:formatDate value="${train.end_date}" pattern="yyyy-MM-dd"/>" readonly="readonly" onClick="WdatePicker({el:'inpPosEndYear'})" data-validation="required">                    
                 </div>
                 
                 <span id="inpPosInfo"></span>
@@ -81,7 +81,7 @@
             </dt>
             <dd>
                 <div class="textDiv">                
-                    <textarea id="txtPerformance" name="description" class="textCon f-c7" placeholder="建议介绍一下该培训的基本情况" data-validation="required"><c:out value="${projectExperience.description}" escapeXml="true"></c:out></textarea>
+                    <textarea id="txtPerformance" name="description" class="textCon f-c7" placeholder="建议介绍一下该培训的基本情况" data-validation="required"><c:out value="${train.description}" escapeXml="true"></c:out></textarea>
                     <span id="txtPerformanceInfo" style="z-index:30"></span>
                     <p class="inputTips">
                         还可输入<span class="f-orange totalNum">800</span>字

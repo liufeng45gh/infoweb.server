@@ -121,6 +121,9 @@
 	<select id="resumeTrainList" resultType="com.lucifer.model.Train">
 	select * from train where resume_id = #{resume_id}
 	</select>
+	<delete id="deleteTrain">
+	delete from train where id = #{id}
+	</delete>
 	
 	
 	<!-- 证书 -->
