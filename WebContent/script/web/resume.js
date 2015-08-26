@@ -931,3 +931,81 @@ function modifyTrain(id){
 		$("#modify_inner_div").html(data); 
 	});
 }
+
+
+function addCertificateInput(id){
+	var send_data={};
+	   //alert(1);
+	send_data.random = Math.random();
+	send_data.resume_id = id;
+	var account_request =$.ajax({
+	   type: 'get',
+	   url: '/manage/resume/certificate/add',
+	   data: send_data,
+	   dataType: 'html'
+	});
+
+	account_request.fail(function( jqXHR, textStatus ) {
+	  if(jqXHR.status==401){
+	     //openWeiboLogin();
+		  
+	  }
+	});
+	
+	account_request.done(function(data) {
+		$("#modify_inner_div").css("display","block");
+		$("#modify_inner_div").html(data); 
+	});
+}
+
+
+function deleteCertificate(id){
+	if(!confirm("确认删除证书?")){
+		return ;
+	}
+	var send_data={};
+	   //alert(1);
+	send_data.random = Math.random();
+	send_data.id = id;
+	var account_request =$.ajax({
+	   type: 'post',
+	   url: '/manage/resume/certificate/delete',
+	   data: send_data,
+	   dataType: 'json'
+	});
+
+	account_request.fail(function( jqXHR, textStatus ) {
+	  if(jqXHR.status==401){
+	     //openWeiboLogin();
+		  
+	  }
+	});
+	
+	account_request.done(function(data) {
+		window.location.reload();
+	});
+}
+
+function modifyCertificate(id){
+	var send_data={};
+	   //alert(1);
+	send_data.random = Math.random();
+	send_data.id = id;
+	var account_request =$.ajax({
+	   type: 'get',
+	   url: '/manage/resume/certificate/update',
+	   data: send_data,
+	   dataType: 'html'
+	});
+
+	account_request.fail(function( jqXHR, textStatus ) {
+	  if(jqXHR.status==401){
+	     //openWeiboLogin();		  
+	  }
+	});
+	
+	account_request.done(function(data) {
+		$("#modify_inner_div").css("display","block");
+		$("#modify_inner_div").html(data); 
+	});
+}

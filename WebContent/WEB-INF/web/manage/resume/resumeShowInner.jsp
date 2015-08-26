@@ -224,7 +224,7 @@
 	</div>
 	<div class="cerInfo" style="display: block;">
 		<h3 id="ce">
-			<span>获得证书</span> <a href="javascript:Cert.showAddWin();"
+			<span>获得证书</span> <a href="javascript:addCertificateInput(${resume.id });"
 				class="addBtn">添加</a>
 
 		</h3>
