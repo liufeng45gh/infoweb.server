@@ -30,17 +30,25 @@
             </dd>
         </dl>
         
-         <dl class="" style="z-index:900">
-            <dt>
-                学历
-                <b>*</b>
-            </dt>
-            <dd style="z-index:900">
-                <div class="comName hasSel">
-                    <input name="degree" type="text" class="w302 wrongborder" value="${educationExperience.degree }" data-validation="required">                    
-                </div>                
-            </dd>
-        </dl>
+         <div class="resume-item"  >
+            <span class="label" style="padding-right:0px;">
+                学历<b>*</b>
+            </span>
+            <div class="item-info select_input_div" id="education_info" >
+                <input  id="education_text" maxlength="18"  value="${educationExperience.enumDegree.text}" readonly class="sel-text w80 js-select-show education" size="40"  placeholder="请选择">
+                <input type="hidden" value="${educationExperience.degree }" name ="degree" id="education" >
+                <div class="sel-arrow js-select-show education" ></div>
+                <div class="js-select-option sel-option w116" id="education_options">
+                    <a href="#" onclick="educationSelect(this);return false;" data-value="1">初中及以下</a>
+                    <a href="#" onclick="educationSelect(this);return false;" data-value="2">高中</a>
+                    <a href="#" onclick="educationSelect(this);return false;" data-value="3">中专/技校</a>
+                    <a href="#" onclick="educationSelect(this);return false;" data-value="4">大专</a>
+                    <a href="#" onclick="educationSelect(this);return false;" data-value="5">本科</a>
+                    <a href="#" onclick="educationSelect(this);return false;" data-value="6">硕士及以上</a>
+               </div>
+            </div>
+
+         </div>
         
         <dl class="" style="z-index:880">
             <dt>

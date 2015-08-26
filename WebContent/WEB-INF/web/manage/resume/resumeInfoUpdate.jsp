@@ -87,9 +87,9 @@
                 <div class="js-select-option sel-option w116" id="education_options">
                     <a href="#" onclick="educationSelect(this);return false;" data-value="1">初中及以下</a>
                     <a href="#" onclick="educationSelect(this);return false;" data-value="2">高中</a>
-                    <a href="#" onclick="educationSelect(this);return false;" data-value="5">中专/技校</a>
-                    <a href="#" onclick="educationSelect(this);return false;" data-value="3">大专</a>
-                    <a href="#" onclick="educationSelect(this);return false;" data-value="4">本科</a>
+                    <a href="#" onclick="educationSelect(this);return false;" data-value="3">中专/技校</a>
+                    <a href="#" onclick="educationSelect(this);return false;" data-value="4">大专</a>
+                    <a href="#" onclick="educationSelect(this);return false;" data-value="5">本科</a>
                     <a href="#" onclick="educationSelect(this);return false;" data-value="6">硕士及以上</a>
                </div>
             </div>

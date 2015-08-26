@@ -2,6 +2,8 @@ package com.lucifer.model;
 
 import java.util.Date;
 
+import com.lucifer.enumeration.Education;
+
 public class EducationExperience {
 
 	private Long id;
@@ -16,7 +18,7 @@ public class EducationExperience {
 	
 	private String professional;
 	
-	private String degree;
+	private Education degree;
 
 	public Long getId() {
 		return id;
@@ -66,12 +68,20 @@ public class EducationExperience {
 		this.professional = professional;
 	}
 
-	public String getDegree() {
+	
+	public Integer getDegree() {
+		if (null == degree) {
+			return null;
+		}
+		return degree.getKey();
+	}
+	
+	public Education getEnumDegree() {
 		return degree;
 	}
 
-	public void setDegree(String degree) {
-		this.degree = degree;
+	public void setDegree(Integer key) {
+		this.degree = Education.objectOf(key);
 	}
 	
 	

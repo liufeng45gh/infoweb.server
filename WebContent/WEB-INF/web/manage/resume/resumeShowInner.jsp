@@ -128,13 +128,34 @@
 				class="addBtn">添加</a>
 		</h3>
 		<div id="eduDiv" class="eduConShow showDiv">
+		
+			<c:if test="${resumeEducationExperienceList.size() == 0}">
 			<div class="experDetail showList">
 				<p class="detailList">
 					<span>您还没有填写任何内容!</span>
-
+	
 				</p>
-
+	
 			</div>
+			</c:if>
+			<c:forEach var="educationExperience" items="${resumeEducationExperienceList}" varStatus="status">
+				<div class="experDetail showList">
+					<p class="detailList">
+						<span><fmt:formatDate value="${educationExperience.start_date}" pattern="yyyy年MM月"/>
+						-<fmt:formatDate value="${educationExperience.end_date}" pattern="yyyy年MM月"/></span> 
+						<span class="divide">|</span> <span>${educationExperience.school }</span>
+						<span class="divide">|</span><span>${educationExperience.enumDegree.text}</span>
+						<span class="divide">|</span><span>${educationExperience.professional}</span>
+						
+					</p>
+					
+					
+					<p class="operBtn" style="display:block;">
+						<a href="javascript:void(0);" onclick="modifyEducationExperience(${educationExperience.id })" >修改</a> 
+						<a onclick="deleteEducationExperience(${educationExperience.id})"  href="javascript:void(0);">删除</a>
+					</p>
+				</div>
+			</c:forEach>
 
 		</div>
 
