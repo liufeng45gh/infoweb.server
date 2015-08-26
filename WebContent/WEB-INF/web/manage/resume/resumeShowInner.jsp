@@ -167,13 +167,41 @@
 				class="addBtn">添加</a>
 		</h3>
 		<div id="eduDiv" class="eduConShow showDiv">
+		
+			<c:if test="${resumeTrainList.size() == 0}">
 			<div class="experDetail showList">
 				<p class="detailList">
 					<span>您还没有填写任何内容!</span>
-
+	
 				</p>
-
+	
 			</div>
+			</c:if>
+			<c:forEach var="train" items="${resumeTrainList}" varStatus="status">
+				<div class="experDetail showList">
+					<p class="detailList">
+						<span><fmt:formatDate value="${train.start_date}" pattern="yyyy年MM月"/>
+						-<fmt:formatDate value="${train.end_date}" pattern="yyyy年MM月"/></span> 
+						<span class="divide">|</span> <span>${train.organization }</span>
+						<span class="divide">|</span> <span>${train.place }</span>
+						<span class="divide">|</span> <span>${train.certificate }</span>
+						
+					</p>
+					
+					<p class="detailCon">
+						<span class="tlTitle">培训课程：</span> <span class="">${train.course}</span>
+					</p>
+					<p class="detailCon">
+						<span class="tlTitle">详细描述：</span> <span class="">${train.description}</span>
+					</p>
+
+					
+					<p class="operBtn" style="display:block;">
+						<a href="javascript:void(0);" onclick="modifyTrain(${train.id })" >修改</a> 
+						<a onclick="deleteTrain(${train.id})"  href="javascript:void(0);">删除</a>
+					</p>
+				</div>
+			</c:forEach>
 
 		</div>
 
