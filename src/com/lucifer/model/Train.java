@@ -17,6 +17,11 @@ public class Train {
 	private String course;
 	
 	private String description;
+	
+	private String place;
+	
+	private String certificate;
+	
 
 	public Long getId() {
 		return id;
@@ -72,6 +77,22 @@ public class Train {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public String getPlace() {
+		return place;
+	}
+
+	public void setPlace(String place) {
+		this.place = place;
+	}
+
+	public String getCertificate() {
+		return certificate;
+	}
+
+	public void setCertificate(String certificate) {
+		this.certificate = certificate;
 	}
 	
 	
