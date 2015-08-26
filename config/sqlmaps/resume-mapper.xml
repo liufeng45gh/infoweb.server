@@ -108,15 +108,15 @@
 	<!-- 培训经历 -->
 	<insert id="inserTrain">
 	insert into train 
-	  (id,resume_id,start_date,end_date,organization,course,description)
+	  (id,resume_id,start_date,end_date,organization,course,description,place,certificate)
 	  values
-	  (#{id},#{resume_id},#{start_date},#{end_date},#{organization},#{course},#{description})
+	  (#{id},#{resume_id},#{start_date},#{end_date},#{organization},#{course},#{description},#{place},#{certificate})
 	</insert>
 	<select id="getTrain" resultType="com.lucifer.model.Train">
 	select * from train where id = #{id}
 	</select>
 	<update id="updateTrain">
-	update train set start_date=#{start_date},end_date=#{end_date},organization=#{organization},course=#{course},description=#{description} where id = #{id}
+	update train set start_date=#{start_date},end_date=#{end_date},organization=#{organization},course=#{course},description=#{description},place=#{place},certificate=#{certificate} where id = #{id}
 	</update>
 	<select id="resumeTrainList" resultType="com.lucifer.model.Train">
 	select * from train where resume_id = #{resume_id}
