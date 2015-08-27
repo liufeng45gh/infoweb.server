@@ -4,45 +4,22 @@
 <input type="hidden" name="resume_id" value="${resume_id }">
 <input type="hidden" name="id" value="${projectExperience.id }">
 <div class="tit">${opt } <a href="javascript:void(0);" class="close" onclick="closeModifyDiv()"></a></div>
-<div id="tabModyExpe" class="experChange infoContent" style="margin-top:60px;">
-		
+<div id="tabModyExpe" class="experChange infoContent" style="margin-top:60px;">		
         <dl class="" style="z-index:900">
             <dt>
-                项目名称
+                名称
                 <b>*</b>
             </dt>
             <dd style="z-index:900">
                 <div class="comName hasSel">
                     <input name="name" type="text" class="w302 wrongborder" value="${projectExperience.name }" data-validation="required"> 
                     
-                </div>
-                
-                
+                </div>                
             </dd>
-        </dl>
-        
-        <dl class="" style="z-index:880">
-            <dt>
-                时间
-                <b>*</b>
-            </dt>
-            <dd class="timeSel" id="inpPos">
-                <div class="yearSel linkage">
-                    <input id="inpPosStartYear" name="start_date" class="w76 hasSetBox" value="<fmt:formatDate value="${projectExperience.start_date}" pattern="yyyy-MM-dd"/>" readonly="readonly" onClick="WdatePicker({el:'inpPosStartYear'})" data-validation="required"> 
-                    <span class="plr5">-</span>
-                    
-                </div>
-                
-                <div class="yearSel linkage">
-                    <input id="inpPosEndYear" name="end_date" class="w76 hasSetBox" value="<fmt:formatDate value="${projectExperience.end_date}" pattern="yyyy-MM-dd"/>" readonly="readonly" onClick="WdatePicker({el:'inpPosEndYear'})" data-validation="required">                    
-                </div>
-                
-                <span id="inpPosInfo"></span>
-            </dd>
-        </dl>
+        </dl>       
         <dl class="" style="height:112px;">
             <dt>
-                项目简介
+                介绍
                 <b>*</b>
             </dt>
             <dd>
@@ -56,22 +33,7 @@
                
             </dd>
         </dl>
-        <dl class="" style="margin-top:40px;height:112px;">
-            <dt>
-                职业与业绩
-                <b>*</b>
-            </dt>
-            <dd>
-                <div class="textDiv">                
-                    <textarea id="txtPerformance" name="duty" class="textCon f-c7" placeholder="简述一下岗位职责和工作业绩，可使用人单位对你了解更多！" data-validation="required"><c:out value="${projectExperience.duty}" escapeXml="true"></c:out></textarea>
-                    <span id="txtPerformanceInfo" style="z-index:30"></span>
-                    <p class="inputTips">
-                        还可输入<span class="f-orange totalNum">800</span>字
-                    </p>
-                </div>
-               
-            </dd>
-        </dl>
+        
         <div class="btnDiv" style="margin-top:25px;">
         <!--  
             <a class="saveBtn postBtn" href="javascript:Exp.submitForm(false);">保存</a>
