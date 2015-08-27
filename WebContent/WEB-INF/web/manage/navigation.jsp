@@ -38,7 +38,7 @@
         <ul style="float: left;">
             <li id="top_nav_index"><a href="/manage/index"><span>首 页</span></a></li>
             <li id="top_nav_resume" ><a href="/manage/resume/list"><span>我的简历</span></a></li>
-            <li><a href="/myjob.html"><span>我的招聘</span></a></li>
+            <li><a href="/manage/recruitment/list"><span>我的招聘</span></a></li>
             <li><a href="/mystore.html"><span>我的店铺</span></a></li>
             <li><a href="/myneed.html"><span>我的求助</span></a></li>
             <li><a href="/myfinancing.html"><span>创业融资</span></a></li>

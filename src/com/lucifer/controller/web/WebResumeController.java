@@ -23,7 +23,6 @@ import com.lucifer.dao.IndustryDao;
 import com.lucifer.dao.PositionDao;
 import com.lucifer.dao.ResumeDao;
 import com.lucifer.dao.UserDao;
-import com.lucifer.enumeration.Education;
 import com.lucifer.model.Certificate;
 import com.lucifer.model.City;
 import com.lucifer.model.EducationExperience;
