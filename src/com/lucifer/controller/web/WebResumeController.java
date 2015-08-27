@@ -27,6 +27,7 @@ import com.lucifer.enumeration.Education;
 import com.lucifer.model.Certificate;
 import com.lucifer.model.City;
 import com.lucifer.model.EducationExperience;
+import com.lucifer.model.Expand;
 import com.lucifer.model.Industry;
 import com.lucifer.model.JobExperience;
 import com.lucifer.model.Language;
@@ -430,6 +431,44 @@ public class WebResumeController {
 	@ResponseBody
 	public Result languageDelete(Long id){
 		resumeDao.deleteLanguage(id);
+		return Result.ok();
+	}
+	
+	
+	@RequestMapping(value = "/manage/resume/expand/add", method = RequestMethod.GET)
+	public String expandAdd(Long resume_id,HttpServletRequest request){
+		request.setAttribute("opt", "增加自定义说明");
+		request.setAttribute("resume_id", resume_id);
+		return "/WEB-INF/web/manage/resume/resumeExpandAddSurface.jsp";
+	}
+	
+	
+	@RequestMapping(value = "/manage/resume/expand/add", method = RequestMethod.POST)
+	public String expandAddSubmit(Expand expand){
+		expand.setId(CommonUtil.nextId());
+		resumeDao.insertExpand(expand);
+		return "redirect:/manage/resume/update?id="+expand.getResume_id();
+	}
+	
+	@RequestMapping(value = "/manage/resume/expand/update", method = RequestMethod.GET)
+	public String expandUpdateInput(Long id,HttpServletRequest request){
+		request.setAttribute("opt", "修改自定义说明");		
+		Expand expand = resumeDao.getExpand(id);
+		request.setAttribute("expand", expand);
+		request.setAttribute("resume_id", expand.getResume_id());
+		return "/WEB-INF/web/manage/resume/resumeExpandUpdateSurface.jsp";
+	}
+	
+	@RequestMapping(value = "/manage/resume/expand/update", method = RequestMethod.POST)
+	public String modifyExpandSubmit(Expand expand){
+		resumeDao.updateExpand(expand);
+		return "redirect:/manage/resume/update?id="+expand.getResume_id();
+	}
+	
+	@RequestMapping(value = "/manage/resume/expand/delete", method = RequestMethod.POST)
+	@ResponseBody
+	public Result expandDelete(Long id){
+		resumeDao.deleteExpand(id);
 		return Result.ok();
 	}
 	
