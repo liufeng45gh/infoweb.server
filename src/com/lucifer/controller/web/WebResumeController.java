@@ -142,7 +142,8 @@ public class WebResumeController {
 		List<Language> resumeLanguageList = resumeDao.resumeLanguageList(id);
 		request.setAttribute("resumeLanguageList", resumeLanguageList);
 		
-		
+		List<Expand> resumeExpandList = resumeDao.resumeExpandList(id);
+		request.setAttribute("resumeExpandList", resumeExpandList);
 		
 		return "/WEB-INF/web/manage/resume/resumeShow.jsp";
 	}
