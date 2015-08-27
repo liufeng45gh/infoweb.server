@@ -276,25 +276,9 @@
 
 	</div>
 
-	<div id="containerSkill" class="skillsInfo" style="display: block;">
-		<h3 id="sk">
-			<span>专业技能</span> <a href="javascript:void(0);" class="addBtn">添加</a>
+	
 
-		</h3>
-		<div class="skillsShow showDiv">
-			
-			<div class="experDetail showList">
-				<p class="detailList">
-					<span>您还没有填写任何内容!</span>
-
-				</p>
-
-			</div>
-		</div>
-
-	</div>
-
-
+	<!-- 
 	<div class="photoInfo" id="containerphoto">
 		<h3 id="ph">
 			<span>照片/作品</span> <a href="javascript:void(0);" class="changeBtn"
@@ -311,20 +295,40 @@
 		</div>
 
 	</div>
-
+	 -->
 
 
 	<div class="typeInfo">
 		<h3>
 			<span>附加信息</span> <span class="tips">（填写更加分，提高竞争力）</span><a
-				href="javascript:void(0);" class="changeBtn">添加</a>
+				href="javascript:addExpandInput(${resume.id});" class="changeBtn">添加</a>
 		</h3>
-		<div class="typeCon showList" id="selectMode">
-			<p class="detailList">
-				<span>您还没有填写任何内容!</span>
-
-			</p>
-		</div>
+		<c:if test="${resumeExpandList.size() == 0}">
+			<div class="experDetail showList">
+				<p class="detailList">
+					<span>您还没有填写任何内容!</span>
+	
+				</p>
+	
+			</div>
+		</c:if>
+		<c:forEach var="expand" items="${resumeExpandList}" varStatus="status">
+			<div class="experDetail showList">
+				<p class="detailList">
+					
+					 <span>${expand.name }</span>						
+				</p>
+				
+				<p class="detailCon">
+						<span class="tlTitle">详细描述：</span> <span class="">${expand.description}</span>
+				</p>
+				
+				<p class="operBtn" style="display:block;">
+					<a href="javascript:void(0);" onclick="modifyExpand(${expand.id })" >修改</a> 
+					<a onclick="deleteExpand(${expand.id})"  href="javascript:void(0);">删除</a>
+				</p>
+			</div>
+		</c:forEach>
 	</div>
 	<!-- 
 	<div class="saveDiv">
