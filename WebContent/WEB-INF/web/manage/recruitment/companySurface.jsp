@@ -21,7 +21,12 @@
        
 		<form action="/manage/recruitment/company/add" method="post">
 		<jsp:include page="companyFiled.jsp"></jsp:include>
-        <input type="submit"   class="simple_button" style="margin-top:20px;display:block;margin-left:125px;margin-bottom:30px;" value="立即发布" ></input>
+        
+        <div class="info_confirm">
+							<label class="btn_b bb2">
+				<input id="saveall" class="int_b" type="submit" value="下一步" style="margin-top:20px;display:block;margin-left:125px;margin-bottom:30px;">
+			</label>
+		</div>
         </form>
    		 </div>
         <!--左侧菜单开始 -->        
