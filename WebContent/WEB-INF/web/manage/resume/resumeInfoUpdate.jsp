@@ -181,6 +181,7 @@
 
 </div>
 <script src="/script/web/resume.js"></script>
+ <script src="/script/web/pselect.js"></script>
 <script>
 /* important to locate this script AFTER the closing form element, so form object is loaded in DOM before setup is called */
      $.formUtils.addValidator({

@@ -17,4 +17,9 @@ public class WebRecruitmentController {
 	public String company(){
 		return "/WEB-INF/web/manage/recruitment/companySurface.jsp";
 	}
+	
+	@RequestMapping(value = "/manage/recruitment/company_init", method = RequestMethod.GET)
+	public String companyInit(){
+		return "/WEB-INF/web/manage/recruitment/companyInitSurface.jsp";
+	}
 }

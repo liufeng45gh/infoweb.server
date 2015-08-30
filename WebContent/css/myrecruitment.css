@@ -14,7 +14,9 @@
 .tipfir {
   padding-left: 0;
   line-height: 16px;
-  padding: 0 0 15px 15px;
+  padding: 20px 0 15px 15px;
+  width:100%;
+  text-align:center;
 }
 
 .hire_info .container .modwrap {
@@ -158,6 +160,12 @@ container .select .tip {
   border: 1px solid #c8c8c8;
   margin-right: 9px;
   cursor: pointer;
+}
+.welfare li.active, .brightspot li.active {
+  border: 2px solid #f28748;
+  height: 24px;
+  padding: 0 14px;
+  background: url(http://pic2.58.com/ui7/job/hire/sel_bg.png?v=sdfsd2) no-repeat right bottom;
 }
 #txtOthBrig1 {
   padding: 0px;

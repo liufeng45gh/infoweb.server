@@ -134,6 +134,7 @@
  <!--end-->   
 
  <script src="/script/web/resume.js"></script>
+  <script src="/script/web/pselect.js"></script>
  <script>
 
     $.validate({
