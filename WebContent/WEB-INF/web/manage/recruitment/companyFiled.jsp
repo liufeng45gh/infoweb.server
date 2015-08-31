@@ -48,7 +48,7 @@
 							<th><span><i>*</i>公司性质</span></th>
 							<td>								
 								<div class="item-info select_input_div">
-					                <input  id="salary_desc" maxlength="18" readonly value="${resume.osalary.text }" class="sel-text salary w80"   placeholder="请选择" >
+					                <input  id="salary_desc" maxlength="18" readonly value="${resume.osalary() }" class="sel-text salary w80"   placeholder="请选择" >
 					                <input type="hidden" id="salary" name="salary" value="${resume.osalary.key }">
 					                <div class="sel-arrow js-select-show salary" ></div>
 					                <div class="js-select-option sel-option w116" id="salary_options">
