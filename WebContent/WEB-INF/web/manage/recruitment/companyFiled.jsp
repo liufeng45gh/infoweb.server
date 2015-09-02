@@ -10,7 +10,6 @@
 			<!-- 企业基本资料 -->
 			<div class="modwrap" id="BaseInfo">
 				<!--编辑-->
-				<link type="text/css" rel="stylesheet" href="/css/upload.css">
 				<table class="box_table" id="ModyBaseInfo">
 					<tbody>
 						<tr>
@@ -28,8 +27,7 @@
 							<th><span><i>*</i>公司名称</span></th>
 							<td>
 								<div class="contedit zidx91">
-									<input class="textstyle c99" id="txtCompName" value=""
-										type="text"> <span id="txtCompName_Tip"></span>
+									<input class="textstyle c99"  value="" type="text" name="name"> 									
 								</div>
 							</td>
 						</tr>
@@ -50,7 +48,7 @@
 							<td>								
 								<div class="item-info select_input_div">
 					                <input  id="salary_desc" maxlength="18" readonly value="${resume.osalary() }" class="sel-text salary w80"   placeholder="请选择" >
-					                <input type="hidden" id="salary" name="salary" value="${resume.osalary.key }">
+					                <input type="hidden" id="salary" name="type" value="${resume.osalary.key }">
 					                <div class="sel-arrow js-select-show salary" ></div>
 					                <div class="js-select-option sel-option w116" id="salary_options">
 					                 	<a href="javascript:void(0);" onclick="salarySelect(this);return false;" data-value="1">私营</a>
@@ -72,7 +70,7 @@
 							<td>
 							<div class="item-info select_input_div" id="education_info">
 				                <input  id="education_text" maxlength="18"  value="${user.enumEducation.text}" readonly class="sel-text w80 js-select-show education" size="40"  placeholder="请选择">
-				                <input type="hidden" value="${user.enumEducation.key }" name ="education" id="education" >
+				                <input type="hidden" value="${user.enumEducation.key }" name ="size" id="education" >
 				                <div class="sel-arrow js-select-show education" ></div>
 				                <div class="js-select-option sel-option w116" id="education_options">
 
@@ -91,10 +89,8 @@
 							<th><span><i>*</i>公司简介</span></th>
 							<td>
 								<div class="contedit zidx01">
-									<textarea class="introcont textstyle c99" name="txtCompIntro"
-										id="txtCompIntro" style="width: 600px"></textarea>
-									<br>
-									<span id="txtCompIntro_Tip"></span>
+									<textarea class="introcont textstyle c99" name="description" id="txtCompIntro" style="width: 600px"></textarea>
+									
 								</div>
 							</td>
 						</tr>
@@ -175,8 +171,7 @@
 						<th><span><i>*</i>联&nbsp;&nbsp;系&nbsp;&nbsp;人</span></th>
 						<td>
 							<div class="contedit zidx41">
-								<input class="textstyle" id="txtContacts" type="text" value="">
-								<span id="txtContacts_Tip"></span>
+								<input class="textstyle" id="txtContacts" name="linkman" value="">
 							</div>
 						</td>
 					</tr>
@@ -184,31 +179,17 @@
 						<th><span><i>*</i>招聘电话</span></th>
 						<td>
 							<div class="contedit zidx41">
-								<input class="textstyle" id="txtPhone" type="text" value="">
-								 <span class="newpyn"> <input
-									type="checkbox" value="1" id="shifougongkai2"
-									name="shifougongkai2">不公开
-								</span> <span id="txtPhone_Tip"></span>
+								<input class="textstyle" name="telephone" type="text" value="">
+								 
 							</div>
 						</td>
 					</tr>
-					<tr id="teltr" style="display: none;">
-						<th><span></span></th>
-						<td>
-							<div class="contedit zidx41">
-								<input class="textstyle" id="tel" type="text" value="">
-								<a href="javascript:void(0)" onclick="deltel2()" class="linkTip">删除</a>
-								<span id="tel_Tip"></span>
-							</div>
-						</td>
-					</tr>
+					
 					<tr id="tr5">
 						<th><span>招聘邮箱</span></th>
 						<td>
 							<div class="contedit zidx11">
-								<input class="textstyle" id="txtCompEmail" type="text"
-									value="srbhe_au3AGEP@58.com"> <span
-									id="txtCompEmail_Tip"></span>
+								<input class="textstyle" name="email" type="text" value=""> 
 							</div>
 						</td>
 					</tr>
@@ -216,8 +197,7 @@
 						<th><span>公司网址</span></th>
 						<td>
 							<div class="contedit zidx01">
-								<input class="textstyle" id="txtCompSite" type="text" value="">
-								<span id="txtCompSite_Tip"></span>
+								<input class="textstyle" name="website"  value="">
 							</div>
 						</td>
 					</tr>
@@ -257,11 +237,8 @@
 						<th><span><i>*</i>详细地址</span></th>
 						<td>
 							<div class="contedit zidx81" id="txt_address">
-								<input class="textstyle c99" id="txtCompAddr" type="text"
-									value=""
-									onblur="if(this.value==''){this.value='详细地址，如中关村南大街183号';this.style.color='#C7C7C7';}">
-							</div> <span class="c58" id="span_address" style="display: none;"></span>
-							<span id="txtCompAddr_Tip"></span>
+								<input class="textstyle c99" name="address" value="">
+							</div> 							
 						</td>
 					</tr>
 					<tr>
@@ -270,17 +247,9 @@
 
 							<div class="contedit zidx71" style="position: relative;">
 								<div id="compmap" class="compmap"
-									style="overflow: hidden; position: relative; z-index: 0; color: rgb(0, 0, 0); text-align: left; background-color: rgb(243, 241, 236);">
-									
-									
-									
-									
-									
-								</div>
-								
-								
-								
-							</div> <span id="coordinate_Tip"></span>
+									style="overflow: hidden; position: relative; z-index: 0; color: rgb(0, 0, 0); text-align: left; background-color: rgb(243, 241, 236);">									
+								</div>								
+							</div> 
 						</td>
 					</tr>
 
