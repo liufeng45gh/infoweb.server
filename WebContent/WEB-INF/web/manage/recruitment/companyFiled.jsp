@@ -17,6 +17,7 @@
 							<th><span><i>*</i>公司身份</span></th>
 							<td>
 								<div class="contedit zidx91" id="qy_zd">
+									<input type="hidden" name="is_intermediary">
 									<span id="zd_0" class="select">公司直招</span> <span id="zd_1"
 										class="select off">职业代招 <span class="tip">(职业中介或劳务派遣公司，请勾选此项，选择后不可更改)</span>
 									</span>

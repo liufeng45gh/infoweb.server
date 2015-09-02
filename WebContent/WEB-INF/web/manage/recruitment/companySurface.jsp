@@ -19,7 +19,7 @@
     <div class="mainContainer">
         <div class="rightCol">
        
-		<form action="/manage/recruitment/company/add" method="post">
+		<form action="/manage/recruitment/company" method="post">
 		<jsp:include page="companyFiled.jsp"></jsp:include>
         
         <div class="info_confirm">

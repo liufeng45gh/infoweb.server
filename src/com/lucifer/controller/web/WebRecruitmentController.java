@@ -22,4 +22,14 @@ public class WebRecruitmentController {
 	public String companyInit(){
 		return "/WEB-INF/web/manage/recruitment/companyInitSurface.jsp";
 	}
+	
+	@RequestMapping(value = "/manage/recruitment/company_init", method = RequestMethod.POST)
+	public String companyInitSubmit(){
+		return "redirect:/manage/recruitment/company";
+	}
+	
+	@RequestMapping(value = "/manage/recruitment/company", method = RequestMethod.POST)
+	public String companyUpdateSubmit(){
+		return "redirect:/manage/recruitment/company";
+	}
 }
