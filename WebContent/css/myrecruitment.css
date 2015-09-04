@@ -23,12 +23,6 @@
   border: none;
 }
 
-.container .modwrap {
-  border: solid #dcdee1;
-  border-width: 0 1px;
-  border-bottom-width: 1px!important;
-}
-
 .box_table {
   width: 100%;
   margin-top: 10px;
@@ -320,4 +314,7 @@ a.w_local span {
   cursor: pointer;
   color: #fff;
   padding: 0 2px 4px 0;
+}
+.tangram-suggestion{
+	z-index:99;
 }

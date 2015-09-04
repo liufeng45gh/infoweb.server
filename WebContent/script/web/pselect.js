@@ -90,6 +90,51 @@ function salarySelect(object){
  */
 
 /**
+ * ------------------------------------工作年限选择部分开始-------------------------------------
+ */
+
+var work_years_mouse_in = false;
+var work_years_options_in = false;
+$(document).ready(function(){
+	$(".work_years").click(function (){
+		$("#work_years_options").css("display","block");
+	});
+	$(".work_years").mouseover(function(){
+		work_years_mouse_in = true;
+	});
+	$(".work_years").mouseout(function(){
+		work_years_mouse_in = false;
+		setTimeout(workYearsHid,1);
+		//educationHid();
+	});
+	$("#work_years_options").mouseover(function(){
+		work_years_options_in = true;
+	});
+	$("#work_years_options").mouseout(function(){
+		work_years_options_in = false;
+		setTimeout(workYearsHid,1);
+		//educationHid();
+	});
+});
+
+function workYearsHid(){
+	if(!(work_years_options_in||work_years_mouse_in)){
+		$("#work_years_options").css("display","none");
+	}
+}
+
+function workYearsSelect(object){
+	//alert($(object).html());
+	$("#work_years_text").val($(object).text());
+	$("#work_years").val($(object).attr("data-value"));
+	$("#work_years_options").css("display","none");	
+}
+
+/**
+ * -------------------------工作年限选择部分结束---------------------------------
+ */
+
+/**
  * ---------------------------籍贯省份选择开始---------------------------------
  */
 

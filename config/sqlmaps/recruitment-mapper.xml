@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lucifer.model">  
+  <insert id="insertCompany">
+  		insert into company (id,user_id,name,industry_id,is_intermediary,type,size,description,address,welfares,linkman,telephone,email,website,map_ponit)
+  		values
+  		(#{id},#{user_id},#{name},#{industry_id},#{is_intermediary},#{type},#{size},#{description},#{address},#{welfares},#{linkman},#{telephone},#{email},#{website},#{map_ponit})
+  </insert>
+  <select id="getUserCompany" resultType="com.lucifer.model.Company">
+  select * from company where user_id = #{user_id} limit 1
+  </select>
+  <update id="updateCompany">
+  		update company set name = #{name},industry_id=#{industry_id},is_intermediary=#{is_intermediary},type=#{type},size=#{size},description=#{description},address=#{address},
+  		welfares=#{welfares},linkman=#{linkman},telephone=#{telephone},email=#{email},website=#{website},map_ponit=#{map_ponit} where id = #{id}
+  </update>
+</mapper>

@@ -1,5 +1,8 @@
 package com.lucifer.model;
 
+import com.lucifer.enumeration.CompanySize;
+import com.lucifer.enumeration.CompanyType;
+
 public class Company {
 	
 	private Long id;
@@ -31,6 +34,8 @@ public class Company {
 	private String website;
 	
 	private String map_ponit;
+	
+	private Industry industry;
 
 	public Long getId() {
 		return id;
@@ -151,7 +156,29 @@ public class Company {
 	public void setMap_ponit(String map_ponit) {
 		this.map_ponit = map_ponit;
 	}
+
+	public Industry getIndustry() {
+		return industry;
+	}
+
+	public void setIndustry(Industry industry) {
+		this.industry = industry;
+	}
 	
+	public String typeName(){
+		CompanyType companyType =  CompanyType.objectOf(this.type);
+		if (null != companyType) {
+			return companyType.getText();
+		}
+		return null;
+	}
 	
+	public String sizeText(){
+		CompanySize companySize = CompanySize.objectOf(this.size);
+		if (null != companySize) {
+			return companySize.getText();
+		}
+		return null;
+	}
 
 }

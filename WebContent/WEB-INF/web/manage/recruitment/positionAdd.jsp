@@ -18,13 +18,13 @@
 <div class="globalContainer clearfix">
     <div class="mainContainer">
         <div class="rightCol">
-       		<p class="tipfir">第一次发布招聘信息时，需先填写企业资料</p>
-		<form action="/manage/recruitment/company_init" method="post">
-		<jsp:include page="companyFiled.jsp"></jsp:include>
+       		
+		<form action="/manage/position/add" method="post">
+		<jsp:include page="positionFiled.jsp"></jsp:include>
         
         <div class="info_confirm">
 							<label class="btn_b bb2">
-				<input id="saveall" class="int_b" type="submit" value="下一步" style="margin-top:20px;display:block;margin-left:125px;margin-bottom:30px;">
+				<input id="saveall" class="int_b" type="submit" value="发布职位" style="margin-top:20px;display:block;margin-left:125px;margin-bottom:30px;">
 			</label>
 		</div>
         </form>
@@ -39,7 +39,7 @@
 <jsp:include page="../footer.jsp"></jsp:include>
     
 <script type="text/javascript">
-$("#left_menu_company").addClass("current");
+$("#left_menu_add").addClass("current");
 </script>
 
 
