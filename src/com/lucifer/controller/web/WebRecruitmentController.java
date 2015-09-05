@@ -59,8 +59,13 @@ public class WebRecruitmentController {
 		return "redirect:/manage/recruitment/company";
 	}
 	
-	@RequestMapping(value = "/manage/position/add", method = RequestMethod.GET)
+	@RequestMapping(value = "/manage/job/add", method = RequestMethod.GET)
 	public String positionAdd(){
 		return "/WEB-INF/web/manage/recruitment/positionAdd.jsp";
+	}
+	
+	@RequestMapping(value = "/manage/job/add", method = RequestMethod.POST)
+	public String positionAddSubmit(){
+		return "redirect:/manage/job/list";
 	}
 }
