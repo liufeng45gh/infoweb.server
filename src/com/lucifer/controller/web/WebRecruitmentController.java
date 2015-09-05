@@ -1,5 +1,7 @@
 package com.lucifer.controller.web;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
@@ -11,6 +13,7 @@ import com.lucifer.dao.IndustryDao;
 import com.lucifer.dao.RecruitmentDao;
 import com.lucifer.model.Company;
 import com.lucifer.model.Industry;
+import com.lucifer.model.Job;
 import com.lucifer.model.User;
 import com.lucifer.util.ViewHelper;
 
@@ -60,12 +63,24 @@ public class WebRecruitmentController {
 	}
 	
 	@RequestMapping(value = "/manage/job/add", method = RequestMethod.GET)
-	public String positionAdd(){
-		return "/WEB-INF/web/manage/recruitment/positionAdd.jsp";
+	public String jobAdd(){
+		return "/WEB-INF/web/manage/recruitment/jobAdd.jsp";
 	}
 	
 	@RequestMapping(value = "/manage/job/add", method = RequestMethod.POST)
-	public String positionAddSubmit(){
+	public String jobAddSubmit(Job job,HttpServletRequest request){
+		User user = ViewHelper.getInstance().getWebTokenUser(request);
+		job.setUser_id(user.getId());
+		
+		recruitmentDao.insertJob(job);
 		return "redirect:/manage/job/list";
+	}
+	
+	@RequestMapping(value = "/manage/job/list", method = RequestMethod.GET)
+	public String jobList(HttpServletRequest request){
+		User user = ViewHelper.getInstance().getWebTokenUser(request);
+		List<Job> jobList = recruitmentDao.userJobList(user.getId());
+		request.setAttribute("jobList", jobList);
+		return "/WEB-INF/web/manage/recruitment/jobList.jsp";
 	}
 }

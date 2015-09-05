@@ -67,7 +67,7 @@
 						<th><span><i>*</i>招聘人数</span></th>
 						<td>
 							<div class="contedit">
-								<input  name="zhaopinrenshu"  value="1" class="textstyle"  maxlength="3">
+								<input  name="number"  value="1" class="textstyle"  maxlength="3">
 							</div>
 						</td>
 					</tr>
@@ -92,7 +92,7 @@
 					<tr>
 						<th><span><i>*</i>工作年限</span></th>
 						<td>
-							<div class="item-info select_input_div" id="work_years">
+							<div class="item-info select_input_div">
 				                <input  id="work_years_text" maxlength="18"  value="${user.enumEducation.text}" readonly class="sel-text w80 js-select-show work_years" size="40"  placeholder="请选择">
 				                <input type="hidden" value="${user.enumEducation.key }" name ="work_years" id="work_years" >
 				                <div class="sel-arrow js-select-show work_years" ></div>
@@ -146,7 +146,7 @@
 						<th><span><i>*</i>职位联系人</span></th>
 						<td>
 							<div class="contedit zidx81">
-								<input type="text" name="linkman" class="text" value="" > 
+								<input type="text" name="contacts" class="text" value="" > 
 							</div>
 						</td>
 					</tr>
@@ -173,7 +173,7 @@
 					<tr id="tr_city">
 						<th><span><i>*</i>工作地址</span></th>
 						<td>
-							<input class="text" >
+							<input class="text" name="address">
 						</td>
 					</tr>
 				</tbody>

@@ -19,8 +19,8 @@
     <div class="mainContainer">
         <div class="rightCol">
        		
-		<form action="/manage/position/add" method="post">
-		<jsp:include page="positionFiled.jsp"></jsp:include>
+		<form action="/manage/job/add" method="post">
+		<jsp:include page="jobFiled.jsp"></jsp:include>
         
         <div class="info_confirm">
 							<label class="btn_b bb2">

@@ -15,4 +15,16 @@
   		update company set name = #{name},industry_id=#{industry_id},is_intermediary=#{is_intermediary},type=#{type},size=#{size},description=#{description},address=#{address},
   		welfares=#{welfares},linkman=#{linkman},telephone=#{telephone},email=#{email},website=#{website},map_ponit=#{map_ponit} where id = #{id}
   </update>
+  
+  <!-- job part -->
+  <insert id="insertJob">
+  insert into job 
+  (id,user_id,city_id,title,industry_id,position_id,number,education,salary,description,address,contacts,telephone,email,created_at,updated_at)
+  values
+  (#{id},#{user_id},#{city_id},#{title},#{industry_id},#{position_id},#{number},#{education},#{salary},#{description},#{address},#{contacts},#{telephone},
+  #{email},now(),now())
+  </insert>
+  <select id="userJobList" resultType="com.lucifer.model.Job">
+  select * from job where user_id = #{user_id}
+  </select>
 </mapper>
