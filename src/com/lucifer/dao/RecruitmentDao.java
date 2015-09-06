@@ -43,4 +43,16 @@ public class RecruitmentDao  extends IBatisBaseDao{
 		List<Job> list = (List<Job>)sqlSession.selectList("userJobList", user_id);
 		return list;
 	}
+	
+	public Integer refreshJob(Long id){
+		return sqlSession.update("refreshJob", id);
+	}
+	
+	public Job getJob(Long id){
+		return (Job)sqlSession.selectOne("getJob", id);
+	}
+	
+	public Integer updateJob(Job job){
+		return sqlSession.update("updateJob", job);
+	}
 }

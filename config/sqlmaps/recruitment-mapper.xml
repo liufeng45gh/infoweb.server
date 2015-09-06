@@ -19,12 +19,25 @@
   <!-- job part -->
   <insert id="insertJob">
   insert into job 
-  (id,user_id,city_id,title,industry_id,position_id,number,education,salary,description,address,contacts,telephone,email,created_at,updated_at)
+  (id,user_id,city_id,title,industry_id,position_id,number,education,salary,work_years,description,address,contacts,telephone,email,created_at,updated_at)
   values
-  (#{id},#{user_id},#{city_id},#{title},#{industry_id},#{position_id},#{number},#{education},#{salary},#{description},#{address},#{contacts},#{telephone},
+  (#{id},#{user_id},#{city_id},#{title},#{industry_id},#{position_id},#{number},#{education},#{salary},#{work_years},#{description},#{address},#{contacts},#{telephone},
   #{email},now(),now())
   </insert>
   <select id="userJobList" resultType="com.lucifer.model.Job">
   select * from job where user_id = #{user_id}
   </select>
+  <update id="refreshJob">
+  update job set updated_at = now() where id = #{id}
+  </update>
+  <select id="getJob" resultType="com.lucifer.model.Job">
+  select * from job where id = #{id}
+  </select>
+  <update id="updateJob">
+  update job set 
+  city_id=#{city_id},title=#{title},industry_id=#{industry_id},position_id=#{position_id},
+  number=#{number},education=#{education},salary=#{salary},work_years=#{work_years},description=#{description},
+  address=#{address},contacts=#{contacts},telephone=#{telephone},email=#{email},updated_at=#{updated_at}
+  where id = #{id}
+  </update>
 </mapper>

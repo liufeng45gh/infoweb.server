@@ -8,13 +8,19 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.lucifer.dao.CityDao;
 import com.lucifer.dao.IndustryDao;
+import com.lucifer.dao.PositionDao;
 import com.lucifer.dao.RecruitmentDao;
+import com.lucifer.model.City;
 import com.lucifer.model.Company;
 import com.lucifer.model.Industry;
 import com.lucifer.model.Job;
+import com.lucifer.model.Position;
 import com.lucifer.model.User;
+import com.lucifer.util.Result;
 import com.lucifer.util.ViewHelper;
 
 @Controller
@@ -25,6 +31,14 @@ public class WebRecruitmentController {
 	
 	@Resource
 	private IndustryDao industryDao;
+	
+	@Resource
+	private PositionDao positionDao;
+	
+	
+	
+	@Resource
+	private CityDao cityDao;
 	
 	@RequestMapping(value = "/manage/recruitment/list", method = RequestMethod.GET)
 	public String index(){
@@ -81,6 +95,48 @@ public class WebRecruitmentController {
 		User user = ViewHelper.getInstance().getWebTokenUser(request);
 		List<Job> jobList = recruitmentDao.userJobList(user.getId());
 		request.setAttribute("jobList", jobList);
+		for (Job job :jobList) {
+			Position position = positionDao.getPosition(job.getPosition_id());
+			job.setPosition(position);
+			
+			City city = cityDao.getCity(Long.valueOf(job.getCity_id()));
+			job.setCity(city);
+		}
 		return "/WEB-INF/web/manage/recruitment/jobList.jsp";
+	}
+	
+	@RequestMapping(value = "/manage/job/refresh", method = RequestMethod.POST)
+	@ResponseBody
+	public Result refresh(Long id){
+		recruitmentDao.refreshJob(id);
+		return Result.ok();
+	}
+	
+	@RequestMapping(value = "/manage/job/update", method = RequestMethod.GET)
+	public String jobUpdateInput(Long id,HttpServletRequest request) throws Exception{
+		Job job = recruitmentDao.getJob(id);
+		User user = ViewHelper.getInstance().getWebTokenUser(request);
+		if (!job.getUser_id().equals(user.getId())) {
+			throw new Exception("you have not allow to edit");
+		}
+		request.setAttribute("job", job);
+		Position position = positionDao.getPosition(job.getPosition_id());
+		job.setPosition(position);
+		
+		Industry industry = industryDao.getIndustry(job.getIndustry_id());
+		job.setIndustry(industry);
+		
+		City city = cityDao.getCity(Long.valueOf(job.getCity_id()));
+		job.setCity(city);
+		
+		City parentCity = cityDao.getCity(city.getParent_id());
+		job.setParentCity(parentCity);
+		return "/WEB-INF/web/manage/recruitment/jobUpdate.jsp";
+	}
+	
+	@RequestMapping(value = "/manage/job/update", method = RequestMethod.POST)
+	public String jobUpdateSubmit(Job job){
+		recruitmentDao.updateJob(job);
+		return "redirect:/manage/job/update?id="+job.getId();
 	}
 }

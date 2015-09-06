@@ -8,6 +8,7 @@
 <jsp:include page="../head.jsp"></jsp:include>
 
 <link rel="stylesheet" type="text/css" href="/css/myresume.css">
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=8I36XWBH2VcByZ5YQd4obM3s"></script>
 
 <body>
     
@@ -37,19 +38,17 @@
                                
                                  <c:forEach var="job" items="${jobList}" varStatus="status">
                                  <tr>
-                                     <td><a href="#" target="_blank">${job.title}</a>
-                                         (正常显示)  
+                                     <td style="text-align:center"><a href="#" target="_blank">${job.title}</a>
+                                       
                                      </td>
                                      
-                                     <td style="text-align:center"></td>
-                                     <td style="text-align:center">0</td>
+                                     <td style="text-align:center">${job.position.name }</td>
+                                     <td style="text-align:center">${job.city.name }</td>
                                      <td style="text-align:center">0</td>
                                      <td style="text-align:center"><fmt:formatDate value="${job.updated_at}" pattern="yyyy-MM-dd HH:mm"/></td>
                                      <td style="text-align:center">
-                                         <a href="/manage/resume/update?id=${job.id }" target="_blank">修改</a>
-                                         | <a href="javascript:refreshResume(${job.id });" class="js_auto_refresh_list" >刷新</a>
-                                       
-                                         
+                                         <a href="/manage/job/update?id=${job.id }" target="_blank">修改</a>
+                                         | <a href="javascript:refreshJob(${job.id });" class="js_auto_refresh_list" >刷新</a>                                                                              
                                      </td>
                                  </tr>
                                  </c:forEach>
@@ -62,12 +61,10 @@
                         
                         <div class="clearfix">&nbsp;</div>
                         <div class="myresume_tip clearfix text-left gray">
-                            公开设置： 您可以设置您的简历公开程度。<br>
-                            刷新： 刷新后将您的简历显示在列表页最高位置(置顶帖下方)，每个用户每天只能使用1次刷新功能。<br>
-                            关闭：企业将无法主动查看您的简历，如需恢复请修改公开设置。
+                           刷新操作会让您的信息从新发布到最前面
                         </div>
                         
-                        <a   class="simple_button" style="margin-top:20px;display:block;" href="/manage/resume/add">添加一份简历</a>
+                        <a   class="simple_button" style="margin-top:20px;display:block;" href="/manage/job/add">发布职位</a>
                        
                     </div>
                     <div class="rightfoot">
@@ -92,7 +89,7 @@
 <script type="text/javascript">
 $("#left_menu_list").addClass("current");
 </script>
-<script src="/script/web/resume.js"></script>
+<script src="/script/web/myrecruitment.js"></script>
 
 
 </body></html>

@@ -2,6 +2,10 @@ package com.lucifer.model;
 
 import java.util.Date;
 
+import com.lucifer.enumeration.Education;
+import com.lucifer.enumeration.Salary;
+import com.lucifer.enumeration.WorkYears;
+
 public class Job {
 
 	private Long id;
@@ -24,6 +28,8 @@ public class Job {
 	
 	private Integer salary;
 	
+	private Integer work_years;
+	
 	private String  description;
 	
 	private String  address;
@@ -37,6 +43,14 @@ public class Job {
 	private Date created_at;
 	
 	private Date updated_at;
+	
+	private Position position;
+	
+	private City city;
+	
+	private City parentCity;
+	
+	private Industry industry;
 
 	public Long getId() {
 		return id;
@@ -84,6 +98,16 @@ public class Job {
 
 	public void setPosition_id(String position_id) {
 		this.position_id = position_id;
+	}
+	
+	
+
+	public Integer getWork_years() {
+		return work_years;
+	}
+
+	public void setWork_years(Integer work_years) {
+		this.work_years = work_years;
 	}
 
 	public String getRequirement() {
@@ -173,6 +197,60 @@ public class Job {
 	public void setUpdated_at(Date updated_at) {
 		this.updated_at = updated_at;
 	}
+
+	public Position getPosition() {
+		return position;
+	}
+
+	public void setPosition(Position position) {
+		this.position = position;
+	}
+
+	public City getCity() {
+		return city;
+	}
+
+	public void setCity(City city) {
+		this.city = city;
+	}
+
+	public Industry getIndustry() {
+		return industry;
+	}
+
+	public void setIndustry(Industry industry) {
+		this.industry = industry;
+	}
+
+	public City getParentCity() {
+		return parentCity;
+	}
+
+	public void setParentCity(City parentCity) {
+		this.parentCity = parentCity;
+	}
 	
+	public String educationText(){
+		Education e = Education.objectOf(this.education);
+		if (null != e) {
+			return e.getText();
+		}
+		return null;
+	}
 	
+	public String salaryText(){
+		Salary s = Salary.objectOf(this.salary);
+		if (null != s) {
+			return s.getText();
+		}
+		return null;
+	}
+	
+	public String workYearsText(){
+		WorkYears w = WorkYears.objectOf(this.work_years);
+		if (null != w) {
+			return w.getText();
+		}
+		return null;
+	}
 }
