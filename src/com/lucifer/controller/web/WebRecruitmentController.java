@@ -145,4 +145,17 @@ public class WebRecruitmentController {
 		recruitmentDao.updateJob(job);
 		return "redirect:/manage/job/update?id="+job.getId();
 	}
+	
+	@RequestMapping(value = "/manage/job/delete", method = RequestMethod.POST)
+	@ResponseBody
+	public Result deleteJob(Long id,HttpServletRequest request) throws Exception{
+		Job job = recruitmentDao.getJob(id);
+		User user = ViewHelper.getInstance().getWebTokenUser(request);
+		if (!job.getUser_id().equals(user.getId())) {
+			throw new Exception("you have not allow to edit");
+		}
+		recruitmentDao.deleteJob(id);
+		return Result.ok();
+		
+	}
 }

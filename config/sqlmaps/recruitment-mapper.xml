@@ -19,13 +19,15 @@
   <!-- job part -->
   <insert id="insertJob">
   insert into job 
-  (id,user_id,city_id,title,industry_id,position_id,number,education,salary,work_years,description,address,contacts,telephone,email,created_at,updated_at)
+  (id,user_id,city_id,title,industry_id,position_id,number,education,salary,work_years,description,address,contacts,telephone,email,created_at,updated_at,visible)
   values
   (#{id},#{user_id},#{city_id},#{title},#{industry_id},#{position_id},#{number},#{education},#{salary},#{work_years},#{description},#{address},#{contacts},#{telephone},
-  #{email},now(),now())
+  #{email},now(),now(),0)
   </insert>
   <select id="userJobList" resultType="com.lucifer.model.Job">
-  select * from job where user_id = #{user_id}
+  <![CDATA[
+  select * from job where user_id = #{user_id} and visible<2
+  ]]>
   </select>
   <update id="refreshJob">
   update job set updated_at = now() where id = #{id}
@@ -40,4 +42,7 @@
   address=#{address},contacts=#{contacts},telephone=#{telephone},email=#{email},updated_at=#{updated_at}
   where id = #{id}
   </update>
+  <delete id="deleteJob">
+  update  job set visible=2 where id=#{id}
+  </delete>
 </mapper>

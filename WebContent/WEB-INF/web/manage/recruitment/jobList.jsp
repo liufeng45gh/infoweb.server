@@ -48,7 +48,8 @@
                                      <td style="text-align:center"><fmt:formatDate value="${job.updated_at}" pattern="yyyy-MM-dd HH:mm"/></td>
                                      <td style="text-align:center">
                                          <a href="/manage/job/update?id=${job.id }" target="_blank">修改</a>
-                                         | <a href="javascript:refreshJob(${job.id });" class="js_auto_refresh_list" >刷新</a>                                                                              
+                                         | <a href="javascript:refreshJob(${job.id });" class="js_auto_refresh_list" >刷新</a>    
+                                         | <a href="javascript:deleteJob(${job.id });" class="js_auto_refresh_list" >删除</a>                                                                            
                                      </td>
                                  </tr>
                                  </c:forEach>

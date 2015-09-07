@@ -55,4 +55,8 @@ public class RecruitmentDao  extends IBatisBaseDao{
 	public Integer updateJob(Job job){
 		return sqlSession.update("updateJob", job);
 	}
+	
+	public Integer deleteJob(Long id){
+		return sqlSession.delete("deleteJob", id);
+	}
 }
