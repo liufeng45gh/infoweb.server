@@ -65,7 +65,7 @@ public class WebRecruitmentController {
 	@RequestMapping(value = "/manage/recruitment/company_init", method = RequestMethod.POST)
 	public String companyInitSubmit(Company company,HttpServletRequest request){
 		this.companyUpdateSubmit(company,request);
-		return "redirect:/manage/recruitment/company";
+		return "redirect:/manage/job/add";
 	}
 	
 	@RequestMapping(value = "/manage/recruitment/company", method = RequestMethod.POST)
@@ -77,7 +77,13 @@ public class WebRecruitmentController {
 	}
 	
 	@RequestMapping(value = "/manage/job/add", method = RequestMethod.GET)
-	public String jobAdd(){
+	public String jobAdd(HttpServletRequest request){
+		
+		User user = ViewHelper.getInstance().getWebTokenUser(request);		
+		Company company = recruitmentDao.getUserCompany(user.getId());
+		if (null == company) {
+			return "redirect:/manage/recruitment/company_init";
+		}
 		return "/WEB-INF/web/manage/recruitment/jobAdd.jsp";
 	}
 	
