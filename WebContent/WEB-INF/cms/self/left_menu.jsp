@@ -14,6 +14,10 @@
 			<ul name="menu"><li id="left_menu_position"><a href="/cms/self/position">职位列表</a></li></ul>
 		</li>
 		
+		<li><span>服务分类管理</span>
+			<ul name="menu"><li id="left_menu_business_type"><a href="/cms/self/business_type">服务分类列表</a></li></ul>
+		</li>
+		
 		<li><span>广告管理</span>
 			<ul name="menu"><li id="left_menu_ad_add"><a href="/cms/ad/add">添加广告</a></li></ul>
 			<ul name="menu"><li id="left_menu_ad"><a href="/cms/ad/list?type=the_new">广告列表</a></li></ul>
