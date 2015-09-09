@@ -24,7 +24,7 @@ import com.lucifer.util.Result;
 import com.lucifer.util.ViewHelper;
 
 @Controller
-public class WebRecruitmentController {
+public class ManageRecruitmentController {
 
 	@Resource
 	private RecruitmentDao recruitmentDao;

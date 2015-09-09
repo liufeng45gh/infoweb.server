@@ -40,7 +40,7 @@ import com.lucifer.util.Result;
 import com.lucifer.util.ViewHelper;
 
 @Controller
-public class WebResumeController {
+public class ManageResumeController {
 	
 	@Resource
 	private ResumeDao resumeDao;
@@ -57,7 +57,7 @@ public class WebResumeController {
 	@Resource
 	private CityDao cityDao;
 	
-	private static  Log log = LogFactory.getLog(WebResumeController.class);
+	private static  Log log = LogFactory.getLog(ManageResumeController.class);
 	
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {

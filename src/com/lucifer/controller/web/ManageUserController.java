@@ -24,10 +24,10 @@ import com.lucifer.util.Result;
 import com.lucifer.util.ViewHelper;
 
 @Controller
-public class WebUserController {
+public class ManageUserController {
 
 
-	private static  Log log = LogFactory.getLog(WebUserController.class);
+	private static  Log log = LogFactory.getLog(ManageUserController.class);
 	@Resource
 	private UserDao userDao;
 	
