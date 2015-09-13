@@ -105,7 +105,7 @@ public class ManageRecruitmentController {
 			Position position = positionDao.getPosition(job.getPosition_id());
 			job.setPosition(position);
 			
-			City city = cityDao.getCity(Long.valueOf(job.getCity_id()));
+			City city = cityDao.getCity(job.getCity_id());
 			job.setCity(city);
 		}
 		return "/WEB-INF/web/manage/recruitment/jobList.jsp";
@@ -132,7 +132,7 @@ public class ManageRecruitmentController {
 		Industry industry = industryDao.getIndustry(job.getIndustry_id());
 		job.setIndustry(industry);
 		
-		City city = cityDao.getCity(Long.valueOf(job.getCity_id()));
+		City city = cityDao.getCity(job.getCity_id());
 		job.setCity(city);
 		
 		City parentCity = cityDao.getCity(city.getParent_id());

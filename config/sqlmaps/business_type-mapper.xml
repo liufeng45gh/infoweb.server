@@ -27,7 +27,7 @@
   </select>
 	
   <select id="getBusinessTypeTopList" resultType="com.lucifer.model.BusinessType">
-  	select * from business_type where parent_id='0'
+  	select * from business_type where parent_id='q8bk'
   </select>
   
   <select id="getBusinessTypeChildList" resultType="com.lucifer.model.BusinessType">

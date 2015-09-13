@@ -11,6 +11,7 @@
 <link rel="stylesheet" type="text/css" href="/css/theme-default.css">
 <link rel="stylesheet" type="text/css" href="/css/myresume.css">
 <link rel="stylesheet" type="text/css" href="/css/myrecruitment.css">
+<link rel="stylesheet" type="text/css" href="/css/myservice.css">
 <script src="/script/jquery-1.9.1.min.js" type="text/javascript"></script>
 <script src="/script/jquery.form-validator.js" type="text/javascript"></script>
 <script src="/script/common.js" type="text/javascript"></script>

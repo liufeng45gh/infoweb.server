@@ -117,7 +117,7 @@ public class ManageResumeController {
 		Position position = positionDao.getPosition(resume.getPosition_id());
 		resume.setPosition(position);
 		
-		City city = cityDao.getCity(Long.valueOf(resume.getCity_id()));
+		City city = cityDao.getCity(resume.getCity_id());
 		resume.setCity(city);
 		
 		City parentCity = cityDao.getCity(city.getParent_id());
@@ -167,7 +167,7 @@ public class ManageResumeController {
 		Position position = positionDao.getPosition(resume.getPosition_id());
 		resume.setPosition(position);
 		
-		City city = cityDao.getCity(Long.valueOf(resume.getCity_id()));
+		City city = cityDao.getCity(resume.getCity_id());
 		resume.setCity(city);
 		
 		City parentCity = cityDao.getCity(city.getParent_id());

@@ -31,25 +31,25 @@
                                     <td style="text-align:center">标题</td>
                                     <td style="text-align:center" width="15%">类别</td>
                                     <td style="text-align:center" width="8%">发布城市</td>
-                                    <td style="text-align:center" width="8%">收到简历</td>
+                                   
                                     <td style="text-align:center" width="15%">更新日期</td>                                                                      
                                     <td style="text-align:center" width="25%">操作</td>
                                 </tr>
                                
-                                 <c:forEach var="job" items="${jobList}" varStatus="status">
+                                 <c:forEach var="businessService" items="${userBusinessServiceList}" varStatus="status">
                                  <tr>
-                                     <td style="text-align:center"><a href="#" target="_blank">${job.title}</a>
+                                     <td style="text-align:center"><a href="#" target="_blank">${businessService.title}</a>
                                        
                                      </td>
                                      
-                                     <td style="text-align:center">${job.position.name }</td>
-                                     <td style="text-align:center">${job.city.name }</td>
-                                     <td style="text-align:center">0</td>
-                                     <td style="text-align:center"><fmt:formatDate value="${job.updated_at}" pattern="yyyy-MM-dd HH:mm"/></td>
+                                     <td style="text-align:center">${businessService.businessType.name }</td>
+                                     <td style="text-align:center">${businessService.city.name }</td>
+                                     
+                                     <td style="text-align:center"><fmt:formatDate value="${businessService.updated_at}" pattern="yyyy-MM-dd HH:mm"/></td>
                                      <td style="text-align:center">
-                                         <a href="/manage/job/update?id=${job.id }" target="_blank">修改</a>
-                                         | <a href="javascript:refreshJob(${job.id });" class="js_auto_refresh_list" >刷新</a>    
-                                         | <a href="javascript:deleteJob(${job.id });" class="js_auto_refresh_list" >删除</a>                                                                            
+                                         <a href="/manage/business_service/update?id=${businessService.id }" target="_blank">修改</a>
+                                         | <a href="javascript:refreshBusinessService(${businessService.id });" class="js_auto_refresh_list" >刷新</a>    
+                                         | <a href="javascript:deleteBusinessService(${businessService.id });" class="js_auto_refresh_list" >删除</a>                                                                            
                                      </td>
                                  </tr>
                                  </c:forEach>
@@ -65,7 +65,7 @@
                            刷新操作会让您的信息从新发布到最前面
                         </div>
                         
-                        <a   class="simple_button" style="margin-top:20px;display:block;" href="/manage/service/add">发布服务信息</a>
+                        <a   class="simple_button" style="margin-top:20px;display:block;" href="/manage/service/add_select">发布服务信息</a>
                        
                     </div>
                     <div class="rightfoot">

@@ -33,13 +33,13 @@ public class CityController {
 	}
 	
 	@RequestMapping(value="/cms/self/cityadd",method = RequestMethod.GET)
-	public String cityAddInput(Long parent_id,HttpServletRequest request){
+	public String cityAddInput(String parent_id,HttpServletRequest request){
 		List<City> cityList=cityDao.cityList();
 		request.setAttribute("cityList", cityList);
 		City parnetCity = null;
 		if(parent_id.equals(0L)){
 			parnetCity=new City();
-			parnetCity.setId(0L);
+			parnetCity.setId("0");
 			parnetCity.setName("根节点");
 		}else{
 			parnetCity=cityDao.getCity(parent_id);
@@ -57,7 +57,7 @@ public class CityController {
 	}
 	
 	@RequestMapping(value="/cms/self/cityUpdate",method = RequestMethod.GET)
-	public String cityUpdateInput(Long id,HttpServletRequest request){
+	public String cityUpdateInput(String id,HttpServletRequest request){
 		list(request);
 		City city=cityDao.getCity(id);
 		City childCity=cityDao.getOneChild(city.getId());
@@ -69,7 +69,7 @@ public class CityController {
 		City parnetCity=null;
 		if(city.getParent_id().equals(0L)){
 			parnetCity=new City();
-			parnetCity.setId(0L);
+			parnetCity.setId("0");
 			parnetCity.setName("根节点");
 		}else{
 			parnetCity=cityDao.getCity(city.getParent_id());
@@ -94,7 +94,7 @@ public class CityController {
 	
 	@RequestMapping(value="/cms/self/exist",method = RequestMethod.GET)
 	@ResponseBody
-	public Map isCityExist(Long id){
+	public Map isCityExist(String id){
 		Map resultMap =new HashMap();
 		City city=cityDao.getCity(id);
 		if(null==city){

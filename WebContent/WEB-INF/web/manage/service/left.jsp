@@ -6,7 +6,7 @@
         <ul class="leftNav">
             <h2>我的招聘：</h2>
             <div class="sdmenu">                                   
-                 <li id="left_menu_add"><a href="/manage/service/add">发布服务信息</a></li>
+                 <li id="left_menu_add"><a href="/manage/service/add_select">发布服务信息</a></li>
                  <li id="left_menu_list"><a href="/manage/service/list" >我发布的服务信息</a></li>
                                                     
             </div>

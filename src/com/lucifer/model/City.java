@@ -3,9 +3,9 @@ package com.lucifer.model;
 public class City {
 	private String token;
 	
-	private Long id;
+	private String id;
 	
-	private Long parent_id;
+	private String parent_id;
 	
 	private String name;
 	
@@ -22,19 +22,19 @@ public class City {
 		this.terminal = terminal;
 	}
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
-	public Long getParent_id() {
+	public String getParent_id() {
 		return parent_id;
 	}
 
-	public void setParent_id(Long parent_id) {
+	public void setParent_id(String parent_id) {
 		this.parent_id = parent_id;
 	}
 

@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.lucifer.dao.base.IBatisBaseDao;
 import com.lucifer.model.City;
-import com.lucifer.model.User;
 
 @Service
 public class CityDao extends IBatisBaseDao {
@@ -23,7 +22,7 @@ public class CityDao extends IBatisBaseDao {
 		return sqlSession.selectList("cityTopList");
 	}
 	
-	public City getCity(Long id){
+	public City getCity(String id){
 		return (City)sqlSession.selectOne("getCity", id);
 	}
 	
@@ -41,7 +40,7 @@ public class CityDao extends IBatisBaseDao {
 		return sqlSession.insert("updateCity", city);
 	}
 	
-	public City getOneChild(Long parent_id){
+	public City getOneChild(String parent_id){
 		return  (City)sqlSession.selectOne("getOneChildCity", parent_id);
 	}
 	
@@ -74,7 +73,7 @@ public class CityDao extends IBatisBaseDao {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<City> childList(Long id){
+	public List<City> childList(String id){
 		return sqlSession.selectList("childCityList", id);
 	}
 	
