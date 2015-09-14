@@ -14,7 +14,7 @@
   select * from busiess_service where user_id = #{user_id}
   </select>
   <update id="refreshBusinessService">
-  update busiess_service set updated-at=now() where id=#{id}
+  update busiess_service set updated_at=now() where id=#{id}
   </update>
   <select id="getBusinessService" resultType="com.lucifer.model.BusinessService">
   select * from busiess_service where id = #{id}

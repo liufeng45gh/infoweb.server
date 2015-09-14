@@ -30,6 +30,8 @@ public class BusinessService {
 
 	private City city;
 	
+	private City parentCity;
+	
 	public Long getId() {
 		return id;
 	}
@@ -132,6 +134,14 @@ public class BusinessService {
 
 	public void setCity(City city) {
 		this.city = city;
+	}
+
+	public City getParentCity() {
+		return parentCity;
+	}
+
+	public void setParentCity(City parentCity) {
+		this.parentCity = parentCity;
 	}
 	
 	

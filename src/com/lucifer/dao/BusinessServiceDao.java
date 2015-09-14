@@ -27,8 +27,8 @@ public class BusinessServiceDao extends IBatisBaseDao{
 		return sqlSession.update("refreshBusinessService", id);
 	}
 	
-	public Job getBusinessService(Long id){
-		return (Job)sqlSession.selectOne("getBusinessService", id);
+	public BusinessService getBusinessService(Long id){
+		return (BusinessService)sqlSession.selectOne("getBusinessService", id);
 	}
 	
 	public Integer updateBusinessService(BusinessService businessService){

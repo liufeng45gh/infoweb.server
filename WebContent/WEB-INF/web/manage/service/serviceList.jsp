@@ -13,16 +13,9 @@
 <body>
     
 <jsp:include page="../navigation.jsp"></jsp:include> 
-
-
-
-
         <div class="globalContainer clearfix">
             <div class="mainContainer">
                 <div class="rightCol">
-               
-
-
                 <div>
                     <div class="rightBody" style="margin-top:20px;">
                         <table width="100%" border="0" cellpadding="0" cellspacing="0" class="t-comment mt10">
@@ -30,7 +23,7 @@
                                 <tr class="bg-blue height24">
                                     <td style="text-align:center">标题</td>
                                     <td style="text-align:center" width="15%">类别</td>
-                                    <td style="text-align:center" width="8%">发布城市</td>
+                                    <td style="text-align:center" width="16%">发布城市</td>
                                    
                                     <td style="text-align:center" width="15%">更新日期</td>                                                                      
                                     <td style="text-align:center" width="25%">操作</td>
@@ -43,11 +36,11 @@
                                      </td>
                                      
                                      <td style="text-align:center">${businessService.businessType.name }</td>
-                                     <td style="text-align:center">${businessService.city.name }</td>
+                                     <td style="text-align:center">${businessService.parentCity.name }-${businessService.city.name }</td>
                                      
                                      <td style="text-align:center"><fmt:formatDate value="${businessService.updated_at}" pattern="yyyy-MM-dd HH:mm"/></td>
                                      <td style="text-align:center">
-                                         <a href="/manage/business_service/update?id=${businessService.id }" target="_blank">修改</a>
+                                         <a href="/manage/service/update?id=${businessService.id }" target="_blank">修改</a>
                                          | <a href="javascript:refreshBusinessService(${businessService.id });" class="js_auto_refresh_list" >刷新</a>    
                                          | <a href="javascript:deleteBusinessService(${businessService.id });" class="js_auto_refresh_list" >删除</a>                                                                            
                                      </td>
@@ -74,12 +67,8 @@
                     </div>
                 </div>
             </div>
-                <!--左侧菜单开始 -->
-                
+                <!--左侧菜单开始 -->                
 				<jsp:include page="left.jsp"></jsp:include>
-
-
-
                 <!--左侧菜单结束 -->
             </div>
 
@@ -90,7 +79,7 @@
 <script type="text/javascript">
 $("#left_menu_list").addClass("current");
 </script>
-<script src="/script/web/myrecruitment.js"></script>
+<script src="/script/web/myservice.js"></script>
 
 
 </body></html>
