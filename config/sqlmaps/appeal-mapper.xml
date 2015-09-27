@@ -25,5 +25,14 @@
   <delete id="deleteAppeal">
   delete from appeal where id=#{id}
   </delete>
+  <select id="appealListOrderByUpdatedAt" resultType="com.lucifer.model.Appeal">
+   select * from appeal 
+  <if test="updated_at != null">
+  	<![CDATA[
+	where updated_at>#{updated_at}
+		]]>
+	</if> 
+  order by updated_at limit #{count}
+  </select>
  
 </mapper>

@@ -45,4 +45,13 @@
   <delete id="deleteJob">
   update  job set visible=2 where id=#{id}
   </delete>
+  <select id="jobListOrderByUpdatedAt" resultType="com.lucifer.model.Job">
+   select * from job 
+  <if test="updated_at != null">
+  	<![CDATA[
+	where updated_at>#{updated_at}
+		]]>
+	</if> 
+  order by updated_at limit #{count}
+  </select>
 </mapper>

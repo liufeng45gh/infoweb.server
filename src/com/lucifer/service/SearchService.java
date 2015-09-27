@@ -25,6 +25,9 @@ import com.lucifer.dao.AppealDao;
 import com.lucifer.dao.BusinessServiceDao;
 import com.lucifer.dao.RecruitmentDao;
 import com.lucifer.dao.ResumeDao;
+import com.lucifer.model.Appeal;
+import com.lucifer.model.BusinessService;
+import com.lucifer.model.Job;
 import com.lucifer.model.Resume;
 
 
@@ -89,6 +92,9 @@ public class SearchService {
 		public void db2Solr() throws Exception {
 			while (true) {
 				resumeImport();
+				jobImport();
+				serviceImport();
+				appealImport();
 				Thread.sleep(10000);
 			}
 		}
@@ -122,7 +128,12 @@ public class SearchService {
 		appeal_server.commit();
 	}
 
-	public SolrInputDocument resumeSolrDocument(Resume resume) {
+	/**
+	 * 简历toDocument
+	 * @param resume
+	 * @return
+	 */
+	private SolrInputDocument resumeSolrDocument(Resume resume) {
 		SolrInputDocument doc = new SolrInputDocument();
 		doc.addField("id", resume.getId());		
 		doc.addField("city_id", resume.getCity_id());		
@@ -135,10 +146,50 @@ public class SearchService {
 		doc.addField("open", resume.getOpen());
 		return doc;
 	}
+	
+	/**
+	 * 职位 to Document
+	 * @param job
+	 * @return
+	 */
+	private SolrInputDocument jobSolrDocument(Job job) {
+		SolrInputDocument doc = new SolrInputDocument();
+		doc.addField("id", job.getId());		
+		doc.addField("city_id", job.getCity_id());		
+		doc.addField("industry_id", job.getIndustry_id());
+		doc.addField("position_id", job.getPosition_id());
+		doc.addField("title", job.getTitle());
+		doc.addField("work_years", job.getWork_years());
+		doc.addField("updated_at", job.getUpdated_at());
+		return doc;
+	}
+	
+	private SolrInputDocument serviceSolrDocument(BusinessService service) {
+		SolrInputDocument doc = new SolrInputDocument();
+		doc.addField("id", service.getId());		
+		doc.addField("city_id", service.getCity_id());		
+	
+		doc.addField("title", service.getTitle());
+		doc.addField("type", service.getType_s()+" " +service.getType_b() );
+		doc.addField("updated_at", service.getUpdated_at());
+		return doc;
+	}
+	
+	private SolrInputDocument appealSolrDocument(Appeal appeal) {
+		SolrInputDocument doc = new SolrInputDocument();
+		doc.addField("id", appeal.getId());		
+		doc.addField("city_id", appeal.getCity_id());		
+	
+		doc.addField("title", appeal.getTitle());
+		doc.addField("type", appeal.getType());
+		doc.addField("updated_at", appeal.getUpdated_at());
+		return doc;
+	}
+
 
 
 	/**
-	 * 书籍内容导入
+	 * 简历导入
 	 * 
 	 * @throws Exception
 	 */
@@ -181,7 +232,7 @@ public class SearchService {
 			Collection<SolrInputDocument> docList = new ArrayList<SolrInputDocument>();
 			List<String> deleteIdList = new ArrayList<String>();
 			for (Resume resume : resumeList) {
-				if (resume.getId() == 2) {
+				if (resume.getId() == 0.2) {
 					deleteIdList.add(resume.getId().toString());
 					continue;
 				} else {
@@ -199,6 +250,192 @@ public class SearchService {
 				resume_server.deleteById(deleteIdList);
 			}
 			resume_server.commit();
+		}
+	}
+	
+	
+	/**
+	 * 工作导入
+	 * 
+	 * @throws Exception
+	 */
+	private void jobImport() throws Exception {
+		Date updated_at = null;
+		while (true) {
+			// 如果没有更新查询SOLR中是否有数据
+			if (updated_at == null) {
+				SolrQuery query = new SolrQuery();
+				query.setQuery("*:*");
+				query.addSort("updated_at", SolrQuery.ORDER.desc);
+				query.setRows(1);
+				QueryResponse rsp = job_server.query(query);
+				SolrDocumentList docs = rsp.getResults();
+				log.info(docs.size());
+				if (docs.size() > 0) {
+					SolrDocument resultDoc = docs.get(0);
+					updated_at = (Date) resultDoc
+							.getFieldValue("updated_at");
+					log.info("updated_at:" + updated_at);
+					// updated_at=new Date(updated_at.getTime());
+					log.info("solar back updated_at is: " + updated_at);
+				}
+			}
+
+			List<Job> jobList = null;
+			if (updated_at == null) {
+				// solr中无数据直接从数据库取数据
+				jobList = recruitmentDao.jobListOrderByUpdatedAt(updated_at, 1000);
+			} else {
+				// 如果有SOLR中有数据从数据库取比SOLR中时间晚的
+				jobList =  recruitmentDao.jobListOrderByUpdatedAt(updated_at, 1000);
+			}
+
+			log.info("joblist size: " + jobList.size());
+
+			if (jobList.size() == 0) {
+				break;
+			}
+			Collection<SolrInputDocument> docList = new ArrayList<SolrInputDocument>();
+			List<String> deleteIdList = new ArrayList<String>();
+			for (Job job : jobList) {
+				if (job.getId() == 0.2) {
+					deleteIdList.add(job.getId().toString());
+					continue;
+				} else {
+					SolrInputDocument doc1 = jobSolrDocument(job);
+					docList.add(doc1);
+				}
+			}
+
+			updated_at = jobList.get(jobList.size() - 1).getUpdated_at();
+			System.out.println("new updated_at:" + updated_at);
+			if (docList.size() > 0) {
+				job_server.add(docList);
+			}
+			if (deleteIdList.size() > 0) {
+				job_server.deleteById(deleteIdList);
+			}
+			job_server.commit();
+		}
+	}
+	
+	private void serviceImport() throws Exception {
+		Date updated_at = null;
+		while (true) {
+			// 如果没有更新查询SOLR中是否有数据
+			if (updated_at == null) {
+				SolrQuery query = new SolrQuery();
+				query.setQuery("*:*");
+				query.addSort("updated_at", SolrQuery.ORDER.desc);
+				query.setRows(1);
+				QueryResponse rsp = service_server.query(query);
+				SolrDocumentList docs = rsp.getResults();
+				log.info(docs.size());
+				if (docs.size() > 0) {
+					SolrDocument resultDoc = docs.get(0);
+					updated_at = (Date) resultDoc
+							.getFieldValue("updated_at");
+					log.info("updated_at:" + updated_at);
+					// updated_at=new Date(updated_at.getTime());
+					log.info("solar back updated_at is: " + updated_at);
+				}
+			}
+
+			List<BusinessService> serviceList = null;
+			if (updated_at == null) {
+				// solr中无数据直接从数据库取数据
+				serviceList = businessServiceDao.businessListOrderByUpdatedAt(updated_at, 1000);
+			} else {
+				// 如果有SOLR中有数据从数据库取比SOLR中时间晚的
+				serviceList =  businessServiceDao.businessListOrderByUpdatedAt(updated_at, 1000);
+			}
+
+			log.info("serviceList size: " + serviceList.size());
+
+			if (serviceList.size() == 0) {
+				break;
+			}
+			Collection<SolrInputDocument> docList = new ArrayList<SolrInputDocument>();
+			List<String> deleteIdList = new ArrayList<String>();
+			for (BusinessService service : serviceList) {
+				if (service.getId() == 0.2) {
+					deleteIdList.add(service.getId().toString());
+					continue;
+				} else {
+					SolrInputDocument doc1 = serviceSolrDocument(service);
+					docList.add(doc1);
+				}
+			}
+
+			updated_at = serviceList.get(serviceList.size() - 1).getUpdated_at();
+			System.out.println("new updated_at:" + updated_at);
+			if (docList.size() > 0) {
+				service_server.add(docList);
+			}
+			if (deleteIdList.size() > 0) {
+				service_server.deleteById(deleteIdList);
+			}
+			service_server.commit();
+		}
+	}
+	
+	private void appealImport() throws Exception {
+		Date updated_at = null;
+		while (true) {
+			// 如果没有更新查询SOLR中是否有数据
+			if (updated_at == null) {
+				SolrQuery query = new SolrQuery();
+				query.setQuery("*:*");
+				query.addSort("updated_at", SolrQuery.ORDER.desc);
+				query.setRows(1);
+				QueryResponse rsp = appeal_server.query(query);
+				SolrDocumentList docs = rsp.getResults();
+				log.info(docs.size());
+				if (docs.size() > 0) {
+					SolrDocument resultDoc = docs.get(0);
+					updated_at = (Date) resultDoc
+							.getFieldValue("updated_at");
+					log.info("updated_at:" + updated_at);
+					// updated_at=new Date(updated_at.getTime());
+					log.info("solar back updated_at is: " + updated_at);
+				}
+			}
+
+			List<Appeal> appealList = null;
+			if (updated_at == null) {
+				// solr中无数据直接从数据库取数据
+				appealList = appealDao.appealListOrderByUpdatedAt(updated_at, 1000);
+			} else {
+				// 如果有SOLR中有数据从数据库取比SOLR中时间晚的
+				appealList = appealDao.appealListOrderByUpdatedAt(updated_at, 1000);
+			}
+
+			log.info("appealList size: " + appealList.size());
+
+			if (appealList.size() == 0) {
+				break;
+			}
+			Collection<SolrInputDocument> docList = new ArrayList<SolrInputDocument>();
+			List<String> deleteIdList = new ArrayList<String>();
+			for (Appeal appeal : appealList) {
+				if (appeal.getId() == 0.2) {
+					deleteIdList.add(appeal.getId().toString());
+					continue;
+				} else {
+					SolrInputDocument doc1 = appealSolrDocument(appeal);
+					docList.add(doc1);
+				}
+			}
+
+			updated_at = appealList.get(appealList.size() - 1).getUpdated_at();
+			System.out.println("new updated_at:" + updated_at);
+			if (docList.size() > 0) {
+				appeal_server.add(docList);
+			}
+			if (deleteIdList.size() > 0) {
+				appeal_server.deleteById(deleteIdList);
+			}
+			appeal_server.commit();
 		}
 	}
 

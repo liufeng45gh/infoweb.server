@@ -25,5 +25,14 @@
   <delete id="deleteBusinessService">
   delete from busiess_service where id=#{id}
   </delete>
+    <select id="businessListOrderByUpdatedAt" resultType="com.lucifer.model.BusinessService">
+   select * from busiess_service 
+  <if test="updated_at != null">
+  	<![CDATA[
+	where updated_at>#{updated_at}
+		]]>
+	</if> 
+  order by updated_at limit #{count}
+  </select>
  
 </mapper>
