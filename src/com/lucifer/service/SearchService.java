@@ -88,7 +88,7 @@ public class SearchService {
 		 */
 		public void db2Solr() throws Exception {
 			while (true) {
-				bookImport();
+				resumeImport();
 				Thread.sleep(10000);
 			}
 		}
@@ -132,6 +132,7 @@ public class SearchService {
 		doc.addField("title", resume.getTitle());
 		doc.addField("start_work_date", resume.getStart_work_date());
 		doc.addField("updated_at", resume.getUpdated_at());
+		doc.addField("open", resume.getOpen());
 		return doc;
 	}
 
@@ -166,38 +167,38 @@ public class SearchService {
 			List<Resume> resumeList = null;
 			if (updated_at == null) {
 				// solr中无数据直接从数据库取数据
-				resumeList = resumeDao.search_findBooks();
+				resumeList = resumeDao.resumeListOrderByUpdatedAt(updated_at, 1000);
 			} else {
 				// 如果有SOLR中有数据从数据库取比SOLR中时间晚的
-				bookList = bookDao.search_findBooksByUpdatedAt(updated_at);
+				resumeList =  resumeDao.resumeListOrderByUpdatedAt(updated_at, 1000);
 			}
 
-			log.info("bookList size: " + bookList.size());
+			log.info("bookList size: " + resumeList.size());
 
-			if (bookList.size() == 0) {
+			if (resumeList.size() == 0) {
 				break;
 			}
 			Collection<SolrInputDocument> docList = new ArrayList<SolrInputDocument>();
 			List<String> deleteIdList = new ArrayList<String>();
-			for (Book book : bookList) {
-				if (book.getVisible() == 2) {
-					deleteIdList.add(book.getId().toString());
+			for (Resume resume : resumeList) {
+				if (resume.getId() == 2) {
+					deleteIdList.add(resume.getId().toString());
 					continue;
 				} else {
-					SolrInputDocument doc1 = bookSolrDocument(book);
+					SolrInputDocument doc1 = resumeSolrDocument(resume);
 					docList.add(doc1);
 				}
 			}
 
-			updated_at = bookList.get(bookList.size() - 1).getUpdated_at();
+			updated_at = resumeList.get(resumeList.size() - 1).getUpdated_at();
 			System.out.println("new updated_at:" + updated_at);
 			if (docList.size() > 0) {
-				book_server.add(docList);
+				resume_server.add(docList);
 			}
 			if (deleteIdList.size() > 0) {
-				book_server.deleteById(deleteIdList);
+				resume_server.deleteById(deleteIdList);
 			}
-			book_server.commit();
+			resume_server.commit();
 		}
 	}
 

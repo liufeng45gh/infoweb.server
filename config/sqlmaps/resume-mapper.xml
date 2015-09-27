@@ -37,7 +37,15 @@
   <update id="openResume">
   update resume set open = 1 where id = #{id}
   </update>
-  
+  <select id="resumeListOrderByUpdatedAt" resultType="com.lucifer.model.Resume">
+  select * from resume 
+  <if test="updated_at != null">
+  	<![CDATA[
+	where updated_at>#{updated_at}
+		]]>
+	</if> 
+  order by updated_at limit #{count}
+  </select>
   
   
   

@@ -1,6 +1,10 @@
 package com.lucifer.dao;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
@@ -194,5 +198,12 @@ public class ResumeDao  extends IBatisBaseDao {
 	
 	public Integer deleteExpand(Long id){
 		return sqlSession.delete("deleteExpand", id);
+	}
+	
+	public List<Resume> resumeListOrderByUpdatedAt(Date updated_at,int count){
+		Map param = new HashMap();
+		param.put("updated_at", updated_at);
+		param.put("count", count);
+		return  sqlSession.selectList("resumeListOrderByUpdatedAt", param);
 	}
 }
