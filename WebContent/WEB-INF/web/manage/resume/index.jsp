@@ -92,7 +92,7 @@
 <script type="text/javascript">
 $("#left_menu_list").addClass("current");
 </script>
-<script src="/script/web/resume.js"></script>
+<script src="/script/web/manage/resume.js"></script>
 
 
 </body></html>

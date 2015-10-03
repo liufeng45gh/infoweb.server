@@ -26,6 +26,7 @@ import com.lucifer.dao.BusinessServiceDao;
 import com.lucifer.dao.RecruitmentDao;
 import com.lucifer.dao.ResumeDao;
 import com.lucifer.model.Appeal;
+
 import com.lucifer.model.BusinessService;
 import com.lucifer.model.Job;
 import com.lucifer.model.Resume;
@@ -69,7 +70,7 @@ public class SearchService {
 	@Resource
 	private AppealDao appealDao;
 
-	@PostConstruct
+	//@PostConstruct
 	public void init() throws Exception {
 		try {
 			resume_server = new HttpSolrServer(solr_resume_url);
@@ -437,6 +438,57 @@ public class SearchService {
 			}
 			appeal_server.commit();
 		}
+	}
+	
+	public List<Resume> resumeSearch(String text, int offset, int rows,String city_id,String position_id,String industry_id) throws SolrServerException{
+		SolrQuery query = new SolrQuery();
+		query.setQuery(text);
+		//query.addSort("updated_at", SolrQuery.ORDER.desc);
+		query.setRows(rows);
+		query.setStart(offset);
+		QueryResponse rsp = null;
+		List<Resume> resumeList = new ArrayList<Resume>();
+		try{
+			 rsp = resume_server.query(query);
+		}catch (Exception e){
+			e.printStackTrace();
+			return resumeList;
+		}
+		
+		SolrDocumentList docs = rsp.getResults();
+		
+		for (int i = 0; i < docs.size(); i++) {
+			SolrDocument resumeDoc = docs.get(i);
+			Resume resume = resumeDao.get(Long.valueOf(resumeDoc.getFieldValue("id").toString()));
+			resumeList.add(resume);
+		}
+		return resumeList;
+	}
+	
+	
+	public List<Job> jobSearch(String text, int offset, int rows,String city_id,String position_id,String industry_id) throws SolrServerException{
+		SolrQuery query = new SolrQuery();
+		query.setQuery(text);
+		//query.addSort("updated_at", SolrQuery.ORDER.desc);
+		query.setRows(rows);
+		query.setStart(offset);
+		QueryResponse rsp = null;
+		List<Job> jobList = new ArrayList<Job>();
+		try{
+			 rsp = job_server.query(query);
+		}catch (Exception e){
+			e.printStackTrace();
+			return jobList;
+		}
+		
+		SolrDocumentList docs = rsp.getResults();
+		
+		for (int i = 0; i < docs.size(); i++) {
+			SolrDocument resumeDoc = docs.get(i);
+			Job job = recruitmentDao.getJob(Long.valueOf(resumeDoc.getFieldValue("id").toString()));
+			jobList.add(job);
+		}
+		return jobList;
 	}
 
 }

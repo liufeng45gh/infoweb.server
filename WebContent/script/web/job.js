@@ -10,4 +10,4 @@ $(".search_button").click(function(){
 function searchCallBack(data,textStatus){
 	
 }
-$("#tab_resume").addClass("on");
+$("#tab_job").addClass("on");

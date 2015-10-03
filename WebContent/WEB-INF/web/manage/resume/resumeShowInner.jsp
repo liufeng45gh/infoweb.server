@@ -12,7 +12,7 @@
 	<div class="basicInfo ">
 		<h3>
 			<span>基本信息</span> <a href="javascript:modyinfo(${resume.id});"
-				class="changeBtn">修改</a>
+				class="changeBtn  manageOnly">修改</a>
 		</h3>
 		<div class="basicConShow showDiv">
 			<dl class="">
@@ -50,7 +50,7 @@
 	<div class="experInfo">
 		<h3>
 			<b class="tipx">*</b> <span id="ex">工作经验</span> <span class="tips">（投递必填）</span>
-			<a href="javascript:addExperence(${resume.id });" class="addBtn">添加</a>
+			<a href="javascript:addExperence(${resume.id });" class="addBtn manageOnly">添加</a>
 		</h3>
 		<div id="expDiv" class="experConShow showDiv">
 			<c:if test="${resumeJobExperienceList.size() == 0}">
@@ -73,7 +73,7 @@
 					<p class="detailCon">
 						<span class="tlTitle">工作内容：</span> <span class="">${jobExperience.description}</span>
 					</p>
-					<p class="operBtn" style="display:block;">
+					<p class="operBtn manageOnly" style="display:block;">
 						<a href="javascript:void(0);" onclick="modifyJobExperience(${jobExperience.id })" >修改</a> 
 						<a onclick="deleteJobExperience(${jobExperience.id})"  href="javascript:void(0);">删除</a>
 					</p>
@@ -86,7 +86,8 @@
 	</div>
 	<div id="projectexperience" class="proInfo">
 		<h3 id="pr">
-			<b class="tipx">*</b> <span>项目经验</span> <a href="javascript:void(0);" class="addBtn" onclick="addProjectExperience(${resume.id })">添加</a>
+			<b class="tipx">*</b> <span>项目经验</span> 
+			<a href="javascript:void(0);" class="addBtn manageOnly" onclick="addProjectExperience(${resume.id })">添加</a>
 
 		</h3>
 		<div id="proDiv" class="experConShow showDiv" style="display:">
@@ -112,7 +113,7 @@
 					<p class="detailCon">
 						<span class="tlTitle">业绩与职责：</span> <span class="">${projectExperience.duty}</span>
 					</p>
-					<p class="operBtn" style="display:block;">
+					<p class="operBtn manageOnly" style="display:block;">
 						<a href="javascript:void(0);" onclick="modifyProjectExperience(${projectExperience.id })" >修改</a> 
 						<a onclick="deleteProjectExperience(${projectExperience.id})"  href="javascript:void(0);">删除</a>
 					</p>
@@ -125,7 +126,7 @@
 		<h3>
 			<b class="tipx">*</b> <span id="ed">教育经历</span> <span class="tips"
 				style="">（投递必填）</span> <a href="javascript:addEducationExperienceInput(${resume.id });"
-				class="addBtn">添加</a>
+				class="addBtn manageOnly">添加</a>
 		</h3>
 		<div id="eduDiv" class="eduConShow showDiv">
 		
@@ -150,7 +151,7 @@
 					</p>
 					
 					
-					<p class="operBtn" style="display:block;">
+					<p class="operBtn manageOnly" style="display:block;">
 						<a href="javascript:void(0);" onclick="modifyEducationExperience(${educationExperience.id })" >修改</a> 
 						<a onclick="deleteEducationExperience(${educationExperience.id})"  href="javascript:void(0);">删除</a>
 					</p>
@@ -164,7 +165,7 @@
 	<div class="eduInfo" style="display: block;">
 		<h3>
 			 <span id="ed">培训经历</span>  <a href="javascript:addTrainInput(${resume.id });"
-				class="addBtn">添加</a>
+				class="addBtn manageOnly">添加</a>
 		</h3>
 		<div id="eduDiv" class="eduConShow showDiv">
 		
@@ -196,7 +197,7 @@
 					</p>
 
 					
-					<p class="operBtn" style="display:block;">
+					<p class="operBtn manageOnly" style="display:block;">
 						<a href="javascript:void(0);" onclick="modifyTrain(${train.id })" >修改</a> 
 						<a onclick="deleteTrain(${train.id})"  href="javascript:void(0);">删除</a>
 					</p>
@@ -209,7 +210,7 @@
 	<div class="langInfo" style="display: block;">
 		<h3>
 			<span id="la">语言能力</span> <a
-				href="javascript:addLanguageInput(${resume.id});" class="addBtn">添加</a>
+				href="javascript:addLanguageInput(${resume.id});" class="addBtn manageOnly">添加</a>
 		</h3>
 		<div id="lanauageView" class="langShow showDiv" style="display:">
 			<c:if test="${resumeLanguageList.size() == 0}">
@@ -230,7 +231,7 @@
 					
 					
 					
-					<p class="operBtn" style="display:block;">
+					<p class="operBtn manageOnly" style="display:block;">
 						<a href="javascript:void(0);" onclick="modifyLanguage(${language.id })" >修改</a> 
 						<a onclick="deleteLanguage(${language.id})"  href="javascript:void(0);">删除</a>
 					</p>
@@ -242,7 +243,7 @@
 	<div class="cerInfo" style="display: block;">
 		<h3 id="ce">
 			<span>获得证书</span> <a href="javascript:addCertificateInput(${resume.id});"
-				class="addBtn">添加</a>
+				class="addBtn manageOnly">添加</a>
 
 		</h3>
 		<div id="certViewDiv" class="cerShow showDiv">
@@ -264,7 +265,7 @@
 					
 					
 					
-					<p class="operBtn" style="display:block;">
+					<p class="operBtn manageOnly" style="display:block;">
 						<a href="javascript:void(0);" onclick="modifyCertificate(${certificate.id })" >修改</a> 
 						<a onclick="deleteCertificate(${certificate.id})"  href="javascript:void(0);">删除</a>
 					</p>
@@ -301,7 +302,7 @@
 	<div class="typeInfo">
 		<h3>
 			<span>附加信息</span> <span class="tips">（填写更加分，提高竞争力）</span><a
-				href="javascript:addExpandInput(${resume.id});" class="changeBtn">添加</a>
+				href="javascript:addExpandInput(${resume.id});" class="changeBtn manageOnly">添加</a>
 		</h3>
 		<c:if test="${resumeExpandList.size() == 0}">
 			<div class="experDetail showList">
@@ -323,7 +324,7 @@
 						<span class="tlTitle">详细描述：</span> <span class="">${expand.description}</span>
 				</p>
 				
-				<p class="operBtn" style="display:block;">
+				<p class="operBtn manageOnly" style="display:block;">
 					<a href="javascript:void(0);" onclick="modifyExpand(${expand.id })" >修改</a> 
 					<a onclick="deleteExpand(${expand.id})"  href="javascript:void(0);">删除</a>
 				</p>

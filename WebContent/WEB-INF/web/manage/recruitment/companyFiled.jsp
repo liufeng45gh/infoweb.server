@@ -258,7 +258,7 @@
 <script>
 var mapPointStr = '${company.map_ponit}'
 </script>
- <script src="/script/web/myrecruitment.js"></script>
+ <script src="/script/web/manage/myrecruitment.js"></script>
  <script src="/script/web/pselect.js"></script>
  
  <script type="text/javascript">

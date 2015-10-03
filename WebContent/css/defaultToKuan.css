@@ -68,7 +68,7 @@ a.blue{ color:#1155cc; }
 .fl_main .fl_home a.adTit{ font-size:12px; font-weight:normal; }
 
 /*主要内容*/
-.fl_main{ border:1px solid #e3e3e3; margin:0 auto 10px; overflow:hidden; width:1198px; }
+.fl_main{ border:1px solid #e3e3e3; margin:0 auto 10px; width:1198px; min-height:400px;}
 .fl_main .fl_home{ border-left:1px solid #e3e3e3; height:1437px; margin-left:-1px; padding:10px 15px 0; overflow:hidden; width:251px; }
 .fl_main .fl_home h2{ font-size:14px; height:30px; line-height:30px; overflow:hidden; padding-left:5px; position:relative;border-bottom: 1px solid #f4f4f4; }
 .fl_main .fl_home h2 span{ background:url("../images/index-icon.jpg") no-repeat; display:inline-block; float:left; height:20px; position:absolute; left:0; top:7px; overflow:hidden; width:20px; }

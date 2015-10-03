@@ -79,7 +79,7 @@
 <script type="text/javascript">
 $("#left_menu_list").addClass("current");
 </script>
-<script src="/script/web/myservice.js"></script>
+<script src="/script/web/manage/myservice.js"></script>
 
 
 </body></html>

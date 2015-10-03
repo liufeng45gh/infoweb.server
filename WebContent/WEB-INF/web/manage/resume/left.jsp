@@ -19,4 +19,4 @@
 <script>
 $("#top_nav_resume").addClass("here");
 </script>
-<script src="/script/web/resume.js"></script>
+<script src="/script/web/manage/resume.js"></script>

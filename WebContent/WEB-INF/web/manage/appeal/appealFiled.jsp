@@ -90,5 +90,5 @@
 	</div>
 </div>
 
-<script src="/script/web/myappeal.js"></script>
+<script src="/script/web/manage/myappeal.js"></script>
  <script src="/script/web/pselect.js"></script>

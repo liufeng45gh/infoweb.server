@@ -102,5 +102,5 @@
 	</div>
 </div>
 
-<script src="/script/web/myservice.js"></script>
+<script src="/script/web/manage/myservice.js"></script>
  <script src="/script/web/pselect.js"></script>

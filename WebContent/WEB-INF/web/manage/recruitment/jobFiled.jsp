@@ -185,5 +185,5 @@
 	</div>
 </div>
 
-<script src="/script/web/myrecruitment.js"></script>
+<script src="/script/web/manage/myrecruitment.js"></script>
  <script src="/script/web/pselect.js"></script>

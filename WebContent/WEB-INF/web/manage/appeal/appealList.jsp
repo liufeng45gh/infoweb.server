@@ -79,7 +79,7 @@
 <script type="text/javascript">
 $("#left_menu_list").addClass("current");
 </script>
-<script src="/script/web/myappeal.js"></script>
+<script src="/script/web/manage/myappeal.js"></script>
 
 
 </body></html>

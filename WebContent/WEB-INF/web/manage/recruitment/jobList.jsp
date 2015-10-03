@@ -90,7 +90,7 @@
 <script type="text/javascript">
 $("#left_menu_list").addClass("current");
 </script>
-<script src="/script/web/myrecruitment.js"></script>
+<script src="/script/web/manage/myrecruitment.js"></script>
 
 
 </body></html>

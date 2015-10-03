@@ -45,7 +45,7 @@
     
   
 
- <script src="/script/web/resume.js"></script>
+ <script src="/script/web/manage/resume.js"></script>
  <script src="/script/web/pselect.js"></script>
  <script>
 
