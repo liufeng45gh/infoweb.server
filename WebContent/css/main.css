@@ -116,6 +116,7 @@
     line-height: 32px;
     font-size: 14px;
     font-weight: bold;
+    cursor: pointer;
 }
 .simple_button a{
 	color: white;

@@ -3,8 +3,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0075)http://passport.58.com/reg?PGTID=14383533515460.8912675806786865&ClickID=30 -->
 <html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<head>
 <title>注册会员-兴业联盟网</title>
-
+<link href="/css/main.css" rel="stylesheet" type="text/css">
 <link rel="Shortcut Icon" href="/images/favicon.ico" type="image/x-icon">
 
 <script src="/script/jquery-1.9.1.min.js" type="text/javascript"></script>
@@ -125,21 +126,19 @@
                 
                 <p class="submitwrap" style="display: block;">
                     <span class="regtlx">&nbsp;</span>
-                    <label id="butt" class="butt"><input type="submit" class="btns" value="立即注册" checked="checked" id="btnSubmit" style="width:110px;height:34px;" ></label>
+                    
+                    <input type="submit" class="simple_button" value="立即注册"   >
+                   
                     <span id="gologin"><span id="loginOpt">已有账号？<a href="/account/login">去登录</a></span></span><span id="pre" style="display: none;"><a herf="javascript:;">返回上一步</a></span>
                 </p>
                 
                 
-                 <p id="nextwrap" style="display: none;">
-                    <span class="regtlx">&nbsp;</span>
-                    <label id="butt" class="butt"><input type="button" class="btns" value="确定" checked="checked" id="btnNext" style="width:110px;height:34px;"></label>
-                    <span id="loginOpt">已有账号？<a href="account/login">去登录</a></span>
-                </p>
+                 
 				</div>
 				
             </div>
 		</div>
-		<input name="mcresult" value="undefined" style="display:none"></form>
+		</form>
 	</div>
 	<div id="footer" class="win1000">
 		<p>© dbdbd.cn </p>

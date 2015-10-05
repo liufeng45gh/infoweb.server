@@ -3,15 +3,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<head>
+
 <title>用户登录-兴业联盟网</title>
 
 <link rel="Shortcut Icon" href="/images/favicon.ico" type="image/x-icon">
-
+<link href="/css/main.css" rel="stylesheet" type="text/css">
 <script src="/script/jquery-1.9.1.min.js" type="text/javascript"></script>
-
 <script src="/script/jquery-browser.js" type="text/javascript"></script>
-
-
 <script src="/script/formValidator-4.1.3.js" type="text/javascript"></script>
 <script src="/script/formValidatorRegex.js" type="text/javascript"></script>
 
@@ -56,18 +55,15 @@ html{overflow-y: scroll;}
 .loico{background:none;padding:0 9px;color:#666666;}
 #login_sina{padding-left:0;}
 #login_renren{padding-right:0;border-right:none;}
-.snslogin{list-style: none;float: left;}
+
 .reglink{float:right;right:12px;line-height: 22px;text-align: right;}
 .link-login span.lots{color:#cccccc;}
-.snslogin li{display: inline;}
-#wxwrap{width: 100%;position: relative;}
-#ewmwrap{position: absolute;top: 28px;width: 100%;}
+
+
+
 #tipwrap{position: absolute;top: 38px;width: 100%;text-align: center;}
-#ewmwrap p{text-align: center;color: #888888;font-weight: bold;line-height: 35px;}
-#ewmimgwrap{margin: 0 auto;width: 149px;height: 149px;border: 1px solid #d3d3d3;position: relative;}
-#expireMask{display: block;z-index: 1;cursor: pointer;}
-#expireMask div{position: absolute;top: 0;left: 0;width: 100%;height: 100%;background-color: #000;opacity: 0.6;filter:Alpha(Opacity=60);}
-#expireMask p{color: #FFF;font-size: 12px;line-height: 25px;padding-top: 48px;position: absolute;top: 0;width: 100%;}
+
+
 #showtip{padding-top:245px;text-align: center;}
 #showtip a{color:#b8b8b8;}
 #usernametr,#passwordtr,#logintr{height:60px;}
@@ -77,36 +73,17 @@ html{overflow-y: scroll;}
 .login_ul li.cur { background: #ffffff; border-bottom: #ffffff 1px solid; color: #000000; }
 #login-welcome-bg { width: 500px; height: 400px; }
 #conleft { width: 500px; }
-.qqloginerror { display:none;margin: 10px 10px 0 10px; background-color: #fff2f1; color: #ff0000; font-size: 12px; line-height: 20px; padding: 9px 12px;_zoom: 1; }
-.qqloginerror a { color: #3382cf; }
-.passport-qqlogin-frame{width:400px;height:362px;}
+
+
 /* tab */
 .tablogin ul{margin-left:80px;}
 .tablogin li{float:left; display:inline; padding-right:28px;}
-.tablogin a{display:inline-block;line-height:20px; height:20px; color:#666; background:url("http://img.58cdn.com.cn/ui6/my/images/icon_log.png") no-repeat 0 1px;padding-left:20px;font-size:12px;outline:none 0; text-decoration:none;}
+.tablogin a{display:inline-block;line-height:20px; height:20px; color:#666; background:url("/images/icon_log.png") no-repeat 0 1px;padding-left:20px;font-size:12px;outline:none 0; text-decoration:none;}
 .tablogin li.active a{color:#f4691c;}
 .tablogin .pu-icon:hover,.tablogin .active .pu-icon{background-position:0px -20px;text-decoration:none;color:#f4691c;}
 .tablogin .tel-icon{background-position:0px -40px;}
 .tablogin .tel-icon:hover,.tablogin .active .tel-icon{background-position:0px -61px;text-decoration:none;color:#f4691c;}
-/* mobile vcode */
-.passport-login-input-li{ margin-top:10px;*margin-top:13px;}
-.passport-login-input-li a{color:#666; font-size:12px; text-decoration:none; padding-left:8px;vertical-align: middle;}
-#vcodeTelImg{width: 120px;height:40px;vertical-align: middle;cursor:pointer;}
-#pptmobilecodeloginmobile,#pptmobilecodeloginvcode,#pptmobilecodeloginmobilecode{width:210px; height:22px; line-height:22px; border:1px solid #ddd;margin:0; padding:8px 0; padding-left:10px; background:url(http://img.58cdn.com.cn/ui6/my/images/loginpbg.gif) repeat-x 0 0 #fff;font-size: 14px;vertical-align:middle;}
-.passport-login-input-span{width:70px;display: inline-block;color:#666;text-align: right;padding-right: 12px;font-size:14px; vertical-align:middle;}
-#pptmobilecodeloginvcode{width:86px;}
-#mobilecodeloginButtonLi label{padding-right: 1px;display: inline-block;font-weight: 700;background: url(http://img.58cdn.com.cn/ui6/my/images/reg-btn.gif) right top no-repeat;height: 34px;line-height: 34px;}
-#pptmobilecodeloginButton{padding: 8px 20px;display: block;background: url(http://img.58cdn.com.cn/ui6/my/images/reg-btn.gif) no-repeat;border: none;color: #fff;font-size: 14px;font-weight: bold;cursor: pointer;margin: 0;height:34px;}
-li#mobileLoginTipLi{padding-left:80px;margin-top:5px;line-height: 21px;} #mobileLoginTipLi #mobileLoginTip{display:inline;width:auto;color:#f23f0f;}
-/* shouji querenma */
-.passport-login-mobilecode-button{width: 146px;height:28px;background: url("http://img.58cdn.com.cn/ui6/my/images/vcodebg.png") repeat-x scroll 0 0 #f5f5f5;border:1px solid #d4d4d4;text-align: center;color:#333;cursor:pointer;}
-.mobilesendtip{padding-left:82px;font-size:12px;line-height:20px; vertical-align:middle; color:#aaa;}
-.mobilesendtip img{margin-bottom:-2px;}
-/* 180sec tipstyle */
-.countdown{color:#a0a0a0;}
-#mobilecodeloginSendMobileCodeLi input{font-size: 12px;vertical-align: middle;}
-/*验证码*/
-#vcodeTelImg{width: 63px;height:36px;vertical-align: middle;}
+
 
 
 
@@ -177,9 +154,9 @@ li#mobileLoginTipLi{padding-left:80px;margin-top:5px;line-height: 21px;} #mobile
 					  <tr id="logintr">
 					  	<td></td>
 						  <td>
-							  <span class="butt" style="line-height:34px;">
-							  <input type="submit" name="btnSubmit" value="登录" class="btns" accesskey="l" id="btnSubmit" >
-							  </span>
+							  
+							  <input type="submit"  value="登录"  class="simple_button"  >
+							  
 						  </td>
 					  </tr>
 				  </tbody></table>

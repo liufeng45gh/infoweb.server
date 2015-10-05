@@ -446,7 +446,7 @@ i.prevIcon, i.nextIcon, i.prevHover, i.nextHover {
   position: absolute;
   top: 5px;
   right: 10px;
-  background: url(http://pic2.58.com/ui6/top_box_close.gif) no-repeat 0 0;
+  background: url(/images/top_box_close.gif) no-repeat 0 0;
   padding-left: 0px;
 }
 
