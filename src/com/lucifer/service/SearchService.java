@@ -440,6 +440,17 @@ public class SearchService {
 		}
 	}
 	
+	/**
+	 * 搜简历
+	 * @param text
+	 * @param offset
+	 * @param rows
+	 * @param city_id
+	 * @param position_id
+	 * @param industry_id
+	 * @return
+	 * @throws SolrServerException
+	 */
 	public List<Resume> resumeSearch(String text, int offset, int rows,String city_id,String position_id,String industry_id) throws SolrServerException{
 		SolrQuery query = new SolrQuery();
 		query.setQuery(text);
@@ -465,7 +476,17 @@ public class SearchService {
 		return resumeList;
 	}
 	
-	
+	/**
+	 * 搜工作
+	 * @param text
+	 * @param offset
+	 * @param rows
+	 * @param city_id
+	 * @param position_id
+	 * @param industry_id
+	 * @return
+	 * @throws SolrServerException
+	 */
 	public List<Job> jobSearch(String text, int offset, int rows,String city_id,String position_id,String industry_id) throws SolrServerException{
 		SolrQuery query = new SolrQuery();
 		query.setQuery(text);
@@ -489,6 +510,58 @@ public class SearchService {
 			jobList.add(job);
 		}
 		return jobList;
+	}
+	
+	
+	public List<BusinessService> serviceSearch(String type_b,String types, int offset, int rows,String pcity_id,String city_id) throws SolrServerException{
+		SolrQuery query = new SolrQuery();
+		query.setQuery(types);
+		//query.addSort("updated_at", SolrQuery.ORDER.desc);
+		query.setRows(rows);
+		query.setStart(offset);
+		QueryResponse rsp = null;
+		List<BusinessService> serviceList = new ArrayList<BusinessService>();
+		try{
+			 rsp = service_server.query(query);
+		}catch (Exception e){
+			e.printStackTrace();
+			return serviceList;
+		}
+		
+		SolrDocumentList docs = rsp.getResults();
+		
+		for (int i = 0; i < docs.size(); i++) {
+			SolrDocument resumeDoc = docs.get(i);
+			BusinessService bs =businessServiceDao.getBusinessService(Long.valueOf(resumeDoc.getFieldValue("id").toString()));
+			serviceList.add(bs);
+		}
+		return serviceList;
+	}
+	
+	
+	public List<Appeal> appealSearch(String type_b,String types, int offset, int rows,String pcity_id,String city_id) throws SolrServerException{
+		SolrQuery query = new SolrQuery();
+		query.setQuery(types);
+		//query.addSort("updated_at", SolrQuery.ORDER.desc);
+		query.setRows(rows);
+		query.setStart(offset);
+		QueryResponse rsp = null;
+		List<Appeal> appealList = new ArrayList<Appeal>();
+		try{
+			 rsp = appeal_server.query(query);
+		}catch (Exception e){
+			e.printStackTrace();
+			return appealList;
+		}
+		
+		SolrDocumentList docs = rsp.getResults();
+		
+		for (int i = 0; i < docs.size(); i++) {
+			SolrDocument resumeDoc = docs.get(i);
+			Appeal appeal =appealDao.getAppeal(Long.valueOf(resumeDoc.getFieldValue("id").toString()));
+			appealList.add(appeal);
+		}
+		return appealList;
 	}
 
 }

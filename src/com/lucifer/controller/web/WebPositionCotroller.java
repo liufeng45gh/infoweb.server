@@ -12,26 +12,22 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.lucifer.dao.PositionDao;
 import com.lucifer.model.Position;
+import com.lucifer.service.PositionService;
 
 @Controller
 public class WebPositionCotroller {
 
-	private List<Position> positionList;
+	
 	
 	@Resource
 	private PositionDao positionDao;
 	
-	@PostConstruct
-	public void init(){
-		positionList = positionDao.getPositionTopList();
-		for(Position position:positionList){
-			position.children = positionDao.getPositionChildList(position.getId());
-		}
-	}
+	@Resource
+	private PositionService positionService;
 	
 	@RequestMapping(value = "/manage/position/list_selects", method = RequestMethod.GET)
 	public String positionSelectInput(HttpServletRequest request){
-		request.setAttribute("positionList", positionList);
+		request.setAttribute("positionList", positionService.getPositionTopList());
 		return "/WEB-INF/web/manage/position/positionSelect.jsp";
 	}
 	

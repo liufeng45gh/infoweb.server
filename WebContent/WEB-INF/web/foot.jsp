@@ -1,6 +1,6 @@
 <%@ page language="java" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+<!-- 
 	<div class="links">
 		<strong>联系客服：</strong> <img src="./index_files/untitled.bmp"
 			width="18" height="17" alt="电话"> 电话：010-58202296
@@ -40,3 +40,4 @@
 			href="http://www.miibeian.gov.cn/" target="_blank">
 			京ICP备07013039号</a> 京ICP证110417号 京公网安备：11010502006908
 	</div>
+ -->

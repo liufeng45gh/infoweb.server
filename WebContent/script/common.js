@@ -54,3 +54,13 @@ function delCookie(name)//鍒犻櫎cookie
 function setSessionCookie(c_name,value){
     document.cookie = c_name+"="+value+";  path=/";
 }
+
+function isEmpty(str){
+	if (null ==str) {
+		return true;
+	}
+	if ("" == str.trim()) {
+		return true;
+	}
+	return false;
+}

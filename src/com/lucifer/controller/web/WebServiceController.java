@@ -12,9 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.lucifer.dao.AppealDao;
+import com.lucifer.dao.BusinessServiceDao;
 import com.lucifer.dao.CityDao;
-import com.lucifer.model.Appeal;
 import com.lucifer.model.BusinessService;
 import com.lucifer.model.BusinessType;
 import com.lucifer.model.City;
@@ -23,8 +22,9 @@ import com.lucifer.service.SearchService;
 
 import nl.siegmann.epublib.util.StringUtil;
 
+
 @Controller
-public class WebAppealController {
+public class WebServiceController {
 	
 	@Resource
 	private BusinessTypeService businessTypeService;
@@ -36,17 +36,16 @@ public class WebAppealController {
 	private SearchService searchService;
 	
 	@Resource
-	private AppealDao appealDao;
+	private BusinessServiceDao businessServiceDao;
 
-	@RequestMapping(value = "/appeal", method = RequestMethod.GET)
+	@RequestMapping(value = "/service", method = RequestMethod.GET)
 	public String index(HttpServletRequest request){
 		List<BusinessType> businessTypeTopList = businessTypeService.getBusinessTypeTopList();
 		request.setAttribute("businessTypeTopList", businessTypeTopList);
-		return "/WEB-INF/web/appeal/index.jsp";
+		return "/WEB-INF/web/service/index.jsp";
 	}
 	
-	
-	@RequestMapping(value = "/appeal/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/service/{id}", method = RequestMethod.GET)
 	public String search(HttpServletRequest request,@PathVariable String id,String pcity_id,String city_id,@RequestParam(required=false,defaultValue="1") Integer page) throws SolrServerException{
 		request.setAttribute("selected_type_id", id);
 		BusinessType topType = businessTypeService.getTopType(id);
@@ -77,24 +76,24 @@ public class WebAppealController {
 		
 		Integer rows = 50;
 		Integer offset = (page-1)*rows;
-		List<Appeal> appealList = searchService.appealSearch(topType.getId(), types, offset, rows, pcity_id, city_id);
-		request.setAttribute("appealList", appealList);
+		List<BusinessService> serviceList = searchService.serviceSearch(topType.getId(), types, offset, rows, pcity_id, city_id);
+		request.setAttribute("serviceList", serviceList);
 		
-		return "/WEB-INF/web/appeal/search.jsp";
+		return "/WEB-INF/web/service/search.jsp";
 	}
 	
-	@RequestMapping(value = "/appeal/show/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/service/show/{id}", method = RequestMethod.GET)
 	public String show(HttpServletRequest request,@PathVariable Long id){
-		Appeal appeal = appealDao.getAppeal(id);
-		BusinessType businessType = businessTypeService.getTopType(appeal.getType());
-		appeal.setBusinessType(businessType);
+		BusinessService service = businessServiceDao.getBusinessService(id);
+		BusinessType businessType = businessTypeService.getTopType(service.getType_b());
+		service.setBusinessType(businessType);
 		
-		City city = cityDao.getCity(appeal.getCity_id());
-		appeal.setCity(city);
+		City city = cityDao.getCity(service.getCity_id());
+		service.setCity(city);
 		
 		City parentCity = cityDao.getCity(city.getParent_id());
-		appeal.setParentCity(parentCity);
-		request.setAttribute("appeal", appeal);
-		return "/WEB-INF/web/appeal/show.jsp";
+		service.setParentCity(parentCity);
+		request.setAttribute("service", service);
+		return "/WEB-INF/web/service/show.jsp";
 	}
 }

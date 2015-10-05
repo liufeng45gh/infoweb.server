@@ -4,16 +4,22 @@
 <!-- saved from url=(0026)http://beijing.qd8.com.cn/ -->
 <html xmlns="http://www.w3.org/1999/xhtml">
 <jsp:include page="../head.jsp"></jsp:include>
-<link href="/css/manage/myresume.css" rel="stylesheet" type="text/css">
-<link href="/css/manage/myrecruitment.css" rel="stylesheet" type="text/css">
+<link href="/css/service.css" rel="stylesheet" type="text/css">
 <body>
 	<jsp:include page="../navagation.jsp"></jsp:include>
-	<div class="fl_main fl_main_12" >
-		<jsp:include page="showInner.jsp"></jsp:include>
+	
+	<div>
+		<jsp:include page="searchInner.jsp"></jsp:include>
+		
 	</div>
 	
 	<jsp:include page="../foot.jsp"></jsp:include>
 </body>
 </html>
-<script src="/script/web/pselect.js"></script>
-<script src="/script/web/job.js"></script>
+
+<script type="text/javascript">
+<!--
+$("#tab_appeal").addClass("on");
+//-->
+</script>
+<script src="/script/web/appeal.js"></script>

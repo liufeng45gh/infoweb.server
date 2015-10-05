@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
 import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombination;
@@ -61,4 +62,45 @@ public class BusinessTypeService {
 		return resultList;
 		
 	}
+	
+	private List<BusinessType> businessTypeTopList;
+	
+	public List<BusinessType> getBusinessTypeTopList() {
+		return businessTypeTopList;
+	}
+	
+	@PostConstruct
+	public void init(){
+		this.businessTypeTopList = businessTypeDao.getBusinessTypeTopList();
+		for (BusinessType businessType :businessTypeTopList) {
+			businessType.children = businessTypeDao.getBusinessTypeChildList(businessType.getId());
+		}
+	}
+	
+	public BusinessType getTopType(String id){
+		for (BusinessType businessType:businessTypeTopList) {
+//			if (businessType.getId().equals(id)) {
+//				return businessType;
+//			}
+			if (id.startsWith(businessType.getId())) {
+				return businessType;
+			}
+		}
+		return null;
+	}
+	
+	public BusinessType getChildType(String id){
+		BusinessType topType = this.getTopType(id);
+		if (topType == null) {
+			return null;
+		}
+		for (BusinessType businessType:topType.children) {
+			if (businessType.getId().equals(id)) {
+				return businessType;
+			}
+		}
+		return null;
+	}
+	
+	
 }

@@ -11,3 +11,12 @@ function searchCallBack(data,textStatus){
 	
 }
 $("#tab_job").addClass("on");
+
+function initWelfares(init_str){
+	$(".welfare li").each(function(){
+		var text = $(this).text();
+		if (init_str.indexOf(text)>-1) {
+			$(this).addClass("active");
+		}
+	});
+}

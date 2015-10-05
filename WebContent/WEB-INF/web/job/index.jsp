@@ -4,6 +4,7 @@
 <!-- saved from url=(0026)http://beijing.qd8.com.cn/ -->
 <html xmlns="http://www.w3.org/1999/xhtml">
 <jsp:include page="../head.jsp"></jsp:include>
+<link href="/css/zplist.css" rel="stylesheet" type="text/css">
 <body>
 	<jsp:include page="../navagation.jsp"></jsp:include>
 	<div class="fl_main fl_main_12" >

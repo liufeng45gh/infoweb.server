@@ -52,7 +52,7 @@
 					</tr>
 					
 					<tr>
-						<th><span><i>*</i>服务介绍</span></th>
+						<th><span><i>*</i>求助描述信息</span></th>
 						<td>
 							<textarea class="introcont textstyle" name="description" id="txtCompIntro" style="width: 600px"><c:out value="${appeal.description }" escapeXml="true"></c:out></textarea>
 						</td>
@@ -65,7 +65,7 @@
 			<table class="box_table" id="ModyBaseInfo">
 				<tbody>
 					<tr>
-						<th><span><i>*</i>职位联系人</span></th>
+						<th><span><i>*</i>联系人</span></th>
 						<td>
 							<div class="contedit">
 								<input type="text" name="linkman" class="text" value="${appeal.linkman }" > 

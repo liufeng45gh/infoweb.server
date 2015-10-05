@@ -28,6 +28,10 @@
 			<mvc:mapping path="/cms/user/*"/>
 			<bean class="com.lucifer.interceptor.CmsCheckAuthInterceptor"></bean>
 		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/manage/*"/>
+			<bean class="com.lucifer.interceptor.WebLoginCheckInterceptor"></bean>
+		</mvc:interceptor>
 	</mvc:interceptors>
 	<aop:aspectj-autoproxy/>
 

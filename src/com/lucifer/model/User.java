@@ -289,4 +289,15 @@ public class User {
 		this.education = Education.objectOf(key);
 	}
 	
+	public String showName(){
+		if (!StringUtil.isEmpty(this.real_name)) {
+			return this.real_name;
+		}
+		
+		if (!StringUtil.isEmpty(this.nick)) {
+			return this.nick;
+		}
+		return this.account;
+	}
+	
 }

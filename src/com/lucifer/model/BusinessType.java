@@ -18,6 +18,10 @@ public class BusinessType {
 	private boolean terminal;
 	
 	public List<BusinessType> children = new ArrayList<BusinessType>();
+	
+	public List<BusinessType> children(){
+		return this.children;
+	}
 
 	public String getId() {
 		return id;

@@ -7,7 +7,7 @@
 <link href="/css/defaultToKuan.css" rel="stylesheet" type="text/css">
 <link href="/css/job_search.css" rel="stylesheet" type="text/css">
 <link href="/css/main.css" rel="stylesheet" type="text/css">
-<link href="/css/zplist.css" rel="stylesheet" type="text/css">
+<script src="/script/common.js" type="text/javascript"></script>
 <script src="/script/jquery-1.9.1.min.js" type="text/javascript"></script>
 
 <meta name="mobile-agent" content="format=xhtml;http://www.dbdbd.cn">

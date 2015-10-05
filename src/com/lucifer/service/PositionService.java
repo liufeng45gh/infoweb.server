@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
 import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombination;
@@ -59,4 +60,20 @@ public class PositionService {
 		return resultList;
 		
 	}
+	
+	private List<Position> positionTopList;
+	
+	public List<Position> getPositionTopList() {
+		return positionTopList;
+	}
+
+	@PostConstruct
+	public void init(){
+		positionTopList = positionDao.getPositionTopList();
+		for(Position position:positionTopList){
+			position.children = positionDao.getPositionChildList(position.getId());
+		}
+	}
+	
+
 }

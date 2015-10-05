@@ -51,6 +51,20 @@ public class ViewHelper {
 		}
 		return null;
 	}
+	
+	public String getCookie(HttpServletRequest request,String cookieName){
+		Cookie[] cookies = request.getCookies();
+
+		if (null == cookies) {
+			return null;
+		}
+		for (Cookie cookie : cookies) {
+			if (cookie.getName().equals(cookieName)) {
+				return cookie.getValue();
+			}
+		}
+		return null;
+	}
 
 	public User getWebTokenUser(HttpServletRequest request) {		
 		 String token=getWebUserToken(request);
