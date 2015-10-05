@@ -12,8 +12,7 @@
 
 		<div style="width: 150px; float: right; margin-right: 50px; height: 80px">
 			<div class="fabu1">
-				<a href="/publish.html"
-					style="color: #ffffff;">免费发布信息</a>
+				<a href="/publish.html" style="color: #ffffff;">免费发布信息</a>
 			</div>
 		</div>
 	</div>

@@ -22,5 +22,8 @@ public class CommonConstant {
 	
 	//用户 access_token
 	public static String ADMIN_USER_ACCESS_TOKEN = "ADMIN_USER_ACCESS_TOKEN";
+	
+	//登录后跳转页面
+	public static String LOGIN_REDIRECT_URL = "login_redirect_url";
 
 }

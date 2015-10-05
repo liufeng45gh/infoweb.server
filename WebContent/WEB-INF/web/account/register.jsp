@@ -43,7 +43,7 @@
                <span id="mobileRegTab" class=""><a href="javascript:void(0);" onclick="cur_tab=&#39;phone&#39;">手机注册</a></span>
                <span id="regTab" class="active"><a href="javascript:void(0);" onclick="cur_tab=&#39;mail&#39;">邮箱注册</a></span>
                <input type="hidden" id="register_type" name="register_type" value="email"/>
-               <span id="loginTab" class="">已有账号？<a href="/login.html">去登录</a></span>
+               <span id="loginTab" class="">已有账号？<a href="/account/login.html">去登录</a></span>
             </div>
             <div class="regWrap">
 				

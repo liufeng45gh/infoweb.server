@@ -31,6 +31,7 @@ import com.lucifer.service.UserService;
 import com.lucifer.util.CommonConstant;
 import com.lucifer.util.Result;
 import com.lucifer.util.StringUtil;
+import com.lucifer.util.ViewHelper;
 
 @Controller
 public class AccountController  {
@@ -148,6 +149,10 @@ public class AccountController  {
 				user.getToken());
 		cookie.setPath("/");
 		response.addCookie(cookie);
+//		String login_redirect_url = ViewHelper.getInstance().getCookie(request, CommonConstant.LOGIN_REDIRECT_URL);
+//		if (!StringUtil.isEmpty(login_redirect_url)) {
+//			return "redirect:"+login_redirect_url;
+//		}
 		return "redirect:/account/regok";
 	}
 	
@@ -200,6 +205,10 @@ public class AccountController  {
 				user.getToken());
 		cookie.setPath("/");
 		response.addCookie(cookie);
+		String login_redirect_url = ViewHelper.getInstance().getCookie(request, CommonConstant.LOGIN_REDIRECT_URL);
+		if (!StringUtil.isEmpty(login_redirect_url)) {
+			return "redirect:"+login_redirect_url;
+		}
 		return "redirect:/manage/index";
 	}
 
