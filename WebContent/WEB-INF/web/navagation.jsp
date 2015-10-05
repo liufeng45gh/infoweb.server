@@ -6,8 +6,8 @@
 <jsp:include page="navHead.jsp"></jsp:include>
 
 	<div id="menu" class="menu" style="display: block;">
-		<div class="logo" style="width: 200px">
-			<img src="/images/logose.gif" width="200px" height="72px" alt="企业信息网" />
+		<div class="logo" style="width: 221px">
+			<img src="/images/logo.png" width="221px" height="65px" alt="企业信息网" />
 		</div>
 
 		<div style="width: 150px; float: right; margin-right: 50px; height: 80px">

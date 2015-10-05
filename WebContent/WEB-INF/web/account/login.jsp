@@ -3,9 +3,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>用户登录-58同城</title>
+<title>用户登录-兴业联盟网</title>
 
-<link rel="Shortcut Icon" href="http://img.58cdn.com.cn/images/favicon.ico" type="image/x-icon">
+<link rel="Shortcut Icon" href="/images/favicon.ico" type="image/x-icon">
 
 <script src="/script/jquery-1.9.1.min.js" type="text/javascript"></script>
 
@@ -125,15 +125,17 @@ li#mobileLoginTipLi{padding-left:80px;margin-top:5px;line-height: 21px;} #mobile
 <form name="submitForm" method="post" action="/account/login" id="submitForm" >
 
 	<div id="login-header" class="win900">
-		<a href="http://www.58.com/" id="logo" style="left:20px;"><img src="/login_files/logo-49h.gif" alt="中文最大生活信息门户"></a>
-		<div id="cityname" class="loginname" style="left:208px;"><span>用户登录</span></div>
+		<a href="/" id="logo" style="left:20px;"><img src="/images/logo.png" alt="只为真正的实现资源共享"></a>
+		<div id="cityname" class="loginname" style="left:308px;"><span>用户登录</span></div>
 		<div class="error_message_login"><span style="color:red;"><c:out value="${KEY_RESULT_MESSAGE}"  /></span></div>
 		<div id="logintext" style="right:-10px;"><a href="/">返回首页</a></div>
 	</div>
 	
 	<div class="cb win900">
 		<div id="conleft">
-			<div id="2001"><a style="background:url(https://passport.58.com/cdnpic2/ui6/my/images/login_sj.jpg) no-repeat scroll 0 0 transparent; display:block;" id="login-welcome-bg" href="http://api.wap.58.com/api/redirect/to/wap/" target="_blank"></a></div>
+			<div id="2001" style="margin-top:70px;">
+				<a style="background:url(/images/login_sj.jpg) no-repeat scroll 0 0 transparent; display:block;" id="login-welcome-bg" href="/" target="_blank"></a>
+				</div>
 		</div>
 		<div id="conright">
 			<div class="scrool-bg">
@@ -185,9 +187,7 @@ li#mobileLoginTipLi{padding-left:80px;margin-top:5px;line-height: 21px;} #mobile
 				
                 </div>
 				<div class="link-login" style="">
-					<span class="lots"><a class="reglink" href="/account/register">免费注册</a></span>
-                    
-                     
+					<span class="lots"><a class="reglink" href="/account/register">免费注册</a></span>                    
 				 </div>
 				
 			</div><!--scrool bg-->

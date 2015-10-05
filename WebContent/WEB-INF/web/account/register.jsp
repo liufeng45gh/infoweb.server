@@ -3,9 +3,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0075)http://passport.58.com/reg?PGTID=14383533515460.8912675806786865&ClickID=30 -->
 <html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>注册会员-微企联盟</title>
+<title>注册会员-兴业联盟网</title>
 
-<link rel="Shortcut Icon" href="http://img.58cdn.com.cn/images/favicon.ico" type="image/x-icon">
+<link rel="Shortcut Icon" href="/images/favicon.ico" type="image/x-icon">
 
 <script src="/script/jquery-1.9.1.min.js" type="text/javascript"></script>
 <script src="/script/web/boot_passport_version_v0.js" type="text/javascript"></script>
@@ -29,8 +29,8 @@
 </head>
 <body>
 	<div id="header" class="win1000">
-		<a id="logo" href="/"><img alt="专注小薇企业服务" src="/register_files/logo-49h.gif"></a>
-		<div id="cityname" class="regname"><span>用户注册</span></div>
+		<a id="logo" href="/"><img alt="只为实现真正的资源共享" src="/images/logo.png"></a>
+		<div id="cityname" class="regname" style="left:280px;"><span>用户注册</span></div>
 		<div id="logintext"><a href="/">返回首页</a></div>
 	</div>
 	<div class="cb win1000">
@@ -119,7 +119,7 @@
             
                 <p class="agreement">
                     <span class="regtlx">&nbsp;</span>
-                    <input type="checkbox" checked="checked" id="chkagreement" name="chkagreement"> <span>我已阅读并同意</span><a target="_blank" href="/">《微企联盟使用协议》</a>
+                    <input type="checkbox" checked="checked" id="chkagreement" name="chkagreement"> <span>我已阅读并同意</span><a target="_blank" href="/">《使用协议》</a>
                     <span id="chkagreement_Tip"></span>
                 </p>
                 

@@ -45,7 +45,7 @@
             <li id="top_nav_recruitment"><a href="/manage/job/list.htnl"><span>我的招聘</span></a></li>
             <li id="top_nav_service"><a href="/manage/service/list.html"><span>我的服务信息</span></a></li>
             <li id="top_nav_appeal"><a href="/manage/appeal/list.html"><span>我的求助</span></a></li>
-            <li><a href="/myfinancing.html"><span>创业融资</span></a></li>
+            <li><a href="/myfinancing.html"  onclick="return false;"><span>创业融资</span></a></li>
         </ul>
         <ul class="rightdh" style="float: right;">
        
