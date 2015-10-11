@@ -171,7 +171,8 @@ public class SearchService {
 		doc.addField("city_id", service.getCity_id());		
 	
 		doc.addField("title", service.getTitle());
-		doc.addField("type", service.getType_s()+" " +service.getType_b() );
+		doc.addField("type_b", service.getType_b() );
+		doc.addField("type_s", service.getType_s());
 		doc.addField("updated_at", service.getUpdated_at());
 		return doc;
 	}

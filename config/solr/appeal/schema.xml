@@ -231,10 +231,7 @@
         or to add multiple fields to the same field for easier/faster searching.  -->
 
    <copyField source="title" dest="text"/>
-    <copyField source="type" dest="text"/>
- 
-   
-	
+ 	
    <!-- Above, multiple source fields are copied to the [text] field. 
 	  Another way to map multiple source fields to the same 
 	  destination field is to use the dynamic field syntax. 

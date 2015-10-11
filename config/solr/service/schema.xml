@@ -110,7 +110,8 @@
    
    <field name="city_id" type="string" indexed="true" stored="true"/>
    <field name="title" type="text_cn" indexed="true" stored="true" />
-   <field name="type" type="text_cn" indexed="true" stored="true" />
+   <field name="type_b" type="string" indexed="true" stored="true" />
+   <field name="type_s" type="string" indexed="true" stored="true" />
    <field name="updated_at" type="date" indexed="true" stored="true" />
 
    <!-- Common metadata fields, named specifically to match up with
@@ -231,7 +232,6 @@
         or to add multiple fields to the same field for easier/faster searching.  -->
 
    <copyField source="title" dest="text"/>
-    <copyField source="type" dest="text"/>
  
    
 	
