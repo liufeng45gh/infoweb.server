@@ -115,6 +115,7 @@
    <field name="title" type="text_cn" indexed="true" stored="true" />
    <field name="start_work_date" type="date" indexed="true" stored="true" />
    <field name="updated_at" type="date" indexed="true" stored="true" />
+   <field name="open" type="int" indexed="true" stored="true" />
 
    <!-- Common metadata fields, named specifically to match up with
      SolrCell metadata when parsing rich documents such as Word, PDF.

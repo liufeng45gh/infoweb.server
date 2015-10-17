@@ -111,7 +111,7 @@
    <field name="city_id" type="string" indexed="true" stored="true"/>
    <field name="industry_id" type="string" indexed="true" stored="true" />
    <field name="position_id" type="string" indexed="true" stored="true" />
-   <field name="evaluation" type="string" indexed="true" stored="true" />
+   <field name="evaluation" type="int" indexed="true" stored="true" />
    <field name="title" type="text_cn" indexed="true" stored="true" />
    <field name="work_years" type="int" indexed="true" stored="true" />
    <field name="updated_at" type="date" indexed="true" stored="true" />

@@ -70,7 +70,7 @@ public class SearchService {
 	@Resource
 	private AppealDao appealDao;
 
-	//@PostConstruct
+	@PostConstruct
 	public void init() throws Exception {
 		try {
 			resume_server = new HttpSolrServer(solr_resume_url);
@@ -159,6 +159,7 @@ public class SearchService {
 		doc.addField("city_id", job.getCity_id());		
 		doc.addField("industry_id", job.getIndustry_id());
 		doc.addField("position_id", job.getPosition_id());
+		doc.addField("evaluation", job.getEducation());
 		doc.addField("title", job.getTitle());
 		doc.addField("work_years", job.getWork_years());
 		doc.addField("updated_at", job.getUpdated_at());
