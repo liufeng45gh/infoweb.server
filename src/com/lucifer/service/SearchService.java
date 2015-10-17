@@ -197,6 +197,7 @@ public class SearchService {
 	 * @throws Exception
 	 */
 	private void resumeImport() throws Exception {
+		log.info("resumeImport has been called");
 		Date updated_at = null;
 		while (true) {
 			// 如果没有更新查询SOLR中是否有数据
@@ -218,7 +219,7 @@ public class SearchService {
 				}
 			}
 
-			List<Resume> resumeList = null;
+			List<Resume> resumeList = null ;
 			if (updated_at == null) {
 				// solr中无数据直接从数据库取数据
 				resumeList = resumeDao.resumeListOrderByUpdatedAt(updated_at, 1000);
@@ -227,7 +228,7 @@ public class SearchService {
 				resumeList =  resumeDao.resumeListOrderByUpdatedAt(updated_at, 1000);
 			}
 
-			log.info("bookList size: " + resumeList.size());
+			log.info("resumeList size: " + resumeList.size());
 
 			if (resumeList.size() == 0) {
 				break;
@@ -253,6 +254,7 @@ public class SearchService {
 				resume_server.deleteById(deleteIdList);
 			}
 			resume_server.commit();
+			log.info("resume_server.commit()");
 		}
 	}
 	
