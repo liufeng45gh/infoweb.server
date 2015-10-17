@@ -1,5 +1,6 @@
 <%@ page language="java" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <div style="margin-top:10px;">
     	<div class="topBox">
             <div class="tabBox"></div>
@@ -15,9 +16,9 @@
                         </span>
                     </dt>
                     <dd class="company">${job.company.name }</dd>
-                    <dd class="company">${job.osalary.text }</dd>
+                    <dd class="company">${job. salaryText() }</dd>
                     <dd class="pay">${job.parentCity.name }-${job.city.name }</dd>
-                    <dd class="pub-time">${job.updated_at }</dd>
+                    <dd class="pub-time"><fmt:formatDate value="${job.updated_at}" pattern="yyyy-MM-dd HH:mm"/></dd>
                 </dl>
                 </c:forEach>                
          </div>

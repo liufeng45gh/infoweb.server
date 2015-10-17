@@ -23,13 +23,19 @@ import org.springframework.stereotype.Service;
 
 import com.lucifer.dao.AppealDao;
 import com.lucifer.dao.BusinessServiceDao;
+import com.lucifer.dao.CityDao;
 import com.lucifer.dao.RecruitmentDao;
 import com.lucifer.dao.ResumeDao;
+import com.lucifer.dao.UserDao;
 import com.lucifer.model.Appeal;
 
 import com.lucifer.model.BusinessService;
+import com.lucifer.model.City;
+import com.lucifer.model.Company;
 import com.lucifer.model.Job;
 import com.lucifer.model.Resume;
+import com.lucifer.model.User;
+import com.lucifer.util.StringUtil;
 
 
 
@@ -69,6 +75,12 @@ public class SearchService {
 	
 	@Resource
 	private AppealDao appealDao;
+	
+	@Resource
+	private UserDao userDao;
+	
+	@Resource
+	private CityDao cityDao;
 
 	@PostConstruct
 	public void init() throws Exception {
@@ -171,7 +183,7 @@ public class SearchService {
 		doc.addField("id", service.getId());		
 		doc.addField("city_id", service.getCity_id());		
 	
-		doc.addField("title", service.getTitle());
+		//doc.addField("title", service.getTitle());
 		doc.addField("type_b", service.getType_b() );
 		doc.addField("type_s", service.getType_s());
 		doc.addField("updated_at", service.getUpdated_at());
@@ -457,8 +469,14 @@ public class SearchService {
 	 */
 	public List<Resume> resumeSearch(String text, int offset, int rows,String city_id,String position_id,String industry_id) throws SolrServerException{
 		SolrQuery query = new SolrQuery();
-		query.setQuery(text);
-		//query.addSort("updated_at", SolrQuery.ORDER.desc);
+		log.info("text is :" + text);
+		if (StringUtil.isEmpty(text)) {
+			query.setQuery("*:*");
+		} else {
+			query.setQuery(text);
+		}
+		
+		query.addSort("updated_at", SolrQuery.ORDER.desc);
 		query.setRows(rows);
 		query.setStart(offset);
 		QueryResponse rsp = null;
@@ -471,10 +489,18 @@ public class SearchService {
 		}
 		
 		SolrDocumentList docs = rsp.getResults();
-		
+		log.info("docs.size(): "+ docs.size());
 		for (int i = 0; i < docs.size(); i++) {
 			SolrDocument resumeDoc = docs.get(i);
 			Resume resume = resumeDao.get(Long.valueOf(resumeDoc.getFieldValue("id").toString()));
+			User user = userDao.get(resume.getUser_id());
+			resume.setUser(user);
+			
+			City city = cityDao.getCity(resume.getCity_id());
+			resume.setCity(city);
+			
+			City parentCity = cityDao.getCity(city.getParent_id());
+			resume.setParentCity(parentCity);
 			resumeList.add(resume);
 		}
 		return resumeList;
@@ -493,8 +519,12 @@ public class SearchService {
 	 */
 	public List<Job> jobSearch(String text, int offset, int rows,String city_id,String position_id,String industry_id) throws SolrServerException{
 		SolrQuery query = new SolrQuery();
-		query.setQuery(text);
-		//query.addSort("updated_at", SolrQuery.ORDER.desc);
+		if (StringUtil.isEmpty(text)) {
+			query.setQuery("*:*");
+		} else {
+			query.setQuery(text);
+		}
+		query.addSort("updated_at", SolrQuery.ORDER.desc);
 		query.setRows(rows);
 		query.setStart(offset);
 		QueryResponse rsp = null;
@@ -511,16 +541,37 @@ public class SearchService {
 		for (int i = 0; i < docs.size(); i++) {
 			SolrDocument resumeDoc = docs.get(i);
 			Job job = recruitmentDao.getJob(Long.valueOf(resumeDoc.getFieldValue("id").toString()));
+			Company company = recruitmentDao.getUserCompany(job.getUser_id());
+			job.setCompany(company);
+			City city = cityDao.getCity(job.getCity_id());
+			job.setCity(city);
+			
+			City parentCity = cityDao.getCity(city.getParent_id());
+			job.setParentCity(parentCity);
 			jobList.add(job);
 		}
 		return jobList;
 	}
 	
-	
+	/**
+	 * 搜服务
+	 * @param type_b
+	 * @param types
+	 * @param offset
+	 * @param rows
+	 * @param pcity_id
+	 * @param city_id
+	 * @return
+	 * @throws SolrServerException
+	 */
 	public List<BusinessService> serviceSearch(String type_b,String types, int offset, int rows,String pcity_id,String city_id) throws SolrServerException{
 		SolrQuery query = new SolrQuery();
-		query.setQuery(types);
-		//query.addSort("updated_at", SolrQuery.ORDER.desc);
+		if  (StringUtil.isEmpty(types)) {
+			query.setQuery("*:*");
+		} else {
+			query.setQuery(types);
+		}		
+		query.addSort("updated_at", SolrQuery.ORDER.desc);
 		query.setRows(rows);
 		query.setStart(offset);
 		QueryResponse rsp = null;
@@ -533,10 +584,15 @@ public class SearchService {
 		}
 		
 		SolrDocumentList docs = rsp.getResults();
-		
+		log.info("serviceSearch docs size is " + docs.size());
 		for (int i = 0; i < docs.size(); i++) {
 			SolrDocument resumeDoc = docs.get(i);
 			BusinessService bs =businessServiceDao.getBusinessService(Long.valueOf(resumeDoc.getFieldValue("id").toString()));
+			City city = cityDao.getCity(bs.getCity_id());
+			bs.setCity(city);
+			
+			City parentCity = cityDao.getCity(city.getParent_id());
+			bs.setParentCity(parentCity);
 			serviceList.add(bs);
 		}
 		return serviceList;

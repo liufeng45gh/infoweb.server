@@ -47,6 +47,8 @@ public class Resume {
 	
 	private City parentCity;
 	
+	private User user;
+	
 	
 
 	public Long getId() {
@@ -219,6 +221,14 @@ public class Resume {
 
 	public void setOpen(Integer open) {
 		this.open = open;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}		
 	
 	

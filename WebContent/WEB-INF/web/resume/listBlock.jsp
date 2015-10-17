@@ -1,5 +1,6 @@
 <%@ page language="java" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <div style="margin-top:10px;">
     	<div class="topBox">
             <div class="tabBox"></div>
@@ -14,10 +15,10 @@
                         <a href="/resume/${resume.id }" target="_blank" class="list_title">${resume.title }</a>                        
                         </span>
                     </dt>
-                    <dd class="company">${resume.user.showName }</dd>
+                    <dd class="company">${resume.user.showName() }</dd>
                     <dd class="company">${resume.osalary.text }</dd>
-                    <dd class="pay">${businessService.parentCity.name }-${businessService.city.name }</dd>
-                    <dd class="pub-time">${resume.updated_at }</dd>
+                    <dd class="pay">${resume.parentCity.name }-${resume.city.name }</dd>
+                    <dd class="pub-time"><fmt:formatDate value="${resume.updated_at}" pattern="yyyy-MM-dd HH:mm"/></dd>
                 </dl>
                 </c:forEach>                
          </div>

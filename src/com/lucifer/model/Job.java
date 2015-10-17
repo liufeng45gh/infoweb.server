@@ -51,6 +51,8 @@ public class Job {
 	private City parentCity;
 	
 	private Industry industry;
+	
+	private Company company;
 
 	public Long getId() {
 		return id;
@@ -253,4 +255,14 @@ public class Job {
 		}
 		return null;
 	}
+
+	public Company getCompany() {
+		return company;
+	}
+
+	public void setCompany(Company company) {
+		this.company = company;
+	}
+	
+	
 }

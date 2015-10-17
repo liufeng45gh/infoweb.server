@@ -109,7 +109,9 @@
    <field name="id" type="string" indexed="true" stored="true" required="true" multiValued="false" /> 
    
    <field name="city_id" type="string" indexed="true" stored="true"/>
+   <!-- 
    <field name="title" type="text_cn" indexed="true" stored="true" />
+    -->
    <field name="type_b" type="string" indexed="true" stored="true" />
    <field name="type_s" type="string" indexed="true" stored="true" />
    <field name="updated_at" type="date" indexed="true" stored="true" />
@@ -231,7 +233,7 @@
         is added to the index.  It's used either to index the same field differently,
         or to add multiple fields to the same field for easier/faster searching.  -->
 
-   <copyField source="title" dest="text"/>
+   <copyField source="type_s" dest="text"/>
  
    
 	
