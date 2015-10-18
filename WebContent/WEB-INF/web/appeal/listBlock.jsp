@@ -1,5 +1,6 @@
 <%@ page language="java" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@page import="com.lucifer.util.ViewHelper" %>
 <link href="/css/zplist.css" rel="stylesheet" type="text/css">
 <div  class="fl_middle">
@@ -13,7 +14,7 @@
                         </span>
                     </dt>
                     <dd class="pay">${appeal.parentCity.name }-${appeal.city.name }</dd>
-                    <dd class="pub-time">${appeal.updated_at }</dd>
+                    <dd class="pub-time"><fmt:formatDate value="${appeal.updated_at}" pattern="yyyy-MM-dd HH:mm"/></dd>
                 </dl>
                 </c:forEach>                
          </div>

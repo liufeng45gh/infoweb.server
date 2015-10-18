@@ -76,7 +76,7 @@ public class WebAppealController {
 		
 		Integer rows = 50;
 		Integer offset = (page-1)*rows;
-		List<Appeal> appealList = searchService.appealSearch(topType.getId(), types, offset, rows,  city_id);
+		List<Appeal> appealList = searchService.appealSearch(topType.getId(), offset, rows,  city_id);
 		request.setAttribute("appealList", appealList);
 		
 		return "/WEB-INF/web/appeal/search.jsp";

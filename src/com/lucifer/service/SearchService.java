@@ -633,20 +633,17 @@ public class SearchService {
 	}
 	
 	
-	public List<Appeal> appealSearch(String type_b,String types, int offset, int rows,String city_id) throws SolrServerException{
+	public List<Appeal> appealSearch(String type, int offset, int rows,String city_id) throws SolrServerException{
 		SolrQuery query = new SolrQuery();
-		if  (StringUtil.isEmpty(types)) {
-			query.setQuery("*:*");
-		} else {
-			query.setQuery(types);
-		}		
-//		if (!StringUtil.isEmpty(city_id)) {
-//			query.addFilterQuery("city_id:"+city_id);
-//		}
-//		
-		if (!StringUtil.isEmpty(type_b)) {
-			query.addFilterQuery("type_b:"+type_b);
+		query.setQuery("*:*");
+		if  (!StringUtil.isEmpty(type)) {
+			query.addFilterQuery("type:"+type);
+		} 	
+		if (!StringUtil.isEmpty(city_id)) {
+			query.addFilterQuery("city_id:"+city_id);
 		}
+		
+	
 		query.addSort("updated_at", SolrQuery.ORDER.desc);
 		query.setRows(rows);
 		query.setStart(offset);
@@ -664,6 +661,13 @@ public class SearchService {
 		for (int i = 0; i < docs.size(); i++) {
 			SolrDocument resumeDoc = docs.get(i);
 			Appeal appeal =appealDao.getAppeal(Long.valueOf(resumeDoc.getFieldValue("id").toString()));
+			
+			City city = cityDao.getCity(appeal.getCity_id());
+			appeal.setCity(city);
+			
+			City parentCity = cityDao.getCity(city.getParent_id());
+			appeal.setParentCity(parentCity);
+			
 			appealList.add(appeal);
 		}
 		return appealList;
