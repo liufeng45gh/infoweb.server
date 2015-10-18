@@ -2,12 +2,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <link href="/css/zplist.css" rel="stylesheet" type="text/css">
-<div style="margin-top:10px;">
-    	<div class="topBox">
-            <div class="tabBox"></div>
-            <div class="border"></div>
-        </div>
-    	<div>                
+<div  class="fl_main ">
+    	<div >                
     			 <c:forEach var="service" items="${serviceList}" varStatus="status">
                 <dl class="list-noimg job-list">
                     <dt>

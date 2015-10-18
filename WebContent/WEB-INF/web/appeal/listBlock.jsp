@@ -1,11 +1,7 @@
 <%@ page language="java" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <link href="/css/zplist.css" rel="stylesheet" type="text/css">
-<div style="margin-top:10px;">
-    	<div class="topBox">
-            <div class="tabBox"></div>
-            <div class="border"></div>
-        </div>
+<div  class="fl_main">
     	<div>                
     			 <c:forEach var="appeal" items="${appealList}" varStatus="status">
                 <dl class="list-noimg job-list">

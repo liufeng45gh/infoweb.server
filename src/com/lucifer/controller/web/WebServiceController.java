@@ -76,7 +76,7 @@ public class WebServiceController {
 		
 		Integer rows = 50;
 		Integer offset = (page-1)*rows;
-		List<BusinessService> serviceList = searchService.serviceSearch(topType.getId(), types, offset, rows, pcity_id, city_id);
+		List<BusinessService> serviceList = searchService.serviceSearch(topType.getId(), types, offset, rows,  city_id);
 		request.setAttribute("serviceList", serviceList);
 		
 		return "/WEB-INF/web/service/search.jsp";

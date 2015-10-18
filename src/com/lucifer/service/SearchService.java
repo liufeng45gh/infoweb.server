@@ -475,6 +475,17 @@ public class SearchService {
 		} else {
 			query.setQuery(text);
 		}
+		if (!StringUtil.isEmpty(city_id)) {
+			query.addFilterQuery("city_id:"+city_id);
+		}
+		
+		if (!StringUtil.isEmpty(position_id)) {
+			query.addFilterQuery("position_id:"+position_id);
+		}
+		
+		if (!StringUtil.isEmpty(industry_id)) {
+			query.addFilterQuery("industry_id:"+industry_id);
+		}
 		
 		query.addSort("updated_at", SolrQuery.ORDER.desc);
 		query.setRows(rows);
@@ -524,6 +535,19 @@ public class SearchService {
 		} else {
 			query.setQuery(text);
 		}
+		
+		if (!StringUtil.isEmpty(city_id)) {
+			query.addFilterQuery("city_id:"+city_id);
+		}
+		
+		if (!StringUtil.isEmpty(position_id)) {
+			query.addFilterQuery("position_id:"+position_id);
+		}
+		
+		if (!StringUtil.isEmpty(industry_id)) {
+			query.addFilterQuery("industry_id:"+industry_id);
+		}
+		
 		query.addSort("updated_at", SolrQuery.ORDER.desc);
 		query.setRows(rows);
 		query.setStart(offset);
@@ -564,13 +588,23 @@ public class SearchService {
 	 * @return
 	 * @throws SolrServerException
 	 */
-	public List<BusinessService> serviceSearch(String type_b,String types, int offset, int rows,String pcity_id,String city_id) throws SolrServerException{
+	public List<BusinessService> serviceSearch(String type_b,String types, int offset, int rows,String city_id) throws SolrServerException{
 		SolrQuery query = new SolrQuery();
 		if  (StringUtil.isEmpty(types)) {
 			query.setQuery("*:*");
 		} else {
 			query.setQuery(types);
-		}		
+		}	
+		
+		if (!StringUtil.isEmpty(city_id)) {
+			query.addFilterQuery("city_id:"+city_id);
+		}
+		
+		if (!StringUtil.isEmpty(type_b)) {
+			query.addFilterQuery("type_b:"+type_b);
+		}
+		
+	
 		query.addSort("updated_at", SolrQuery.ORDER.desc);
 		query.setRows(rows);
 		query.setStart(offset);
@@ -599,10 +633,21 @@ public class SearchService {
 	}
 	
 	
-	public List<Appeal> appealSearch(String type_b,String types, int offset, int rows,String pcity_id,String city_id) throws SolrServerException{
+	public List<Appeal> appealSearch(String type_b,String types, int offset, int rows,String city_id) throws SolrServerException{
 		SolrQuery query = new SolrQuery();
-		query.setQuery(types);
-		//query.addSort("updated_at", SolrQuery.ORDER.desc);
+		if  (StringUtil.isEmpty(types)) {
+			query.setQuery("*:*");
+		} else {
+			query.setQuery(types);
+		}		
+		if (!StringUtil.isEmpty(city_id)) {
+			query.addFilterQuery("city_id:"+city_id);
+		}
+		
+		if (!StringUtil.isEmpty(type_b)) {
+			query.addFilterQuery("type_b:"+type_b);
+		}
+		query.addSort("updated_at", SolrQuery.ORDER.desc);
 		query.setRows(rows);
 		query.setStart(offset);
 		QueryResponse rsp = null;
