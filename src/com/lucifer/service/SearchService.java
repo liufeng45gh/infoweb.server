@@ -640,10 +640,10 @@ public class SearchService {
 		} else {
 			query.setQuery(types);
 		}		
-		if (!StringUtil.isEmpty(city_id)) {
-			query.addFilterQuery("city_id:"+city_id);
-		}
-		
+//		if (!StringUtil.isEmpty(city_id)) {
+//			query.addFilterQuery("city_id:"+city_id);
+//		}
+//		
 		if (!StringUtil.isEmpty(type_b)) {
 			query.addFilterQuery("type_b:"+type_b);
 		}

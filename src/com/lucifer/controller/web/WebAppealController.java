@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.lucifer.dao.AppealDao;
 import com.lucifer.dao.CityDao;
 import com.lucifer.model.Appeal;
-import com.lucifer.model.BusinessService;
 import com.lucifer.model.BusinessType;
 import com.lucifer.model.City;
 import com.lucifer.service.BusinessTypeService;
