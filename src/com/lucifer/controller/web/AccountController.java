@@ -233,8 +233,18 @@ public class AccountController  {
 		userService.sendPass(telephone);
 		return Result.ok();
 	}
-
 	
-
+	/**
+	 * 登出
+	 * @return
+	 */
+	@RequestMapping(value = "/account/logout", method = RequestMethod.GET)
+	public String logout(HttpServletRequest request, HttpServletResponse response){		
+		Cookie cookie = new Cookie(CommonConstant.USER_ACCESS_TOKEN,null);
+		cookie.setPath("/");
+		cookie.setMaxAge(0);
+		response.addCookie(cookie);
+		return "redirect:/";
+	}
 	
 }
