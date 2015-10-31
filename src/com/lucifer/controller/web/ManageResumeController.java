@@ -119,10 +119,11 @@ public class ManageResumeController {
 		
 		City city = cityDao.getCity(resume.getCity_id());
 		resume.setCity(city);
-		
-		City parentCity = cityDao.getCity(city.getParent_id());
-		resume.setParentCity(parentCity);
-		
+		if (city != null) {
+			City parentCity = cityDao.getCity(city.getParent_id());
+			resume.setParentCity(parentCity);
+		}
+				
 		List<JobExperience> resumeJobExperienceList = resumeDao.resumeJobExprienceList(id);
 		request.setAttribute("resumeJobExperienceList", resumeJobExperienceList);
 		
