@@ -170,9 +170,11 @@ public class ManageResumeController {
 		
 		City city = cityDao.getCity(resume.getCity_id());
 		resume.setCity(city);
+		if (city != null) {
+			City parentCity = cityDao.getCity(city.getParent_id());
+			resume.setParentCity(parentCity);
+		}
 		
-		City parentCity = cityDao.getCity(city.getParent_id());
-		resume.setParentCity(parentCity);
 		
 //		Education oevaluation = Education.objectOf(resume.getEvaluation());
 //		resume.setOevaluation(oevaluation);
