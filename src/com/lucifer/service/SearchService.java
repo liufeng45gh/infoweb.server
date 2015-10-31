@@ -509,9 +509,10 @@ public class SearchService {
 			
 			City city = cityDao.getCity(resume.getCity_id());
 			resume.setCity(city);
-			
-			City parentCity = cityDao.getCity(city.getParent_id());
-			resume.setParentCity(parentCity);
+			if (null != city) {
+				City parentCity = cityDao.getCity(city.getParent_id());
+				resume.setParentCity(parentCity);
+			}						
 			resumeList.add(resume);
 		}
 		return resumeList;
