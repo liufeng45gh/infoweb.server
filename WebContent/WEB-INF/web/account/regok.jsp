@@ -19,7 +19,7 @@
 <body>
 <div id="header" class="win1000">
 	<a href="/" id="logo" style="left:20px;"><img src="/images/logo.png" alt="只为真正的实现资源共享"></a>
-	<div id="cityname" class="passwordname"><span>注册成功</span></div>
+	<div id="cityname" class="passwordname"  style="left:300px;"><span>注册成功</span></div>
 	<div id="login"><a style="margin: 0pt 10px;" target="_self" href="/manage/index.html">个人中心</a><a target="_self" href="/account/logout">退出</a></div>
 	<div id="logintext"><a href="/">返回首页</a></div>
 </div>
