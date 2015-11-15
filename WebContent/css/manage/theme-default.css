@@ -45,7 +45,7 @@ input[type="file"].valid {
 
 /* Element showing an inline error message */
 .form-error {
-    display: block;
+    display: inline-block;
     color: #b94a48;
     margin-top: 5px;
     margin-bottom: 10px;

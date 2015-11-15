@@ -66,6 +66,12 @@ public class ManageResumeController {
 				dateFormat, true));
 	}
 	
+	
+	/**
+	 * 简历首页
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping(value = "/manage/resume/list", method = RequestMethod.GET)
 	public String index(HttpServletRequest request){
 		User user = ViewHelper.getInstance().getWebTokenUser(request);
@@ -77,6 +83,11 @@ public class ManageResumeController {
 		return "/WEB-INF/web/manage/resume/index.jsp";
 	}
 	
+	/**
+	 * 新增简历
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping(value = "/manage/resume/add", method = RequestMethod.GET)
 	public String resumeAddInput(HttpServletRequest request){
 		User user = ViewHelper.getInstance().getWebTokenUser(request);
@@ -85,6 +96,13 @@ public class ManageResumeController {
 		return "/WEB-INF/web/manage/resume/resumeAdd.jsp";
 	}
 	
+	/**
+	 * 新增简历提交
+	 * @param user
+	 * @param resume
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping(value = "/manage/resume/add", method = RequestMethod.POST)
 	public String resumeAddSubmit(User user,Resume resume,HttpServletRequest request){
 			
@@ -104,6 +122,13 @@ public class ManageResumeController {
 		return "redirect:/manage/resume/update?id="+resume.getId();
 	}
 	
+	
+	/**
+	 * 修改简历
+	 * @param id
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping(value = "/manage/resume/update", method = RequestMethod.GET)
 	public String resumeUpdateInput(Long id,HttpServletRequest request){
 		User user = ViewHelper.getInstance().getWebTokenUser(request);
@@ -148,12 +173,21 @@ public class ManageResumeController {
 		return "/WEB-INF/web/manage/resume/resumeShow.jsp";
 	}
 	
-	
+	/**
+	 * 修改简历基本信息
+	 * @return
+	 */
 	@RequestMapping(value = "/manage/resume/simpleUpdate", method = RequestMethod.GET)
 	public String simpleInfoUpdateInput(){
 		return "/WEB-INF/web/manage/resume/resumeAdd.jsp";
 	}
 	
+	/**
+	 * 修改简历基本信息提交
+	 * @param id
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping(value = "/manage/resume/info/update", method = RequestMethod.GET)
 	public String resumeInfoUpdate(Long id,HttpServletRequest request){
 		
@@ -184,6 +218,13 @@ public class ManageResumeController {
 		return "/WEB-INF/web/manage/resume/resumeInfoUpdateSurface.jsp";
 	}
 	
+	/**
+	 * 修改简历
+	 * @param user
+	 * @param resume
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping(value = "/manage/resume/info/update", method = RequestMethod.POST)
 	public String resumeInfoUpdateSubmit(User user,Resume resume,HttpServletRequest request){
 		//resume.setId(CommonUtil.nextId());		
@@ -199,6 +240,11 @@ public class ManageResumeController {
 		return "redirect:/manage/resume/update?id="+resume.getId();
 	}
 	
+	/**
+	 * 关闭简历
+	 * @param id
+	 * @return
+	 */
 	@RequestMapping(value = "/manage/resume/close", method = RequestMethod.POST)
 	@ResponseBody
 	public Result close(Long id){
@@ -206,6 +252,11 @@ public class ManageResumeController {
 		return Result.ok();
 	}
 	
+	/**
+	 * 打开简历
+	 * @param id
+	 * @return
+	 */
 	@RequestMapping(value = "/manage/resume/open", method = RequestMethod.POST)
 	@ResponseBody
 	public Result open(Long id){
@@ -213,6 +264,12 @@ public class ManageResumeController {
 		return Result.ok();
 	}
 	
+	/**
+	 * 新增工作经验
+	 * @param resume_id
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping(value = "/manage/resume/experence/add", method = RequestMethod.GET)
 	public String experienceAddInput(Long resume_id,HttpServletRequest request){
 		request.setAttribute("resume_id", resume_id);
