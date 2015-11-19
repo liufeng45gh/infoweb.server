@@ -11,8 +11,8 @@
 <link href="/css/main.css" rel="stylesheet" type="text/css">
 <script src="/script/jquery-1.9.1.min.js" type="text/javascript"></script>
 <script src="/script/jquery-browser.js" type="text/javascript"></script>
-<script src="/script/formValidator-4.1.3.js" type="text/javascript"></script>
-<script src="/script/formValidatorRegex.js" type="text/javascript"></script>
+<script src="/script/jquery.form-validator.js" type="text/javascript"></script>
+
 
 
 
@@ -30,7 +30,7 @@
 #scrool1{margin-left:20px}
 .logpic{text-align:right;padding-right:5px;width:50px; color:#666; font-size:14px; float:left}
 #conright .loginbox{padding:0 23px 15px;line-height:20px;min-height:240px;}
-#conright .loginbox #pulogin{padding:0 20px;}
+
 #conright .loginbox .inp{width:210px; height:22px; line-height:22px; border:1px solid #ddd; float:left; margin:0; padding:8px 0; padding-left:10px; background:url(http://img.58cdn.com.cn/ui6/my/images/loginpbg.gif) repeat-x 0 0 #fff}
 #conright .loginbox #validatecode{width:60px; margin-right:3px; _margin-right:0; padding-top:4px; padding-bottom:4px; float:inherit; *margin-top:3px; _margin-top:0}
 #conright .loginbox #validatetr td{*padding-top:12px; _padding-top:8px}
@@ -140,13 +140,26 @@ html{overflow-y: scroll;}
 				
 				  <table>
 					  <tbody>
-					  <tr id="usernametr"><td><span class="logpic">账户名</span></td><td><input class="inp inw c_ccc useplaceholder" type="text" id="username" name="account" size="20" value="电子邮箱/手机号码" placeholderval="电子邮箱/手机号码" autocomplete="off"></td></tr>
-					  <tr id="passwordtr"><td><span class="logpic">密码</span></td><td><input type="password" style="display:none;"><input class="inp inw c_ccc pw useplaceholder" id="password" type="password" name="password" size="20" placeholderval="" autocomplete="off" maxlength="16"></td></tr>
-					  <tr id="validatecodetr"><td><span class="logpic">验证码</span></td><td><input class="inp inw c_ccc " id="validatecode"  name="check_code" size="4"  autocomplete="off" maxlength="4"><img align="absmiddle" onclick="refreshValidatecode(); return false" name="vcodeImg" id="vcodeImg" style="cursor: pointer; height: 32px;" src="/captcha-image"><a onclick="refreshValidatecode(); return false" href="javascript:void(0)" class="f12">看不清？</a></td></tr>
+					  <tr id="usernametr">
+					  <td> <span class="logpic">账户名</span></td>
+					  <td><input class="inp inw  useplaceholder"   name="account" size="20"  placeholderval="电子邮箱/手机号码"  data-validation="required" ></td>
+					  </tr>
+					  <tr id="passwordtr">
+					  <td><span class="logpic">密码</span></td>
+					  <td><input class="inp inw  pw useplaceholder"  type="password" name="password" size="20"  maxlength="16" data-validation="required"></td>
+					  </tr>
+					  <tr id="validatecodetr">
+						  <td><span class="logpic">验证码</span></td>
+						  <td>
+						  			<input class="inp inw"   name="check_code"  maxlength="4" data-validation="required" style="width:100px;">
+						  			<img align="absmiddle" onclick="refreshValidatecode(); return false" name="vcodeImg" id="vcodeImg" style="cursor: pointer; height: 32px; margin-left:10px;" src="/captcha-image">
+						  			<a onclick="refreshValidatecode(); return false" href="javascript:void(0)" class="f12">看不清？</a>
+						  </td>
+					  </tr>
 					  <tr>
 					  	<td></td>
 						  <td style="padding: 0pt;">
-							  <input type="checkbox" style="vertical-align: middle;padding:0;margin:0;" id="coks" value="on" name="remember">
+							  <input type="checkbox" style="vertical-align: middle; padding:0;margin:0;" id="coks" value="on" name="remember">
 							  <label class="logintip" for="coks">下次自动登录 </label>
 							  <span class="reg-a"><a href="/">忘记密码</a> </span>
 						  </td>
@@ -171,22 +184,19 @@ html{overflow-y: scroll;}
 		</div>
 		<div class="c"></div>
 	</div>
+	</form>
 	<div id="footer" class="win900">
 		<p>© dbdbd.cn </p>
 	</div>
 
 <script src="/script/web/login.js" type="text/javascript"></script>
-
-
 <script type="text/javascript">
-                        function refreshValidatecode(){
-                           document.getElementById('vcodeImg').src='/captcha-image?random='+ Math.random();
-                        }
-                      
+         function refreshValidatecode(){
+            document.getElementById('vcodeImg').src='/captcha-image?random='+ Math.random();
+         }    
+         $.validate({
+     		modules : 'date, security'
+     });
  </script>
-
-
-
-
-
-</body></html>
+</body>
+</html>
