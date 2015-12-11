@@ -53,7 +53,7 @@
 </style>
 	</head>
 	<body>
-		<div id="particleground" style="position:absolute;z-index:-1;">
+		<div id="particleground" style="position:absolute;z-index:-1;width:100%;height:100%;">
 		
 		</div>
 		<div id="header" class="win1000">
