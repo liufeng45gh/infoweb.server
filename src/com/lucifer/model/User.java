@@ -6,6 +6,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import com.lucifer.enumeration.Education;
+import com.lucifer.enumeration.Gender;
 import com.lucifer.util.StringUtil;
 
 
@@ -160,6 +161,9 @@ public class User {
 	}
 
 	public String getGender() {
+		if (this.gender == null) {
+			return Gender.male.getKey();
+		}
 		return gender;
 	}
 

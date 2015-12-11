@@ -18,8 +18,8 @@
 <link rel="stylesheet" href="/regist_success_files/login_6_v20150304144336.css" type="text/css"><script type="text/javascript" src="./regist_success_files/c.php"></script></head>
 <body>
 <div id="header" class="win1000">
-	<a id="logo" href="http://www.58.com/"><img alt="中文最大生活信息门户" src="/regist_success_files/logo-49h.gif"></a>
-	<div id="cityname" class="passwordname"><span>注册成功</span></div>
+	<a href="/" id="logo" style="left:20px;"><img src="/images/logo.png" alt="只为真正的实现资源共享"></a>
+	<div id="cityname" class="passwordname"  style="left:300px;"><span>注册成功</span></div>
 	<div id="login"><a style="margin: 0pt 10px;" target="_self" href="/manage/index.html">个人中心</a><a target="_self" href="/account/logout">退出</a></div>
 	<div id="logintext"><a href="/">返回首页</a></div>
 </div>
