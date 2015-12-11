@@ -8,16 +8,14 @@
 	<head>
 <title>注册会员-兴业联盟网</title>
 <link href="/css/main.css" rel="stylesheet" type="text/css">
-	<link rel="Shortcut Icon" href="/images/favicon.ico"
-		type="image/x-icon">
-		<link rel="stylesheet" type="text/css"
-			href="/css/manage/theme-default.css">
-		<script src="/script/jquery-1.9.1.min.js" type="text/javascript"></script>
-		<script src="/script/jquery.form-validator.js" type="text/javascript"></script>
-
+<link rel="Shortcut Icon" href="/images/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" type="text/css"href="/css/manage/theme-default.css">
+<script src="/script/jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/script/jquery.form-validator.js" type="text/javascript"></script>
+<script src="/script/jquery/jquery.particleground.min.js" type="text/javascript"></script>
 		
-			<link rel="stylesheet" href="/css/login_6_v0.css" type="text/css">
-				<style>
+<link rel="stylesheet" href="/css/login_6_v0.css" type="text/css">
+<style>
 .porleft p {
 	height: 35px;
 }
@@ -182,7 +180,13 @@
 		<script type="text/javascript" src="/script/web/register2.js"></script>
 		<script>
 		  
-			
+		$(document).ready(function() {
+			  $('body').particleground({
+			    dotColor: '#5cbdaa',
+			    lineColor: '#5cbdaa'
+			  });
+			 
+			});	
 			
 		</script>
 	</body>
