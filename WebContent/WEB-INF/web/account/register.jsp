@@ -53,6 +53,9 @@
 </style>
 	</head>
 	<body>
+		<div id="particleground" style="position:absolute;z-index:-1;">
+		
+		</div>
 		<div id="header" class="win1000">
 			<a id="logo" href="/"><img alt="只为实现真正的资源共享"
 				src="/images/logo.png"></a>
@@ -181,7 +184,7 @@
 		<script>
 		  
 		$(document).ready(function() {
-			  $('body').particleground({
+			  $('#particleground').particleground({
 			    dotColor: '#5cbdaa',
 			    lineColor: '#5cbdaa'
 			  });
