@@ -66,10 +66,10 @@
 				<a href="/">返回首页</a>
 			</div>
 		</div>
-		<div class="cb win1000">
+		<div class="cb win1000" style="background: none;">
 			<form id="submitForm" action="/account/register" method="post"
 				name="submitForm">
-				<div class="porleft">
+				<div class="porleft" style="background: #fff;">
 					<input type="hidden" name="ptk" id="ptk"
 						value="bc084984af2c476baae6aac3fd54c04d"> <input
 						type="hidden" name="cd" id="cd" value="4125">
