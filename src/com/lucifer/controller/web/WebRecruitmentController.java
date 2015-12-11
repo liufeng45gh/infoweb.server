@@ -22,10 +22,8 @@ import com.lucifer.model.Company;
 import com.lucifer.model.Industry;
 import com.lucifer.model.Job;
 import com.lucifer.model.Position;
-import com.lucifer.model.User;
 import com.lucifer.service.SearchService;
 import com.lucifer.util.StringUtil;
-import com.lucifer.util.ViewHelper;
 
 @Controller
 public class WebRecruitmentController {
