@@ -12,6 +12,7 @@
 <script src="/script/jquery-1.9.1.min.js" type="text/javascript"></script>
 <script src="/script/jquery-browser.js" type="text/javascript"></script>
 <script src="/script/jquery.form-validator.js" type="text/javascript"></script>
+<script src="/script/animation/verlet-1.0.0.js" type="text/javascript"></script>
 
 
 
@@ -110,9 +111,7 @@ html{overflow-y: scroll;}
 	
 	<div class="cb win900">
 		<div id="conleft">
-			<div id="2001" style="margin-top:70px;">
-				<a style="background:url(/images/login_sj.jpg) no-repeat scroll 0 0 transparent; display:block;" id="login-welcome-bg" href="/" target="_blank"></a>
-				</div>
+			<canvas id="scratch" style="width: 800px; height: 500px;"></canvas>
 		</div>
 		<div id="conright">
 			<div class="scrool-bg">
@@ -198,5 +197,6 @@ html{overflow-y: scroll;}
      		modules : 'date, security'
      });
  </script>
+ <script src="/script/web/tow_tree.js" type="text/javascript"></script>
 </body>
 </html>
