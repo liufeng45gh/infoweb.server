@@ -185,8 +185,8 @@
 		  
 		$(document).ready(function() {
 			  $('#particleground').particleground({
-			    dotColor: '#5cbdaa',
-			    lineColor: '#5cbdaa'
+			    dotColor: '#555',
+			    lineColor: '#555'
 			  });
 			 
 			});	
