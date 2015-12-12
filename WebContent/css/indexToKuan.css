@@ -105,9 +105,9 @@ td{ text-align:left;}
 .zhinantitle{float:left; width:95%; padding:5px 0 0 10px; overflow:hidden; }
 .zhinantitle2{clear:both; margin:0px 0 0 0 ; padding:15px 0 0 10px;}
 .znmore{ width:100%; text-align:right; margin:0 0 0 0; clear:both;}
-
+#bar_left{margin-right:10px; height:24px; float:left; overflow:hidden; position:relative;  z-index:99999;margin:0; padding:0; text-align:left;}
 #login{margin-right:10px; height:24px; float:right; overflow:hidden; position:relative;  z-index:99999;margin:0; padding:0; text-align:right;}
-#login a{margin:0 0 0 10px; padding:0;}
+#login a{margin:0 0 0 10px; padding:0;float:left;}
 #history{ float:right;  width:65px; height:28px; border:solid 1px #E8F8F8; border-bottom:0px; margin:0; margin-right:10px; padding:0; z-index:9999; text-align:center;display:none; }
 
 .xx{ display:none; width:165px; position:absolute; background:#F4F4F4; float:right; border:0px;border:solid 1px #E8F8F8; }

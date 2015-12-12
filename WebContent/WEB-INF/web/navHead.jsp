@@ -7,10 +7,14 @@
 %>
 <div id="topbar">
 		<div id="stats" class="stats">
+			<div id="bar_left">
+				<span>搜索简历&nbsp;</span><span style="color:red;" >[对外开放] [永久免费]</span>
+			</div>
 
 			<% if (null == webTokenUser){%>
 			<div id="login">
 				<a href="/account/login">登录</a>
+				<span class="gap">|</span>
 				<a href="/account/register">注册</a>
 			</div>
 			<%} else { %>

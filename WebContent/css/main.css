@@ -121,3 +121,12 @@
 .simple_button a{
 	color: white;
 }
+.gap {
+    color: #ccc;
+    margin: 0 6px;
+    margin-top: 0px;
+    margin-right: 6px;
+    margin-bottom: 0px;
+    margin-left: 6px;
+    font-family: '宋体';
+}
