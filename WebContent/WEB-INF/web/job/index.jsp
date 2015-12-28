@@ -71,7 +71,7 @@
 		</form>
 		<jsp:include page="listBlock.jsp" />
 	</div>
-	
+
 	<jsp:include page="../foot.jsp"></jsp:include>
 </body>
 </html>

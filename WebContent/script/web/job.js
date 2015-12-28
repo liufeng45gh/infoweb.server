@@ -20,3 +20,19 @@ function initWelfares(init_str){
 		}
 	});
 }
+
+function selectAll() {
+    var checks = document.getElementsByName("job_ids");
+    if (checks == null ||  checks.length <= 0) {
+    	 return;
+    }
+    if (checks[0].checked) {        
+            for (var i = 0; i < checks.length; i++) {
+                checks[i].checked = false;
+            }        
+    } else {       
+            for (var i = 0; i < checks.length; i++) {
+                checks[i].checked = true;;
+            }
+    }
+}

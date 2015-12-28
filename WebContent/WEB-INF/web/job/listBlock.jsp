@@ -11,7 +11,7 @@
     			 <c:forEach var="job" items="${jobList}" varStatus="status">
                 <dl class="list-noimg job-list">
                     <dt>
-                        <span><input type="checkbox" ></span>
+                        <span><input type="checkbox"  name="job_ids"></span>
                         <span class="mouse">
                         <a href="/job/${job.id }" target="_blank" class="list_title">${job.title }</a>                        
                         </span>
@@ -23,6 +23,7 @@
                 </dl>
                 </c:forEach>                
          </div>
+         	<div style="margin-top:10px;"><div class="simple_button"  onclick="selectAll();">全选</div> <div class="simple_button" style="margin-left:20px;">申请选中职位</div></div>
 </div>
 <div class="page">
     <div class="paginator">
