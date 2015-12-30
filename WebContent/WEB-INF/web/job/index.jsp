@@ -73,6 +73,7 @@
 	</div>
 
 	<jsp:include page="../foot.jsp"></jsp:include>
+	<jsp:include page="../common/alertMessage.jsp"></jsp:include>
 </body>
 </html>
 <script src="/script/web/pselect.js"></script>

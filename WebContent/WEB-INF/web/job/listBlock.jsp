@@ -23,7 +23,10 @@
                 </dl>
                 </c:forEach>                
          </div>
-         	<div style="margin-top:10px;"><div class="simple_button"  onclick="selectAll();">全选</div> <div class="simple_button" style="margin-left:20px;">申请选中职位</div></div>
+         	<div style="margin-top:10px;">
+         		<div class="simple_button"  onclick="selectAll();">全选</div> 
+         		<div class="simple_button" style="margin-left:20px;" onclick="applySelect();">申请选中职位</div>
+         	</div>
 </div>
 <div class="page">
     <div class="paginator">

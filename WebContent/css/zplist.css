@@ -1,4 +1,4 @@
-@import url(common.css);
+
 a{text-decoration:none;outline:none;blr:expression(this.onFocus=this.blur()); color:#1155cc}
 a:hover{text-decoration:none}
 

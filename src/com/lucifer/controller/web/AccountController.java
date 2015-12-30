@@ -169,6 +169,12 @@ public class AccountController  {
 		request.setAttribute("title", "登陆");
 		return "/WEB-INF/web/account/login.jsp";
 	}
+	
+	@RequestMapping(value = "/account/pop-login", method = RequestMethod.GET)
+	public String popLoginInput(HttpServletRequest request) {
+		request.setAttribute("title", "登陆");
+		return "/WEB-INF/web/account/popLogin.jsp";
+	}
 
 	@RequestMapping(value = "/account/login.json", method = RequestMethod.POST)
 	@ResponseBody

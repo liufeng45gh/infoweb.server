@@ -32,6 +32,10 @@
 			<mvc:mapping path="/manage/*"/>
 			<bean class="com.lucifer.interceptor.WebLoginCheckInterceptor"></bean>
 		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/job/resume-select"/>
+			<bean class="com.lucifer.interceptor.WebPopLoginInterceptor"></bean>
+		</mvc:interceptor>
 	</mvc:interceptors>
 	<aop:aspectj-autoproxy/>
 

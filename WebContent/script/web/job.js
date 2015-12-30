@@ -36,3 +36,39 @@ function selectAll() {
             }
     }
 }
+
+function selectedIds() {
+    var selectedIds = [];
+    var checks = document.getElementsByName("job_ids");
+    if (!checks || checks.length == 0) {
+        return selectedIds;
+    }
+
+    for (var i = 0; i < checks.length; i++) {
+        if (!checks[i].checked) {
+            continue;
+        }
+
+        selectedIds.push(checks[i].value);
+    }
+
+    return selectedIds;
+}
+
+
+function applySelect() {	
+	 var _selectedIds = selectedIds();	 
+	 if  (_selectedIds.length == 0) {
+		 layer.alert("请选择至少一个职位!");
+		 return;
+	 }
+	 layer.open({
+		    type: 2,
+		    title: '',
+		    shadeClose: true,
+		    shade: 0.8,
+		    area: ['440px', '450px'],
+		    content: '/job/resume-select' //iframe的url
+		}); 
+
+}

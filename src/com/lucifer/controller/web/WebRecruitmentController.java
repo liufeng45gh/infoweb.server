@@ -5,6 +5,8 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,14 +18,18 @@ import com.lucifer.dao.CityDao;
 import com.lucifer.dao.IndustryDao;
 import com.lucifer.dao.PositionDao;
 import com.lucifer.dao.RecruitmentDao;
+import com.lucifer.dao.ResumeDao;
 import com.lucifer.dao.UserDao;
 import com.lucifer.model.City;
 import com.lucifer.model.Company;
 import com.lucifer.model.Industry;
 import com.lucifer.model.Job;
 import com.lucifer.model.Position;
+import com.lucifer.model.Resume;
+import com.lucifer.model.User;
 import com.lucifer.service.SearchService;
 import com.lucifer.util.StringUtil;
+import com.lucifer.util.ViewHelper;
 
 @Controller
 public class WebRecruitmentController {
@@ -45,6 +51,11 @@ public class WebRecruitmentController {
 	
 	@Resource
 	private UserDao userDao;
+	
+	@Resource
+	private ResumeDao resumeDao;
+	
+	private static  Log log = LogFactory.getLog(WebRecruitmentController.class);
 	
 
 	
@@ -101,5 +112,16 @@ public class WebRecruitmentController {
 //		Industry industry = industryDao.getIndustry(company.getIndustry_id());
 //		company.setIndustry(industry);
 		return "/WEB-INF/web/job/show.jsp";
+	}
+	
+	@RequestMapping(value = "/job/resume-select", method = RequestMethod.GET)
+	public String myResultSelect(HttpServletRequest request){		
+		User user = ViewHelper.getInstance().getWebTokenUser(request);
+		List<Resume> resumeList = resumeDao.userResumeList(user.getId());
+		request.setAttribute("user", user);
+		request.setAttribute("resumeList", resumeList);
+		log.info("resumeList size: "+resumeList.size());
+		log.info("user.getId is "+user.getId());
+		return "/WEB-INF/web/job/resumeSelect.jsp";		
 	}
 }

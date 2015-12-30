@@ -9,6 +9,7 @@
 <link href="/css/main.css" rel="stylesheet" type="text/css">
 <script src="/script/common.js" type="text/javascript"></script>
 <script src="/script/jquery-1.9.1.min.js" type="text/javascript"></script>
+<script  type="text/javascript" src="/script/layer/layer.js"></script>
 
 <meta name="mobile-agent" content="format=xhtml;http://www.dbdbd.cn">
 <meta name="keywords" content="招聘-搜简历-找工作-商务服务-求助-投融资">
