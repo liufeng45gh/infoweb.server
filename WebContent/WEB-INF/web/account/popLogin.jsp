@@ -13,13 +13,6 @@
 <script src="/script/jquery-browser.js" type="text/javascript"></script>
 <script src="/script/jquery.form-validator.js" type="text/javascript"></script>
 <script src="/script/animation/verlet-1.0.0.js" type="text/javascript"></script>
-
-
-
-
-
-
-
 <link rel="stylesheet" href="/css/login_6_v20150304144336.css" type="text/css"><style type="text/css">
 *:focus {outline: none}
 #conright{background:#ffffff; border-bottom:4px solid #f9f9f9; padding-bottom:0;width:404px;}
@@ -59,9 +52,6 @@ html{overflow-y: scroll;}
 
 .reglink{float:right;right:12px;line-height: 22px;text-align: right;}
 .link-login span.lots{color:#cccccc;}
-
-
-
 #tipwrap{position: absolute;top: 38px;width: 100%;text-align: center;}
 
 
@@ -85,9 +75,6 @@ html{overflow-y: scroll;}
 .tablogin .tel-icon{background-position:0px -40px;}
 .tablogin .tel-icon:hover,.tablogin .active .tel-icon{background-position:0px -61px;text-decoration:none;color:#f4691c;}
 
-
-
-
 .error_message_login{
 	position: absolute;
 	font-size: 22px;
@@ -96,18 +83,13 @@ html{overflow-y: scroll;}
 }
 
 </style>
-
-
 </head>
 <body>
-<form name="submitForm" method="post" action="/account/login" id="submitForm" >
-
+<form name="submitForm" method="post" action="/account/login" id="submitForm"  target="_top" >
 	<div id="login-header" style="height:auto;">	
 		<div class="error_message_login"><span style="color:red;"><c:out value="${KEY_RESULT_MESSAGE}"  /></span></div>		
-	</div>
-	
-	<div class="cb" style="margin-bootom:0px;">
-		
+	</div>	
+	<div class="cb" style="margin-bootom:0px;">		
 		<div id="conright" style="margin-top: 10px;">
 			<div class="scrool-bg" style="min-height:auto;">
 				<div class="login_name" id="login_name">
@@ -117,10 +99,7 @@ html{overflow-y: scroll;}
 						<li id="login_tab_orig" class="cur">账号登录</li>
 					</ul>
 					<div class="c"></div>
-				</div>
-                
-				                
-                
+				</div>               
 			  <div class="loginbox" style="">
                 <div class="tablogin ">
                   <ul class="clearfix">
@@ -160,27 +139,21 @@ html{overflow-y: scroll;}
 					  </tr>
 					  <tr id="logintr">
 					  	<td></td>
-						  <td>
-							  
-							  <input type="submit"  value="登录"  class="simple_button"  >
-							  
+						  <td>							  
+							  <input type="submit"  value="登录"  class="simple_button"  >							  
 						  </td>
 					  </tr>
-				  </tbody></table>
-				</div>
-				
+				  </tbody>
+				  </table>
+				</div>				
                 </div>
 				<div class="link-login" style="">
 					<span class="lots"><a class="reglink" href="/account/register"  target="_top">免费注册</a></span>                    
-				 </div>
-				
+				 </div>				
 			</div><!--scrool bg-->
-		</div>
-		
+		</div>		
 	</div>
 	</form>
-	
-
 <script src="/script/web/login.js" type="text/javascript"></script>
 <script type="text/javascript">
          function refreshValidatecode(){
@@ -190,6 +163,5 @@ html{overflow-y: scroll;}
      		modules : 'date, security'
      });
  </script>
-
 </body>
 </html>

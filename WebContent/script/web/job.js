@@ -62,6 +62,7 @@ function applySelect() {
 		 layer.alert("请选择至少一个职位!");
 		 return;
 	 }
+	 setSessionCookie("login_redirect_url",window.location.href);
 	 layer.open({
 		    type: 2,
 		    title: '',
@@ -70,5 +71,4 @@ function applySelect() {
 		    area: ['440px', '450px'],
 		    content: '/job/resume-select' //iframe的url
 		}); 
-
 }
