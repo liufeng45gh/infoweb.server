@@ -17,6 +17,7 @@ import org.apache.commons.httpclient.HttpException;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -193,7 +194,7 @@ public class AccountController  {
 
 	@RequestMapping(value = "/account/login", method = RequestMethod.POST)
 	public String login(String account, String password,String check_code,
-			HttpServletRequest request, HttpServletResponse response)
+			HttpServletRequest request, HttpServletResponse response,@CookieValue(value="login_redirect_url",required=false)String login_redirect_url)
 			throws Exception {
 		
 		String realCheckCode = (String) request.getSession().getAttribute(
@@ -211,8 +212,9 @@ public class AccountController  {
 				user.getToken());
 		cookie.setPath("/");
 		response.addCookie(cookie);
-		String login_redirect_url = ViewHelper.getInstance().getCookie(request, CommonConstant.LOGIN_REDIRECT_URL);
+		//String login_redirect_url = ViewHelper.getInstance().getCookie(request, CommonConstant.LOGIN_REDIRECT_URL);
 		if (!StringUtil.isEmpty(login_redirect_url)) {
+			login_redirect_url = StringUtil.decodeURIComponent(login_redirect_url);
 			return "redirect:"+login_redirect_url;
 		}
 		return "redirect:/manage/index";

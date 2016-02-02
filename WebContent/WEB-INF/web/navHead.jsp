@@ -19,7 +19,8 @@
 			</div>
 			<%} else { %>
 			<div id="login">
-				欢迎:<a href="/manage/index.html"> <%=webTokenUser.showName()%>【进入会员中心】</a>
+				<span style="float:left;">欢迎:</span><a href="/manage/index.html"> <%=webTokenUser.showName()%>【进入会员中心】</a>
+				<span style="float:left;margin-left:10px;">|</span> <a id="logout_link" target="_self" href="/account/logout">退出</a>
 			</div>
 			<%} %>
 			<div onmouseover="s()" onmouseout="h()" id="xx" class="xx"></div>

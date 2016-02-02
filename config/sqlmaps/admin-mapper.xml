@@ -19,7 +19,5 @@
   <update id="adminUpdatePassowrd">
   	update admin_user set password=#{password} where id=#{id};
   </update>
-  
-  
-	
+  	
 </mapper>

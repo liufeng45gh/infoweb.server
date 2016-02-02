@@ -14,8 +14,7 @@
                      <em id="viewtop_top_banner" style="position: relative;">
                          <a target="_self" href="/manage/index.html" title="进入会员中心" style="margin: 0px 5px 0px 0px; background-position: 60px -759px;"><%=webTokenUser.showName() %>【进入会员中心】</a>
                          | <a id="logout_link" target="_self" href="/account/logout">退出</a>
-                     </em>
-                     
+                     </em>                    
                  </span>
              </div>
            

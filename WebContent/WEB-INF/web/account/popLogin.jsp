@@ -17,23 +17,13 @@
 *:focus {outline: none}
 #conright{background:#ffffff; border-bottom:4px solid #f9f9f9; padding-bottom:0;width:404px;}
 .scrool-bg{border:2px solid #dedede; background:none;width:400px;padding:25px 0 0;overflow:hidden;height:auto!important;height:406px;min-height:406px;position:relative;}
-.logintit{background:#fffdcc; border:1px solid #f2e2ad; padding:5px 10px; line-height:22px; overflow:hidden}
-.logintit .red{color:#f23f0f}
-.logintit input,.logintit label{margin:0;cursor:pointer; vertical-align:middle; display:inline-block}
-.logintit label{padding-left:6px; _margin-top:3px}
-#scrool1{margin-left:20px}
+
+
 .logpic{text-align:right;padding-right:5px;width:50px; color:#666; font-size:14px; float:left}
 #conright .loginbox{padding:0 23px 15px;line-height:20px;min-height:240px;}
 
 #conright .loginbox .inp{width:210px; height:22px; line-height:22px; border:1px solid #ddd; float:left; margin:0; padding:8px 0; padding-left:10px; background:url(http://img.58cdn.com.cn/ui6/my/images/loginpbg.gif) repeat-x 0 0 #fff}
-#conright .loginbox #validatecode{width:60px; margin-right:3px; _margin-right:0; padding-top:4px; padding-bottom:4px; float:inherit; *margin-top:3px; _margin-top:0}
-#conright .loginbox #validatetr td{*padding-top:12px; _padding-top:8px}
-#conright .loginbox input.wrong_color{border:1px solid #f7611e;background-color:#fff}
-#conright .loginbox input.action_color{border:1px solid #a7c0f1;height:22px; background-color:#fff}
-#conright .loginbox .logpic.wrong_color,#conright .loginbox .logpic.action_color{background-color:#fff; border:1px solid #a7c0f1; height:38px; border-right:none}
-#conright .loginbox input.pw,#conright .loginbox input.pw_wc{background:url(http://img.58cdn.com.cn/ui6/my/images/passwordbg.png?20120814) no-repeat 0 0}
-#conright .mid{ background:none; border:none; color:#f23f0f; height:21px; line-height:21px; padding:0 10px 0 60px; width:235px; position:static;}
-#conright .mid .conn{line-height:20px; line-height:22px\9; _line-height:20px; overflow:hidden}
+
 .loginbox table td{padding:4px 0}
 #passwordtr td{padding-bottom:0; *padding-bottom:5px; _padding-bottom:0}
 .link-login{ border-top:1px solid #eeeeee; padding-top:15px;padding-bottom:8px;padding-left:14px;padding-right:18px;position:relative;bottom:0;left:0;width: 364px;}
@@ -41,28 +31,25 @@
 html{overflow-y: scroll;}
 .clearfix{ zoom: 1;}
 .clearfix:after{ content: '.'; font-size: 0; height: 0; visibility: hidden; display: block; clear: both;}
-.logininfo{height: auto;}
+
 .login_name{width: 100%;background-color:#f3f3f7;}
 .scrool-bg{padding-top: 0;}
 #conright .loginbox{margin-top: 24px;}
 /*weixin default*/
-.loico{background:none;padding:0 9px;color:#666666;}
-#login_sina{padding-left:0;}
-#login_renren{padding-right:0;border-right:none;}
+
 
 .reglink{float:right;right:12px;line-height: 22px;text-align: right;}
 .link-login span.lots{color:#cccccc;}
-#tipwrap{position: absolute;top: 38px;width: 100%;text-align: center;}
 
 
-#showtip{padding-top:245px;text-align: center;}
-#showtip a{color:#b8b8b8;}
+
+
 #usernametr,#passwordtr,#logintr{height:60px;}
 /*qq default*/
 .login_ul li { display: inline-block; width: 133px; background: #f3f3f7; cursor: pointer; text-align: center; height: 43px; line-height: 43px; margin-top: 0; float: left; border-bottom: solid 1px #dedede; font-size: 14px; font-weight: bold; color: #666666; border-left: solid 1px #dedede; }
 .login_ul li.first { border-left: none; width: 132px;}
 .login_ul li.cur { background: #ffffff; border-bottom: #ffffff 1px solid; color: #000000; }
-#login-welcome-bg { width: 500px; height: 400px; }
+
 #conleft { width: 500px; }
 
 
@@ -81,6 +68,8 @@ html{overflow-y: scroll;}
 	top: 40px;
 	left: 520px;
 }
+
+.form-error{height:40px;line-height:40px;margin-left:5px;color:red;}
 
 </style>
 </head>
@@ -154,7 +143,7 @@ html{overflow-y: scroll;}
 		</div>		
 	</div>
 	</form>
-<script src="/script/web/login.js" type="text/javascript"></script>
+
 <script type="text/javascript">
          function refreshValidatecode(){
             document.getElementById('vcodeImg').src='/captcha-image?random='+ Math.random();

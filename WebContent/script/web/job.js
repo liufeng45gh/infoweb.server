@@ -62,7 +62,7 @@ function applySelect() {
 		 layer.alert("请选择至少一个职位!");
 		 return;
 	 }
-	 setSessionCookie("login_redirect_url",window.location.href);
+	 setSessionCookie("login_redirect_url",encodeURIComponent(window.location.href));
 	 layer.open({
 		    type: 2,
 		    title: '',

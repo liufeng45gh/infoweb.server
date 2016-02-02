@@ -11,6 +11,8 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -96,5 +98,28 @@ public class StringUtil {
 			return null;
 		}
 	}
+	
+	   public static String decodeURIComponent(String s)
+	    {
+	        if (s == null)
+	        {
+	            return null;
+	        }
+
+	        String result = null;
+
+	        try
+	        {
+	            result = URLDecoder.decode(s, "UTF-8");
+	        }
+
+	        // This exception should never occur.
+	        catch (UnsupportedEncodingException e)
+	        {
+	            result = s;
+	        }
+
+	        return result;
+	    }
 
 }
