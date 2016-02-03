@@ -11,7 +11,7 @@
 
 <body>
     
-<jsp:include page="../navigation.jsp"></jsp:include> 
+
 
 
 
@@ -78,7 +78,7 @@
             </div>
                 <!--左侧菜单开始 -->
                 
-				<jsp:include page="left.jsp"></jsp:include>
+				
 
 
 
@@ -87,7 +87,7 @@
 
         </div>
         
-<jsp:include page="../footer.jsp"></jsp:include>
+
     
 <script type="text/javascript">
 $("#left_menu_list").addClass("current");
