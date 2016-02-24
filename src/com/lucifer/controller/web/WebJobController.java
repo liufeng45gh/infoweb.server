@@ -13,11 +13,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lucifer.dao.CityDao;
 import com.lucifer.dao.IndustryDao;
 import com.lucifer.dao.PositionDao;
-import com.lucifer.dao.RecruitmentDao;
+import com.lucifer.dao.JobDao;
 import com.lucifer.dao.ResumeDao;
 import com.lucifer.dao.UserDao;
 import com.lucifer.model.City;
@@ -27,12 +28,14 @@ import com.lucifer.model.Job;
 import com.lucifer.model.Position;
 import com.lucifer.model.Resume;
 import com.lucifer.model.User;
+import com.lucifer.service.JobService;
 import com.lucifer.service.SearchService;
+import com.lucifer.util.Result;
 import com.lucifer.util.StringUtil;
 import com.lucifer.util.ViewHelper;
 
 @Controller
-public class WebRecruitmentController {
+public class WebJobController {
 	
 	@Resource
 	private IndustryDao industryDao;
@@ -47,7 +50,7 @@ public class WebRecruitmentController {
 	private SearchService searchService;
 	
 	@Resource
-	private RecruitmentDao recruitmentDao;
+	private JobDao recruitmentDao;
 	
 	@Resource
 	private UserDao userDao;
@@ -55,7 +58,10 @@ public class WebRecruitmentController {
 	@Resource
 	private ResumeDao resumeDao;
 	
-	private static  Log log = LogFactory.getLog(WebRecruitmentController.class);
+	@Resource
+	private JobService jobService;
+	
+	private static  Log log = LogFactory.getLog(WebJobController.class);
 	
 
 	
@@ -123,5 +129,11 @@ public class WebRecruitmentController {
 		log.info("resumeList size: "+resumeList.size());
 		log.info("user.getId is "+user.getId());
 		return "/WEB-INF/web/job/resumeSelect.jsp";		
+	}
+	
+	@ResponseBody
+	public Result applyJobs(String jobIds,Long resume_id){
+		
+		return Result.ok();
 	}
 }

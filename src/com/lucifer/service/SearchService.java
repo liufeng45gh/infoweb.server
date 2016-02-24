@@ -24,7 +24,7 @@ import org.springframework.stereotype.Service;
 import com.lucifer.dao.AppealDao;
 import com.lucifer.dao.BusinessServiceDao;
 import com.lucifer.dao.CityDao;
-import com.lucifer.dao.RecruitmentDao;
+import com.lucifer.dao.JobDao;
 import com.lucifer.dao.ResumeDao;
 import com.lucifer.dao.UserDao;
 import com.lucifer.model.Appeal;
@@ -68,7 +68,7 @@ public class SearchService {
 	private ResumeDao resumeDao;
 	
 	@Resource
-	private RecruitmentDao recruitmentDao;
+	private JobDao recruitmentDao;
 	
 	@Resource
 	private BusinessServiceDao businessServiceDao;

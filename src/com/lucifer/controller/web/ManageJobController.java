@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.lucifer.dao.CityDao;
 import com.lucifer.dao.IndustryDao;
 import com.lucifer.dao.PositionDao;
-import com.lucifer.dao.RecruitmentDao;
+import com.lucifer.dao.JobDao;
 import com.lucifer.model.City;
 import com.lucifer.model.Company;
 import com.lucifer.model.Industry;
@@ -24,10 +24,10 @@ import com.lucifer.util.Result;
 import com.lucifer.util.ViewHelper;
 
 @Controller
-public class ManageRecruitmentController {
+public class ManageJobController {
 
 	@Resource
-	private RecruitmentDao recruitmentDao;
+	private JobDao recruitmentDao;
 	
 	@Resource
 	private IndustryDao industryDao;

@@ -14,7 +14,7 @@ import com.lucifer.model.Resume;
 import com.lucifer.util.CommonUtil;
 
 @Service
-public class RecruitmentDao  extends IBatisBaseDao{
+public class JobDao  extends IBatisBaseDao{
 
 	public void saveOrUpdateCompany(Company company){
 		if (null == company.getId()) {
