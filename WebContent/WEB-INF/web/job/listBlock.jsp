@@ -11,7 +11,7 @@
     			 <c:forEach var="job" items="${jobList}" varStatus="status">
                 <dl class="list-noimg job-list">
                     <dt>
-                        <span><input type="checkbox"  name="job_ids"></span>
+                        <span><input type="checkbox"  name="job_ids" value="${job.id }"></span>
                         <span class="mouse">
                         <a href="/job/${job.id }" target="_blank" class="list_title">${job.title }</a>                        
                         </span>

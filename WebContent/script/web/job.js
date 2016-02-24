@@ -72,3 +72,41 @@ function applySelect() {
 		    content: '/job/resume-select' //iframe的url
 		}); 
 }
+
+function applyJob(resume_id){
+	var _selectedIds = selectedIds();	 
+	 if  (_selectedIds.length == 0) {
+		 layer.alert("请选择至少一个职位!");
+		 return;
+	 }
+	 var jobIds = "";
+	 for (i = 0; i<_selectedIds.length; i++) {
+		 if (i==0) {
+			 jobIds = _selectedIds[i]; 
+		 } else {
+			 jobIds = jobIds + "," + _selectedIds[i]; 
+		 }
+	 }
+	 var data_send = {};
+	 data_send.resume_id = resume_id;
+	 data_send.jobIds = jobIds;
+	 var apply_request =$.ajax({
+		   type: 'post',
+		   url: '/job/apply',
+		   data: data_send,
+		   dataType: 'json'
+		});
+
+	 apply_request.fail(function( jqXHR, textStatus ) {
+		  if(jqXHR.status==401){
+		     //openWeiboLogin();
+			  
+		  }
+		});
+		
+	 apply_request.done(function(data) {
+		 layer.close();
+		 layer.alert("已成功申请职位" + data.data + "条");
+		});
+	 
+}

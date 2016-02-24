@@ -70,4 +70,12 @@ public class JobDao  extends IBatisBaseDao{
 		param.put("count", count);
 		return  sqlSession.selectList("jobListOrderByUpdatedAt", param);
 	}
+	
+	public void applyJob(Long job_id,Long resume_id){
+		Map param = new HashMap();
+		param.put("id", CommonUtil.nextId());
+		param.put("job_id", job_id);
+		param.put("resume_id", resume_id);
+		sqlSession.insert("applyJob",param);
+	}
 }

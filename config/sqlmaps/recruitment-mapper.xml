@@ -54,4 +54,7 @@
 	</if> 
   order by updated_at limit #{count}
   </select>
+  <insert id="applyJob">
+  insert into job_apply (id,job_id,resume_id,created_at,updated_at) values (#{id},#{job_id},#{resume_id},now(),now())
+  </insert>
 </mapper>

@@ -131,9 +131,10 @@ public class WebJobController {
 		return "/WEB-INF/web/job/resumeSelect.jsp";		
 	}
 	
+	@RequestMapping(value = "/job/apply", method = RequestMethod.POST)
 	@ResponseBody
 	public Result applyJobs(String jobIds,Long resume_id){
-		
-		return Result.ok();
+		Integer jobCount = jobService.applyJobs(jobIds, resume_id);
+		return Result.ok(jobCount);
 	}
 }

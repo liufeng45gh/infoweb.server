@@ -41,9 +41,8 @@
                         </table>
                         
                         <div class="clearfix">&nbsp;</div>
-                        
-                        
-                        <a   class="simple_button" style="margin-top:10px;display:block;float:right;margin-right:30px;" href="#" onclick="return false;">确认选择</a>
+                                             
+                        <a   class="simple_button" style="margin-top:10px;display:block;float:right;margin-right:30px;" href="#" onclick="openApplyJob();return false;">确认选择</a>
                        
                     </div>
                    
@@ -62,7 +61,11 @@
         
 
     
-
+<script type="text/javascript">
+function openApplyJob(){
+	
+}
+</script>
 
 
 </body></html>
