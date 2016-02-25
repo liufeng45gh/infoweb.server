@@ -29,9 +29,8 @@
                                 <tr class="bg-blue height24">
                                     <td style="text-align:center">简历名称</td>
                                     <td style="text-align:center" width="15%">更新日期</td>
-                                    <td style="text-align:center" width="20%">公开设置</td>
-                                    <td style="text-align:center" width="8%">面试邀请</td>
-                                    <td style="text-align:center" width="8%">投递次数</td>
+                                    <td style="text-align:center" width="20%">姓名</td>
+
                                     <td style="text-align:center" width="25%">操作</td>
                                 </tr>
                                
@@ -41,14 +40,12 @@
                                          (正常显示)  
                                      </td>
                                      <td style="text-align:center"><fmt:formatDate value="${resume.updated_at}" pattern="yyyy-MM-dd HH:mm"/></td>
-                                     <td style="text-align:center"><c:if test="${resume.open == 1}">公开</c:if><c:if test="${resume.open != 1}">关闭</c:if></td>
-                                     <td style="text-align:center">0</td>
-                                     <td style="text-align:center">0</td>
+                                     <td style="text-align:center">${resume.user.showName() }</td>
+
                                      <td style="text-align:center">
-                                         <a href="/manage/resume/update?id=${resume.id }" target="_blank">修改</a>
-                                         | <a href="javascript:refreshResume(${resume.id });" class="js_auto_refresh_list" >刷新</a>
-                                         | <c:if test="${resume.open == 1}"><a href="javascript:closeResume(${resume.id });" class="ev_kaiqi_guanbi_post" >关闭</a></c:if>
-                                         <c:if test="${resume.open != 1}"><a href="javascript:openResume(${resume.id });" class="ev_kaiqi_guanbi_post" >公开</a></c:if>
+                                         <a href="/manage/resume/update?id=${resume.id }" target="_blank">发送面试邀请</a>
+                                         | <a href="javascript:refreshResume(${resume.id });" class="js_auto_refresh_list" >忽略简历</a>
+
                                          
                                      </td>
                                  </tr>
@@ -62,12 +59,10 @@
                         
                         <div class="clearfix">&nbsp;</div>
                         <div class="myresume_tip clearfix text-left gray">
-                            公开设置： 您可以设置您的简历公开程度。<br>
-                            刷新： 刷新后将您的简历显示在列表页最高位置(置顶帖下方)，每个用户每天只能使用1次刷新功能。<br>
-                            关闭：企业将无法主动查看您的简历，如需恢复请修改公开设置。
+                            发送面试邀请： 可以给用户发送一条信息。<br>
+                            忽略： 此简历将被移除列表。<br>
                         </div>
                         
-                        <a   class="simple_button" style="margin-top:20px;display:block;" href="/manage/resume/add">添加一份简历</a>
                        
                     </div>
                     <div class="rightfoot">
@@ -90,7 +85,7 @@
 <jsp:include page="../footer.jsp"></jsp:include>
     
 <script type="text/javascript">
-$("#left_menu_list").addClass("current");
+$("#left_menu_received").addClass("current");
 </script>
 <script src="/script/web/manage/resume.js"></script>
 

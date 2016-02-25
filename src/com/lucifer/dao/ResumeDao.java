@@ -206,4 +206,14 @@ public class ResumeDao  extends IBatisBaseDao {
 		param.put("count", count);
 		return  sqlSession.selectList("resumeListOrderByUpdatedAt", param);
 	}
+	
+	public List<Resume> userReceivedResumeList(Integer page,Long user_id){
+		Integer count = 20;
+		Integer offset = (page-1)*count;
+		Map param = new HashMap();
+		param.put("offset", offset);
+		param.put("count", count);
+		param.put("user_id", user_id);
+		return  sqlSession.selectList("userReceivedResumeList", param);
+	}
 }

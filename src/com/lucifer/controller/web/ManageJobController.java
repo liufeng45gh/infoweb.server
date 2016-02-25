@@ -8,17 +8,21 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lucifer.dao.CityDao;
 import com.lucifer.dao.IndustryDao;
 import com.lucifer.dao.PositionDao;
+import com.lucifer.dao.ResumeDao;
+import com.lucifer.dao.UserDao;
 import com.lucifer.dao.JobDao;
 import com.lucifer.model.City;
 import com.lucifer.model.Company;
 import com.lucifer.model.Industry;
 import com.lucifer.model.Job;
 import com.lucifer.model.Position;
+import com.lucifer.model.Resume;
 import com.lucifer.model.User;
 import com.lucifer.util.Result;
 import com.lucifer.util.ViewHelper;
@@ -34,11 +38,15 @@ public class ManageJobController {
 	
 	@Resource
 	private PositionDao positionDao;
-	
-	
-	
+		
 	@Resource
 	private CityDao cityDao;
+	
+	@Resource
+	private ResumeDao resumeDao;
+	
+	@Resource
+	private UserDao userDao;
 	
 	@RequestMapping(value = "/manage/recruitment/list", method = RequestMethod.GET)
 	public String index(){
@@ -157,5 +165,18 @@ public class ManageJobController {
 		recruitmentDao.deleteJob(id);
 		return Result.ok();
 		
+	}
+	
+	
+	@RequestMapping(value = "/manage/job/received-resumes", method = RequestMethod.GET)
+	public String myReceivedResumeList(@RequestParam(required=false,defaultValue="1") Integer page,HttpServletRequest request){
+		User user = ViewHelper.getInstance().getWebTokenUser(request);
+		List<Resume> resumeList = resumeDao.userReceivedResumeList(page, user.getId());
+		for (Resume resume:resumeList) {
+			User resumeUser = userDao.get(resume.getUser_id());
+			resume.setUser(resumeUser);
+		}
+		request.setAttribute("resumeList", resumeList);
+		return "/WEB-INF/web/manage/recruitment/myReceivedResumeList.jsp";
 	}
 }

@@ -195,4 +195,12 @@
 	<delete id="deleteExpand">
 	delete from expand where id = #{id}
 	</delete>
+	<select id="userReceivedResumeList" resultType="com.lucifer.model.Resume">
+		select resume.* from job_apply 
+		left outer join resume on job_apply.resume_id = resume.id
+		left outer join job on job.id = job_apply.job_id
+		where job.user_id = #{user_id} 
+		order by job_apply.id desc
+		limit #{offset},#{count}
+	</select>
 </mapper>
