@@ -55,6 +55,7 @@ function selectedIds() {
     return selectedIds;
 }
 
+var resume_select_index = 0;
 
 function applySelect() {	
 	 var _selectedIds = selectedIds();	 
@@ -63,7 +64,7 @@ function applySelect() {
 		 return;
 	 }
 	 setSessionCookie("login_redirect_url",encodeURIComponent(window.location.href));
-	 layer.open({
+	 var resume_select_index =layer.open({
 		    type: 2,
 		    title: '',
 		    shadeClose: true,
@@ -105,7 +106,7 @@ function applyJob(resume_id){
 		});
 		
 	 apply_request.done(function(data) {
-		 layer.close();
+		 layer.closeAll('iframe');
 		 layer.alert("已成功申请职位" + data.data + "条");
 		});
 	 

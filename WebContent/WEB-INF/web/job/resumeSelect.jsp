@@ -7,7 +7,7 @@
 
 <jsp:include page="../head.jsp"></jsp:include>
 
-<link rel="stylesheet" type="text/css" href="/css/myresume.css">
+
 
 <body>
         <div class="globalContainer clearfix">
@@ -25,7 +25,7 @@
                                
                                  <c:forEach var="resume" items="${resumeList}" varStatus="status">
                                  <tr style="height:30px;">
-                                 	<td style="text-align:center"><input type="checkbox"></td>
+                                 	<td style="text-align:center"><input type="checkbox" onclick="clearChecked(this)" class="resume_checkbox" value="${resume.id}"></td>
                                      <td style="text-align:center">${resume.title}
                                          (正常显示)  
                                      </td>
@@ -63,7 +63,24 @@
     
 <script type="text/javascript">
 function openApplyJob(){
-	
+	var resume_id = null;
+	$(".resume_checkbox").each(function () {
+		if (this.checked) {
+			resume_id = this.value;
+		}
+	});
+	if (resume_id == null) {
+		alert("请选择简历");
+	}
+	window.parent.applyJob(resume_id);
+}
+
+function clearChecked(object){
+	$(".resume_checkbox").each(function () {
+		if (this != object) {
+			this.checked = false;
+		}
+	});
 }
 </script>
 
