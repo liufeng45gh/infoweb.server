@@ -16,6 +16,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lucifer.dao.CityDao;
@@ -28,6 +29,7 @@ import com.lucifer.model.City;
 import com.lucifer.model.EducationExperience;
 import com.lucifer.model.Expand;
 import com.lucifer.model.Industry;
+import com.lucifer.model.JobApply;
 import com.lucifer.model.JobExperience;
 import com.lucifer.model.Language;
 import com.lucifer.model.Position;
@@ -35,6 +37,7 @@ import com.lucifer.model.ProjectExperience;
 import com.lucifer.model.Resume;
 import com.lucifer.model.Train;
 import com.lucifer.model.User;
+import com.lucifer.service.ResumeService;
 import com.lucifer.util.CommonUtil;
 import com.lucifer.util.Result;
 import com.lucifer.util.ViewHelper;
@@ -56,6 +59,9 @@ public class ManageResumeController {
 	
 	@Resource
 	private CityDao cityDao;
+	
+	@Resource
+	private ResumeService resumeService;
 	
 	private static  Log log = LogFactory.getLog(ManageResumeController.class);
 	
@@ -530,6 +536,14 @@ public class ManageResumeController {
 	public Result expandDelete(Long id){
 		resumeDao.deleteExpand(id);
 		return Result.ok();
+	}
+	
+	@RequestMapping(value = "/manage/resume/apply-record", method = RequestMethod.GET)
+	public String applyRecord(HttpServletRequest request,@RequestParam(required=false,defaultValue="1") Integer page){
+		User user = ViewHelper.getInstance().getWebTokenUser(request);
+		List<JobApply> jobApplyList = resumeService.userJobApplyRecord(page, user.getId());
+		request.setAttribute("jobApplyList", jobApplyList);
+		return "/WEB-INF/web/manage/resume/applyRecordList.jsp";
 	}
 	
 

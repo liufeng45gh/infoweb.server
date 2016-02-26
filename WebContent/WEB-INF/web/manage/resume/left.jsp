@@ -8,7 +8,7 @@
             <div class="sdmenu">                                   
                  <li id="left_menu_add"><a href="/manage/resume/add">添加一份简历</a></li>
                  <li id="left_menu_list"><a href="/manage/resume/list" >我的简历信息</a></li>
-                 <li><a href="my_delivery_resume_list.aspx" class="">简历投递记录</a></li>
+                 <li id="left_menu_apply_record"><a href="/manage/resume/apply-record" class="">简历投递记录</a></li>
                  <li><a href="my_receive_interview_list.aspx" class="">收到面试邀请</a></li>                                    
             </div>
         </ul>
