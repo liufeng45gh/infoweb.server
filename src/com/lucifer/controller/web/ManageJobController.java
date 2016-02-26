@@ -21,6 +21,7 @@ import com.lucifer.model.City;
 import com.lucifer.model.Company;
 import com.lucifer.model.Industry;
 import com.lucifer.model.Job;
+import com.lucifer.model.JobApply;
 import com.lucifer.model.Position;
 import com.lucifer.model.Resume;
 import com.lucifer.model.User;
@@ -31,7 +32,7 @@ import com.lucifer.util.ViewHelper;
 public class ManageJobController {
 
 	@Resource
-	private JobDao recruitmentDao;
+	private JobDao jobDao;
 	
 	@Resource
 	private IndustryDao industryDao;
@@ -56,7 +57,7 @@ public class ManageJobController {
 	@RequestMapping(value = "/manage/recruitment/company", method = RequestMethod.GET)
 	public String company(HttpServletRequest request){
 		User user = ViewHelper.getInstance().getWebTokenUser(request);
-		Company company = recruitmentDao.getUserCompany(user.getId());
+		Company company = jobDao.getUserCompany(user.getId());
 		request.setAttribute("company", company);
 		
 		Industry industry = industryDao.getIndustry(company.getIndustry_id());
@@ -80,7 +81,7 @@ public class ManageJobController {
 	public String companyUpdateSubmit(Company company,HttpServletRequest request){
 		User user = ViewHelper.getInstance().getWebTokenUser(request);
 		company.setUser_id(user.getId());
-		recruitmentDao.saveOrUpdateCompany(company);
+		jobDao.saveOrUpdateCompany(company);
 		return "redirect:/manage/recruitment/company";
 	}
 	
@@ -88,7 +89,7 @@ public class ManageJobController {
 	public String jobAdd(HttpServletRequest request){
 		
 		User user = ViewHelper.getInstance().getWebTokenUser(request);		
-		Company company = recruitmentDao.getUserCompany(user.getId());
+		Company company = jobDao.getUserCompany(user.getId());
 		if (null == company) {
 			return "redirect:/manage/recruitment/company_init";
 		}
@@ -100,14 +101,14 @@ public class ManageJobController {
 		User user = ViewHelper.getInstance().getWebTokenUser(request);
 		job.setUser_id(user.getId());
 		
-		recruitmentDao.insertJob(job);
+		jobDao.insertJob(job);
 		return "redirect:/manage/job/list";
 	}
 	
 	@RequestMapping(value = "/manage/job/list", method = RequestMethod.GET)
 	public String jobList(HttpServletRequest request){
 		User user = ViewHelper.getInstance().getWebTokenUser(request);
-		List<Job> jobList = recruitmentDao.userJobList(user.getId());
+		List<Job> jobList = jobDao.userJobList(user.getId());
 		request.setAttribute("jobList", jobList);
 		for (Job job :jobList) {
 			Position position = positionDao.getPosition(job.getPosition_id());
@@ -122,13 +123,13 @@ public class ManageJobController {
 	@RequestMapping(value = "/manage/job/refresh", method = RequestMethod.POST)
 	@ResponseBody
 	public Result refresh(Long id){
-		recruitmentDao.refreshJob(id);
+		jobDao.refreshJob(id);
 		return Result.ok();
 	}
 	
 	@RequestMapping(value = "/manage/job/update", method = RequestMethod.GET)
 	public String jobUpdateInput(Long id,HttpServletRequest request) throws Exception{
-		Job job = recruitmentDao.getJob(id);
+		Job job = jobDao.getJob(id);
 		User user = ViewHelper.getInstance().getWebTokenUser(request);
 		if (!job.getUser_id().equals(user.getId())) {
 			throw new Exception("you have not allow to edit");
@@ -150,19 +151,19 @@ public class ManageJobController {
 	
 	@RequestMapping(value = "/manage/job/update", method = RequestMethod.POST)
 	public String jobUpdateSubmit(Job job){
-		recruitmentDao.updateJob(job);
+		jobDao.updateJob(job);
 		return "redirect:/manage/job/update?id="+job.getId();
 	}
 	
 	@RequestMapping(value = "/manage/job/delete", method = RequestMethod.POST)
 	@ResponseBody
 	public Result deleteJob(Long id,HttpServletRequest request) throws Exception{
-		Job job = recruitmentDao.getJob(id);
+		Job job = jobDao.getJob(id);
 		User user = ViewHelper.getInstance().getWebTokenUser(request);
 		if (!job.getUser_id().equals(user.getId())) {
 			throw new Exception("you have not allow to edit");
 		}
-		recruitmentDao.deleteJob(id);
+		jobDao.deleteJob(id);
 		return Result.ok();
 		
 	}
@@ -171,12 +172,22 @@ public class ManageJobController {
 	@RequestMapping(value = "/manage/job/received-resumes", method = RequestMethod.GET)
 	public String myReceivedResumeList(@RequestParam(required=false,defaultValue="1") Integer page,HttpServletRequest request){
 		User user = ViewHelper.getInstance().getWebTokenUser(request);
-		List<Resume> resumeList = resumeDao.userReceivedResumeList(page, user.getId());
-		for (Resume resume:resumeList) {
+		List<JobApply> jobApplyList = jobDao.userReceivedResumeList(page, user.getId());
+		for (JobApply jobApply:jobApplyList) {
+			Resume resume = resumeDao.get(jobApply.getResume_id());
 			User resumeUser = userDao.get(resume.getUser_id());
 			resume.setUser(resumeUser);
+			jobApply.setResume(resume);
 		}
-		request.setAttribute("resumeList", resumeList);
+		request.setAttribute("jobApplyList", jobApplyList);
 		return "/WEB-INF/web/manage/recruitment/myReceivedResumeList.jsp";
+	}
+	
+	@RequestMapping(value = "/manage/job/ignore-resume", method = RequestMethod.POST)
+	@ResponseBody
+	public Result ignoreResume(Long apply_id,HttpServletRequest request){
+		User user = ViewHelper.getInstance().getWebTokenUser(request);
+		jobDao.ignoreResume(apply_id);
+		return Result.ok();
 	}
 }

@@ -983,3 +983,30 @@ margin: -4px 9px 0 0;
   background: #82b200;
   color: #fff;
 }
+.paginator {
+    float: left;
+    width: 766px;
+    text-align: center;
+    height: 50px;
+    font: 14px Arial, Helvetica, sans-serif;
+    padding: 10px 20px 10px 0;
+    margin: 0px;
+    margin-top: 15px;
+}
+.paginator a {
+    padding: 2px 6px;
+    border: solid 1px #ddd;
+    background: #fff;
+    text-decoration: none;
+    margin-right: 2px;
+}
+.paginator .cpb, .paginator .current {
+    color: #fff;
+    font-weight: bold;
+    font-size: 13px;
+    padding: 2px 6px;
+    border: solid 1px #F0FFF0;
+    background: #E05241;
+    text-decoration: none;
+    margin-right: 2px;
+}

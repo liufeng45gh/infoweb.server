@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.lucifer.dao.base.IBatisBaseDao;
 import com.lucifer.model.Company;
 import com.lucifer.model.Job;
+import com.lucifer.model.JobApply;
 import com.lucifer.model.Resume;
 import com.lucifer.util.CommonUtil;
 
@@ -77,5 +78,19 @@ public class JobDao  extends IBatisBaseDao{
 		param.put("job_id", job_id);
 		param.put("resume_id", resume_id);
 		sqlSession.insert("applyJob",param);
+	}
+	
+	public List<JobApply> userReceivedResumeList(Integer page,Long user_id){
+		Integer count = 20;
+		Integer offset = (page-1)*count;
+		Map param = new HashMap();
+		param.put("offset", offset);
+		param.put("count", count);
+		param.put("user_id", user_id);
+		return  sqlSession.selectList("userReceivedResumeList", param);
+	}
+	
+	public Integer ignoreResume(Long apply_id){
+		return  sqlSession.update("ignoreResume",apply_id);
 	}
 }

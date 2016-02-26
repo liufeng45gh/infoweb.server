@@ -1,6 +1,7 @@
 <%@ page language="java" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@page import="com.lucifer.util.ViewHelper" %>
 <!DOCTYPE html>
 <!-- saved from url=(0061)http://user.qd8.com.cn/users/usbaselist/users_emailcheck.aspx -->
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -34,17 +35,17 @@
                                     <td style="text-align:center" width="25%">操作</td>
                                 </tr>
                                
-                                 <c:forEach var="resume" items="${resumeList}" varStatus="status">
+                                 <c:forEach var="jobApply" items="${jobApplyList}" varStatus="status">
                                  <tr>
-                                     <td><a href="/resume/${resume.id}" target="_blank">${resume.title}</a>
+                                     <td><a href="/resume/${jobApply.resume.id}" target="_blank">${jobApply.resume.title}</a>
                                          (正常显示)  
                                      </td>
-                                     <td style="text-align:center"><fmt:formatDate value="${resume.updated_at}" pattern="yyyy-MM-dd HH:mm"/></td>
-                                     <td style="text-align:center">${resume.user.showName() }</td>
+                                     <td style="text-align:center"><fmt:formatDate value="${jobApply.resume.updated_at}" pattern="yyyy-MM-dd HH:mm"/></td>
+                                     <td style="text-align:center">${jobApply.resume.user.showName() }</td>
 
                                      <td style="text-align:center">
                                          <a href="/manage/resume/update?id=${resume.id }" target="_blank">发送面试邀请</a>
-                                         | <a href="javascript:refreshResume(${resume.id });" class="js_auto_refresh_list" >忽略简历</a>
+                                         | <a href="javascript:ignoreResume(${jobApply.id });" class="js_auto_refresh_list" >忽略简历</a>
 
                                          
                                      </td>
@@ -58,11 +59,16 @@
                         </table>
                         
                         <div class="clearfix">&nbsp;</div>
+                         
                         <div class="myresume_tip clearfix text-left gray">
                             发送面试邀请： 可以给用户发送一条信息。<br>
                             忽略： 此简历将被移除列表。<br>
                         </div>
-                        
+                       <div class="page">
+						    <div class="paginator">   	
+						    	<%= ViewHelper.willPaginate(request,Integer.MAX_VALUE, 20, new String []{"page"}) %>       
+						    </div>
+						</div> 
                        
                     </div>
                     <div class="rightfoot">
@@ -71,6 +77,7 @@
                     </div>
                 </div>
             </div>
+           
                 <!--左侧菜单开始 -->
                 
 				<jsp:include page="left.jsp"></jsp:include>

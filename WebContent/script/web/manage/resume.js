@@ -644,3 +644,29 @@ function modifyExpand(id){
 		$("#modify_inner_div").html(data); 
 	});
 }
+
+function ignoreResume(apply_id){
+	if (!confirm("确认忽略？")) {
+		return ;
+	}
+	var send_data={};
+	   //alert(1);
+	send_data.random = Math.random();
+	send_data.apply_id = apply_id;
+	var account_request =$.ajax({
+	   type: 'post',
+	   url: '/manage/job/ignore-resume',
+	   data: send_data,
+	   dataType: 'html'
+	});
+
+	account_request.fail(function( jqXHR, textStatus ) {
+	  if(jqXHR.status==401){
+	     //openWeiboLogin();		  
+	  }
+	});
+	
+	account_request.done(function(data) {
+		window.location.reload();
+	});
+}

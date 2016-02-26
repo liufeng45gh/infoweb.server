@@ -55,6 +55,18 @@
   order by updated_at limit #{count}
   </select>
   <insert id="applyJob">
-  insert into job_apply (id,job_id,resume_id,created_at,updated_at) values (#{id},#{job_id},#{resume_id},now(),now())
+  insert into job_apply (id,job_id,resume_id,created_at,updated_at,is_ignore) values (#{id},#{job_id},#{resume_id},now(),now(),0)
   </insert>
+  <select id="userReceivedResumeList" resultType="com.lucifer.model.JobApply">
+		select job_apply.* from job_apply 
+		
+		left outer join job on job.id = job_apply.job_id
+		where job.user_id = #{user_id} 
+		and job_apply.is_ignore = 0
+		order by job_apply.id desc
+		limit #{offset},#{count}
+	</select>
+	<update id="ignoreResume">
+	update job_apply set is_ignore = 1 where id = #{apply_id}
+	</update>
 </mapper>
