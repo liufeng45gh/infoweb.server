@@ -69,4 +69,10 @@
 	<update id="ignoreResume">
 	update job_apply set is_ignore = 1 where id = #{apply_id}
 	</update>
+	<select id="getJobApply" resultType="com.lucifer.model.JobApply">
+	select * from job_apply where id = #{apply_id}
+	</select>
+	<insert id="insertInterview">
+	insert into interview (id,job_id,resume_id,content,created_at,updated_at) values (#{id},#{job_id},#{resume_id},#{content},#{created_at},#{updated_at})
+	</insert>
 </mapper>

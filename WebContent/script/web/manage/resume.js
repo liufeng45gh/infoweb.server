@@ -670,3 +670,35 @@ function ignoreResume(apply_id){
 		window.location.reload();
 	});
 }
+
+function sendInterviewInvitation(apply_id){
+	layer.prompt({
+	    formType: 2,
+	    value: '',
+	    title: '请给求职者捎句话吧,加上面试时间'
+	}, function(value, index, elem){
+	    //alert(value); //得到value
+	    layer.close(index);
+	    var send_data={};
+		   //alert(1);
+		send_data.random = Math.random();
+		send_data.apply_id = apply_id;
+		send_data.content = value;
+		var account_request =$.ajax({
+		   type: 'post',
+		   url: '/manage/job/send-interview',
+		   data: send_data,
+		   dataType: 'json'
+		});
+
+		account_request.fail(function( jqXHR, textStatus ) {
+		  if(jqXHR.status==401){
+		     //openWeiboLogin();		  
+		  }
+		});
+		
+		account_request.done(function(data) {
+			layer.msg('邀请已经发出!');
+		});
+	});
+}

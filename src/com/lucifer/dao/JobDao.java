@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.lucifer.dao.base.IBatisBaseDao;
 import com.lucifer.model.Company;
+import com.lucifer.model.Interview;
 import com.lucifer.model.Job;
 import com.lucifer.model.JobApply;
 import com.lucifer.model.Resume;
@@ -92,5 +93,16 @@ public class JobDao  extends IBatisBaseDao{
 	
 	public Integer ignoreResume(Long apply_id){
 		return  sqlSession.update("ignoreResume",apply_id);
+	}
+	
+	public JobApply getJobApply(Long apply_id){
+		return  (JobApply)sqlSession.selectOne("getJobApply",apply_id);	
+	}
+	
+	public Integer insertInterview(Interview interview){
+		interview.setId(CommonUtil.nextId());
+		interview.setCreated_at(new Date());
+		interview.setUpdated_at(new Date());
+		return sqlSession.insert("insertInterview",interview);
 	}
 }

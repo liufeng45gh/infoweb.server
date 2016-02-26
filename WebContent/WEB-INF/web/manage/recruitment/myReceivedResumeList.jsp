@@ -44,7 +44,7 @@
                                      <td style="text-align:center">${jobApply.resume.user.showName() }</td>
 
                                      <td style="text-align:center">
-                                         <a href="/manage/resume/update?id=${resume.id }" target="_blank">发送面试邀请</a>
+                                         <a href="javascript:sendInterviewInvitation(${jobApply.id });"  class="js_auto_refresh_list">发送面试邀请</a>
                                          | <a href="javascript:ignoreResume(${jobApply.id });" class="js_auto_refresh_list" >忽略简历</a>
 
                                          

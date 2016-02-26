@@ -25,6 +25,7 @@ import com.lucifer.model.JobApply;
 import com.lucifer.model.Position;
 import com.lucifer.model.Resume;
 import com.lucifer.model.User;
+import com.lucifer.service.JobService;
 import com.lucifer.util.Result;
 import com.lucifer.util.ViewHelper;
 
@@ -48,6 +49,9 @@ public class ManageJobController {
 	
 	@Resource
 	private UserDao userDao;
+	
+	@Resource
+	private JobService jobService;
 	
 	@RequestMapping(value = "/manage/recruitment/list", method = RequestMethod.GET)
 	public String index(){
@@ -189,5 +193,14 @@ public class ManageJobController {
 		User user = ViewHelper.getInstance().getWebTokenUser(request);
 		jobDao.ignoreResume(apply_id);
 		return Result.ok();
+	}
+	
+	@RequestMapping(value = "/manage/job/send-interview", method = RequestMethod.POST)
+	@ResponseBody	
+	public Result sendInterviewInvitation(Long apply_id,HttpServletRequest request,String content){
+		User user = ViewHelper.getInstance().getWebTokenUser(request);
+		jobService.sendInterviewInvitation(apply_id, content);
+		return Result.ok();
+		
 	}
 }
