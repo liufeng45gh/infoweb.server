@@ -12,6 +12,7 @@ import com.lucifer.dao.base.IBatisBaseDao;
 import com.lucifer.model.Certificate;
 import com.lucifer.model.EducationExperience;
 import com.lucifer.model.Expand;
+import com.lucifer.model.Interview;
 import com.lucifer.model.JobApply;
 import com.lucifer.model.JobExperience;
 import com.lucifer.model.Language;
@@ -216,6 +217,20 @@ public class ResumeDao  extends IBatisBaseDao {
 		param.put("count", count);
 		param.put("user_id", user_id);
 		return sqlSession.selectList("userJobApplyRecord",param);
+	}
+	
+	public List<Interview> receiveInterviewList(Integer page,Long user_id){
+		Integer count = 20;
+		Integer offset = (page-1)*count;
+		Map param = new HashMap();
+		param.put("offset", offset);
+		param.put("count", count);
+		param.put("user_id", user_id);
+		return sqlSession.selectList("receiveInterviewList",param);
+	}
+	
+	public Interview getInterview(Long id) {
+		return (Interview)sqlSession.selectOne("getInterview",id);
 	}
 	
 	

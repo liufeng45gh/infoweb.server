@@ -15,6 +15,10 @@ public class Interview {
 	private Date created_at;
 	
 	private Date updated_at;
+	
+	private Job job;
+	
+	private Resume resume;
 
 	public Long getId() {
 		return id;
@@ -62,6 +66,22 @@ public class Interview {
 
 	public void setUpdated_at(Date updated_at) {
 		this.updated_at = updated_at;
+	}
+
+	public Job getJob() {
+		return job;
+	}
+
+	public void setJob(Job job) {
+		this.job = job;
+	}
+
+	public Resume getResume() {
+		return resume;
+	}
+
+	public void setResume(Resume resume) {
+		this.resume = resume;
 	}
 	
 	

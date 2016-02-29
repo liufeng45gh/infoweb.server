@@ -14,6 +14,7 @@ import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,6 +30,7 @@ import com.lucifer.model.City;
 import com.lucifer.model.EducationExperience;
 import com.lucifer.model.Expand;
 import com.lucifer.model.Industry;
+import com.lucifer.model.Interview;
 import com.lucifer.model.JobApply;
 import com.lucifer.model.JobExperience;
 import com.lucifer.model.Language;
@@ -544,6 +546,22 @@ public class ManageResumeController {
 		List<JobApply> jobApplyList = resumeService.userJobApplyRecord(page, user.getId());
 		request.setAttribute("jobApplyList", jobApplyList);
 		return "/WEB-INF/web/manage/resume/applyRecordList.jsp";
+	}
+	
+	@RequestMapping(value = "/manage/resume/received-interview", method = RequestMethod.GET)
+	public String receivedInterview(HttpServletRequest request,@RequestParam(required=false,defaultValue="1") Integer page){
+		User user = ViewHelper.getInstance().getWebTokenUser(request);
+		List<Interview> interviewList = resumeService.receiveInterviewList(page, user.getId());
+		request.setAttribute("interviewList", interviewList);
+		return "/WEB-INF/web/manage/resume/receivedInterviewList.jsp";
+	}
+	
+	@RequestMapping(value = "/manage/interview/{id}", method = RequestMethod.GET)
+	public String showInterview(HttpServletRequest request,@PathVariable Long id){
+		User user = ViewHelper.getInstance().getWebTokenUser(request);
+		Interview interview = resumeService.getInterview(id);
+		request.setAttribute("interview", interview);
+		return "/WEB-INF/web/manage/resume/interview.show.jsp";
 	}
 	
 

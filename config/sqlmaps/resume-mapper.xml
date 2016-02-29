@@ -202,4 +202,15 @@
 	where resume.user_id = #{user_id}
 	order by job_apply.id desc limit #{offset},#{count}
 	</select>
+	
+	<select id="receiveInterviewList" resultType="com.lucifer.model.Interview">
+	select interview.* from interview 
+	left outer join resume on interview.resume_id=resume.id
+	where resume.user_id = #{user_id}
+	order by interview.id desc limit #{offset},#{count}
+	</select>
+	<select id="getInterview" resultType="com.lucifer.model.Interview">
+	select interview.* from interview 	
+	where id = #{id}
+	</select>
 </mapper>
