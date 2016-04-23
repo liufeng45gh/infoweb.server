@@ -10,7 +10,7 @@
 	<jsp:include page="navagation.jsp"></jsp:include>
 	<div class=" fl_main fl_main_12" >
 		<form action="/resume" id="search_from">
-		<div class="clear">
+		<div class="clear" style="margin-top:30px;">
 			<div class="search_element">
 				<div  class="label h30">职位类别</div>
 					 <div class="item-info select_input_div">
@@ -53,7 +53,7 @@
 			<div class="search_element">
 				<div class="label h30">关键词</div>
 				<div style="float: left;">
-					<input style="width: 300px; height: 30px; ;" id="title" name="title" value="${resume.title}" />
+					<input style="width: 300px; height: 25px; ;" id="title" name="title" value="${resume.title}" />
 				</div>
 				<div style="margin-left:125px;">
 					<span>热门搜索： <a href="/resume">ios</a>
