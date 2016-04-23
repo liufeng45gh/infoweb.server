@@ -28,10 +28,10 @@ public class WebIndexController {
 
 	@RequestMapping(value = {"/","/index"}, method = RequestMethod.GET)
 	public String index(HttpServletRequest request){
-		request.setAttribute("positionTopList", positionService.getPositionTopList());
-		
-		List<BusinessType> businessTypeTopList = businessTypeService.getBusinessTypeTopList();
-		request.setAttribute("businessTypeTopList", businessTypeTopList);
+//		request.setAttribute("positionTopList", positionService.getPositionTopList());
+//		
+//		List<BusinessType> businessTypeTopList = businessTypeService.getBusinessTypeTopList();
+//		request.setAttribute("businessTypeTopList", businessTypeTopList);
 		
 		return "/WEB-INF/web/index.jsp";
 	}

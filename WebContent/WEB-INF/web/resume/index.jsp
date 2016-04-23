@@ -77,3 +77,8 @@
 </html>
 <script src="/script/web/pselect.js"></script>
 <script src="/script/web/resume.js"></script>
+<script type="text/javascript">
+<!--
+$("#tab_resume").addClass("on");
+//-->
+</script>
