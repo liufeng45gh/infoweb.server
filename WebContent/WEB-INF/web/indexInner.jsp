@@ -3,10 +3,10 @@
 <div class="clear">
 	<div class="p20 lolBox mt20">
 		<div class="title titleLive">
-			<h3>图片专区</h3>
+			<h3>广告专区</h3>
 			<ul class="Clear fl" id="photoTab">
 				<li class="mask" ></li>
-				<li class="active" style="margin-left:-20px;">最新图片</li>
+				<li class="active" style="margin-left:-20px;">最新合作</li>
 				
 			</ul>
 			<a href="javascript:;">更多</a>
@@ -100,7 +100,7 @@
 
 <div class="Clear mt28" style="margin-top:30px;margin-bottom: 50px;"> 
 <div class="title titleLive">
-<h3 class="titlec">LOL明星解说</h3> 
+<h3 class="titlec">友情链接</h3> 
 </div>
 
  <ul class="videoList picMask Clear mt10" style="width:1200px;"> 
