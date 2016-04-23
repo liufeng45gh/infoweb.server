@@ -83,7 +83,7 @@ div.titleLive h3 {
 }
 .fl {
     float: left;
-    display: inline;
+    display: inline-block;
 }
 ol, ul {
     list-style: none;
@@ -109,14 +109,14 @@ ul, menu, dir {
     color: #fff;
 }
 div.titleLive ul li.mask {
-    background: url(index/subTab-l.jpg) no-repeat;
+    background: url(/images/subTab-l.jpg) no-repeat;
     position: absolute;
     top: 0;
     left: 0;
     height: 36px;
 }
 .title ul li.mask {
-    background: url(index/subTab.jpg) no-repeat;
+    background: url(/images/subTab.jpg) no-repeat;
     position: absolute;
     top: 0;
     left: 0;
@@ -153,6 +153,7 @@ div.titleLive ul li {
     position: absolute;
     top: 0;
     left: 0;
+    width:1256px;
 }
 .w380 {
     width: 380px;
@@ -166,6 +167,12 @@ div.titleLive ul li {
 .imgScale li p {
     overflow: hidden;
     background-size: cover;
+}
+.bigPhoto{
+	padding:0;
+}
+.bigPhoto li{
+	height:346px;
 }
 .bigPhoto p {
     width: 380px;
@@ -193,9 +200,14 @@ address, caption, cite, code, dfn, em, var, font, i, u {
 .photoList {
     width: 800px;
 }
+.picMask{
+	margin:0;
+	padding:0;
+}
 .picMask li {
     float: left;
     width: 180px;
+    height:168px;
     margin: 12px 20px 0 0;
 }
 .picMask li p {
@@ -238,4 +250,10 @@ img, addr, acronym, input, textarea, iframe, button {
     height: 0;
     visibility: hidden;
     clear: both;
+}
+.title ul li.active {
+    color: #fff;
+}
+.w780 {
+    width: 780px;
 }

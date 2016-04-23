@@ -6,13 +6,13 @@ a:hover{ color:#ff0000; text-decoration:none;}
 
 #topbar{ width:100%; background:#f4f4f4; height:28px; text-align:center; min-width:1024px;_width:expression((document.documentElement.clientWidth||document.body.clientWidth)<1024?"1024px":"");}
 
-.stats{ width:1198px; background:#f4f4f4; overflow:hidden; height:28px; margin:0 auto; line-height:28px; text-align:right; }
+.stats{ width:1228px; background:#f4f4f4; overflow:hidden; height:28px; margin:0 auto; line-height:28px; text-align:right; }
 .city{ float:left;text-align:left; overflow:visible;}
 .stats b{ font-size:16px; color:#ff0000;}
 .stats span{ display:block; font-size:12px; float:left;  text-align:left;}
 
 
-.menu{ width:1198px; overflow:hidden; margin:0 auto; text-align:center; min-width:1000px;_width:expression((document.documentElement.clientWidth||document.body.clientWidth)<1000?"1000px":"");}
+.menu{ width:1228px; overflow:hidden; margin:0 auto; text-align:center; min-width:1000px;_width:expression((document.documentElement.clientWidth||document.body.clientWidth)<1000?"1000px":"");}
 .logo{ float:left; width:200px;height:72px;}
 .logo a{ color:#0000CC;}
 .logo a:hover{ color:#FF0000;}
@@ -82,7 +82,7 @@ td{ text-align:left;}
 .content h2.gg-h{}
 .content h2.zs-h{}
 
-.shenghuo{ width:1198px; height:336px; margin:10px auto 10px auto; clear:both; overflow:hidden; min-width:1000px;_width:expression((document.documentElement.clientWidth||document.body.clientWidth)<1000?"1000px":"");}
+.shenghuo{ width:1228px; height:336px; margin:10px auto 10px auto; clear:both; overflow:hidden; min-width:1000px;_width:expression((document.documentElement.clientWidth||document.body.clientWidth)<1000?"1000px":"");}
 .shenghuo .kantai{ width:20%; float:left; margin-left:15px; display:none;}
 .shenghuo .kantai h2{ display:block; font-size:14px; margin:0; padding:0 0 5px 20px;background:url(../images/bkimg.png) -139px -230px no-repeat; border-bottom:solid 1px #cccccc; margin-bottom:8px;}
 .shenghuo .kantai h2 a{ width:90px; color:#ff0000;}
@@ -99,9 +99,9 @@ td{ text-align:left;}
 .imgbd img{border:0px;}
 .zndiv1{ width:228px;height:306px;margin-left:5px;float:left;}
 
-.links{ width:1198px; clear:both; margin:10px auto 10px auto; line-height:24px; color:#313232; border-top:solid 1px #cccccc; padding-top:5px; min-width:1000px;_width:expression((document.documentElement.clientWidth||document.body.clientWidth)<1000?"1000px":"");}
+.links{ width:1228px; clear:both; margin:10px auto 10px auto; line-height:24px; color:#313232; border-top:solid 1px #cccccc; padding-top:5px; min-width:1000px;_width:expression((document.documentElement.clientWidth||document.body.clientWidth)<1000?"1000px":"");}
 .map{ width:100%;text-align:center; background:#E8F8F8; height:30px; line-height:28px; min-width:1024px;_width:expression((document.documentElement.clientWidth||document.body.clientWidth)<1024?"1024px":"");}
-.foot{ width:1198px; text-align:center; line-height:24px; margin:10px auto 10px auto; color:#313232;}
+.foot{ width:1228px; text-align:center; line-height:24px; margin:10px auto 10px auto; color:#313232;}
 .zhinantitle{float:left; width:95%; padding:5px 0 0 10px; overflow:hidden; }
 .zhinantitle2{clear:both; margin:0px 0 0 0 ; padding:15px 0 0 10px;}
 .znmore{ width:100%; text-align:right; margin:0 0 0 0; clear:both;}
