@@ -20,13 +20,20 @@
 	<!--导航开始-->
 		<div class="indexNav">
 			<div class="nav">
-				<a id="tab_index" href="/index.html">首页</a> 
-				<a id="tab_resume" href="/resume.html" >搜简历</a>
-				<a id="tab_job" href="/job.html">搜职位</a> 
-				<a id="tab_service" href="/service.html">搜服务</a> 
-				<a id="tab_appeal" href="/appeal.html" >求助专区</a> 
-				<a href="#" onclick="return false;">创业融资</a> 
-				<a id="tab_manage" href="/manage/index.html">管理中心</a>
+				<li id="tab_index"><a  href="/index.html">首页</a> </li>
+				
+				<li id="tab_resume"><a  href="/resume.html" >搜简历</a></li>
+				
+				<li id="tab_job"><a  href="/job.html">搜职位</a> </li>
+				
+				<li id="tab_service"><a  href="/service.html">搜服务</a> </li>
+				
+				<li id="tab_appeal"><a  href="/appeal.html" >求助专区</a> </li>
+				
+				<li><a href="#" onclick="return false;">创业融资</a> </li>
+				
+				<li id="tab_manage"><a  href="/manage/index.html">管理中心</a></li>
+				
 			</div>
 		</div>
 		<!--导航结束-->

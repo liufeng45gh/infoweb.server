@@ -111,9 +111,31 @@ a.blue{ color:#1155cc; }
 .fl_main .same_fl .fl_main_sel{ margin-top:0; }
 
 /*导航*/
-.indexNav .nav{ background-color:#f4f4f4; background-position:0 -296px; background-repeat:repeat-x; border-bottom:3px solid #ed7612; height:35px; line-height:35px; overflow:hidden; }
+.indexNav .nav{ 
+	background: #2a303f;
+    height: 46px; 
+	border-bottom:3px solid #1d222c; 
+ 	overflow:hidden; 
+ }
+ .nav li {
+    float: left;
+    line-height: 46px;
+    height: 46px;
+    font-size: 16px;
+    padding: 0 26px 0;
+    border-right: 1px solid #1e222f;
+    transition: 0.4s;
+}
+
+.nav li a {
+    color: #ddd;
+}
+.nav li.on, .nav li:hover {
+    background: #00a887;
+    cursor: pointer;
+}
 .indexNav .nav a{ display:block; float:left; font-size:14px; padding:0 16px; }
-.indexNav .nav a.on{ background:#ed7612; color:#fff; border: 1px solid #d50;}
+
 
 /*1200宽*/
 /*@media all and (max-width:1220px){
