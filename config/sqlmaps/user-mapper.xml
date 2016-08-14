@@ -26,7 +26,7 @@
   </update>
   
   <select id="getUserInfoList" resultType="com.lucifer.model.User">
-   select user.*,user_token.token from user left outer join user_token on user.id=user_token.user_id where user.type != 'admin'   
+   select user.*,user_token.token from user left outer join user_token on user.id=user_token.user_id where 1 = 1   
    <if test="account != null">
 		and user.account=#{account}
    </if> 
@@ -36,7 +36,7 @@
    </if>   
   </select>
   <select id="getUserInfoListCount" resultType="java.lang.Integer">
-  	  select count(*) from user where type != 'admin'
+  	  select count(*) from user where 1 = 1
   	  <if test="account != null">
 		and account=#{account}
    	  </if> 

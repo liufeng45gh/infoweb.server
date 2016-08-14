@@ -58,7 +58,7 @@
 			<thead>
 				<tr style="height:30px;">
 					<th width="140px">编号</th>
-					<th width="340px">唯一id</th>
+					<th width="340px">账号</th>
 					<th width="150px">昵称</th>
 					
 					<th width="180px">token</th>
@@ -71,7 +71,7 @@
 				<tr>
 					<td>${user.id}</td>
 					
-					<td>${user.device_id}</td>
+					<td>${user.account}</td>
 					
 					<td>${user.nick}</td>
 					
