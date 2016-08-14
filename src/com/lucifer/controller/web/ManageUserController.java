@@ -111,5 +111,12 @@ public class ManageUserController {
 		userDao.updateUserAvatar(user);
 		return Result.ok();
 	}
+	
+	@RequestMapping(value = "/manage/publish", method = RequestMethod.GET)
+	public String publish(HttpServletRequest request){
+		User user = ViewHelper.getInstance().getWebTokenUser(request);
+		request.setAttribute("user", user);
+		return "/WEB-INF/web/manage/user/publish.jsp";
+	}
 
 }

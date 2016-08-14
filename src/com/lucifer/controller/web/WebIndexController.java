@@ -40,11 +40,11 @@ public class WebIndexController {
 	public String publish(HttpServletRequest request,HttpServletResponse response){
 		User user = ViewHelper.getInstance().getWebTokenUser(request);
 		if (null == user) {
-			Cookie cookie = new Cookie("login_redirect_url","/publish.html");
+			Cookie cookie = new Cookie("login_redirect_url","/manage/publish");
 			cookie.setPath("/");
 			response.addCookie(cookie);
 			return "redirect:/account/login";
 		}
-		return "/WEB-INF/web/publish/publish.jsp";
+		return "/WEB-INF/web/manage/user/publish.jsp";
 	}
 }

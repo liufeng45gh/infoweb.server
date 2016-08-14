@@ -10,6 +10,7 @@
                <a id="left_menu_index"  href="/manage/index"><span>管理中心首页</span></a>
                 <a id="left_menu_info"  href="/manage/info_set"><span>修改基本信息</span></a>
                 <a id="left_menu_avatar"  href="/manage/avatar_set"><span>修改头像</span></a>
+                 <a  id="left_menu_publish" href="/manage/publish"><span>发布信息</span></a>
                 <!-- 
                 <a class="icon01" href="./help_files/help.html"><span>会员认证管理</span></a>
                  -->

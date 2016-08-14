@@ -1010,3 +1010,20 @@ margin: -4px 9px 0 0;
     text-decoration: none;
     margin-right: 2px;
 }
+
+.simple_button {
+    background: #ed7612;
+    border: 1px solid #d50;
+    text-align: center;
+    display: inline-block;
+    color: #fff;
+    width: 100px;
+    height: 32px;
+    line-height: 32px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.simple_button a{
+	color: white;
+}
