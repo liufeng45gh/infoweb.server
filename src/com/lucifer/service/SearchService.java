@@ -277,6 +277,7 @@ public class SearchService {
 	 * @throws Exception
 	 */
 	private void jobImport() throws Exception {
+		log.info("--jobImport has been called---");
 		Date updated_at = null;
 		while (true) {
 			// 如果没有更新查询SOLR中是否有数据
