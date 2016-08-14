@@ -624,12 +624,15 @@ public class SearchService {
 		for (int i = 0; i < docs.size(); i++) {
 			SolrDocument resumeDoc = docs.get(i);
 			BusinessService bs =businessServiceDao.getBusinessService(Long.valueOf(resumeDoc.getFieldValue("id").toString()));
-			City city = cityDao.getCity(bs.getCity_id());
-			bs.setCity(city);
+			if (null != bs) {
+				City city = cityDao.getCity(bs.getCity_id());
+				bs.setCity(city);
+				
+				City parentCity = cityDao.getCity(city.getParent_id());
+				bs.setParentCity(parentCity);
+				serviceList.add(bs);
+			}
 			
-			City parentCity = cityDao.getCity(city.getParent_id());
-			bs.setParentCity(parentCity);
-			serviceList.add(bs);
 		}
 		return serviceList;
 	}
