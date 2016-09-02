@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
@@ -487,6 +489,12 @@ public class SearchService {
 		if (!StringUtil.isEmpty(industry_id)) {
 			query.addFilterQuery("industry_id:"+industry_id);
 		}
+		query.setHighlight(true); 
+		query.setParam("hl.fl", "title");  
+	    query.setHighlightSimplePre("<font color=\"red\">");  	  
+	    query.setHighlightSimplePost("</font>"); 
+	   
+
 		
 		query.addSort("updated_at", SolrQuery.ORDER.desc);
 		query.setRows(rows);
@@ -501,9 +509,13 @@ public class SearchService {
 		}
 		
 		SolrDocumentList docs = rsp.getResults();
+		
 		log.info("docs.size(): "+ docs.size());
 		for (int i = 0; i < docs.size(); i++) {
+			
 			SolrDocument resumeDoc = docs.get(i);
+			
+			log.info(resumeDoc.getFieldValue("title"));
 			Resume resume = resumeDao.get(Long.valueOf(resumeDoc.getFieldValue("id").toString()));
 			User user = userDao.get(resume.getUser_id());
 			resume.setUser(user);
@@ -516,6 +528,24 @@ public class SearchService {
 			}						
 			resumeList.add(resume);
 		}
+		
+		Map<String, Map<String, List<String>>> highMap = rsp.getHighlighting();
+		Set<String> highKeys = highMap.keySet();
+		for (String key :highKeys) {
+			log.info("key is :"+key);
+			Map<String,List<String>> highMap2 = highMap.get(key);
+			Set<String> highKeys2 = highMap2.keySet();
+				for (String key2 :highKeys2) {
+					log.info("key2 is :"+key2);
+					List<String> listString = highMap2.get(key2);
+					for (String highString : listString) {
+						log.info("highString is :"+highString);
+					}
+					
+				}
+			}
+		
+		
 		return resumeList;
 	}
 	
@@ -623,6 +653,7 @@ public class SearchService {
 		log.info("serviceSearch docs size is " + docs.size());
 		for (int i = 0; i < docs.size(); i++) {
 			SolrDocument resumeDoc = docs.get(i);
+			
 			BusinessService bs =businessServiceDao.getBusinessService(Long.valueOf(resumeDoc.getFieldValue("id").toString()));
 			if (null != bs) {
 				City city = cityDao.getCity(bs.getCity_id());
