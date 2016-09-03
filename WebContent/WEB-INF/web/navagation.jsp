@@ -26,7 +26,7 @@
 				
 				<li id="tab_job"><a  href="/job.html">搜职位</a> </li>
 				
-				<li id="tab_service"><a  href="/service.html">搜服务</a> </li>
+				<li id="tab_service"><a  href="/service.html">外包服务</a> </li>
 				
 				<li id="tab_appeal"><a  href="/appeal.html" >求助专区</a> </li>
 				
