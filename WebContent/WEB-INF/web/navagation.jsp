@@ -9,6 +9,10 @@
 		<div class="logo" style="width: 221px">
 			<img src="/images/logo.png" width="221px" height="65px" alt="企业信息网" />
 		</div>
+		
+		<div style="width: 550px; float: left; margin-left: 50px;  margin-top: 30px;color: #d3292e;font-size: 20px;font-weight: bold;">
+			让企业不花钱就能看您的简历,才能实现您的价值最大化
+		</div>
 
 		<div style="width: 150px; float: right; margin-right: 50px; height: 80px">
 			<div class="fabu1">
@@ -30,7 +34,7 @@
 				
 				<li id="tab_appeal"><a  href="/appeal.html" >求助专区</a> </li>
 				
-				<li><a href="#" onclick="return false;">创业融资</a> </li>
+				<li><a href="#" onclick="return false;">投资我们</a> </li>
 				
 				<li id="tab_manage"><a  href="/manage/index.html">管理中心</a></li>
 				
